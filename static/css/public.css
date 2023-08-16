@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+* {
+	word-break: break-word;
+	box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+	line-height: 1.15;
+	display: block;
+}
+
+body {
+	height: 100%;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #323232;
+	text-align: left;
+	background-color: #fff;
+	margin: 0;
+	font-family: Noto Sans KR, Malgun Gothic, -apple-system, Segoe UI,
+		Roboto, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+		Segoe UI Symbol, Noto Color Emoji;
+}
+
+a {
+	text-decoration: none;
+	color: #323232;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+img {
+	vertical-align: middle;
+	border-style: none;
+	overflow: clip;
+}
+
+nav {
+	display: block;
+}
+
+ul {
+	padding: 0;
+	margin-top: 0;
+}
+
+ul li {
+	list-style: none;
+}
+
+button {
+	text-transform: none;
+	overflow: visible;
+	margin: 0;
+	border-radius: 0;
+}
+
+section {
+	display: block;
+}
+
+.webp-bgroup {
+	opacity: 1;
+	text-size-adjust: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+input {
+	overflow: visible;
+	margin: 0;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	outline-style: none;
+}
+
+article {
+	display: block;
+}
+
+p {
+	margin-top: 0;
+}
+
+h1, h2, h3, h4, h5 {
+	margin-top: 0;
+}
+
+figure {
+	margin: 0 0 1rem;
+	display: block;
+}
+
+label {
+	display: inline-block;
+	margin-bottom: 0.5rem;
+}

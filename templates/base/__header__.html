@@ -1,0 +1,76 @@
+{% load static %}
+
+<header class="united-header">
+        <div class="united-header-section">
+            <section class="united-header header-box">
+                <div class="united-header-area">
+                    <!-- 헤더 왼쪽 메뉴 -->
+                    <div class="left-side">
+                        <!-- 로고 -->
+                        <div class="ag-logo">
+                            <a href="main"> <img src="{% static 'img/ranking1.jpg' %}" style="width: 100px">
+                            </a>
+                        </div>
+                        <nav>
+                            <!-- 내비게이션 메뉴 -->
+                            <ul class="navigation">
+                                <li class="navigation-category navigation-item">
+                                    <a href="" class="link">
+                                        <span>안전 정보</span>
+                                    </a>
+                                </li>
+                                <li class="navigation-category navigation-item">
+                                    <a href="#" class="link">
+                                        <span>지역 검색</span>
+                                    </a>
+                                </li>
+                                <li class="navigation-category navigation-item">
+                                    <a href="#" class="link">
+                                        <span>소개</span>
+                                    </a>
+                                </li>
+                                <li class="navigation-category navigation-item">
+                                    <a href="#" class="link">
+                                        <span>FAQ</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- 검색 -->
+                    <div class="search-box">
+                        <div class="searcher">
+                            <form class="search-bar">
+                                <div class="input-box">
+                                    <div class="input-box-pre">
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQgNCkiIHN0cm9rZT0iI0I1QjVCNSIgc3Ryb2tlLXdpZHRoPSIxLjYiPgogICAgICAgICAgICA8Y2lyY2xlIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGN4PSI2LjUiIGN5PSI2LjUiIHI9IjYuNSIvPgogICAgICAgICAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Im0xMS41IDExLjUgNSA1Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K" alt="">
+                                    </div>
+                                    <input type="text" placeholder="어떤 서비스가 필요하세요?" class="input-content">
+                                    <div class="input-box-append">
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMgMykiPgogICAgICAgICAgICA8Y2lyY2xlIGZpbGw9IiNDNUM1QzUiIGN4PSI5IiBjeT0iOSIgcj0iOSIvPgogICAgICAgICAgICA8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Im02IDYgNi4wMDUgNi4wMDZNMTIuMDA1IDYgNiAxMi4wMDYiLz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo=" alt="" style="display: none;">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- 로그인, 회원가입-->
+                    <div class="right-side">
+                        <nav class="right-side-menu">
+                            <!-- 로그아웃 -->
+                            <div class="navigation-item right-side-item">
+                                <a href="logout.member" class="link">
+                                    <span>로그아웃</span>
+                                </a>
+                            </div>
+                        </nav>
+                            <!-- 마이페이지 -->
+                        <button type="button" class="log-in log-in-button">
+                            <a href="mypageOk.member" class="link">
+                                <span>마이페이지</span>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </header>

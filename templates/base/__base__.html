@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  {% include "./load.html" %}
+  <title>{% block title %}{% endblock %}</title>
+  {% include "./style.html" %}
+  {% block style %}{% endblock %}
+</head>
+<body>
+  {% include "./header.html" %}
+  {% include "./sidebar.html" %}
+  {% if alert_object %}
+    {% include "./alert.html" %}
+  {% endif %}
+
+      {% block content %}{% endblock %}
+
+  {% include "./footer.html" %}
+  {% include "./lazy.html" %}
+  {% include "./script.html" %}
+  {% block script %}{% endblock %}
+</body>
+</html>
