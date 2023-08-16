@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+.sg-text-description {
+	font-size: 12px;
+	line-height: 1.5;
+	letter-spacing: -.2px;
+}
+
+.sg-font-regular {
+	font-weight: 400;
+}
+
+.sg-font-bold {
+    font-weight: 700;
+}
+
+.sg-font-medium {
+    font-weight: 500;
+}
+
+.sg-text-gray-300 {
+	color: rgba(197, 197, 197);
+}
+
+.sg-text-gray-400 {
+	color: rgb(169, 169, 169);
+}
+
+.sg-text-gray-500 {
+	color: rgb(136, 136, 136);
+}
+
+.sg-text-gray-900 {
+	color: rgb(45, 45, 45);
+}
+
+.sg-text-subhead2, .sg-text-subhead3 {
+	font-size: 16px;
+	line-height: 1.5;
+	letter-spacing: -.3px;
+}
+
+.sg-text-subhead4 {
+	font-size: 14px;
+	line-height: 1.57142857;
+	letter-spacing: -.3px;
+}
+
+.sg-text-subhead5 {
+	font-size: 14px;
+	letter-spacing: -.3px;
+}
+
+.sg-text-subhead6, .sg-text-subhead7 {
+	font-size: 12px;
+	line-height: 1.5;
+	letter-spacing: -.2px;
+}
+
+.sg-text-headline {
+	font-size: 18px;
+	line-height: 1.55555556;
+	letter-spacing: -.3px;
+}
+
+.sg-text-body1 {
+	font-size: 16px;
+	line-height: 1.5;
+	letter-spacing: -.3px;
+}
+
+.sg-text-body2 {
+	font-size: 14px;
+	line-height: 1.57142857;
+	letter-spacing: -.3px;
+}
+
+.sg-text-display3 {
+	font-size: 24px;
+	line-height: 1.58333333;
+	letter-spacing: -.5px;
+}
+
+.sg-text-buttonSlim {
+    font-size: 14px;
+    line-height: 1.14285714;
+}
+
+.sg-text-subhead5 {
+    font-size: 14px;
+    line-height: 1.57142857;
+    letter-spacing: -.3px;
+}
