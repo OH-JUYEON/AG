@@ -1,11 +1,16 @@
-from django.urls import path
+from django.urls import path, include
 from django.views.generic import TemplateView
+from donation.view import V0001, V0010
 
 app_name = 'donation'
 
-
-
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='mypage/mypage__001/_T001.html'), name='success'),
- ]
-
+    path("detail/<int:donation_detail_id>/", V0001.DonationDetail.as_view(), name="detail"),
+    "inquiry/",
+    include(
+        [
+            path("<int:donation_header_id>/", V0010.DonationInquiry.as_view(), name="inquiry"),
+            path("", V0010.DonationInquiry.as_view(), name="answer"),
+        ]
+    ),
+]
