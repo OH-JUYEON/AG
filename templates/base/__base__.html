@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  {% include "./load.html" %}
+  {% include "./__load__.html" %}
   <title>{% block title %}{% endblock %}</title>
-  {% include "./style.html" %}
+  {% include "./__style__.html" %}
   {% block style %}{% endblock %}
 </head>
 <body>
-  {% include "./header.html" %}
-  {% include "./sidebar.html" %}
-  {% if alert_object %}
-    {% include "./alert.html" %}
-  {% endif %}
+  {% include "./__header__.html" %}
 
       {% block content %}{% endblock %}
 
-  {% include "./footer.html" %}
-  {% include "./lazy.html" %}
-  {% include "./script.html" %}
+  {% include "./__footer__.html" %}
   {% block script %}{% endblock %}
 </body>
 </html>
