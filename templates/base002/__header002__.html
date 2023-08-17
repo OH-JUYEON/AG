@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>header002</title>
+</head>
+<body>
+<header class="header">
+        <div class="logo">
+          <a href="#">
+            <img src="{% static 'img/faqlogo.png' %}" alt="로고">
+          </a>
+        </div>
+        <div class="nav-wrapper">
+          <span class="icon-menu"></span>
+          <nav class="user-nav" id="user-nav">
+            <a href="#">공지사항</a>
+            <a class="#">문의 등록</a>
+            <a title="홈" href="#">자주묻는질문</a>
+          </nav>
+        </div>
+      </header>
+</body>
+</html>

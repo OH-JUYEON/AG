@@ -11,13 +11,13 @@ urlpatterns = [
     path("review/<int:campaign_header_id>/", V0040.CampaignReview.as_view(), name="review"),
     path("photo/<int:campaign_header_id>/", V0050.CampaignPhoto.as_view(), name="photo"),
 
-    "inquiry/",
+    path("inquiry/",
     include(
         [
             path("<int:campaign_header_id>/", V0030.CampaignInquiry.as_view(), name="inquiry"),
             path("", V0030.CampaignInquiry.as_view(), name="answer"),
         ]
-    ),
+    ),),
 
 
 ]

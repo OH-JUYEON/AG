@@ -6,11 +6,11 @@ app_name = 'donation'
 
 urlpatterns = [
     path("detail/<int:donation_detail_id>/", V0001.DonationDetail.as_view(), name="detail"),
-    "inquiry/",
+    path("inquiry/",
     include(
         [
             path("<int:donation_header_id>/", V0010.DonationInquiry.as_view(), name="inquiry"),
             path("", V0010.DonationInquiry.as_view(), name="answer"),
         ]
-    ),
+    ),),
 ]

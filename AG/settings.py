@@ -102,15 +102,32 @@ WSGI_APPLICATION = 'AG.wsgi.application'
 # }
 
 ALLOWED_HOSTS = ['*']
+#
+# DATABASES = {
+#     'default' : {
+#         'ENGINE': 'django.db.backends.mysql', # 고정
+#         'NAME': 'django', # DB 이름
+#         'USER': 'app', # 계정
+#         'PASSWORD': '1234', # 암호
+#         'HOST': '172.31.6.246', # IP
+#         'PORT': '3306' # 별도로 설정한 게 아니라면 3306일 것이다.
+#     }
+# }
 
 DATABASES = {
-    'default' : {
-        'ENGINE': 'django.db.backends.mysql', # 고정
-        'NAME': 'django', # DB 이름
-        'USER': 'app', # 계정
-        'PASSWORD': '1234', # 암호
-        'HOST': '172.31.6.246', # IP
-        'PORT': '3306' # 별도로 설정한 게 아니라면 3306일 것이다.
+    "default": {
+        # MySQL 모듈 경로
+        "ENGINE": "django.db.backends.mysql",
+        # DATABASE 이름
+        "NAME": "django",
+        # 계정 이름
+        "USER": "app",
+        # 비밀번호
+        "PASSWORD": "1234",
+        # MySQL 서버가 실행 중인 서버 IP 또는 도메인
+        "HOST": "3.36.93.229",
+        # 포트번호
+        "PORT": "3306"
     }
 }
 

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  {% include "./__load002__.html" %}
+  <title>{% block title %}{% endblock %}</title>
+  {% include "./__style002__.html" %}
+  {% block style %}{% endblock %}
+</head>
+<body>
+  {% include "./__header002__.html" %}
+
+      {% block content %}{% endblock %}
+
+  {% include "./__footer002__.html" %}
+  {% block script %}{% endblock %}
+</body>
+</html>
