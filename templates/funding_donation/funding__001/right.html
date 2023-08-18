@@ -1,0 +1,46 @@
+{% load static %}
+
+<div style="position: absolute; z-index: 100000; display: none;" id="que">
+    <div class="modal fade show question-register-modal" aria-modal="true" style="display: block; padding-right: 17px;">
+        <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable mobile-full-modal"><span
+                tabindex="0"></span>
+            <div tabindex="-1" class="modal-content">
+                <header class="modal-header">
+                    <h5 class="modal-title">문의하기</h5><button type="button" aria-label="Close" onclick="modal_close()"
+                        class="close">×</button>
+                </header>
+                <div class="modal-body">
+                    <div>
+                        <div class="qna-type">
+                            <p class="title">문의 유형</p>
+                            <div tabindex="-1" class="radio-group bv-no-focus-ring">
+                                <div class="custom-control5 custom-radio5"><input type="radio" name="type"
+                                        class="custom-control-input5" checked><label
+                                        class="custom-control-label5"><span>캠페인
+                                            참여</span></label></div>
+                                <div class="custom-control5 custom-radio5"><input type="radio" name="type"
+                                        class="custom-control-input5"><label class="custom-control-label5"><span>펀딩
+                                            참여</span></label></div>
+                                <div class="custom-control5 custom-radio5"><input type="radio" name="type"
+                                        class="custom-control-input5"><label
+                                        class="custom-control-label5"><span>기타</span></label></div>
+                            </div>
+                        </div>
+                        <div class="qna-content">
+                            <p class="title">문의 내용</p><textarea name="qnaInputForm" placeholder="문의 내용을 입력해주세요."
+                                rows="2" wrap="soft" class="form-control is-valid" maxlength="1000" aria-invalid="false"
+                                style="resize: none;"></textarea>
+                            <div class="validate-message">
+                                <div class="d-block invalid-feedback"></div><label class="text-counter"><span
+                                        class="">0</span> /1000자 </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="modal-footer"><button type="button" disabled="disabled"
+                        class="btn btn-registration btn-secondary disabled"> 등록
+                    </button></footer>
+            </div><span tabindex="0"></span>
+        </div>
+    </div>
+</div>

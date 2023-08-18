@@ -1,0 +1,27 @@
+{% load static %}
+
+<html lang="ja">
+
+<head>
+    {% include "../../base/__load__.html" %}
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/lightslider.css' %}">
+    {% include "../../base/__style__.html" %}
+    {% include "./_style.html" %}
+</head>
+
+<body class="home">
+    <div id="app" data-browser="Chrome" data-is-loaded="true">
+        <div id="app-body">
+            {% include "../../base/__header__.html" %}
+            {% include "./donation01.html" %}
+        </div>
+    </div>
+    {% include "./right.html" %}
+    {% include "../../base/__footer__.html" %}
+
+    <script src="{% static 'js/lightslider.js' %}"></script>
+    {% include "./_script.html" %}
+</body>
+
+</html>
