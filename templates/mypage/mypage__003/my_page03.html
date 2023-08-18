@@ -1,0 +1,36 @@
+{% load static %}
+
+
+<div id="app">
+    <div id="app-body">
+        <div class="modal">
+            <div class="warn-modal">
+                <div id="content-wrap"></div>
+            </div>
+        </div>
+        <div class="container container-md">
+            <main class="account-info-container">
+                <h1>이메일 수정</h1>
+                <section>
+                    <fieldset class="form-group text-field">
+                        <legend class="bv-no-focus-ring col-form-label pt-0">
+                            이메일
+                        </legend>
+                        <form action="" id="form">
+                            <input name="memberEmail" type="text" placeholder="" class="form-control is-valid" value="">
+                            <div class="invalid-feedback" id="pw-text">이메일 주소를 입력해주세요.</div>
+                        </form>
+                    </fieldset>
+                </section>
+                <footer class="button-group">
+                    <a href="accountSettingOk.member" class="btn btn-cancel btn-active btn-outline-secondary"
+                       target="_self">취소</a>
+                    <button form="form" type="submit" class="btn btn-primary" id="button">수정 완료</button>
+                </footer>
+            </main>
+        </div>
+    </div>
+</div>
+
+
+         

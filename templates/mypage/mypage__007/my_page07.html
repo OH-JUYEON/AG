@@ -1,0 +1,186 @@
+{% load static %}
+
+
+<div class="app">
+    <!--중단부 -->
+    <div id="app-body">
+        <div class="container container-md">
+            <main>
+                <article>
+                    <!--문의 내역-->
+                    <div class="page-header"><h1>문의내역</h1>
+                    </div>
+                    <ul class="inquiry-type">
+                        <li class="my-inquiry selected">내가 한 문의</li>
+                        <li class="received-inquiry">받은 문의</li>
+
+                    </ul>
+                    <section class="qna-list customer no-qna">
+                        <div class="list-wrap">
+                            <!--문의 항목-->
+                            <article class="inquiry-qna-item my-inquiry-wrap">
+                                <section class="summary">
+                                    <div class="inquiry-qna-head">
+                                        <span class="waiting-answer"
+                                              style="background: #FFA41B; color: white;">캠페인</span>
+                                        <span class="waiting-answer">답변대기</span>
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMjBoMjBWMEgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0I1QjVCNSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Im0xNi4wMzggNy41MDItNiA2LTYtNiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                                             alt="arrow" class="arrow">
+                                    </div>
+                                    <div style="display: flex;">
+                                        <p class="inquiry-qna-title">문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의
+                                            내용입니다.</p>
+                                    </div>
+                                    <div class="author">
+
+                                        <p class="created-at">2023.08.11</p>
+                                    </div>
+                                </section>
+                                <section class="content">
+                                    <section class="qna-content">
+                                        <p class="text">문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다.
+                                        </p>
+                                        <div class="func-btn">
+                                            <button type="button" class="btn-delete">
+                                                삭제
+                                            </button>
+                                        </div>
+                                    </section>
+                                </section>
+                            </article>
+                            <article class="inquiry-qna-item my-inquiry-wrap">
+                                <section class="summary">
+                                    <div class="inquiry-qna-head">
+                                        <span class="waiting-answer"
+                                              style="background: #FF6969; color: white;">관리자</span>
+                                        <span class="waiting-answer waiting-answer-success">답변완료</span>
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMjBoMjBWMEgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0I1QjVCNSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Im0xNi4wMzggNy41MDItNiA2LTYtNiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                                             alt="arrow" class="arrow">
+                                    </div>
+                                    <div style="display: flex;">
+                                        <p class="inquiry-qna-title">문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의
+                                            내용입니다.</p>
+                                    </div>
+                                    <div class="author">
+                                        <p class="created-at">2023.08.11</p>
+                                    </div>
+                                </section>
+                                <section class="content">
+                                    <section class="qna-content">
+                                        <p class="text">문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다.
+                                        </p>
+                                        <div class="func-btn">
+                                            <button type="button" class="btn-delete">
+                                                삭제
+                                            </button>
+                                        </div>
+                                    </section>
+                                    <section class="qna-content-answer">
+                                        <div class="admin">
+                                            <p class="name">관리자</p>
+                                            <p class="devider"></p>
+                                            <p class="created-at">2023.08.11</p>
+                                        </div>
+                                        <p class="text">답변입니다. 답변입니다. 답변입니다. 답변입니다. 답변입니다. 답변입니다. 답변입니다.
+                                        </p>
+                                    </section>
+                                </section>
+                            </article>
+                            <article class="inquiry-qna-item my-inquiry-wrap">
+                                <section class="summary">
+                                    <div class="inquiry-qna-head">
+                                        <span class="waiting-answer"
+                                              style="background: #004DF7; color: white;">펀딩</span>
+                                        <span class="waiting-answer waiting-answer-success">답변완료</span>
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMjBoMjBWMEgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0I1QjVCNSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Im0xNi4wMzggNy41MDItNiA2LTYtNiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                                             alt="arrow" class="arrow">
+                                    </div>
+                                    <div style="display: flex;">
+                                        <p class="inquiry-qna-title">문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의
+                                            내용입니다.</p>
+                                    </div>
+                                    <div class="author">
+                                        <p class="created-at">2023.08.11</p>
+                                    </div>
+                                </section>
+                                <section class="content">
+                                    <section class="qna-content">
+                                        <p class="text">문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다.
+                                        </p>
+                                        <div class="func-btn">
+                                            <button type="button" class="btn-delete">
+                                                삭제
+                                            </button>
+                                        </div>
+                                    </section>
+                                    <section class="qna-content-answer">
+                                        <div class="admin">
+                                            <p class="name">관리자</p>
+                                            <p class="devider"></p>
+                                            <p class="created-at">2023.08.11</p>
+                                        </div>
+                                        <p class="text">답변입니다. 답변입니다. 답변입니다. 답변입니다. 답변입니다. 답변입니다. 답변입니다.
+                                        </p>
+                                    </section>
+                                </section>
+                            </article>
+                            <article class="inquiry-qna-item received-inquiry-wrap">
+                                <section class="summary">
+                                    <div class="inquiry-qna-head">
+                                        <span class="waiting-answer"
+                                              style="background: #00c7ae; color: white;">기부</span>
+                                        <span class="waiting-answer waiting-answer">답변대기</span>
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMjBoMjBWMEgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0I1QjVCNSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Im0xNi4wMzggNy41MDItNiA2LTYtNiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                                             alt="arrow" class="arrow">
+                                    </div>
+                                    <div style="display: flex;">
+                                        <p class="inquiry-qna-title">문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의
+                                            내용입니다.</p>
+                                    </div>
+                                    <div class="author">
+                                        <p class="created-at">2023.08.11</p>
+                                    </div>
+                                </section>
+                                <section class="content">
+                                    <section class="qna-content">
+                                        <p class="text">문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다.
+                                        </p>
+                                        <div class="func-btn">
+                                            <button type="button" class="btn-answer">
+                                                답변
+                                            </button>
+                                            <button type="button" class="btn-delete">
+                                                삭제
+                                            </button>
+                                        </div>
+                                    </section>
+                                    <section class="qna-content-answer">
+                                        <div class="answer-wrapper">
+                                            <textarea data-v-30a01857="" name="accountDeleteReason"
+                                                      placeholder="답변을 입력하세요." rows="2" wrap="soft"
+                                                      class="textarea form-control error"
+                                                      data-testid="account-delete-reason" data-vv-validate-on="blur"
+                                                      maxlength="500" aria-invalid="true" id="__BVID__354"
+                                                      aria-required="true"></textarea>
+                                            <button type="button" class="btn-answer">
+                                                완료
+                                            </button>
+                                        </div>
+
+                                    </section>
+                                </section>
+                            </article>
+                        </div>
+
+                    </section>
+                </article>
+                <a id="top-btn" role="button" aria-label="위로 가기 버튼" class="top-btn" style="right: 211px; ">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGc+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTAgMEgyNFYyNEgweiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMyMy4wMDAwMDAsIC02ODAuMDAwMDAwKSB0cmFuc2xhdGUoMzExLjAwMDAwMCwgNjY4LjAwMDAwMCkgdHJhbnNsYXRlKDEyLjAwMDAwMCwgMTIuMDAwMDAwKSIvPgogICAgICAgICAgICAgICAgICAgIDxnIHN0cm9rZT0iI0I1QjVCNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik03IDBMNyAxNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMyMy4wMDAwMDAsIC02ODAuMDAwMDAwKSB0cmFuc2xhdGUoMzExLjAwMDAwMCwgNjY4LjAwMDAwMCkgdHJhbnNsYXRlKDEyLjAwMDAwMCwgMTIuMDAwMDAwKSB0cmFuc2xhdGUoNS4wMDAwMDAsIDQuNTAwMDAwKSIvPgogICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMCA3TDcgMCAxNCA3IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzIzLjAwMDAwMCwgLTY4MC4wMDAwMDApIHRyYW5zbGF0ZSgzMTEuMDAwMDAwLCA2NjguMDAwMDAwKSB0cmFuc2xhdGUoMTIuMDAwMDAwLCAxMi4wMDAwMDApIHRyYW5zbGF0ZSg1LjAwMDAwMCwgNC41MDAwMDApIi8+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                         alt="위로 가기">
+
+                </a>
+            </main>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,402 @@
+<style>
+   {#@charset "UTF-8";#}
+
+
+
+    * {
+        word-break: break-word;
+        box-sizing: border-box;
+    }
+
+    body, html {
+        height: 100%;
+    }
+
+    body {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #323232;
+        text-align: left;
+        background-color: #fff;
+        display: block;
+        font-family: Noto Sans KR;
+    }
+
+    main, section {
+        display: block;
+    }
+
+    section {
+        font-size: 1rem;
+        margin: 2rem 0 3rem;
+    }
+
+    h1 {
+
+        line-height: 3.125rem;
+        font-size: 2.125rem;
+        font-weight: 500;
+        color: #323232;
+        margin: 3rem 0!important;
+        display: block;
+        /* margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px; */
+    }
+
+    img {
+        vertical-align: middle;
+        border-style: none;
+        overflow-clip-margin: content-box;
+        overflow: clip;
+    }
+
+    fieldset {
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        display: block;
+    }
+
+    legend {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        color: inherit;
+        white-space: normal;
+    }
+
+    input {
+        overflow: visible;
+        margin: 0;
+    }
+
+    article {
+        display: block;
+    }
+
+    h3 {
+        line-height: 1.6875rem;
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin: 0 0 1rem;
+        letter-spacing: -.03125rem;
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+
+    ol {
+        display: block;
+        list-style-type: decimal;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+    }
+
+    li {
+        display: list-item;
+        text-align: -webkit-match-parent;
+    }
+
+    ul li {
+        list-style: none;
+    }
+
+    button, input, optgroup, select, textarea {
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    input {
+        overflow: visible;
+    }
+
+    #app {
+        text-size-adjust: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        opacity: 0;
+        min-height: 100%;
+        opacity: 1;
+    }
+
+    #app #app-body {
+        height: 100%;
+        position: relative;
+        flex-grow: 1;
+        transition: opacity .3s ease-in;
+    }
+
+    .container {
+        max-width: 630px;
+        width: 100%;
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem;
+        margin-left: 636.5px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .container-md {
+        width: 100%;
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem;
+
+    }
+
+
+    .button-group {
+        display: flex;
+        justify-content: flex-end;
+        margin: 3rem 0 5rem;
+    }
+
+    .button-group .btn-cancel.btn-active {
+        color: #3460d1!important;
+        background: #fff;
+    }
+
+    .button-group .btn-cancel {
+        color: #3460d1!important;
+        border: 0.0625rem solid #e1e1e1;
+    }
+
+    .button-group>.btn {
+        max-width: 8.875rem;
+    }
+
+    .button-group>.btn {
+        flex: 1;
+    }
+
+    .btn {
+        font-weight: 500;
+        transition: opacity .2s ease-in-out;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        user-select: none;
+        padding: 0.6875rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #3460d1!important;
+        border-color: #3460d1!important;
+    }
+
+    .button-group>.btn+.btn {
+        display: flex;
+        justify-content: center;
+        margin-left: 0.75rem;
+    }
+
+    .btn-active {
+        text-decoration: none;
+        border: none;
+    }
+
+    .check-list {
+        font-size: .875rem;
+        border-radius: 8px;
+        background-color: #f2f2f2;
+        padding: 1.5rem;
+        margin: 0 0 2rem;
+    }
+
+    .check-list ol {
+        padding-left: 1rem;
+        margin: 0;
+    }
+
+    ::marker {
+        unicode-bidi: isolate;
+        font-variant-numeric: tabular-nums;
+        text-transform: none;
+        text-indent: 0px !important;
+        text-align: start !important;
+        text-align-last: start !important;
+    }
+
+    .color-teal {
+        color: #3460d1!important;
+    }
+
+    .check-list ol li+li {
+        margin-top: 1rem;
+    }
+
+    .answer-section {
+        margin: 0;
+        padding: 0;
+    }
+
+    .answer-item {
+        display: flex;
+        border-bottom: 0.0625rem solid #f2f2f2;
+        flex-direction: column;
+    }
+
+    .radio-group {
+        position: relative;
+        /* display: block;
+        min-height: 1.5rem;
+        padding-left: 2rem; */
+    }
+
+    input[type=radio] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        box-sizing: border-box;
+        padding: 0;
+    }
+
+    input+label {
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        margin: 0;
+    }
+
+    .radio {
+        display: flex;
+        width: 1.25rem;
+        height: 1.25rem;
+        transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        align-self: center;
+        background-color: #fff;
+        border: 0.125rem solid #e1e1e1;
+        border-radius: 50%;
+        content: "";
+        /* border: max(2px, 0.1em) solid gray; */
+        padding: 0.1875rem;
+        margin: 1.125rem 1rem 1.125rem 0;
+    }
+
+
+    .label:checked + .radio{
+        background-color: white;
+        border-color: #5080fa;
+        border: 0.4em solid #5080fa;
+    }
+
+    .text	 {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #323232;
+    }
+
+    .button-group>.btn {
+        max-width: 8.875rem;
+    }
+
+    .button-group>.btn {
+        flex: 1;
+    }
+
+    .btn {
+        font-weight: 500;
+        transition: opacity .2s ease-in-out;
+    }
+
+    .btn-outline-primary {
+        color: #3460d1!important;
+        border: 0.0625rem solid #3460d1!important;
+        text-decoration: none;
+    }
+
+    /* .btn {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        user-select: none;
+        background-color: transparent;
+        border: 0.0625rem solid transparent;
+        padding: 0.6875rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+    } */
+
+    .btn-primary {
+        color: #fff;
+        background-color: #3460d1!important;
+        border-color: #3460d1!important;
+    }
+
+    #app-header {
+        position: sticky;
+        top: 0;
+        background-color: #fff;
+    }
+
+    .global-header {
+        z-index: 1020;
+        display: block;
+    }
+
+    #app-header {
+        border-bottom: 0.0625rem solid #f2f2f2;
+        height: 4.5rem;
+    }
+
+    section.d-none {
+        margin: 0px;
+    }
+
+    .description-wrapper {
+        font-size: .875rem!important;
+        border-radius: 8px!important;
+        background-color: #f2f2f2!important;
+        padding: 0.5rem 1rem!important;
+        margin: 0 0 1rem 2.25rem!important;
+    }
+
+    .textarea{
+        outline-color: #3460d1;
+        resize: none;
+        width: 100%;
+        height: 6rem;
+        font-size: 1rem;
+        color: #323232;
+        padding: 0.75rem;
+        border-radius: 0.25rem;
+        border: 0.0625rem solid #e1e1e1;
+        display: block;
+        font-weight: 400;
+        line-height: 1.5;
+        background-color: #fff;
+        background-clip: padding-box;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+
+    .description-wrapper .color-teal {
+        color: #3460d1;
+    }
+
+
+
+</style>

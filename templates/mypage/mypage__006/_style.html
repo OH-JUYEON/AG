@@ -1,0 +1,339 @@
+<style>
+   {#@charset "UTF-8";#}
+
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        font-family: sans-serif;
+        line-height: 1.15;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+
+    body {
+        height: 100%;
+        position: relative;
+        flex-grow: 1;
+        margin: 0;
+        font-family: Noto Sans KR,Malgun Gothic,-apple-system,Segoe UI,Roboto,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #323232;
+        text-align: left;
+        background-color: #fff;
+    }
+
+    main, article, footer {
+        display: block;
+    }
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+        color: #323232;
+    }
+
+
+    img {
+        vertical-align: middle;
+        border-style: none;
+    }
+
+    h1 {
+        margin-top: 0;
+        letter-spacing: -.04375rem;
+    }
+
+    h3 {
+        margin-bottom: 0.5rem;
+        letter-spacing: -.03125rem;
+    }
+
+    p {
+        font-size: .875rem;
+        line-height: 1.3125rem;
+        font-weight: 400;
+        letter-spacing: -.0125rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+    li {
+        list-style: none;
+    }
+
+    /* 중단부 CSS */
+    #app {
+        text-size-adjust: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+    }
+
+    #app-body {
+        height: 100%;
+      position: relative;
+      flex-grow: 1;
+      opacity: 1;
+      transition: opacity .3s ease-in;
+    }
+
+    @media (min-width: 768px){
+      .container {
+        max-width: 39.375rem;
+      }
+    }
+
+    .container {
+      width: 100%;
+      padding-right: 0.9375rem;
+      padding-left: 0.9375rem;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @media (min-width: 768px){
+      .cash-dashboard {
+        margin-top: 3.125rem;
+        margin-bottom: 3.125rem;
+      }
+    }
+
+
+    .page-title{
+      align-items: flex-end;
+      display: flex;
+        justify-content: space-between;
+    }
+
+    @media (min-width: 768px){
+      .page-heading-h1 {
+        margin-bottom: 3.125rem;
+        font-size: 2.125rem;
+      }
+    }
+
+    .page-heading-h1{
+      line-height: 1.4;
+      font-weight: 500;
+        color: #323232;
+    }
+
+    .dashboard-hearder{
+      background: #f2f2f2;
+        padding-top: 1rem;
+        margin: 0 0 1rem;
+        color: #737373;
+        border-radius: 8px;
+        padding: 1.25rem 1rem 1.5rem;
+        display: block;
+    }
+
+    .total{
+      color: #323232;
+        margin-bottom: 1rem;
+    }
+
+    .payments-list {
+      font-size: .875rem;
+      font-weight: 500;
+    }
+
+    .row{
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -0.9375rem;
+      margin-left: -0.9375rem;
+    }
+
+    .cash-on-hand{
+      font-weight: 700;
+      align-self: center!important;
+      flex: 0 0 50%;
+        max-width: 50%;
+        position: relative;
+        width: 100%;
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem;
+    }
+
+    .cash-on-hand-amount{
+      font-size: 1.125rem;
+      font-weight: 700;
+      font-weight: 700;
+      text-align: right!important;
+      align-self: center!important;
+      flex: 0 0 50%;
+        max-width: 50%;
+        position: relative;
+        width: 100%;
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem;
+    }
+
+    .cash-content{
+      align-self: center!important;
+      flex: 0 0 50%;
+        max-width: 50%;
+        position: relative;
+        width: 100%;
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem;
+    }
+
+    .cash-content-amount{
+      text-align: right!important;
+      align-self: center!important;
+      flex: 0 0 50%;
+        max-width: 50%;
+        position: relative;
+        width: 100%;
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem;
+    }
+
+    .payments-list:last-child {
+      margin-top: 0.75rem;
+    }
+
+    @media (min-width: 768px){
+      .date-wrap {
+        width: 15.5rem;
+      }
+    }
+
+    .date-wrap{
+      flex: 0 0 auto;
+      max-width: 100%;
+      position: relative;
+      padding-right: 0.9375rem;
+        padding-left: 0.9375rem;
+    }
+
+    .dashboard-list-date{
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+
+
+    .date-select1{
+      padding-right: 0.25rem;
+      padding-left: 0;
+      flex: 0 0 50%;
+        max-width: 50%;
+        position: relative;
+        width: 100%;
+    }
+
+    .date-wrap .custom-select{
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTMuNjY2IDhhLjcwOC43MDggMCAwMS45MjktMS4wNjRsLjA3My4wNjMgNS4zMzEgNS4zMzMgNS4zMzMtNS4zMzNhLjcwOC43MDggMCAwMS45My0uMDYzbC4wNzIuMDYzYS43MDguNzA4IDAgMDEuMDY0LjkzTDE2LjMzNCA4bC01LjgzMyA1LjgzM2EuNzA4LjcwOCAwIDAxLS45My4wNjRsLS4wNzItLjA2NEwzLjY2NiA4eiIgZmlsbD0iIzg4OCIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+);
+
+    }
+
+    .nav-year {
+      font-size: .875rem;
+      padding: 0.59375rem 0.5rem;
+      height: 2.625rem;
+      background-position: right 0.5rem top 50%,0 0;
+    }
+
+    .custom-select{
+      background-repeat: no-repeat,repeat;
+      background-size: 1em auto,100%;
+      transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      display: inline-block;
+        width: 100%;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #323232;
+        vertical-align: middle;
+        border: 0.0625rem solid #e1e1e1;
+        border-radius: 0.25rem;
+        appearance: none;
+        word-wrap: normal;
+        text-transform: none;
+    }
+
+    .date-select2{
+      padding-left: 0.25rem;
+      padding-right: 0;
+      flex: 0 0 50%;
+        max-width: 50%;
+        position: relative;
+        width: 100%;
+    }
+
+    .nav-month {
+      font-size: .875rem;
+      padding: 0.59375rem 0.5rem;
+      height: 2.625rem;
+      background-position: right 0.5rem top 50%,0 0;
+    }
+
+    .status-container{
+      clear: both;
+        text-align: center;
+        height: 100%;
+    }
+
+    @media (min-width: 768px){
+      .no-item {
+        padding-top: 4.375rem;
+      }
+    }
+
+    .no-item{
+      padding: 3.75rem 0 1.875rem;
+      text-align: center!important;
+      display: block;
+    }
+
+    .no-item i{
+      display: inline-block;
+        width: 5rem;
+        height: 5rem;
+        font-style: italic;
+    }
+
+    .no-item i img{
+      width: 120%;
+      height: 120%;
+      vertical-align: middle;
+      border-style: none;
+    }
+
+    .no-item h3{
+      margin-top: 1.75rem;
+      left: 1rem;
+        line-height: normal;
+        font-size: 1.125rem;
+        font-weight: 500;
+        white-space: pre-line;
+        margin-bottom: 0.5rem;
+        letter-spacing: -.03125rem;
+        text-align: center!important;
+    }
+
+    .cash-dashboard hr{
+      margin: 1rem 0 -0.875rem;
+      color: #e1e1e1;
+      border: 0;
+        border-top: 0.0625rem solid rgba(0,0,0,.1);
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+    }
+
+</style>

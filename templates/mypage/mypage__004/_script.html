@@ -1,0 +1,135 @@
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+        var contentDiv = document.getElementById('community');
+        if (contentDiv) {
+            var contentHeight = contentDiv.scrollHeight + 100;
+            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('padding-top'));
+            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('padding-bottom'));
+            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('border-top-width'));
+            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('border-bottom-width'));
+            console.log(contentHeight)
+            document.body.style.height = contentHeight + 'px';
+        }
+    });
+</script>
+
+<script>
+  
+
+  let currentCurationIndex = 0;
+
+  document.querySelectorAll(".topic-link-item").forEach(function(topicLink, index) {
+      topicLink.addEventListener("click", function() {
+          const count = document.querySelector(".curation-page");
+          const tracks = document.querySelectorAll(".slick-track");
+          const slickPrevButtons = document.querySelectorAll(".slick-prev");
+          const slickNextButtons = document.querySelectorAll(".slick-next");
+
+          count.textContent = "1/2";
+
+          const track = tracks[currentCurationIndex];
+          const prevButton = slickPrevButtons[currentCurationIndex];
+          const nextButton = slickNextButtons[currentCurationIndex];
+
+          prevButton.style.display = "none";
+          nextButton.style.display = "block";
+          track.style.transform = "translate3d(0px, 0px, 0px)";
+          track.style.transition = "0.7s";
+
+          currentCurationIndex = index;
+      });
+  });
+
+  let currentContent = document.querySelector(".content0");
+
+  for (let i = 0; i < 5; i++) {
+      const list = document.querySelector(`.router-link-active${i}`);
+      const content = document.querySelector(`.content${i}`);
+
+      if (i !== 0) {
+          content.style.display = "none";
+      }
+
+      list.addEventListener("click", function() {
+          if (currentContent !== content) {
+              for (let j = 0; j < 5; j++) {
+                  const link = document.querySelector(`.router-link-active${j}`);
+                  const contentJ = document.querySelector(`.content${j}`);
+
+                  if (j === i) {
+                      link.style.background = "#d1f3ff";
+                      link.querySelector("span").style.fontWeight = "700";
+                      link.querySelector("span").style.color = "rgb(45, 45, 45)";
+                      contentJ.style.display = "block";
+                  } else {
+                      link.style.background = "none";
+                      link.querySelector("span").style.fontWeight = "400";
+                      link.querySelector("span").style.color = "rgb(169, 169, 169)";
+                      contentJ.style.display = "none";
+                  }
+              }
+              currentContent = content;
+          }
+      });
+  }
+
+
+
+  const slickPrevButtons = document.querySelectorAll(".slick-prev");
+  const slickNextButtons = document.querySelectorAll(".slick-next");
+  const tracks = document.querySelectorAll(".slick-track");
+  const count = document.querySelector(".curation-page");
+
+
+
+  slickPrevButtons.forEach(function(prevButton, index) {
+    const nextButton = slickNextButtons[index];
+    const track = tracks[index];
+    
+    prevButton.addEventListener("click", function() {
+      prevButton.style.display = "none";
+      nextButton.style.display = "block";
+      count.textContent = `1/2`;
+      track.style.transform = "translate3d(0px, 0px, 0px)";
+      track.style.transition = "0.7s";
+    });
+  });
+
+  slickNextButtons.forEach(function(nextButton, index) {
+    const prevButton = slickPrevButtons[index];
+    const track = tracks[index];
+    
+    nextButton.addEventListener("click", function() {
+      nextButton.style.display = "none";
+      prevButton.style.display = "block";
+      count.textContent = `2/2`;
+      track.style.transform = "translate3d(-612px, 0px, 0px)";
+      track.style.transition = "0.7s";
+    });
+  });
+
+  $(document).ready(function(){
+      const $top_btn = $(".top-btn");
+      
+      // 초기에는 버튼을 숨김
+      $top_btn.hide();
+      
+      // 스크롤 이벤트 리스너
+      $(window).scroll(function(){
+          if ($(this).scrollTop() > 100) {
+              $top_btn.fadeIn();
+          } else {
+              $top_btn.fadeOut();
+          }
+      });
+      
+      // 클릭 이벤트 리스너
+      $top_btn.click(function(){
+          $('html, body').animate({scrollTop : 0}, 800);
+          return false;
+      });
+  });
+
+</script>
