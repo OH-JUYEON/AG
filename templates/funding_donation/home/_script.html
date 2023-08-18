@@ -1,0 +1,225 @@
+<script>
+
+    //modal
+    const modal = document.querySelector('#__BVID__1141___BV_modal_outer_');
+    const $list_modal = $(".parent");
+    const cityName = document.querySelector('.btn-area-filter');
+    const imgSrc = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik04IDEuNjY3YzIuNzU4IDAgNSAyLjA2MiA1IDQuNjE2IDAgMi41MTctMS44MDMgNS4xNjgtNC4yMTQgNy40OTdsLS4xNDQuMTM3LS4xOTcuMTg0LS4xMzEuMTE3YS40ODQuNDg0IDAgMCAxLS42Mi4wMDdsLS4xLS4wODVjLS4wMy0uMDI1LS4wNi0uMDUtLjA5MS0uMDc4bC0uMjA0LS4xODEtLjIzLS4yMTMtLjI1My0uMjQzYTE3Ljk4IDE3Ljk4IDAgMCAxLTEuNTc4LTEuNzU3QzMuODM4IDkuODggMyA4LjA1OCAzIDYuMjgzIDMgMy43MyA1LjI0MyAxLjY2NyA4IDEuNjY3em0wIC44OTVjLTIuMjQ5IDAtNC4wNjUgMS42Ny00LjA2NSAzLjcyMSAwIDEuNTQ2Ljc2MSAzLjIgMi4wNTIgNC44NDlhMTcuMDgxIDE3LjA4MSAwIDAgMCAxLjYyIDEuNzg2bC4yMjguMjE0LjE1Ni4xNDMuMTMzLS4xMjdjMi4xNzItMi4wOTggMy44MzQtNC41MDcgMy45MzYtNi42NThsLjAwNS0uMjA3YzAtMi4wNTEtMS44MTYtMy43MjEtNC4wNjUtMy43MjF6bS4xMjUgMi4yMDJjMS4xNTEgMCAyLjA4Ni44OTQgMi4wODYgMS45OTcgMCAxLjEwMi0uOTM1IDEuOTk2LTIuMDg2IDEuOTk2LTEuMTUyIDAtMi4wODctLjg5NC0yLjA4Ny0xLjk5NiAwLTEuMTAzLjkzNS0xLjk5NyAyLjA4Ny0xLjk5N3ptMCAuODk1Yy0uNjM2IDAtMS4xNTIuNDk0LTEuMTUyIDEuMTAyIDAgLjYwOC41MTYgMS4xMDEgMS4xNTIgMS4xMDEuNjM1IDAgMS4xNS0uNDkzIDEuMTUtMS4xMDFzLS41MTUtMS4xMDItMS4xNS0xLjEwMnoiIGZpbGw9IiM4ODg4ODgiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4K";
+    const allCity = document.querySelector('.allcity');
+    let cityChoice = [];
+
+    function open_modal() {
+
+        modal.style.display = 'block';
+    }
+
+    function all_check(num) {
+
+        modal_close();
+
+        let allCitySpan = allCity.querySelector('span');
+        allCitySpan.style.color = '#004DF7';
+        allCity.classList.add('modal-selected');
+        let name = num === 0 ? '지역선택' : allCitySpan.innerText;
+
+        change_name(name);
+
+        let color = num === 0 ? '#737373' : 'black';
+
+        cityName.style.color = color;
+
+
+    }
+
+    function modal_close() {
+        modal.style.display = 'none';
+        list_clear();
+
+        //리스트 색상 초기화
+        $list_modal.each((i, list_li) => {
+            let $list_li = $(list_li);
+            $list_modal.removeClass("modal-list-activate");
+        });
+
+    }
+
+    const liList = document.querySelectorAll('.parent');
+
+    function list_open() {
+        for (let i = 0; i < liList.length; i++) {
+            let id = '.level' + String(i);
+            let obj = document.querySelectorAll(id);
+            liList[i].addEventListener("click", function (e) {
+                obj.forEach((item) => {
+                    if (item.style.display === "none" || item.style.display === "") {
+                        item.addEventListener("click", function (e) {
+                            let detailCheck = document.querySelectorAll('.modal-selected');
+
+
+                            detailCheck.forEach((item) => {
+                                item.classList.remove('modal-selected');
+                                item.querySelector('span').style.color = '#323232';
+                            });
+
+                            change_name(item.innerText);
+                            item.style.color = '#004DF7';
+                            item.classList.add('modal-selected');
+
+                        });
+                        item.style.display = "block";
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+            });
+        }
+    }
+
+    function list_clear() {
+        for (let i = 0; i < liList.length; i++) {
+            let id = '.level' + String(i);
+            let obj = document.querySelectorAll(id);
+            obj.forEach((item) => {
+                item.style.display = "none";
+            });
+
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        list_open();
+    });
+
+    //지역 이름 변경
+    function change_name(name) {
+        cityName.innerText = name;
+
+        let img = new Image();
+        img.src = imgSrc;
+        cityName.appendChild(img);
+
+        cityName.style.color = 'black';
+        modal.style.display = 'none';
+
+    }
+
+    //모달 - 목록 이벤트
+    $list_modal.each((i, list_li) => {
+        let $list_li = $(list_li);
+
+        $list_li.on("click", () => {
+            $list_modal.removeClass("modal-list-activate");
+            $list_li.addClass("modal-list-activate");
+        })
+    });
+
+
+
+    // 검색창 값 지우기
+    const searchInput = document.querySelector('.form-control');
+    const valueClose = document.querySelector('.input-group-append2');
+
+    searchInput.addEventListener("input", valueCheck, false);
+
+    function valueCheck() {
+        valueClose.style.display = searchInput.value.length >= 1 ? "block" : "none";
+    }
+
+    function valueClear() {
+        searchInput.value = '';
+        valueClose.style.display = 'none';
+    }
+
+    //홈 펀딩 기부 click event
+    const $pro_buttons = $(".btn3");
+    const $page = $(".list-contents");
+
+    $pro_buttons.each((i, pro_button) => {
+        let $pro_button = $(pro_button);
+        let $target_page = $($page[i]); // 해당 버튼에 대응하는 컨텐츠 영역
+
+        $pro_button.on("click", () => {
+            // nowPage = i;
+
+            // 모든 컨텐츠 숨기기
+            $page.css("display", "none");
+
+            // 선택된 버튼에 해당하는 컨텐츠 표시
+            $target_page.css("display", "block");
+
+            // 모든 버튼 스타일 초기화
+            $pro_buttons.removeClass("btn3-active");
+
+            // 선택된 버튼에 스타일 적용
+            $pro_button.addClass("btn3-active");
+        });
+    });
+
+
+    //펀딩 사이드 바 이벤트
+    const $list_buttons = $(".btn4-2-1");
+
+    $list_buttons.each((i, list_button) => {
+        let $list_button = $(list_button);
+
+        $list_button.on("click", () => {
+            $list_buttons.removeClass("router-link-exact-active");
+            $list_button.addClass("router-link-exact-active");
+        })
+    });
+
+    //기부 사이드 바 이벤트
+    const $list_buttons2 = $(".btn4-2-2");
+
+    $list_buttons2.each((i, list_button) => {
+        let $list_button = $(list_button);
+
+        $list_button.on("click", () => {
+            $list_buttons2.removeClass("router-link-exact-active");
+            $list_button.addClass("router-link-exact-active");
+        })
+    });
+</script>
+
+<script>
+    const $home_list_buttons = $(".btn-section");
+    const $home_list = $(".list-meta");
+    let currentTabIndex = 0;
+    let isAnimating = false;
+    let intervalId = null; // 변수 추가
+
+    function showTab(tabIndex) {
+        if (isAnimating) return;
+
+        isAnimating = true;
+
+        $home_list.eq(currentTabIndex).fadeOut(600, function () {
+            $(this).css("display", "none");
+            $home_list.eq(tabIndex).fadeIn(600, function () {
+                isAnimating = false;
+            });
+        });
+
+        $home_list_buttons.removeClass("selected");
+        $home_list_buttons.eq(tabIndex).addClass("selected");
+        currentTabIndex = tabIndex;
+    }
+
+    function switchToNextTab() {
+        if (isAnimating) return;
+
+        const nextTabIndex = (currentTabIndex + 1) % $home_list_buttons.length;
+        showTab(nextTabIndex);
+    }
+
+    $home_list_buttons.each((i, list_button) => {
+        $(list_button).on("click", () => {
+            clearInterval(intervalId); // 클릭 시 setInterval 해제
+            showTab(i);
+        });
+    });
+
+    showTab(currentTabIndex); // 초기 탭 보이기
+    intervalId = setInterval(switchToNextTab, 4000); // 3초마다 다음 탭으로 전환
+
+</script>
