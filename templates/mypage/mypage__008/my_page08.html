@@ -1,0 +1,60 @@
+{% load static %}
+
+
+<!--중단부 -->
+<div id="app-body">
+    <div class="container container-md">
+        <main>
+            <article>
+                <!--문의 내역-->
+                <div class="page-header">
+                    <h1>문의내역</h1>
+{#                    <div>#}
+{#                        <!--글쓰기 버튼-->#}
+{#                        <div class="write-button-desktop">#}
+{#                            <a href="write.jsp">#}
+{#                                <!-- <button type="button" class="btn write-button btn-primary">#}
+{#                                    글쓰기 <i class="write"></i>#}
+{#                                </button> -->#}
+{#                            </a>#}
+{#                        </div>#}
+{#                    </div>#}
+                </div>
+                <section class="qna-list customer no-qna">
+                    <div class="list-wrap"></div>
+                    <div class="infinite-loading-container">
+                        <div class="infinite-status-prompt" style="display: none;">
+                            <div>
+                                <div class="indicator-body center"
+                                     style="width: 24px; height: 24px; border-width: 0.25rem; border-style: solid; border-color: rgb(0, 199, 174) rgba(0, 199, 174, 0.2) rgba(0, 199, 174, 0.2); border-image: initial;"></div>
+                                <p style="display: none;"></p>
+                            </div>
+                        </div>
+                        <div class="infinite-status-prompt">
+                            <article class="no-items align-self-center text-center">
+                                <!-- 빈 문의 내역 -->
+                                <i><img src="{% static 'img/inquiry.png' %}" alt="empty"></i>
+                                <h3>작성하신 문의내역이 없습니다.</h3>
+                                <footer class="footer-buttons m-auto">
+                                    <div class="no-results-cta">
+                                        <!-- 문의글 쓰기 추가해야함 -->
+                                        <a class="btn btn-primary" href="#">문의 등록</a>
+                                    </div>
+                                </footer>
+                            </article>
+                        </div>
+                        <div class="infinite-status-prompt"
+                             style="color: rgb(102, 102, 102); font-size: 14px; padding: 10px 0px; display: none;"></div>
+                        <div class="infinite-status-prompt"
+                             style="color: rgb(102, 102, 102); font-size: 14px; padding: 10px 0px; display: none;">
+                            <br>
+                            <button class="btn-try-infinite"></button>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </main>
+    </div>
+</div>
+
+

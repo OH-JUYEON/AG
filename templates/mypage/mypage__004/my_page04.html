@@ -1,0 +1,989 @@
+{% load static %}
+
+
+<div class="web-body">
+    <div class="community-container container">
+        <div class="life-container">
+            <section class="community" id="community">
+                <!-- 커뮤니티, 글쓰기 -->
+                <div class="observer-container">
+                    <section class="community-header">
+                        <!-- 커뮤니티 제목 -->
+                        <h1 class="community-title">내 활동</h1>
+
+                    </section>
+                </div>
+
+                <!-- 그 아래 모든 내용 -->
+                <div class="community-layout">
+                    <!-- 전체, 궁금해요, 얼마예요, 고수찾아요. 함께해요, 고수소식 -->
+                    <div class="topic-layout">
+                        <div class="observer-container" style="height: auto;">
+                            <section class="topic-filter-section">
+
+                                <ul class="topic">
+                                    <!-- 참여한 캠페인 -->
+                                    <li class="selected topic-link-item router-link-active0">
+                                        <div class="icon-wrapper">
+                                            <img src="{% static 'img/participation.png' %}" alt="">
+                                            <span class="sg-text-subhead4 sg-font-bold sg-text-gray-900">참여한 캠페인</span>
+                                        </div>
+                                    </li>
+                                    <!-- 개설한 캠페인 -->
+                                    <li class="topic-link-item router-link-active1">
+                                        <div class="icon-wrapper">
+                                            <img src="{% static 'img/create.png' %}" alt="">
+                                            <span class="sg-text-body2 sg-font-regular sg-text-gray-400">개설한 캠페인</span>
+                                        </div>
+                                    </li>
+                                    <!-- 펀딩한 캠페인 -->
+                                    <li class="topic-link-item router-link-active2">
+                                        <div class="icon-wrapper">
+                                            <img src="{% static 'img/funding.png' %}" alt="">
+                                            <span class="sg-text-body2 sg-font-regular sg-text-gray-400">펀딩한 캠페인</span>
+                                        </div>
+                                    </li>
+                                    <!-- 기부활동 -->
+                                    <li class="topic-link-item router-link-active3">
+                                        <div class="icon-wrapper">
+                                            <img src="{% static 'img/giving.png' %}" alt="">
+                                            <span class="sg-text-body2 sg-font-regular sg-text-gray-400">내 기부 활동</span>
+                                        </div>
+                                    </li>
+                                    <!-- 작성한 후기 -->
+                                    <li class="topic-link-item router-link-active4">
+                                        <div class="icon-wrapper">
+                                            <img src="{% static 'img/review.png' %}" alt="숨고이야기">
+                                            <span class="sg-text-body2 sg-font-regular sg-text-gray-400">작성한 후기</span>
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                    <!-- 중단부 몸통 부분 -->
+                    <div class="community-content-layout all">
+
+                        <!-- 지금 가장 뜨거운 숨고픽, 공지사항 -->
+                        <section class="curation content0">
+                            <!-- 지금 가장 뜨거운 숨고픽 -->
+                            <div class="curation-header">
+                                <h2 class="sg-text-headline sg-font-bold sg-text-gray-900">내가 참여한 캠페인</h2>
+                                <span class="curation-page">1/2</span>
+                            </div>
+                            <!-- 공지사항 -->
+                            <div class="slick-slider slick-initialized">
+                                <!-- <버튼 -->
+                                <button type="button" class="slick-arrow slick-prev"
+                                        style="display: none;">prev
+                                </button>
+                                <!-- 공지사항 배너 -->
+                                <div class="slick-list">
+                                    <div class="slick-track"
+                                         style="width: 1224px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+                                        <!-- 배너 하나 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                        <button class="btn_review">후기 작성</button>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          캠페인 내용 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 두번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="img-container">
+                                                        <div class="curation-item admin-post">
+                                                            <img data-v-d72de8d4=""
+                                                                 data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                                 src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                                 lazy="loaded"
+                                                                 style="width: 100%; height: 100%; border-radius: 16px">
+
+                                                        </div>
+                                                        <button class="btn_review2">후기 작성</button>
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          캠페인 내용 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 세번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          캠페인 내용 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 4번째 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          캠페인 내용 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 5번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          캠페인 내용 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <!-- 6번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          캠페인 내용 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- >버튼 -->
+                                <button type="button" class="slick-arrow slick-next"
+                                        style="display: block;">next
+                                </button>
+                            </div>
+                        </section>
+                        <section class="curation content1">
+                            <!-- 지금 가장 뜨거운 숨고픽 -->
+                            <div class="curation-header">
+                                <h2 class="sg-text-headline sg-font-bold sg-text-gray-900">내가 개설한 캠페인</h2>
+                                <span class="curation-page">1/2</span>
+                            </div>
+                            <!-- 공지사항 -->
+                            <div class="slick-slider slick-initialized">
+                                <!-- <버튼 -->
+                                <button type="button" class="slick-arrow slick-prev"
+                                        style="display: none;">prev
+                                </button>
+                                <!-- 공지사항 배너 -->
+                                <div class="slick-list">
+                                    <div class="slick-track"
+                                         style="width: 1224px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+                                        <!-- 배너 하나 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/01d23edb-74b9-4f10-bef4-9176a2a02cb8.jpg?h=320&w=480&webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/01d23edb-74b9-4f10-bef4-9176a2a02cb8.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          캠페인 내용 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 두번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/01d23edb-74b9-4f10-bef4-9176a2a02cb8.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          캠페인 내용 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 세번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/01d23edb-74b9-4f10-bef4-9176a2a02cb8.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          캠페인 내용 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 4번째 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/01d23edb-74b9-4f10-bef4-9176a2a02cb8.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          캠페인 내용 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 5번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/01d23edb-74b9-4f10-bef4-9176a2a02cb8.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          캠페인 내용 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <!-- 6번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/01d23edb-74b9-4f10-bef4-9176a2a02cb8.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          캠페인 내용 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- >버튼 -->
+                                <button type="button" class="slick-arrow slick-next"
+                                        style="display: block;">next
+                                </button>
+                            </div>
+                        </section>
+                        <section class="curation content2">
+                            <!-- 지금 가장 뜨거운 숨고픽 -->
+                            <div class="curation-header">
+                                <h2 class="sg-text-headline sg-font-bold sg-text-gray-900">내가 펀딩한 캠페인</h2>
+                                <span class="curation-page">1/2</span>
+                            </div>
+                            <!-- 공지사항 -->
+                            <div class="slick-slider slick-initialized">
+                                <!-- <버튼 -->
+                                <button type="button" class="slick-arrow slick-prev"
+                                        style="display: none;">prev
+                                </button>
+                                <!-- 공지사항 배너 -->
+                                <div class="slick-list">
+                                    <div class="slick-track"
+                                         style="width: 1224px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+                                        <!-- 배너 하나 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/7b0c6909-42df-40b7-a35a-b1bcb42e1d87.jpg?h=320&w=480&webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/7b0c6909-42df-40b7-a35a-b1bcb42e1d87.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          펀딩한 금액 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 두번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/7b0c6909-42df-40b7-a35a-b1bcb42e1d87.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          펀딩한 금액 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 세번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/7b0c6909-42df-40b7-a35a-b1bcb42e1d87.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          펀딩한 금액 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 4번째 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/7b0c6909-42df-40b7-a35a-b1bcb42e1d87.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          펀딩한 금액 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 5번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/7b0c6909-42df-40b7-a35a-b1bcb42e1d87.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          펀딩한 금액 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <!-- 6번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/7b0c6909-42df-40b7-a35a-b1bcb42e1d87.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>캠페인 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                        <span>
+                                                          펀딩한 금액 
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- >버튼 -->
+                                <button type="button" class="slick-arrow slick-next"
+                                        style="display: block;">next
+                                </button>
+                            </div>
+                        </section>
+                        <section class="curation content3">
+                            <!-- 지금 가장 뜨거운 숨고픽 -->
+                            <div class="curation-header">
+                                <h2 class="sg-text-headline sg-font-bold sg-text-gray-900">내 기부 활동</h2>
+                                <span class="curation-page">1/2</span>
+                            </div>
+                            <!-- 공지사항 -->
+                            <div class="slick-slider slick-initialized">
+                                <!-- <버튼 -->
+                                <button type="button" class="slick-arrow slick-prev"
+                                        style="display: none;">prev
+                                </button>
+                                <!-- 공지사항 배너 -->
+                                <div class="slick-list">
+                                    <div class="slick-track"
+                                         style="width: 1224px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+                                        <!-- 배너 하나 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/01d23edb-74b9-4f10-bef4-9176a2a02cb8.jpg?h=320&w=480&webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/3d7fc4cb-709f-4128-9e1e-11d5162d6ba8.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>기부처 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                      <span>
+                                                        기부 금액 
+                                                      </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 두번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/3d7fc4cb-709f-4128-9e1e-11d5162d6ba8.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>기부처 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                      <span>
+                                                        기부 금액 
+                                                      </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 세번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/3d7fc4cb-709f-4128-9e1e-11d5162d6ba8.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>기부처 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                      <span>
+                                                        기부 금액 
+                                                      </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 4번째 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/3d7fc4cb-709f-4128-9e1e-11d5162d6ba8.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>기부처 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                      <span>
+                                                        기부 금액 
+                                                      </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- 5번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/3d7fc4cb-709f-4128-9e1e-11d5162d6ba8.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>기부처 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                      <span>
+                                                        기부 금액 
+                                                      </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <!-- 6번쨰 베너 -->
+                                        <div class="slick-slide slick-active slick-current"
+                                             style="outline: none; width: 204px;">
+                                            <div>
+                                                <a style="width: 100%; display: inline-block;">
+                                                    <div class="curation-item admin-post">
+                                                        <img data-v-d72de8d4=""
+                                                             data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&amp;w=480&amp;webp=1"
+                                                             src="https://static.cdn.soomgo.com/upload/market/3d7fc4cb-709f-4128-9e1e-11d5162d6ba8.jpg?h=320&w=480&webp=1"
+                                                             lazy="loaded"
+                                                             style="width: 100%; height: 100%; border-radius: 16px">
+                                                    </div>
+                                                    <div class="campaign-name">
+                                                        <span>기부처 이름</span>
+                                                    </div>
+                                                    <div class="campaign-content-wrap">
+                                                        <div class="campaign-content">
+                                                      <span>
+                                                        기부 금액 
+                                                      </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- >버튼 -->
+                                <button type="button" class="slick-arrow slick-next"
+                                        style="display: block;">next
+                                </button>
+                            </div>
+                        </section>
+                        <section class="curation content4">
+                            <div class="curation-header">
+                                <h2 class="sg-text-headline sg-font-bold sg-text-gray-900">작성한 후기</h2>
+                            </div>
+                            <ul>
+                                <li class="review-wrap">
+                                    <a href="#">
+                                        <div class="review-wrap2">
+                                            <div>
+                                                <section>
+                                                    <h3 class="review-title">
+                                                        리뷰 제목입니다.
+                                                    </h3>
+                                                    <p class="review-content">
+                                                        리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰
+                                                        내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다.
+                                                    </p>
+                                                </section>
+                                                <p class="review-region">
+                                                    서울/강남구
+                                                </p>
+                                            </div>
+                                            <img src="https://static.cdn.soomgo.com/upload/media/8ce15a58-8f94-46dd-ad30-11fa12f1d3df.jpg?h=80&w=80&webp=1"
+                                                 alt="">
+                                        </div>
+                                        <div class="like-comment-wrap">
+                                            <div style="display: inherit;">
+                                    <span class="like">
+                                      0
+                                    </span>
+                                                <span class="comment">
+                                      15
+                                    </span>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="review-wrap">
+                                    <a href="#">
+                                        <div class="review-wrap2">
+                                            <div>
+                                                <section>
+                                                    <h3 class="review-title">
+                                                        리뷰 제목입니다.
+                                                    </h3>
+                                                    <p class="review-content">
+                                                        리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰
+                                                        내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다.
+                                                    </p>
+                                                </section>
+                                                <p class="review-region">
+                                                    서울/강남구
+                                                </p>
+                                            </div>
+                                            <img src="https://static.cdn.soomgo.com/upload/media/8ce15a58-8f94-46dd-ad30-11fa12f1d3df.jpg?h=80&w=80&webp=1"
+                                                 alt="">
+                                        </div>
+                                        <div class="like-comment-wrap">
+                                            <div style="display: inherit;">
+                                    <span class="like">
+                                      0
+                                    </span>
+                                                <span class="comment">
+                                      15
+                                    </span>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="review-wrap">
+                                    <a href="#">
+                                        <div class="review-wrap2">
+                                            <div>
+                                                <section>
+                                                    <h3 class="review-title">
+                                                        리뷰 제목입니다.
+                                                    </h3>
+                                                    <p class="review-content">
+                                                        리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰
+                                                        내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다.
+                                                    </p>
+                                                </section>
+                                                <p class="review-region">
+                                                    서울/강남구
+                                                </p>
+                                            </div>
+                                            <img src="https://static.cdn.soomgo.com/upload/media/8ce15a58-8f94-46dd-ad30-11fa12f1d3df.jpg?h=80&w=80&webp=1"
+                                                 alt="">
+                                        </div>
+                                        <div class="like-comment-wrap">
+                                            <div style="display: inherit;">
+                                    <span class="like">
+                                      0
+                                    </span>
+                                                <span class="comment">
+                                      15
+                                    </span>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="review-wrap">
+                                    <a href="#">
+                                        <div class="review-wrap2">
+                                            <div>
+                                                <section>
+                                                    <h3 class="review-title">
+                                                        리뷰 제목입니다.
+                                                    </h3>
+                                                    <p class="review-content">
+                                                        리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰
+                                                        내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다.
+                                                    </p>
+                                                </section>
+                                                <p class="review-region">
+                                                    서울/강남구
+                                                </p>
+                                            </div>
+                                            <img src="https://static.cdn.soomgo.com/upload/media/8ce15a58-8f94-46dd-ad30-11fa12f1d3df.jpg?h=80&w=80&webp=1"
+                                                 alt="">
+                                        </div>
+                                        <div class="like-comment-wrap">
+                                            <div style="display: inherit;">
+                                    <span class="like">
+                                      0
+                                    </span>
+                                                <span class="comment">
+                                      15
+                                    </span>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="review-wrap">
+                                    <a href="#">
+                                        <div class="review-wrap2">
+                                            <div>
+                                                <section>
+                                                    <h3 class="review-title">
+                                                        리뷰 제목입니다.
+                                                    </h3>
+                                                    <p class="review-content">
+                                                        리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰
+                                                        내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다.
+                                                    </p>
+                                                </section>
+                                                <p class="review-region">
+                                                    서울/강남구
+                                                </p>
+                                            </div>
+                                            <img src="https://static.cdn.soomgo.com/upload/media/8ce15a58-8f94-46dd-ad30-11fa12f1d3df.jpg?h=80&w=80&webp=1"
+                                                 alt="">
+                                        </div>
+                                        <div class="like-comment-wrap">
+                                            <div style="display: inherit;">
+                                    <span class="like">
+                                      0
+                                    </span>
+                                                <span class="comment">
+                                      15
+                                    </span>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="review-wrap">
+                                    <a href="#">
+                                        <div class="review-wrap2">
+                                            <div>
+                                                <section>
+                                                    <h3 class="review-title">
+                                                        리뷰 제목입니다.
+                                                    </h3>
+                                                    <p class="review-content">
+                                                        리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰
+                                                        내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다.
+                                                    </p>
+                                                </section>
+                                                <p class="review-region">
+                                                    서울/강남구
+                                                </p>
+                                            </div>
+                                            <img src="https://static.cdn.soomgo.com/upload/media/8ce15a58-8f94-46dd-ad30-11fa12f1d3df.jpg?h=80&w=80&webp=1"
+                                                 alt="">
+                                        </div>
+                                        <div class="like-comment-wrap">
+                                            <div style="display: inherit;">
+                                    <span class="like">
+                                      0
+                                    </span>
+                                                <span class="comment">
+                                      15
+                                    </span>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <a id="top-btn" role="button" aria-label="위로 가기 버튼" class="top-btn" style="right: 211px; ">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGc+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTAgMEgyNFYyNEgweiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMyMy4wMDAwMDAsIC02ODAuMDAwMDAwKSB0cmFuc2xhdGUoMzExLjAwMDAwMCwgNjY4LjAwMDAwMCkgdHJhbnNsYXRlKDEyLjAwMDAwMCwgMTIuMDAwMDAwKSIvPgogICAgICAgICAgICAgICAgICAgIDxnIHN0cm9rZT0iI0I1QjVCNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik03IDBMNyAxNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMyMy4wMDAwMDAsIC02ODAuMDAwMDAwKSB0cmFuc2xhdGUoMzExLjAwMDAwMCwgNjY4LjAwMDAwMCkgdHJhbnNsYXRlKDEyLjAwMDAwMCwgMTIuMDAwMDAwKSB0cmFuc2xhdGUoNS4wMDAwMDAsIDQuNTAwMDAwKSIvPgogICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMCA3TDcgMCAxNCA3IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzIzLjAwMDAwMCwgLTY4MC4wMDAwMDApIHRyYW5zbGF0ZSgzMTEuMDAwMDAwLCA2NjguMDAwMDAwKSB0cmFuc2xhdGUoMTIuMDAwMDAwLCAxMi4wMDAwMDApIHRyYW5zbGF0ZSg1LjAwMDAwMCwgNC41MDAwMDApIi8+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                                     alt="위로 가기">
+
+                            </a>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,228 @@
+{% load static %}
+
+
+<div id="app-body">
+    <div class="container">
+        <div class="charge-section">
+            <h1 class="charge-title">충전</h1>
+            <div class="my-cash">
+                <span class="text">보유 캐시</span>
+                <span class="text">0캐시</span>
+            </div>
+            <section class="charge-contents">
+                <div class="product-list">
+                    <div class="title">
+                        일반충전
+                    </div>
+                    <div class="product">
+                        <div class="cash">
+                            <div class="cash-amount">
+                                <span>10,000 캐시</span>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <button class="button">10,000원</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="cash">
+                            <div class="cash-amount">
+                                <span>20,000 캐시</span>
+                                <div class="bonus-cash-amount customer">
+                                    <span class="bonus">1,000</span>
+                                    <span class="bonus-cash">보너스캐시</span>
+                                </div>
+                                <div class="coverage-rate-box">
+                                    <span class="rate">5%</span>
+                                </div>
+                            </div>
+                            <div class="bonus-cash-amount">
+                                <span class="bonus">1,000</span>
+                                <span class="bonus-cash">보너스캐시</span>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <button class="button">20,000원</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="cash">
+                            <div class="cash-amount">
+                                <span>30,000 캐시</span>
+                                <div class="bonus-cash-amount customer">
+                                    <span class="bonus">1,500</span>
+                                    <span class="bonus-cash">보너스캐시</span>
+                                </div>
+                                <div class="coverage-rate-box">
+                                    <span class="rate">5%</span>
+                                </div>
+                            </div>
+                            <div class="bonus-cash-amount">
+                                <span class="bonus">1,500</span>
+                                <span class="bonus-cash">보너스캐시</span>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <button class="button">30,000원</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="cash">
+                            <div class="cash-amount">
+                                <span>50,000 캐시</span>
+                                <div class="bonus-cash-amount customer">
+                                    <span class="bonus">2,500</span>
+                                    <span class="bonus-cash">보너스캐시</span>
+                                </div>
+                                <div class="coverage-rate-box">
+                                    <span class="rate">5%</span>
+                                </div>
+                            </div>
+                            <div class="bonus-cash-amount">
+                                <span class="bonus">2,500</span>
+                                <span class="bonus-cash">보너스캐시</span>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <button class="button">50,000원</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="cash">
+                            <div class="cash-amount">
+                                <span>100,000 캐시</span>
+                                <div class="bonus-cash-amount customer">
+                                    <span class="bonus">7,000</span>
+                                    <span class="bonus-cash">보너스캐시</span>
+                                </div>
+                                <div class="coverage-rate-box">
+                                    <span class="rate">7%</span>
+                                </div>
+                            </div>
+                            <div class="bonus-cash-amount">
+                                <span class="bonus">7,000</span>
+                                <span class="bonus-cash">보너스캐시</span>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <button class="button">100,000원</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="payment-type-wrapper">
+                        <div class="payment-type">
+                            <div class="payment-type-header">
+                                <div class="title">
+                                    결제수단
+                                </div>
+                            </div>
+                            <div class="payment-type-body">
+                                <div id="payment-type-buttons">
+                                    <div class="type-wrapper payment-card-type">
+                                        <div class="card-radio-wrapper">
+                                            <div class="payment-type-radio">
+                                                <input type="radio" id="credit-card" name="payment-type-buttons"
+                                                       class="custom-control-input" value="card">
+                                                <label class="custom-control-label" for="credit-card">
+                                                    <span class="payment-type-title">신용/체크카드</span>
+
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-card">
+                                            <div class="card-wrapper">
+                                                <img src="./image/plus.png" class="plus-icon">
+                                                <span class="card-register">카드등록</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <form autocomplete="off">
+                                        <div class="payment-formset-wrapper">
+                                            <div class="payment-formset">
+                                                <div class="card-number">
+                                                    <label class="info-label">
+                                                        카드번호
+                                                    </label>
+                                                    <input name="cardNumber" type="text"
+                                                           placeholder="XXXX XXXX XXXX XXXX" autocomplete="off"
+                                                           class="form-control card-info-input">
+                                                </div>
+                                                <div class="expiry">
+                                                    <label class="info-label">
+                                                        유효기간
+                                                    </label>
+                                                    <input name="expiry" type="text" placeholder="MM/YY"
+                                                           autocomplete="off" class="form-control card-info-input">
+                                                </div>
+                                                <div class="password">
+                                                    <label class="info-label">
+                                                        카드 비밀번호
+                                                    </label>
+                                                    <div role="group" class="input-group">
+                                                        <input name="password" type="password" placeholder="비밀번호 앞2자리"
+                                                               autocomplete="off" class="card-info-input form-control"
+                                                               minlength="2" maxlength="2">
+                                                    </div>
+                                                </div>
+                                                <div class="birth">
+                                                    <label class="info-label">
+                                                        생년월일 6자리
+                                                    </label>
+                                                    <input name="birth" type="tel" placeholder="YYMMDD"
+                                                           autocomplete="off" class="card-info-input form-control"
+                                                           minlength="6" maxlength="6">
+                                                </div>
+                                            </div>
+                                            <div class="formset-submit disabled">
+                                                등록하기
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                    <div class="type-wrapper paymemt-phone">
+                                        <div class="payment-type-radio">
+                                            <input type="radio" id="phone-payment" name="payment-type-buttons"
+                                                   class="custom-control-input" value="phone">
+                                            <label class="custom-control-label" for="phone-payment">
+                                                <span class="payment-type-title">휴대폰</span>
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="purchase-wrapper">
+                            <button class="purchase">
+                                결제하기
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="user-guide">
+                    <div>
+                        <p class="title">AG캐시 이용안내</p>
+                        <ul class="list">
+                            <li>모든 상품은 부가세(VAT)포함 가격입니다.</li>
+                            <li>캐시는 현금과 동일한 1:1 비율이며, 펀딩 서비스 사용을 위해 자유롭게 사용하실 수 있습니다.</li>
+                            <li>캐시를 충전하시면 상품에 따라 일정량의 보너스 캐시가 지급됩니다.</li>
+                            <li>환불 가능 기간은 충전일로부터 5년까지이며, 환불 시 보너스 캐시는 자동으로 차감됩니다.</li>
+                            <li>환불에 대한 부분은 고객센터 (1599-5319)로 문의해주시기 바랍니다.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+         

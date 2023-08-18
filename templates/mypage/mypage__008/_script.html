@@ -1,0 +1,97 @@
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+      const summarySections = document.querySelectorAll(".summary");
+      const contentSections = document.querySelectorAll(".content");
+      const arrows = document.querySelectorAll(".arrow");
+      const answerButton = document.querySelector(".btn-answer");
+      const answerWrapper = document.querySelector(".answer-wrapper");
+      const inquiryType = document.querySelector(".inquiry-type");
+      const myInquiry = document.querySelector(".my-inquiry");
+      const receivedInquiry = document.querySelector(".received-inquiry");
+      const myInquiryWrap = document.querySelectorAll(".my-inquiry-wrap");
+      const receivedInquiryWrap = document.querySelector(".received-inquiry-wrap");
+
+
+      receivedInquiryWrap.style.display = "none";
+      answerWrapper.style.display = "none";
+
+      // 초기에 모든 content 섹션을 숨김
+      contentSections.forEach(section => {
+        section.style.display = "none";
+      });
+
+      // 각각의 summary 섹션에 클릭 이벤트를 추가
+      summarySections.forEach((summary, index) => {
+        summary.addEventListener("click", () => {
+          if (contentSections[index].style.display === "none") {
+            contentSections[index].style.display = "block";
+            arrows[index].style.transform = "rotate(180deg)";
+          } else {
+            contentSections[index].style.display = "none";
+            arrows[index].style.transform = "rotate(0deg)";
+          }
+        });
+      });
+
+
+      $(document).ready(function(){
+        const $top_btn = $(".top-btn");
+
+        // 초기에는 버튼을 숨김
+        $top_btn.hide();
+
+        // 스크롤 이벤트 리스너
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 100) {
+                $top_btn.fadeIn();
+            } else {
+                $top_btn.fadeOut();
+            }
+        });
+
+        // 클릭 이벤트 리스너
+        $top_btn.click(function(){
+            $('html, body').animate({scrollTop : 0}, 800);
+            return false;
+        });
+      });
+
+      answerButton.addEventListener("click", () => {
+        answerWrapper.style.display = "block";
+      });
+
+    // receivedInquiry 클릭 시 해당 wrap 보이도록 처리
+    receivedInquiry.addEventListener("click", () => {
+      receivedInquiryWrap.style.display = "block";
+      receivedInquiry.style.color = "rgba(45,45,45,var(--tw-text-opacity))";
+      receivedInquiry.style.fontWeight = "700";
+      receivedInquiry.style.borderBottom = "0.125rem solid #2d2d2d";
+
+      myInquiryWrap.forEach(section => {
+        section.style.display = "none";
+      });
+      myInquiry.style.color = "rgba(169,169,169,var(--tw-text-opacity))";
+      myInquiry.style.fontWeight = "400";
+      myInquiry.style.borderBottom = "none";
+    });
+
+
+    // myInquiry 클릭 시 해당 wrap 보이도록 처리
+    myInquiry.addEventListener("click", () => {
+      myInquiryWrap.forEach(section => {
+        section.style.display = "block";
+      });
+      myInquiry.style.color = "rgba(45,45,45,var(--tw-text-opacity))";
+      myInquiry.style.fontWeight = "700";
+      myInquiry.style.borderBottom = "0.125rem solid #2d2d2d";
+
+      receivedInquiryWrap.style.display = "none";
+      receivedInquiry.style.color = "rgba(169,169,169,var(--tw-text-opacity))";
+      receivedInquiry.style.fontWeight = "400";
+      receivedInquiry.style.borderBottom = "none";
+    });
+
+
+
+</script>

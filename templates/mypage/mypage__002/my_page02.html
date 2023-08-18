@@ -1,0 +1,206 @@
+{% load static %}
+
+
+<div id="app">
+    <!-- 중간 부분 -->
+    <div id="app-body">
+        <div class="modal">
+            <div class="warn-modal">
+                <div id="content-wrap"></div>
+            </div>
+        </div>
+        <div class="container container-md">
+            <main class="account-info-container">
+                <h1>계정 설정</h1>
+                <div class="profile-image">
+                    <div class="user-profile-picture h-100">
+                        <div>
+                            <img src="{% static 'img/img.jpg' %}">
+                        </div>
+
+                    </div>
+                    <form id="form" action="accountFileSettingOk.member" enctype="multipart/form-data"
+                          method="post">
+                        <label for="input-file" class="attach">
+                            <input type="file" id="input-file" class="upload" name="upload">
+                            <img class="camera-icon"
+                                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGc+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYwMyAtMjg2KSB0cmFuc2xhdGUoNTM1IDIxOCkgdHJhbnNsYXRlKDY4IDY4KSB0cmFuc2xhdGUoMSAxKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjE1IiBmaWxsPSIjRkZGIiBzdHJva2U9IiNGMkYyRjIiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICAgICAgICAgICAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTAgMEwxOCAwIDE4IDE4IDAgMTh6IiBvcGFjaXR5PSIuNCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNiA2KSIvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZmlsbD0iI0I1QjVCNSIgZmlsbC1ydWxlPSJub256ZXJvIiBkPSJNMTEuNCAybDEuNDY0IDEuNTU2SDE1LjRjLjg4IDAgMS42LjcgMS42IDEuNTU1djkuMzMzQzE3IDE1LjMgMTYuMjggMTYgMTUuNCAxNkgyLjZjLS44OCAwLTEuNi0uNy0xLjYtMS41NTZWNS4xMTFjMC0uODU1LjcyLTEuNTU1IDEuNi0xLjU1NWgyLjUzNkw2LjYgMmg0Ljh6TTkgN2MtMS42NTYgMC0zIDEuMzQ0LTMgM3MxLjM0NCAzIDMgMyAzLTEuMzQ0IDMtMy0xLjM0NC0zLTMtM3oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYgNikiLz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==">
+                        </label>
+                    </form>
+                </div>
+
+                <!-- 회원 관리 메뉴 -->
+                <section>
+                    <ul class="account-info">
+                        <a href="#" class="item-container">
+                            <div class="item">
+                                <div class="item-title">닉네임</div>
+                                <div class="item-info">
+                                    <!-- <c:out value="${memberNickname}" /> -->
+                                </div>
+                            </div>
+                            <div>
+                                <img src="	https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+                            </div>
+                        </a>
+                        <a class="item-container" href="#">
+                            <div class="item">
+                                <div class="item-title">이메일</div>
+                                <div class="item-info">
+                                    <!-- <img src="" > -->
+                                    <span>
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="	https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+                            </div>
+                        </a>
+                        <a class="item-container" href="#">
+                            <div class="item">
+                                <div class="item-title">비밀번호</div>
+
+                            </div>
+                            <div>
+                                <img src="	https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+                            </div>
+                        </a>
+                        <div class="btn-container">
+                            <div class="item">
+                                <button type="button" class="btn filter-btn btn-none">
+                                    <c:choose>
+                                        <c:when test="${not empty memberRegion}">
+                                            <c:out value="${memberRegion}"/>
+                                        </c:when>
+                                        <c:otherwise>지역</c:otherwise>
+                                    </c:choose>
+                                </button>
+                                <div class="item-info">
+                                    <c:out value="${memberRegion}"/>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="item-container" href="#">
+                            <div class="item">계정 탈퇴</div>
+                            <div>
+                                <img src="	https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+                            </div>
+                        </a>
+                    </ul>
+
+                    <!-- 회원 탈퇴 -->
+                    <!-- <ul class="delete-account">
+                        <a class="item-container" href="#">
+                            <div class="item">계정 탈퇴</div>
+                            <div>
+                                <img src="	https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+                            </div>
+                        </a>
+                    </ul> -->
+                </section>
+            </main>
+        </div>
+    </div>
+    <div id="search-service-modal___BV_modal_outer_"
+         style="position: absolute; z-index: 1040;">
+        <div id="search-service-modal"
+             class="modal fade show search-pro-filter-modal" style="display: none">
+            <div
+                    class="modal-dialog modal-md modal-dialog-centered mobile-full-modal">
+                <div id="search-service-modal___BV_modal_content_"
+                     class="modal-content">
+                    <div id="search-service-modal___BV_modal_body_" class="modal-body">
+                        <div class="tabs" id="__BVID__782">
+                            <!-- 서비스 지역 -->
+                            <div>
+                                <ul class="nav nav-tabs" id="__BVID__782__BV_tab_controls_">
+                                    <li class="nav-item"><a class="nav-link active"
+                                                            id="__BVID__795___BV_tab_button__">지역</a></li>
+                                    <button class="btn btn-none" type="button">
+                                        <img
+                                                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCI+CiAgICA8ZGVmcz4KICAgICAgICA8cGF0aCBpZD0iYSIgZD0iTTkgNy44NjlMMTYuNDM0LjQzNGwxLjEzMiAxLjEzMkwxMC4xMyA5bDcuNDM1IDcuNDM0LTEuMTMyIDEuMTMyTDkgMTAuMTNsLTcuNDM0IDcuNDM1LTEuMTMyLTEuMTMyTDcuODcgOSAuNDM0IDEuNTY2IDEuNTY2LjQzNCA5IDcuODd6Ii8+CiAgICA8L2RlZnM+CiAgICA8dXNlIGZpbGw9IiMzMjMyMzIiIGZpbGwtcnVsZT0ibm9uemVybyIgeGxpbms6aHJlZj0iI2EiLz4KPC9zdmc+Cg==">
+                                    </button>
+                                </ul>
+                            </div>
+                            <!-- 리스트 -->
+                            <!-- 지역 클릭시 나오는 ul -->
+                            <div class="tab-pane" id="__BVID__783" style="display: block;">
+                                <div class="option-group-selectbox">
+                                    <div class="option-group-selectbox">
+                                        <ul class="area">
+                                            <li class="all level1">전국
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">서울
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">세종
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">강원
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">인천
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">경기
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">충북
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">충남
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">경북
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">대전
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">대구
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">전북
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">울산
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">광주
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            </li>
+                                            <li class="parent level1">경남
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">부산
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">전남
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                            <li class="parent level1">제주
+                                                <div class="bottom-border"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="search-service-modal___BV_modal_backdrop_"
+         class="modal-backdrop" style="display: none"></div>
+</div>
+
+</div>
+
+
+<!-- <
+
+         

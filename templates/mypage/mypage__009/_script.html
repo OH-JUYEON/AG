@@ -1,0 +1,26 @@
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+
+    $(".description-wrapper").hide();
+    $("#label").css("color", "#004DF7");
+
+    // label 클릭 시 이벤트 핸들러
+    $("label").click(function() {
+    var desc_id = $(this).attr("for");
+    var desc = $("#" + desc_id + ".description-wrapper");
+
+    if (desc.is(":visible")) {
+      desc.hide();
+      $("#label").css("color", "black");
+    } else {
+      $(".description-wrapper").hide();
+      $("#label").css("color", "#004DF7");
+      desc.show();
+      $("#label").css("color", "black");
+    }
+    });
+
+
+
+</script>

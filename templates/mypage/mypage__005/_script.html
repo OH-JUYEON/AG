@@ -1,0 +1,56 @@
+
+
+<script>
+    const buttons = document.querySelectorAll(".button")
+    let previousButton = null; // 이전에 클릭한 버튼을 저장할 변수
+    const cardWrapper = document.querySelector(".card-wrapper");
+    const paymentFormsetWrapper = document.querySelector(".payment-formset-wrapper");
+    const paymentCardType = document.querySelector(".payment-card-type");
+    const paymentPhone = document.querySelector(".payment-phone");
+    const radioButtons = document.querySelectorAll(".type-wrapper");
+    const purchaseButton = document.querySelector(".purchase");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        if (previousButton !== null) {
+          // 이전에 클릭한 버튼의 색상을 원래대로 돌리기
+          previousButton.style.backgroundColor = "";
+          previousButton.style.color = "";
+        }
+
+        // 현재 버튼의 색상 변경
+        button.style.backgroundColor = "#3460d1";
+        button.style.color = "white";
+
+        // 이전 버튼 업데이트
+        previousButton = button;
+      });
+    });
+
+    paymentFormsetWrapper.classList.add("hidden");
+
+    // card-wrapper 클릭 시 payment-formset 표시/숨김 전환
+    cardWrapper.addEventListener("click", () => {
+      paymentFormsetWrapper.classList.toggle("hidden");
+    });
+
+
+    cardWrapper.classList.add("hidden");
+
+    paymentCardType.addEventListener("click", () => {
+      cardWrapper.classList.remove("hidden");
+    });
+
+    paymentPhone.addEventListener("click", () => {
+      paymentFormsetWrapper.classList.add("hidden");
+      cardWrapper.classList.add("hidden");
+    });
+
+    // radioButtons.forEach(button => {
+    //   button.addEventListener("click", () => {
+    //     // 하나의 라디오 버튼이 선택되면 purchase 버튼 활성화
+    //     purchaseButton.removeAttribute("disabled");
+    //   });
+    // });
+
+</script>
