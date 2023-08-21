@@ -1,19 +1,4 @@
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var contentDiv = document.getElementById('detail-container');
-        if (contentDiv) {
-            var contentHeight = contentDiv.scrollHeight + 100;
-            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('padding-top'));
-            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('padding-bottom'));
-            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('border-top-width'));
-            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('border-bottom-width'));
-            console.log(contentHeight)
-            document.body.style.height = contentHeight + 'px';
-        }
-    });
-</script>
-
-<script>
     $(document).ready(function () {
         $('#image-gallery').lightSlider({
             gallery: true,

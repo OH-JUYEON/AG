@@ -5,30 +5,23 @@ from member.models import Member
 
 
 # Create your models here.
-class CampaignHeader(Period, Validity):
+class Campaign(Period, Validity):
     member_id = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
-    campaign_header_title = models.CharField(null=False, max_length=256)
-    campaign_header_category = models.CharField(null=False, max_length=100)
-    campaign_header_description = models.CharField(null=False, max_length=100)
+    campaign_title = models.CharField(null=False, max_length=256)
+    campaign_category = models.CharField(null=False, max_length=100)
+    campaign_description1 = models.CharField(null=False, max_length=100)
+    campaign_description2 = models.CharField(null=False, max_length=100)
+    campaign_description3 = models.CharField(null=False, max_length=100)
     campaign_status = models.SmallIntegerField(null=False, default=0)
+    campaign_image = models.ImageField(null=False, blank=False, upload_to='Campaign/%Y/%m/%d')
+    campaign_content = models.CharField(null=False, max_length=10240)
 
     class Meta:
-        db_table = "tbl_campaign_header"
-
-
-class CampaignDetail(models.Model):
-    campaign_header = models.ForeignKey(CampaignHeader, null=False, on_delete=models.CASCADE)
-    campaign_detail_description1 = models.CharField(null=False, max_length=256)
-    campaign_detail_description2 = models.CharField(null=False, max_length=256)
-    campaign_detail_image = models.ImageField(null=False, blank=False, upload_to='CampaignDetail/%Y/%m/%d')
-    campaign_detail_content = models.CharField(null=False, max_length=10240)
-
-    class Meta:
-        db_table = "tbl_campaign_detail"
+        db_table = "tbl_campaign"
 
 
 class CampaignInquiry(Period):
-    campaign_header = models.ForeignKey(CampaignHeader, null=False, on_delete=models.CASCADE)
+    campaign_header = models.ForeignKey(Campaign, null=False, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
     campaign_inquiry_type = models.CharField(null=False, max_length=10)
     campaign_inquiry_content = models.CharField(null=False, max_length=10240)
@@ -48,7 +41,7 @@ class CampaignInquiryAnswer(Period):
 
 
 class CampaignReview(Period):
-    campaign_header = models.ForeignKey(CampaignHeader, null=False, on_delete=models.CASCADE)
+    campaign_header = models.ForeignKey(Campaign, null=False, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
     campaign_review_title = models.CharField(null=False, max_length=50)
     campaign_review_content = models.CharField(null=False, max_length=10240)
@@ -59,7 +52,7 @@ class CampaignReview(Period):
 
 
 class CampaignParticipant(Period):
-    campaign_header = models.ForeignKey(CampaignHeader, null=False, on_delete=models.CASCADE)
+    campaign_header = models.ForeignKey(Campaign, null=False, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
     campaign_participant_role = models.CharField(null=False, max_length=10)
     campaign_participant_status = models.SmallIntegerField(null=False, default=0)
@@ -69,7 +62,7 @@ class CampaignParticipant(Period):
 
 
 class CampaignPhoto(Period):
-    campaign_header = models.ForeignKey(CampaignHeader, null=False, on_delete=models.CASCADE)
+    campaign_header = models.ForeignKey(Campaign, null=False, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
     campaign_header_title = models.CharField(null=False, max_length=10)
     campaign_detail_image = models.ImageField(null=True, blank=False, upload_to='CampaignPhoto/%Y/%m/%d')
