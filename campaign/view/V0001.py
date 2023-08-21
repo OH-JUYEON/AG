@@ -6,4 +6,4 @@ from django.views import View
 class CampaignList(View):
 
     def get(self, request, *args, **kwargs):
-        return render(request, 'campaign/campagin__001/_T001.html')
+        return render(request, 'campaign/campaign__001/_T001.html')

@@ -1,0 +1,162 @@
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/oyftbbpg9czujh22qz99ti5pkpym01nfis0fadhi5mzxxhxv/tinymce/5/tinymce.min.js"
+  referrerpolicy="origin"></script>
+
+<script>
+		tinymce.init({
+			selector: 'textarea#image-tools',
+			height: 474,
+			plugins: [
+				'advlist autolink lists link image charmap print preview anchor',
+				'searchreplace visualblocks code fullscreen',
+				'insertdatetime media table paste imagetools wordcount',
+
+			],
+			toolbar:
+				'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+			content_style:
+				'body { font-family:Helvetica,Arial,sans-serif; font-size:16px; font-weight: 400; }',
+			content_style: `.mce-content-body[data-mce-placeholder]:not(.mce-visualblocks)::before {
+						font-weight: 400;
+						font-size: 16px;
+						line-height: 16px;
+						color: #c0b9bb;
+						fill: #c0b9bb;
+
+					}
+					`,
+			placeholder: '내용을 입력해주세요.',
+		});
+	</script>
+	<script>
+
+			//modal
+			const modal = document.querySelector('#__BVID__1141___BV_modal_outer_');
+			const $list_modal = $(".parent");
+			const cityName = document.querySelector('.btn-area-filter');
+			const imgSrc = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik04IDEuNjY3YzIuNzU4IDAgNSAyLjA2MiA1IDQuNjE2IDAgMi41MTctMS44MDMgNS4xNjgtNC4yMTQgNy40OTdsLS4xNDQuMTM3LS4xOTcuMTg0LS4xMzEuMTE3YS40ODQuNDg0IDAgMCAxLS42Mi4wMDdsLS4xLS4wODVjLS4wMy0uMDI1LS4wNi0uMDUtLjA5MS0uMDc4bC0uMjA0LS4xODEtLjIzLS4yMTMtLjI1My0uMjQzYTE3Ljk4IDE3Ljk4IDAgMCAxLTEuNTc4LTEuNzU3QzMuODM4IDkuODggMyA4LjA1OCAzIDYuMjgzIDMgMy43MyA1LjI0MyAxLjY2NyA4IDEuNjY3em0wIC44OTVjLTIuMjQ5IDAtNC4wNjUgMS42Ny00LjA2NSAzLjcyMSAwIDEuNTQ2Ljc2MSAzLjIgMi4wNTIgNC44NDlhMTcuMDgxIDE3LjA4MSAwIDAgMCAxLjYyIDEuNzg2bC4yMjguMjE0LjE1Ni4xNDMuMTMzLS4xMjdjMi4xNzItMi4wOTggMy44MzQtNC41MDcgMy45MzYtNi42NThsLjAwNS0uMjA3YzAtMi4wNTEtMS44MTYtMy43MjEtNC4wNjUtMy43MjF6bS4xMjUgMi4yMDJjMS4xNTEgMCAyLjA4Ni44OTQgMi4wODYgMS45OTcgMCAxLjEwMi0uOTM1IDEuOTk2LTIuMDg2IDEuOTk2LTEuMTUyIDAtMi4wODctLjg5NC0yLjA4Ny0xLjk5NiAwLTEuMTAzLjkzNS0xLjk5NyAyLjA4Ny0xLjk5N3ptMCAuODk1Yy0uNjM2IDAtMS4xNTIuNDk0LTEuMTUyIDEuMTAyIDAgLjYwOC41MTYgMS4xMDEgMS4xNTIgMS4xMDEuNjM1IDAgMS4xNS0uNDkzIDEuMTUtMS4xMDFzLS41MTUtMS4xMDItMS4xNS0xLjEwMnoiIGZpbGw9IiM4ODg4ODgiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4K";
+			const allCity = document.querySelector('.allcity');
+			let cityChoice = [];
+
+			function open_modal() {
+
+					modal.style.display = 'block';
+			}
+
+			function all_check(num) {
+
+					modal_close();
+
+					let allCitySpan = allCity.querySelector('span');
+					allCitySpan.style.color = '#004DF7';
+					allCity.classList.add('modal-selected');
+					let name = num === 0 ? '지역선택' : allCitySpan.innerText;
+
+					change_name(name);
+
+					let color = num === 0 ? '#737373' : 'black';
+
+					cityName.style.color = color;
+
+
+			}
+
+			function modal_close() {
+					modal.style.display = 'none';
+					list_clear();
+
+					//리스트 색상 초기화
+					$list_modal.each((i, list_li) => {
+							let $list_li = $(list_li);
+							$list_modal.removeClass("modal-list-activate");
+					});
+
+			}
+
+			const liList = document.querySelectorAll('.parent');
+
+			function list_open() {
+					for (let i = 0; i < liList.length; i++) {
+							let id = '.level' + String(i);
+							let obj = document.querySelectorAll(id);
+							liList[i].addEventListener("click", function (e) {
+									obj.forEach((item) => {
+											if (item.style.display === "none" || item.style.display === "") {
+													item.addEventListener("click", function (e) {
+															let detailCheck = document.querySelectorAll('.modal-selected');
+
+
+															detailCheck.forEach((item) => {
+																	item.classList.remove('modal-selected');
+																	item.querySelector('span').style.color = '#323232';
+															});
+
+															change_name(item.innerText);
+															item.style.color = '#004DF7';
+															item.classList.add('modal-selected');
+
+													});
+													item.style.display = "block";
+											} else {
+													item.style.display = "none";
+											}
+									});
+							});
+					}
+			}
+
+			function list_clear() {
+					for (let i = 0; i < liList.length; i++) {
+							let id = '.level' + String(i);
+							let obj = document.querySelectorAll(id);
+							obj.forEach((item) => {
+									item.style.display = "none";
+							});
+
+					}
+			}
+
+			document.addEventListener("DOMContentLoaded", function () {
+					list_open();
+			});
+
+			//지역 이름 변경
+			function change_name(name) {
+					cityName.innerText = name;
+
+					let img = new Image();
+					img.src = imgSrc;
+					cityName.appendChild(img);
+
+					cityName.style.color = 'black';
+					modal.style.display = 'none';
+
+			}
+
+			//모달 - 목록 이벤트
+			$list_modal.each((i, list_li) => {
+					let $list_li = $(list_li);
+
+					$list_li.on("click", () => {
+							$list_modal.removeClass("modal-list-activate");
+							$list_li.addClass("modal-list-activate");
+					})
+			});
+
+
+
+			// 검색창 값 지우기
+			const searchInput = document.querySelector('.form-control');
+			const valueClose = document.querySelector('.input-group-append2');
+
+			searchInput.addEventListener("input", valueCheck, false);
+
+			function valueCheck() {
+					valueClose.style.display = searchInput.value.length >= 1 ? "block" : "none";
+			}
+
+			function valueClear() {
+					searchInput.value = '';
+					valueClose.style.display = 'none';
+			}

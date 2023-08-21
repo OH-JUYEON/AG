@@ -1,0 +1,134 @@
+{% load static %}
+
+		<div class="web-body">
+			<div class="community-container container">
+				<div class="life-container">
+					<section class="write-post-container">
+						<!-- 커뮤니티 선택 선택, 등록 -->
+						<div class="select-subject-header">
+
+							<div class="subject-header-wrapper">
+
+								<section
+									class="post-subject-select-box custom-select sg-text-subhead3 sg-font-medium">
+									<!-- 주제 종류 -->
+									<!-- <select name="카테고리 선택" id="category-choice">
+										<option value="local">지역순찰</option>
+										<option value="cleanning">환경미화</option>
+										<option value="service">봉사활동</option>
+										<option value="campaign">캠페인</option>
+									</select> -->
+									<option>카테고리&nbsp;선택&nbsp;</option>
+								</section>
+								<button type="button"
+									class="btn btn-secondary write-post-submit active">등록</button>
+							</div>
+						</div>
+						<!-- 사진 첨부 -->
+						<div class="attach-file-wrapper">
+							<div class="attach-file-area">
+								<!-- 카메라 사진 -->
+								<div class="add-image-icon"></div>
+								<!-- 사진 인풋 태그 -->
+								<div class="custom-file b-form-file file-input"></div>
+								<!-- 사진 수 -->
+								<span class="image-count sg-text-body2 sg-font-regular">0/15</span>
+							</div>
+						</div>
+						<!-- 글쓰기 -->
+						<div class="editor-body-container is-bottom-margin">
+							<div class="editor-body-wrapper">
+								<!-- 제목 -->
+								<div class="editor-title-wrapper">
+									<div class="editor-title-container">
+										<label class="editor-title-label"> <input type="text"
+											placeholder="제목을 입력해주세요."
+											class="post-title-input sg-text-subhead5 sg-font-medium sg-text-gray-900">
+										</label>
+									</div>
+								</div>
+								<!-- 분단선 -->
+								<div class="divider-wrapper">
+									<hr class="hr-divider">
+								</div>
+								<!-- 서비스, 지역 선택 -->
+								<div class="service-region-wrapper">
+									<button class="category-select-box">
+										<span class="text">(선택) 지역</span>
+									</button>
+									<button class="category-select-box">
+										<span class="text">(선택) 동네</span>
+									</button>
+								</div>
+								<!-- 분단선 -->
+								<div class="divider-wrapper">
+									<hr class="hr-divider">
+								</div>
+								<!-- 본문 -->
+								<main style="margin-top: 48px">
+                  <div class="write-wrapper">
+                    <section class="content">
+                      <div style="margin-bottom: 14px">
+                        <!-- <div>
+                          <label class="title-label" for="title">
+                            <input id="title" class="title-input" placeholder="제목을 입력해주세요." type="text" />
+                          </label>
+                        </div> -->
+                      </div>
+                      <div>
+                        <div style="margin-bottom: 48px">
+                          <textarea id="image-tools"></textarea>
+                        </div>
+												<span class="editor-contents-textarea-placeholder sg-text-body2 sg-font-regular sg-text-gray-500">
+													주제에 맞지 않는 글이나 커뮤니티 이용정책에 위배되어 일정 수 이상 신고를 받는 경우 글이 숨김 및 삭제될 수 있습니다.
+												</span>
+                      </div>
+                    </section>
+                    <!-- <section class="info-wrapper">
+                      <div class="info">
+                        <div class="sub-title">
+                          <div style="display: flex; align-items: center">
+                            <strong class="sub-title-text">접수 이메일</strong>
+                          </div>
+                        </div>
+                        <div class="info-content">
+                          <div class="tag-input-wrapper">
+                            <div style="width: 100%; margin-top: 24px">
+                              <div>
+                                <label class="tag-label" for="email-input">
+                                  <input placeholder="문의 접수 이메일을 입력하세요." id="email-input" type="email" />
+                                </label>
+                                <div class="tag-explain">
+                                  <div class="tag-explain-text">
+                                    이메일을 정확히 입력하세요.
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sub-title">
+                          <div style="display: flex; align-items: center">
+                            <strong class="sub-title-text">파일 첨부</strong>
+                          </div>
+                          <label class="file-upload-label" for="file-upload">
+                            <input style="display: none" type="file" id="file-upload" />
+                            업로드
+                          </label>
+                        </div>
+                        <div class="info-content">
+                          <div class="file-wrapper">
+                            <span class="file-text">첨부된 파일이 없습니다.</span>
+                          </div>
+                        </div> -->
+                      </div>
+                    </section>
+
+                  </div>
+                </main>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>

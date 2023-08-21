@@ -6,7 +6,7 @@ from django.views import View
 class CampaignInquiry(View):
 
     def get(self, request, *args, **kwargs):
-        return render(request, 'campaign/campagin__004/_T004.html')
+        return render(request, 'campaign/campaign-inquiry__001/_T004.html')
 
     def post(self, request, *args, **kwargs):
         return redirect('/campaign/inquiry')

@@ -6,4 +6,4 @@ from django.views import View
 class CampaignDetail(View):
 
     def get(self, request, *args, **kwargs):
-        return render(request, 'campaign/campagin__002/_T002.html')
+        return render(request, 'campaign/campaign-detail__001/_T002.html')

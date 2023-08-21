@@ -1,0 +1,70 @@
+<script>
+$(function() { // 보이기 | 숨기기
+	$(window).scroll(function() {
+    if ($(this).scrollTop() > 50) { //50 넘으면 버튼이 보여짐니다.
+      $('#top-btn').fadeIn();
+    } else {
+      $('#top-btn').fadeOut();
+    }
+}); // 버튼 클릭시
+ 	$("#top-btn").click(function() {
+  	$('html, body').animate({ scrollTop : 0 // 0 까지 animation 이동합니다.
+  	}, 400); // 속도 400
+  	return false;
+	});
+});
+</script>
+
+<script>
+    var clickedElement = null;
+
+    function toggleFontWeight(element) {
+      if (clickedElement !== null && clickedElement !== element) {
+        clickedElement.classList.remove("bold-text");
+      }
+
+      element.classList.toggle("bold-text");
+      clickedElement = element;
+    }
+
+    document.addEventListener("click", function(event) {
+      var target = event.target;
+
+      if (!target.classList.contains("clickable-text")) {
+        if (clickedElement !== null) {
+          clickedElement.classList.remove("bold-text");
+          clickedElement = null;
+        }
+      }
+    });
+    </script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
+<script src="top-button.js"></script>
+<script src="./js/faq-board.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#image-gallery').lightSlider({
+            gallery: true,
+            item: 1,
+            thumbItem: 9,
+            slideMargin: 0,
+            speed: 900,
+            auto: true,
+            loop: true,
+            onSliderLoad: function () {
+                $('#image-gallery').removeClass('cS-hidden');
+            }
+        });
+    });
+
+    const modal = document.querySelector('#que');
+
+    function open_modal() {
+        modal.style.display = 'block';
+    }
+
+    function modal_close() {
+        modal.style.display = 'none';
+    }
+</script>
