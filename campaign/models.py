@@ -12,7 +12,6 @@ class Campaign(Period, Validity):
     campaign_description1 = models.CharField(null=False, max_length=100)
     campaign_description2 = models.CharField(null=False, max_length=100)
     campaign_description3 = models.CharField(null=False, max_length=100)
-    campaign_status = models.SmallIntegerField(null=False, default=0)
     campaign_image = models.ImageField(null=False, blank=False, upload_to='Campaign/%Y/%m/%d')
     campaign_content = models.CharField(null=False, max_length=10240)
 
@@ -21,7 +20,7 @@ class Campaign(Period, Validity):
 
 
 class CampaignInquiry(Period):
-    campaign_header = models.ForeignKey(Campaign, null=False, on_delete=models.CASCADE)
+    campaign = models.ForeignKey(Campaign, null=False, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
     campaign_inquiry_type = models.CharField(null=False, max_length=10)
     campaign_inquiry_content = models.CharField(null=False, max_length=10240)
@@ -41,7 +40,7 @@ class CampaignInquiryAnswer(Period):
 
 
 class CampaignReview(Period):
-    campaign_header = models.ForeignKey(Campaign, null=False, on_delete=models.CASCADE)
+    campaign = models.ForeignKey(Campaign, null=False, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
     campaign_review_title = models.CharField(null=False, max_length=50)
     campaign_review_content = models.CharField(null=False, max_length=10240)
@@ -52,7 +51,7 @@ class CampaignReview(Period):
 
 
 class CampaignParticipant(Period):
-    campaign_header = models.ForeignKey(Campaign, null=False, on_delete=models.CASCADE)
+    campaign = models.ForeignKey(Campaign, null=False, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
     campaign_participant_role = models.CharField(null=False, max_length=10)
     campaign_participant_status = models.SmallIntegerField(null=False, default=0)
@@ -62,7 +61,7 @@ class CampaignParticipant(Period):
 
 
 class CampaignPhoto(Period):
-    campaign_header = models.ForeignKey(Campaign, null=False, on_delete=models.CASCADE)
+    campaign = models.ForeignKey(Campaign, null=False, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
     campaign_header_title = models.CharField(null=False, max_length=10)
     campaign_detail_image = models.ImageField(null=True, blank=False, upload_to='CampaignPhoto/%Y/%m/%d')
