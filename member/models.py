@@ -25,3 +25,23 @@ class Notice(Period):
 
     class Meta:
         db_table = "tbl_notice"
+
+
+class Inquiry(Period):
+    member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
+    inquiry_title = models.CharField(null=False, max_length=1024)
+    inquiry_content = models.CharField(null=False, max_length=10240)
+    inquiry_content =models.ImageField(null=False, blank=False, upload_to='Inquiry/%Y/%m/%d')
+    inquiry_status = models.SmallIntegerField(null=False, default=0)
+
+    class Meta:
+        db_table = "tbl_inquiry"
+
+
+class InquiryAnswer(Period):
+    inquiry = models.ForeignKey(Inquiry, null=False, on_delete=models.CASCADE)
+    member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
+    inquiry_answer_content = models.CharField(null=False, max_length=1024)
+
+    class Meta:
+        db_table = "tbl_inquiry_answer"        

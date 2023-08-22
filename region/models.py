@@ -22,17 +22,16 @@ class CityDetail(models.Model):
     class Meta:
         db_table = "tbl_city_detail"
 
-#
-# class SafetyScoreHeader(Period):
-#     safety_score_header_id = models.IntegerField(primary_key=True)
-#     city_header_id = models.ForeignKey(CityHeader, null=False, on_delete=models.CASCADE)
-#     strd_yr = models.CharField(null=True, max_length=4)
-#     pul = models.IntegerField(null=True)
-#     totl_zrmst = models.IntegerField(null=True)
-#     safety_score = models.IntegerField(null=True)
-#
-#     class Meta:
-#         db_table = "tbl_safety_score_header"
+
+class SafetyScoreHeader(Period):
+    city_header = models.ForeignKey(CityHeader, null=False, on_delete=models.CASCADE)
+    strd_yr = models.CharField(null=True, max_length=4)
+    pul = models.IntegerField(null=True)
+    totl_zrmst = models.IntegerField(null=True)
+    safety_score = models.IntegerField(null=True)
+
+    class Meta:
+        db_table = "tbl_safety_score_header"
 #
 #
 # class SafetyScoreDetail(models.Model):

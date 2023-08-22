@@ -120,7 +120,6 @@ button, input, optgroup, select, textarea {
 
 button, input {
     overflow: visible;
-
 }
 
 input {
@@ -137,11 +136,31 @@ input {
     display: block;
     border-bottom: 0.0625rem solid #f2f2f2;
     height: 4.5rem;
-    position: fixed;
+    position: sticky;
     top: 0;
     background-color: #fff;
-    left: 50%;
-    transform: translate(-50%, -50%);
+}
+
+.united-header-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    height: 3.625rem;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 0.0625rem solid #f2f2f2;
+}
+
+@media (min-width: 992px){
+.united-header-section {
+    height: 4.5rem;
+    padding: 0;
+    border-bottom: none;
+}}
+
+.united-header, .united-header-section {
+    border-bottom: none;
 }
 
 .united-header-section {
@@ -154,7 +173,7 @@ input {
     margin: 0 auto;
     text-align: center;
 }
-/*
+/* 
 .header-box {
     display: none!important;
 } */
@@ -315,26 +334,3 @@ button.log-in .log-in-button {
     display: block;
     line-height: inherit;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
