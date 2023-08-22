@@ -39,7 +39,7 @@ class Inquiry(Period):
 
 
 class InquiryAnswer(Period):
-    funding_inquiry = models.ForeignKey(Inquiry, null=False, on_delete=models.CASCADE)
+    inquiry = models.ForeignKey(Inquiry, null=False, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
     inquiry_answer_content = models.CharField(null=False, max_length=1024)
 
