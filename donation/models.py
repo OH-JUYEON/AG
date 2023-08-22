@@ -9,7 +9,6 @@ class Donation(Period, Validity):
     member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
     donation_title = models.CharField(null=False, max_length=256)
     donation_minimum_amount = models.IntegerField(null=False, default=0)
-    donation_status = models.SmallIntegerField(null=False, default=0)
     donation_description = models.CharField(null=False, max_length=256)
     donation_content = models.CharField(null=False, max_length=10240)
     donation_image = models.ImageField(null=False, blank=False, upload_to='Donation/%Y/%m/%d')
@@ -19,7 +18,7 @@ class Donation(Period, Validity):
 
 
 class DonationInquiry(Period):
-    donation_header = models.ForeignKey(Donation, null=False, on_delete=models.CASCADE)
+    donation = models.ForeignKey(Donation, null=False, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
     donation_inquiry_type = models.CharField(null=False, max_length=10)
     donation_inquiry_content = models.CharField(null=False, max_length=1024)
@@ -39,7 +38,7 @@ class DonationInquiryAnswer(Period):
 
 
 class DonationReply(Period):
-    donation_header = models.ForeignKey(Donation, null=False, on_delete=models.CASCADE)
+    donation = models.ForeignKey(Donation, null=False, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
     donation_reply_content = models.CharField(null=False, max_length=1024)
     donation_status = models.SmallIntegerField(null=False, default=0)
@@ -49,7 +48,7 @@ class DonationReply(Period):
 
 
 class DonationDoner(models.Model):
-    donation_header = models.ForeignKey(Donation, null=False, on_delete=models.CASCADE)
+    donation = models.ForeignKey(Donation, null=False, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
     donate_amount = models.IntegerField(null=False, default=0)
     created_on = models.DateTimeField(auto_now_add=True)
