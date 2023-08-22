@@ -16,3 +16,12 @@ class Member(Period):
 
     class Meta:
         db_table = "tbl_member"
+
+class Notice(Period):
+    member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
+    notice_title =  models.CharField(null=False, max_length=1024)
+    notice_content = models.CharField(null=False, max_length=10240)
+    notice_status = models.SmallIntegerField(null=False, default=0)
+
+    class Meta:
+        db_table = "tbl_notice"
