@@ -1,3 +1,5 @@
+{% load static %}
+
 <style>
     /* 계정설정 css */
  {#@charset "UTF-8";#}
@@ -440,29 +442,30 @@
     }
 
 
-    ul li:not(.disabled).modal-selected:after {
-        content: "";
-        position: absolute;
-        width: 1.5rem;
-        height: 1.5rem;
-        /* background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBDN0FFIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTUgMTEuNjUybDQuODgzIDQuNjk2TDE4LjU2NSA4Ii8+PC9zdmc+); */
-        background-image: url(./check-icon.png);
-        background-repeat: no-repeat;
-        background-size: 13px 13px;
-        top: 0.9rem;
-        right: 0.4rem;
-        /* top: 0.6875rem;
-        right: 1rem; */
-        /* filter: invert(32%) sepia(92%) saturate(6875%) hue-rotate(221deg) brightness(94%) contrast(108%); */
-    }
 
-     .level0, .level1, .level2, .level3, .level4 {
+
+     .level0, .level1, .level2, .level3, .level4, .level5, .level6, .level7, .level8, .level9, .level10, .level11, .level12, .level13, .level14, .level15, .level16 {
         display: none;
     }
 
-    .level0:hover, .level1:hover, .level2:hover, .level3:hover, .level4:hover {
+    .level0:hover, .level1:hover, .level2:hover, .level3:hover, .level4:hover, .level5:hover, .level6:hover, .level7:hover, .level8:hover, .level9:hover, .level10:hover, .level11:hover, .level12:hover, .level13:hover, .level14:hover, .level15:hover, .level16:hover  {
         background-color: #f2f2f2;
     }
+
+    ul li:not(.disabled).modal-selected:after {
+    content: "";
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    /* background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBDN0FFIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTUgMTEuNjUybDQuODgzIDQuNjk2TDE4LjU2NSA4Ii8+PC9zdmc+); */
+    background-image: url('{% static "img/check-icon.png" %}');
+    background-repeat: no-repeat;
+    background-size: 13px 13px;
+    top: 0.9rem;
+    right: 0.4rem;
+    /* filter: invert(32%) sepia(92%) saturate(6875%) hue-rotate(221deg) brightness(94%) contrast(108%); */
+}
+
 
     /* 닫기 버튼 */
     .search-pro-filter-modal .tabs .btn {

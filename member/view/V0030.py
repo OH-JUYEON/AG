@@ -22,7 +22,7 @@ class ActivityModify(View):
                 'campaign_title':key.campaign_header.campaign_title,
                 'campaign_id':key.campaign_header_id,
                 'campaign_description1':key.campaign_header.campaign_description1,
-                'campaign_image':key.campaign_header.campaign_image,
+                'campaign_image':key.campaign_header.campaign_image.url,
                 'reviewstatus':reviewstatus
             }
             
@@ -42,7 +42,7 @@ class ActivityModify(View):
                 'campaign_title':key.campaign_header.campaign_title,
                 'campaign_id':key.campaign_header_id,
                 'campaign_description1':key.campaign_header.campaign_description1,
-                'campaign_image':key.campaign_header.campaign_image,
+                'campaign_image':key.campaign_header.campaign_image.url,
                 'reviewstatus':reviewstatus
             }
             

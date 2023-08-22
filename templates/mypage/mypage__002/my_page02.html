@@ -14,16 +14,19 @@
                 <h1>계정 설정</h1>
                 <div class="profile-image">
                     <div class="user-profile-picture h-100">
-
-                        <img src="{% static 'img/img.jpg' %}">
+                        {% if context.member_image %}
+                            <img src="{{context.member_image}}">
+                        {% else %}
+                            <img src="{% static 'img/img.jpg' %}">
+                        {% endif %}
 
                     </div>
                     <form id="form" action="accountFileSettingOk.member" enctype="multipart/form-data"
                           method="post">
                         <label for="input-file" class="attach">
                             <input type="file" id="input-file" class="upload" name="upload">
-                            <img class="camera-icon"
-                                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGc+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYwMyAtMjg2KSB0cmFuc2xhdGUoNTM1IDIxOCkgdHJhbnNsYXRlKDY4IDY4KSB0cmFuc2xhdGUoMSAxKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjE1IiBmaWxsPSIjRkZGIiBzdHJva2U9IiNGMkYyRjIiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICAgICAgICAgICAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTAgMEwxOCAwIDE4IDE4IDAgMTh6IiBvcGFjaXR5PSIuNCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNiA2KSIvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZmlsbD0iI0I1QjVCNSIgZmlsbC1ydWxlPSJub256ZXJvIiBkPSJNMTEuNCAybDEuNDY0IDEuNTU2SDE1LjRjLjg4IDAgMS42LjcgMS42IDEuNTU1djkuMzMzQzE3IDE1LjMgMTYuMjggMTYgMTUuNCAxNkgyLjZjLS44OCAwLTEuNi0uNy0xLjYtMS41NTZWNS4xMTFjMC0uODU1LjcyLTEuNTU1IDEuNi0xLjU1NWgyLjUzNkw2LjYgMmg0Ljh6TTkgN2MtMS42NTYgMC0zIDEuMzQ0LTMgM3MxLjM0NCAzIDMgMyAzLTEuMzQ0IDMtMy0xLjM0NC0zLTMtM3oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYgNikiLz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==">
+                            <!-- <img class="camera-icon"
+                                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGc+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYwMyAtMjg2KSB0cmFuc2xhdGUoNTM1IDIxOCkgdHJhbnNsYXRlKDY4IDY4KSB0cmFuc2xhdGUoMSAxKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjE1IiBmaWxsPSIjRkZGIiBzdHJva2U9IiNGMkYyRjIiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICAgICAgICAgICAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTAgMEwxOCAwIDE4IDE4IDAgMTh6IiBvcGFjaXR5PSIuNCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNiA2KSIvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZmlsbD0iI0I1QjVCNSIgZmlsbC1ydWxlPSJub256ZXJvIiBkPSJNMTEuNCAybDEuNDY0IDEuNTU2SDE1LjRjLjg4IDAgMS42LjcgMS42IDEuNTU1djkuMzMzQzE3IDE1LjMgMTYuMjggMTYgMTUuNCAxNkgyLjZjLS44OCAwLTEuNi0uNy0xLjYtMS41NTZWNS4xMTFjMC0uODU1LjcyLTEuNTU1IDEuNi0xLjU1NWgyLjUzNkw2LjYgMmg0Ljh6TTkgN2MtMS42NTYgMC0zIDEuMzQ0LTMgM3MxLjM0NCAzIDMgMyAzLTEuMzQ0IDMtMy0xLjM0NC0zLTMtM3oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYgNikiLz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="> -->
                         </label>
                     </form>
                 </div>
@@ -35,53 +38,45 @@
                             <div class="item">
                                 <div class="item-title">닉네임</div>
                                 <div class="item-info">
-                                    <!-- <c:out value="${memberNickname}" /> -->
+                                    {{context.member_name}}
                                 </div>
                             </div>
-                            <div>
+                            <!-- <div>
                                 <img src="	https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-                            </div>
+                            </div> -->
                         </a>
-                        <a class="item-container" href="#">
+                        <a class="item-container" href="/member/mypage/email/?email={{context.member_email}}&id={{context.member_id}}">
                             <div class="item">
                                 <div class="item-title">이메일</div>
                                 <div class="item-info">
-                                    <!-- <img src="" > -->
+                                    {{context.member_email}}
                                     <span>
 
                                     </span>
                                 </div>
                             </div>
                             <div>
-                                <img src="	https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+                                <img src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
                             </div>
                         </a>
-                        <a class="item-container" href="#">
-                            <div class="item">
-                                <div class="item-title">비밀번호</div>
-
-
-                            </div>
-                            <div>
-                                <img src="	https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-                            </div>
-                        </a>
+                 
                         <div class="btn-container">
                             <div class="item">
-                                <button type="button" class="btn filter-btn btn-none">
-                                    <c:choose>
+                                <button type="button" class="btn filter-btn btn-none" onclick="open_modal()">
+                                    <span class="region" style="color: #333;">{{context.city_detail_name}}</span>
+                                    <!-- <c:choose>
                                         <c:when test="${not empty memberRegion}">
                                             <c:out value="${memberRegion}"/>
                                         </c:when>
-                                        <c:otherwise>지역</c:otherwise>
-                                    </c:choose>
+                                        <c:otherwise>{{context.city_name}}</c:otherwise>
+                                    </c:choose> -->
                                 </button>
                                 <div class="item-info">
                                     <c:out value="${memberRegion}"/>
                                 </div>
                             </div>
                         </div>
-                        <a class="item-container" href="#">
+                        <a class="item-container" href="/member/mypage/account/delete/?id={{context.member_id}}">
                             <div class="item">계정 탈퇴</div>
                             <div>
                                 <img src="	https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
@@ -102,6 +97,8 @@
             </main>
         </div>
     </div>
+    {% csrf_token %}
+
     <div id="search-service-modal___BV_modal_outer_"
          style="position: absolute; z-index: 1040;">
         <div id="search-service-modal"
@@ -136,10 +133,6 @@
                             <div class="modal-body">
                                 <div class="option-group-selectbox">
                                     <ul class="modal-ul">
-                                        <li class="modal-li modal-selected allcity" onclick="all_check( 1 )">
-                                            <span style="color: #004DF7;" onclick="all_check( 1 )">전국</span><!---->
-                                            <div class="bottom-border"></div>
-                                        </li>
                                         <li class="parent modal-li"><span>서울</span>
                                             <div class="loading-indicator" style="display: none;">
                                                 <div class="indicator-body center"
@@ -147,10 +140,6 @@
                                                 </div>
                                                 <p style="display: none;"></p>
                                             </div>
-                                            <div class="bottom-border"></div>
-                                        </li>
-
-                                        <li class="level0 modal-li detail"><span>서울 전체</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
                                         <li class="level0 modal-li detail"><span>강남구</span><!---->
@@ -238,9 +227,6 @@
                                             </div>
                                             <div class="bottom-border"></div>
                                         </li>
-                                        <li class="level1 modal-li detail"><span>세종 전체</span><!---->
-                                            <div class="bottom-border"></div>
-                                        </li>
                                         <li class="level1 modal-li detail"><span>세종</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
@@ -251,9 +237,6 @@
                                                 </div>
                                                 <p style="display: none;"></p>
                                             </div>
-                                            <div class="bottom-border"></div>
-                                        </li>
-                                        <li class="level2 modal-li detail"><span>강원 전체</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
                                         <li class="level2 modal-li detail"><span>강릉시</span><!---->
@@ -323,10 +306,6 @@
                                             </div>
                                             <div class="bottom-border"></div>
                                         </li>
-
-                                        <li class="level3 modal-li detail"><span>인천 전체</span><!---->
-                                            <div class="bottom-border"></div>
-                                        </li>
                                         <li class="level3 modal-li detail"><span>강화군</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
@@ -365,10 +344,6 @@
                                                 </div>
                                                 <p style="display: none;"></p>
                                             </div>
-                                            <div class="bottom-border"></div>
-                                        </li>
-
-                                        <li class="level4 modal-li detail"><span>경기 전체</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
                                         <li class="level4 modal-li detail"><span>가평군</span><!---->
@@ -432,10 +407,6 @@
                                             </div>
                                             <div class="bottom-border"></div>
                                         </li>
-
-                                        <li class="level5 modal-li detail"><span>충북 전체</span><!---->
-                                            <div class="bottom-border"></div>
-                                        </li>
                                         <li class="level5 modal-li detail"><span>괴산군</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
@@ -486,10 +457,6 @@
                                                 </div>
                                                 <p style="display: none;"></p>
                                             </div>
-                                            <div class="bottom-border"></div>
-                                        </li>
-
-                                        <li class="level6 modal-li detail"><span>충남 전체</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
                                         <li class="level6 modal-li detail"><span>계룡시</span><!---->
@@ -548,10 +515,6 @@
                                                 </div>
                                                 <p style="display: none;"></p>
                                             </div>
-                                            <div class="bottom-border"></div>
-                                        </li>
-
-                                        <li class="level7 modal-li detail"><span>경북 전체</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
                                         <li class="level7 modal-li detail"><span>경산시</span><!---->
@@ -636,10 +599,6 @@
                                             </div>
                                             <div class="bottom-border"></div>
                                         </li>
-
-                                        <li class="level8 modal-li detail"><span>대전 전체</span><!---->
-                                            <div class="bottom-border"></div>
-                                        </li>
                                         <li class="level8 modal-li detail"><span>대덕구</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
@@ -663,10 +622,6 @@
                                                 </div>
                                                 <p style="display: none;"></p>
                                             </div>
-                                            <div class="bottom-border"></div>
-                                        </li>
-
-                                        <li class="level9 modal-li detail"><span>대구 전체</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
                                         <li class="level9 modal-li detail"><span>남구</span><!---->
@@ -701,10 +656,6 @@
                                                 </div>
                                                 <p style="display: none;"></p>
                                             </div>
-                                            <div class="bottom-border"></div>
-                                        </li>
-
-                                        <li class="level10 modal-li detail"><span>전북 전체</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
                                         <li class="level10 modal-li detail"><span>고창군</span><!---->
@@ -760,10 +711,6 @@
                                                 </div>
                                                 <p style="display: none;"></p>
                                             </div>
-                                            <div class="bottom-border"></div>
-                                        </li>
-
-                                        <li class="level11 modal-li detail"><span>경남 전체</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
                                         <li class="level11 modal-li detail"><span>거제시</span><!---->
@@ -842,10 +789,6 @@
                                             </div>
                                             <div class="bottom-border"></div>
                                         </li>
-
-                                        <li class="level12 modal-li detail"><span>울산 전체</span><!---->
-                                            <div class="bottom-border"></div>
-                                        </li>
                                         <li class="level12 modal-li detail"><span>남구</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
@@ -871,10 +814,6 @@
                                             </div>
                                             <div class="bottom-border"></div>
                                         </li>
-
-                                        <li class="level13 modal-li detail"><span>광주 전체</span><!---->
-                                            <div class="bottom-border"></div>
-                                        </li>
                                         <li class="level13 modal-li detail"><span>광산구</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
@@ -898,10 +837,6 @@
                                                 </div>
                                                 <p style="display: none;"></p>
                                             </div>
-                                            <div class="bottom-border"></div>
-                                        </li>
-
-                                        <li class="level14 modal-li detail"><span>부산 전체</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
                                         <li class="level14 modal-li detail"><span>강서구</span><!---->
@@ -960,10 +895,6 @@
                                                 </div>
                                                 <p style="display: none;"></p>
                                             </div>
-                                            <div class="bottom-border"></div>
-                                        </li>
-
-                                        <li class="level15 modal-li detail"><span>전남 전체</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
                                         <li class="level15 modal-li detail"><span>강진군</span><!---->
@@ -1040,10 +971,6 @@
                                                 </div>
                                                 <p style="display: none;"></p>
                                             </div>
-                                            <div class="bottom-border"></div>
-                                        </li>
-
-                                        <li class="level16 modal-li detail"><span>제주 전체</span><!---->
                                             <div class="bottom-border"></div>
                                         </li>
                                         <li class="level16 modal-li detail"><span>서귀포시</span><!---->

@@ -16,8 +16,10 @@
                         <legend class="bv-no-focus-ring col-form-label pt-0">
                             이메일
                         </legend>
-                        <form action="" id="form">
-                            <input name="memberEmail" type="text" placeholder="" class="form-control is-valid" value="">
+                        <form action="/member/mypage/email/" method="post" id="form">
+                            {% csrf_token %}
+                            <input name="memberEmail" type="text" placeholder="" class="form-control is-valid" value="{{email}}">
+                            <input type="hidden" name="member_id" value="{{id}}">
                             <div class="invalid-feedback" id="pw-text">이메일 주소를 입력해주세요.</div>
                         </form>
                     </fieldset>
@@ -25,8 +27,9 @@
                 <footer class="button-group">
                     <a href="accountSettingOk.member" class="btn btn-cancel btn-active btn-outline-secondary"
                        target="_self">취소</a>
-                    <button form="form" type="submit" class="btn btn-primary" id="button">수정 완료</button>
+                    <button type="submit" class="btn btn-primary" id="button">수정 완료</button>
                 </footer>
+            </form>
             </main>
         </div>
     </div>

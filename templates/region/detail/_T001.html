@@ -1,0 +1,24 @@
+<html lang="ja">
+
+<head>
+    {% include "../../base/__load__.html" %}
+    <title>{% block title %}{% endblock %}</title>
+    {% include "../../base/__style__.html" %}
+    {% include "./_style.html" %}
+</head>
+
+<body class="home">
+    <div id="app" data-browser="Chrome" data-is-loaded="true">
+
+        {% include "../../base/__header__.html" %}
+        {% include "./pay01.html" %}
+        {% include "../../base/__footer__.html" %}
+    </div>
+
+    {% include "./modal01.html" %}
+    {% include "./modal02.html" %}
+
+    {% include "./_script.html" %}
+</body>
+
+</html>
