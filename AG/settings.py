@@ -174,9 +174,12 @@ STATICFILES_DIRS = [
 ]
 
 # 파일 접근 시
-MEDIA_URL = '/upload/'
+# MEDIA_URL = '/upload/'
 
-# 파일 업로드 시
+# # 파일 업로드 시
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
+
+MEDIA_URL = '/upload/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
 
 # Default primary key field type

@@ -1,7 +1,7 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
-        document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
         var contentDiv = document.getElementById('community');
         if (contentDiv) {
             var contentHeight = contentDiv.scrollHeight + 100;
@@ -16,120 +16,175 @@
 </script>
 
 <script>
-  
 
-  let currentCurationIndex = 0;
 
-  document.querySelectorAll(".topic-link-item").forEach(function(topicLink, index) {
-      topicLink.addEventListener("click", function() {
-          const count = document.querySelector(".curation-page");
-          const tracks = document.querySelectorAll(".slick-track");
-          const slickPrevButtons = document.querySelectorAll(".slick-prev");
-          const slickNextButtons = document.querySelectorAll(".slick-next");
+for (let i = 0; i < 2; i++) {
+    let dataCnt;
 
-          count.textContent = "1/2";
+    if (i === 0){
+        dataCnt = {{ len1 }};
+    } else if(i === 1){
+        dataCnt = {{ len2 }};
+    }
+    
+    
+    let cnt = Math.ceil(dataCnt / 3);
 
-          const track = tracks[currentCurationIndex];
-          const prevButton = slickPrevButtons[currentCurationIndex];
-          const nextButton = slickNextButtons[currentCurationIndex];
+    let pro_count = 0;
+    const $slide = $(`.slick-track${i}`); //앞으로가기
+    const $pro_prev = $(`.slick-prev${i}`); //앞으로가기
+    const $pro_next = $(`.slick-next${i}`); //뒤로가기
+    const $pro_track = $(`.slick-track${i}`); //베너 트렉
+    const $count = $(`.curation-page${i}`); //카운트
+    
+    let text = `${pro_count + 1}/${cnt}`
+    $count.text(text);
 
-          prevButton.style.display = "none";
-          nextButton.style.display = "block";
-          track.style.transform = "translate3d(0px, 0px, 0px)";
-          track.style.transition = "0.7s";
+    $slide.css("width", 612*cnt); 
+    if (cnt < 2) {
+        $pro_next.css("display", "none");
+    }
+    $pro_prev.on("click", function () {
+        pro_count -= 1;
+        text = `${pro_count + 1}/${cnt}`
+        $count.text(text);
+        $pro_track.css("transform", `translate3d(${-612 * pro_count}px, 0px, 0px)`);
+        $pro_track.css("transition", "0.7s");
+        if (pro_count < cnt) {
+            $pro_next.css("display", "block"); //앞으로가기 버튼 보이게하고
+        }
+        if (pro_count == 0) {
+            $pro_prev.css("display", "none"); //뒤로가기 버튼 안보이게하고
+        }
+    });
 
-          currentCurationIndex = index;
-      });
-  });
+    $pro_next.on("click", function () {
+        pro_count += 1;
+        text = `${pro_count + 1}/${cnt}`
+        $count.text(text);
+        $pro_track.css("transform", `translate3d(${-612 * pro_count}px, 0px, 0px)`);
+        $pro_track.css("transition", "0.7s");
+        $pro_prev.css("display", "block");
 
-  let currentContent = document.querySelector(".content0");
-
-  for (let i = 0; i < 5; i++) {
-      const list = document.querySelector(`.router-link-active${i}`);
-      const content = document.querySelector(`.content${i}`);
-
-      if (i !== 0) {
-          content.style.display = "none";
-      }
-
-      list.addEventListener("click", function() {
-          if (currentContent !== content) {
-              for (let j = 0; j < 5; j++) {
-                  const link = document.querySelector(`.router-link-active${j}`);
-                  const contentJ = document.querySelector(`.content${j}`);
-
-                  if (j === i) {
-                      link.style.background = "#d1f3ff";
-                      link.querySelector("span").style.fontWeight = "700";
-                      link.querySelector("span").style.color = "rgb(45, 45, 45)";
-                      contentJ.style.display = "block";
-                  } else {
-                      link.style.background = "none";
-                      link.querySelector("span").style.fontWeight = "400";
-                      link.querySelector("span").style.color = "rgb(169, 169, 169)";
-                      contentJ.style.display = "none";
-                  }
-              }
-              currentContent = content;
-          }
-      });
+        if (pro_count == cnt - 1) {
+            $pro_next.css("display", "none"); //앞으로가기 버튼 안보이게하고
+        }
+    });
+    
   }
-
-
-
-  const slickPrevButtons = document.querySelectorAll(".slick-prev");
-  const slickNextButtons = document.querySelectorAll(".slick-next");
-  const tracks = document.querySelectorAll(".slick-track");
-  const count = document.querySelector(".curation-page");
-
-
-
-  slickPrevButtons.forEach(function(prevButton, index) {
-    const nextButton = slickNextButtons[index];
-    const track = tracks[index];
     
-    prevButton.addEventListener("click", function() {
-      prevButton.style.display = "none";
-      nextButton.style.display = "block";
-      count.textContent = `1/2`;
-      track.style.transform = "translate3d(0px, 0px, 0px)";
-      track.style.transition = "0.7s";
-    });
-  });
 
-  slickNextButtons.forEach(function(nextButton, index) {
-    const prevButton = slickPrevButtons[index];
-    const track = tracks[index];
-    
-    nextButton.addEventListener("click", function() {
-      nextButton.style.display = "none";
-      prevButton.style.display = "block";
-      count.textContent = `2/2`;
-      track.style.transform = "translate3d(-612px, 0px, 0px)";
-      track.style.transition = "0.7s";
-    });
-  });
+    // document.querySelectorAll(".topic-link-item").forEach(function (topicLink, index) {
+    //     topicLink.addEventListener("click", function () {
+    //         const count = document.querySelector(".curation-page");
+    //         const tracks = document.querySelectorAll(".slick-track");
+    //         const slickPrevButtons = document.querySelectorAll(".slick-prev");
+    //         const slickNextButtons = document.querySelectorAll(".slick-next");
 
-  $(document).ready(function(){
-      const $top_btn = $(".top-btn");
-      
-      // 초기에는 버튼을 숨김
-      $top_btn.hide();
-      
-      // 스크롤 이벤트 리스너
-      $(window).scroll(function(){
-          if ($(this).scrollTop() > 100) {
-              $top_btn.fadeIn();
-          } else {
-              $top_btn.fadeOut();
-          }
-      });
-      
-      // 클릭 이벤트 리스너
-      $top_btn.click(function(){
-          $('html, body').animate({scrollTop : 0}, 800);
-          return false;
-      });
-  });
+    //         allCount =
+    //             count.textContent = "1/2";
+
+    //         const track = tracks[currentCurationIndex];
+    //         const prevButton = slickPrevButtons[currentCurationIndex];
+    //         const nextButton = slickNextButtons[currentCurationIndex];
+
+    //         prevButton.style.display = "none";
+    //         nextButton.style.display = "block";
+    //         track.style.transform = "translate3d(0px, 0px, 0px)";
+    //         track.style.transition = "0.7s";
+
+    //         currentCurationIndex = index;
+    //     });
+    // });
+
+    let currentContent = document.querySelector(".content0");
+
+    for (let i = 0; i < 5; i++) {
+        const list = document.querySelector(`.router-link-active${i}`);
+        const content = document.querySelector(`.content${i}`);
+
+        if (i !== 0) {
+            content.style.display = "none";
+        }
+
+        list.addEventListener("click", function () {
+            if (currentContent !== content) {
+                for (let j = 0; j < 5; j++) {
+                    const link = document.querySelector(`.router-link-active${j}`);
+                    const contentJ = document.querySelector(`.content${j}`);
+
+                    if (j === i) {
+                        link.style.background = "#d1f3ff";
+                        link.querySelector("span").style.fontWeight = "700";
+                        link.querySelector("span").style.color = "rgb(45, 45, 45)";
+                        contentJ.style.display = "block";
+                    } else {
+                        link.style.background = "none";
+                        link.querySelector("span").style.fontWeight = "400";
+                        link.querySelector("span").style.color = "rgb(169, 169, 169)";
+                        contentJ.style.display = "none";
+                    }
+                }
+                currentContent = content;
+            }
+        });
+    }
+
+
+
+    // const slickPrevButtons = document.querySelectorAll(".slick-prev");
+    // const slickNextButtons = document.querySelectorAll(".slick-next");
+    // const tracks = document.querySelectorAll(".slick-track");
+    // const count = document.querySelector(".curation-page");
+
+
+
+    // slickPrevButtons.forEach(function (prevButton, index) {
+    //     const nextButton = slickNextButtons[index];
+    //     const track = tracks[index];
+
+    //     prevButton.addEventListener("click", function () {
+    //         prevButton.style.display = "none";
+    //         nextButton.style.display = "block";
+    //         count.textContent = `1/2`;
+    //         track.style.transform = "translate3d(0px, 0px, 0px)";
+    //         track.style.transition = "0.7s";
+    //     });
+    // });
+
+    // slickNextButtons.forEach(function (nextButton, index) {
+    //     const prevButton = slickPrevButtons[index];
+    //     const track = tracks[index];
+
+    //     nextButton.addEventListener("click", function () {
+    //         nextButton.style.display = "none";
+    //         prevButton.style.display = "block";
+    //         count.textContent = `2/2`;
+    //         track.style.transform = "translate3d(-612px, 0px, 0px)";
+    //         track.style.transition = "0.7s";
+    //     });
+    // });
+
+    $(document).ready(function () {
+        const $top_btn = $(".top-btn");
+
+        // 초기에는 버튼을 숨김
+        $top_btn.hide();
+
+        // 스크롤 이벤트 리스너
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $top_btn.fadeIn();
+            } else {
+                $top_btn.fadeOut();
+            }
+        });
+
+        // 클릭 이벤트 리스너
+        $top_btn.click(function () {
+            $('html, body').animate({ scrollTop: 0 }, 800);
+            return false;
+        });
+    });
 
 </script>

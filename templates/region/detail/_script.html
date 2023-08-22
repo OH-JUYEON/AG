@@ -1,0 +1,36 @@
+<script>
+
+    const modal1 = document.querySelector('#rul_1');
+
+    function open_modal1() {
+        modal1.style.display = 'block';
+    }
+
+    function modal1_close() {
+        modal1.style.display = 'none';
+    }
+
+    const modal2 = document.querySelector('#rul_2');
+
+    function open_modal2() {
+        modal1.style.display = 'block';
+    }
+
+    function modal2_close() {
+        modal1.style.display = 'none';
+    }
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var contentDiv = document.getElementById('app-body');
+        if (contentDiv) {
+            var contentHeight = contentDiv.scrollHeight + 100;
+            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('padding-top'));
+            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('padding-bottom'));
+            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('border-top-width'));
+            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('border-bottom-width'));
+            console.log(contentHeight)
+            document.body.style.height = contentHeight + 'px';
+        }
+    });
+</script>

@@ -1,9 +1,10 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-<script>
+<!-- <script>
   /* 모달창 */
   let modalCheck;
   function showWarnModal(modalMessage){
+    console.log(1111111111111)
       modalCheck = false;
       $("div#content-wrap").html(modalMessage)
       $("div.warn-modal").css("animation", "popUp 0.5s");
@@ -17,7 +18,7 @@
           $("div.modal").fadeOut(500);
       }
   });
-</script>
+</script> -->
 
 <script>
    /* 지역변경 모달창*/
@@ -80,3 +81,191 @@
   });
 </script>
 
+<script>
+    //modal
+    const modal = document.querySelector('#search-service-modal___BV_modal_outer_');
+    const $list_modal = $(".parent");
+    const cityName = document.querySelector('.region');
+    // const allCity = document.querySelector('.allcity');
+    const data = {{ context | safe }};
+    let num = -1;
+    
+    let cityChoice = [];
+
+    function open_modal() {
+
+        modal.style.display = 'block';
+ 
+    }
+
+    // function all_check(num) {
+
+    //     modal_close();
+
+    //     let allCitySpan = allCity.querySelector('span');
+    //     allCitySpan.style.color = '#004DF7';
+    //     allCity.classList.add('modal-selected');
+    //     let name = num === 0 ? '지역선택' : allCitySpan.innerText;
+
+    //     change_name(name);
+
+    //     let color = num === 0 ? '#737373' : 'black';
+
+    //     cityName.style.color = color;
+
+
+    // }
+
+    // function modal_close() {
+    //     modal.style.display = 'none';
+    //     list_clear();
+
+    //     //리스트 색상 초기화
+    //     $list_modal.each((i, list_li) => {
+    //         let $list_li = $(list_li);
+    //         $list_modal.removeClass("modal-list-activate");
+    //     });
+
+    // }
+
+    const liList = document.querySelectorAll('.parent');
+
+    function list_open() {
+        for (let i = 0; i < liList.length; i++) {
+            let id = '.level' + String(i);
+            let obj = document.querySelectorAll(id);
+
+            liList[i].addEventListener("click", function (e) {
+          
+                obj.forEach((item) => {
+
+                    if (item.style.display === "none" || item.style.display === "") {
+                        item.addEventListener("click", function (e) {
+                            let detailCheck = document.querySelectorAll('.modal-selected');
+
+
+                            detailCheck.forEach((item) => {
+                                item.classList.remove('modal-selected');
+                                item.querySelector('span').style.color = '#323232';
+                            });
+
+                            change_name(liList[i].innerText,item.querySelector('span').innerHTML);
+                            item.style.color = '#004DF7';
+                            item.classList.add('modal-selected');
+
+                        });
+                        item.style.display = "block";
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+            });
+
+
+
+            //초기 세팅
+            if(liList[i].querySelector('span').innerHTML === data.city_name){
+                num = i;
+                liList[i].style.backgroundColor = '#f2f2f2'
+                obj.forEach((item) => {
+
+                    if (item.style.display === "none" || item.style.display === "") {
+                        item.addEventListener("click", function (e) {
+                            let detailCheck = document.querySelectorAll('.modal-selected');
+
+
+                            detailCheck.forEach((item) => {
+                                item.classList.remove('modal-selected');
+                                item.querySelector('span').style.color = '#323232';
+                            });
+
+                            change_name(liList[i].innerText, item.querySelector('span').innerHTML);
+                            item.style.color = '#004DF7';
+                            item.classList.add('modal-selected');
+
+                        });
+                        item.style.display = "block";
+                    } else {
+                        item.style.display = "none";
+                    }
+
+
+    
+                    if(item.querySelector('span').innerHTML === data.city_detail_name){
+                        item.querySelector('span').style.color = 'rgb(0, 77, 247)';
+                        item.classList.add('modal-selected');
+                    }
+                    item.style.display = "block";
+                })
+          
+            } 
+        }
+    }
+
+    // function list_clear() {
+    //     for (let i = 0; i < liList.length; i++) {
+    //         let id = '.level' + String(i);
+    //         let obj = document.querySelectorAll(id);
+    //         obj.forEach((item) => {
+    //             item.style.display = "none";
+    //         });
+
+    //     }
+    // }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        list_open();
+    });
+
+    //지역 이름 변경
+    function change_name(header_name, detail_name) {
+
+        // CSRF 토큰 가져오기
+        let csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+
+        // 서버로 보낼 데이터 구성
+        let dataToSend = {
+            city_header_name: header_name,
+            city_detail_name: detail_name,
+            member_id: data.member_id,
+        };
+
+        // 요청 헤더에 CSRF 토큰 추가
+        let headers = {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken, // 이 부분이 중요합니다
+        };
+
+        // 서버로 데이터를 전송합니다.
+        fetch('/member/mypage/account/', {
+            method: 'POST',
+            headers: headers, // 요청 헤더에 CSRF 토큰을 추가
+            body: JSON.stringify(dataToSend),
+        })
+        .then(response => response.json())
+        .then(data => {
+            // 서버로부터 받은 응답 데이터를 처리합니다.
+            console.log(data.result);
+        })
+        .catch(error => {
+            // 오류 처리
+            console.error('Error:', error);
+        });
+        
+        cityName.innerText = detail_name;
+        cityName.style.color = 'black';
+        modal.style.display = 'none';
+
+
+    }
+
+    //모달 - 목록 이벤트
+    $list_modal.each((i, list_li) => {
+        let $list_li = $(list_li);
+
+        $list_li.on("click", () => {
+            $list_modal.removeClass("modal-list-activate");
+            $list_li.addClass("modal-list-activate");
+        })
+    });
+</script>

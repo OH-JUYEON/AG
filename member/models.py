@@ -12,6 +12,7 @@ class Member(Period):
     member_email = models.CharField(null=False, max_length=100)
     member_grade = models.SmallIntegerField(default=None, null=True)
     member_image = models.ImageField(null=False, blank=False, upload_to='Member/%Y/%m/%d')
+    status = models.SmallIntegerField(null=False, default=0)
 
     class Meta:
         db_table = "tbl_member"
