@@ -1,0 +1,52 @@
+<script>
+
+const $listItems = document.querySelectorAll('.side-navigation-list');
+
+$listItems.forEach(listItem => {
+    const $icon = listItem.querySelector('.list-icon'); // 현재 리스트 아이템에 속한 아이콘을 선택
+
+    listItem.addEventListener('mouseover', function() {
+        $icon.style.color = 'blue';
+        $icon.style.fill = 'blue';
+    });
+
+    listItem.addEventListener('mouseout', function() {
+        $icon.style.color = ''; // 기본 색상으로 복원
+        $icon.style.fill = '';  // 기본 색상으로 복원
+    });
+});
+
+
+// HTML의 캔버스 요소 가져오기
+var ctx = document.getElementById('myChart').getContext('2d');
+
+// 차트 데이터 준비
+var data = {
+  labels: ['login', 'post', 'pay', 'campaign', 'funding', 'donate'],
+  datasets: [{
+    label: 'active rate',
+    data: [12, 19, 3, 5, 2, 3],
+    backgroundColor: [
+      '#525FE1', '#F86F03', '#FFA41B', '#FFDEDE', '#A1C2F1', '#090580'
+    ],
+    borderColor: [
+      '#525FE1', '#F86F03', '#FFA41B', '#FFDEDE', '#A1C2F1', '#090580'
+    ],
+    borderWidth: 1
+  }]
+};
+
+// 차트 생성
+var myChart = new Chart(ctx, {
+  type: 'bar', // 막대 차트
+  data: data,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+</script>
