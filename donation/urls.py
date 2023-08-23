@@ -5,7 +5,7 @@ from donation.view import V0001, V0010
 app_name = 'donation'
 
 urlpatterns = [
-    path("detail/<int:donation_detail_id>/", V0001.DonationDetail.as_view(), name="detail"),
+    path("detail/<int:donation_id>/", V0001.DonationDetail.as_view(), name="detail"),
     path("inquiry/",
     include(
         [

@@ -13,16 +13,12 @@ class DonationDetail(View):
 
         donation = get_object_or_404(Donation, id=donation_id)
 
-        context = {
-            'donation': donation
-        }
+        donation_instance = Donation.objects.get(pk=donation_id)
+        writer_instance = donation_instance.member
 
-        # datas = {
-        #     'donation_title': Donation.objects.values()[0]['donation_title'],
-        #     'donation_minimum_amount': Donation.objects.values()[0]['donation_minimum_amount'],
-        #     'donation_description': Donation.objects.values()[0]['donation_description'],
-        #     'donation_content': Donation.objects.values()[0]['donation_content'],
-        #     'donation_image': Donation.objects.values()[0]['donation_image']
-        # }
+        context = {
+            'donation': donation,
+            'writer': writer_instance.member_name
+        }
 
         return render(request, 'funding_donation/donation__001/_T001.html', context)

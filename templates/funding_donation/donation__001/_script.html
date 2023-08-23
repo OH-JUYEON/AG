@@ -38,4 +38,39 @@
     function modal_close() {
         modal.style.display = 'none';
     }
+
+</script>
+
+<script>
+    let startDateString = "{{ donation.started_on|date:'Y-m-d' }}T00:00:00";
+    let endDateString = "{{ donation.ends_on|date:'Y-m-d' }}T00:00:00";
+
+    let startDate = new Date(startDateString);
+    let endDate = new Date(endDateString);
+
+    let currentDate = new Date();
+
+    if (currentDate >= startDate && currentDate <= endDate) {
+        document.getElementById("status").innerHTML = "진행중";
+    } else {
+        document.getElementById("status").innerHTML = "종료됨";
+    }
+
+</script>
+
+<script>
+    let replyBox = document.getElementById("reply");
+    let submitButton = document.getElementById("submit");
+    let registerText = document.getElementById("register");
+
+    replyBox.addEventListener('input',(function (e){
+        if (replyBox.value.trim() === "") {
+        submitButton.style.backgroundColor = '#FAFAFA';
+        registerText.style.color = '#B4B4B4';
+    } else {
+        submitButton.style.backgroundColor = '#3E72F5';
+        registerText.style.color = '#fff';
+
+    }}))
+
 </script>

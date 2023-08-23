@@ -13,11 +13,11 @@
                                         <article class="preview-image" tabindex="-1">
                                             <div class="image-wrap2">
                                                 <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                                    <li data-thumb="{% static 'img/sample_1.webp' %}"><img
-                                                            src="{% static 'img/sample_1.webp' %}" lazy="loaded">
+                                                    <li data-thumb="{{ donation.donation_image.url }}">
+                                                        <img src="{{ donation.donation_image.url }}" alt="Donation Image" lazy="loaded">
                                                     </li>
-                                                    <li data-thumb="{% static 'img/sample_2.png' %}"><img
-                                                            src="{% static 'img/sample_2.png' %}" lazy="loaded">
+                                                    <li data-thumb="{{ donation.donation_image.url }}">
+                                                        <img src="{{ donation.donation_image.url }}" lazy="loaded">
                                                     </li>
                                                 </ul>
                                             </div>
@@ -49,7 +49,7 @@
                                     src="https://static.cdn.soomgo.com/upload/profile/ddb12c74-aec6-4d92-a994-450016880d4d.png?h=160&amp;w=160&amp;webp=1"
                                     alt="이엘코드" class="provider-profile">
                             </div>
-                            <div class="col"><span class="provider-name">홍길동</span>
+                            <div class="col"><span class="provider-name">{{ writer }}</span>
                                 <div class="provider-review">
                                     <ul class="star-rate readonly" style="--gap: 0px;">
                                         <li><img src="https://assets.cdn.soomgo.com/icons/icon-common-review-star-small-full.svg"
@@ -76,19 +76,21 @@
                     <article class="product-description">
 
                         <div class="line-clamp" style="line-height: 1.71;">
-                            <p class="description">* 소개
-
-                                안녕하세요.냥냥방범대 입니다.
-
-                                우리나라 고유의 민족명절 설!
-                                명절 휴무에도 냥냥방범대는 시민의 안전을 위해 발로 뜁니다.
-                                상가, 주택 등 관내를 꼼꼼하게 순찰하는 것은 물론!
-                                주택가 일대, 공원 화장실 등 발길 닿는 곳을 꼼꼼하게 순찰하고!
-                                시민들에게 절도 예방법 및 방범 예방활동을 강조하며
-                                오늘도 범죄 예방을 위해 앞장섭니다!
-
-
-                                여러분의 가정도 평화가 깃들기를 서울 냥냥방범대가 기원합니다!
+                            <p class="description">
+                                {{ donation.donation_content }}
+{#                                * 소개#}
+{##}
+{#                                안녕하세요.냥냥방범대 입니다.#}
+{##}
+{#                                우리나라 고유의 민족명절 설!#}
+{#                                명절 휴무에도 냥냥방범대는 시민의 안전을 위해 발로 뜁니다.#}
+{#                                상가, 주택 등 관내를 꼼꼼하게 순찰하는 것은 물론!#}
+{#                                주택가 일대, 공원 화장실 등 발길 닿는 곳을 꼼꼼하게 순찰하고!#}
+{#                                시민들에게 절도 예방법 및 방범 예방활동을 강조하며#}
+{#                                오늘도 범죄 예방을 위해 앞장섭니다!#}
+{##}
+{##}
+{#                                여러분의 가정도 평화가 깃들기를 서울 냥냥방범대가 기원합니다!#}
 
 
                             </p>
@@ -101,16 +103,17 @@
                     <article class="product-description-images">
                         <div class="height-clamp hide-less" style="--hc-gradient-height: 120px; --hc-height: 464px;">
                             <div><img
-                                    src="https://mblogthumb-phinf.pstatic.net/MjAxODA1MTZfMjk4/MDAxNTI2NDM0MDU3MDUz.6juaLV40Zuy2vubLqLbFEQfQfC0JeXjgUsD5DUpuoa4g.OjSk1xtlUMpbLgxH4cT56eHe7Vd4Hq3v_2FTLrPJ7CIg.JPEG.withbupyeong/KakaoTalk_20180501_183832873.jpg?type=w800&webp=1"
+                                    src="{{ donation.donation_image.url }}"
                                     alt="상품 이미지" class="img-fluid w-100" data-type="lightGallery"
                                     data-exthumbimage="https://static.cdn.soomgo.com/upload/market/05223f90-51de-4fb2-9c33-5bc6fffc7a26.jpg?h=160&amp;w=160&amp;webp=1"
                                     data-src="https://mblogthumb-phinf.pstatic.net/MjAxODA1MTBfMjc4/MDAxNTI1OTQ5MjE3MTgz.59F6yYuOMYnBaL0rJhqh4yYtn5cdlUfwwDO5-Q9DkFsg.Vw3aPIXgnxVdIyizbwnJQnAzLwOsKr5xGaa3IZM44Bog.JPEG.icbp6114/KakaoTalk_20180501_184015079.jpg?type=w800&webp=1"
                                     role="button"><img
-                                    src="https://mblogthumb-phinf.pstatic.net/MjAxODA1MTBfMjc4/MDAxNTI1OTQ5MjE3MTgz.59F6yYuOMYnBaL0rJhqh4yYtn5cdlUfwwDO5-Q9DkFsg.Vw3aPIXgnxVdIyizbwnJQnAzLwOsKr5xGaa3IZM44Bog.JPEG.icbp6114/KakaoTalk_20180501_184015079.jpg?type=w800&webp=1"
+                                    src="{{ donation.donation_image.url }}"
                                     alt="상품 이미지" class="img-fluid w-100" data-type="lightGallery"
                                     data-exthumbimage="https://static.cdn.soomgo.com/upload/market/c4a05215-a3c5-4e76-b82b-f996c2378622.jpg?h=160&amp;w=160&amp;webp=1"
                                     data-src="https://static.cdn.soomgo.com/upload/market/c4a05215-a3c5-4e76-b82b-f996c2378622.jpg?webp=1"
-                                    role="button"></div>
+                                    role="button">
+                            </div>
                             <!-- <div class="collapse-toggle"><button type="button"
                                             class="btn border-gray btn-outline-primary btn-block"> 접기
                                         </button></div> -->
@@ -236,12 +239,14 @@
                                         style="margin-right: 0px; background-image: url(&quot;https://ofbxchnhqinp910256.cdn.ntruss.com/160/f5b3297b50171cf00041efaa97e382d0.png?type=w&amp;w=160&amp;quality=100&quot;);">
                                     </div>
                                     <div class="register-box">
-                                        <div class="register-box-inner"><span data-v-35475912="">댓글</span>
-                                            <p contenteditable="plaintext-only" data-placeholder="내용 입력">
-                                            </p>
+                                        <div class="register-box-inner">
+                                            <input id="reply" type="text" placeholder="댓글">
                                         </div>
-                                    </div> <button type="button" disabled="disabled"
-                                        class="post-btn flex-container mds-button mds-button--secondary mds-button--flex mds-button--h56 mds-button--r4"><span>등록</span></button>
+                                    </div>
+                                    <button id="submit" type="button" disabled="disabled"
+                                        class="post-btn flex-container mds-button mds-button--secondary mds-button--flex mds-button--h56 mds-button--r4">
+                                        <span id="register">등록</span>
+                                    </button>
                                 </div>
                             </div>
 
@@ -312,15 +317,11 @@
             <div class="product-controller">
                 <section class="bread-crumbs no-space">
                     <ol class="page-breadcrumbs list-inline">
-                        <li><a href="/ip/products?group_slug=%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4">서울</a>
-                        </li>
-                        <li><a
-                                href="/ip/products?group_slug=%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4&amp;section_slug=%EC%9B%B9-%EC%95%B1-%EA%B0%9C%EB%B0%9C">동작구</a>
-                        </li>
+                        <h3 id="status"></h3>
                     </ol>
                 </section>
                 <section class="product-title">
-                    <h3>냥냥캠페인에 나눔하세요</h3>
+                    <h3>{{ donation.donation_title }}</h3>
                 </section>
                 <section class="product-options">
                     <div class="bottom-sheet">
@@ -345,16 +346,13 @@
                                                     <div class="option-title selected">
                                                         나도 기부 나눔하기 </div>
                                                 </label>
-                                            </div><strong class="option-price">10000원 ~ </strong>
+                                            </div><strong class="option-price">{{ donation.donation_minimum_amount }} ~ </strong>
                                             <div class="collapsed clamped">
                                                 <div class="line-clamp"
                                                     style="line-height: 1.5; max-height: 4.5rem; -webkit-line-clamp: 3;">
-                                                    <p class="option-detail">원페이지 반응형 랜딩 홈페이지
-                                                        원페이지 랜딩페이지 개발
-                                                        Contact 메일보내기 포함
-                                                        도메인 등록 배포 등의 완벽한
-                                                        사후 관리 까지</p>
-                                                </div><button type="button" class="btn collapse-toggle btn-none"><span>더
+                                                    <p class="option-detail">{{ donation.donation_description }}</p>
+                                                </div>
+                                                <button type="button" class="btn collapse-toggle btn-none"><span>더
                                                         보기</span><img src="{% static 'img/icon-down.png' %}" alt=""
                                                         class="arrow"></button>
                                             </div>
