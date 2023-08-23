@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 
 from campaign.models import CampaignInquiry, CampaignInquiryAnswer, CampaignParticipant
-from funding.models import FundingInquiry, FundingInquiryAnswer
+from funding.models import FundingInquiry, FundingInquiryAnswer, Funding
 from donation.models import DonationInquiry, DonationInquiryAnswer
 from member.models import Inquiry, InquiryAnswer
 
@@ -110,7 +110,7 @@ class InquiryList(View):
             answer_create_date, member_name, answer_con = None, None, None
             if answer:
                 answer_status = 1
-                answer_con = answer[0].donation_inquiry_answer_content
+                answer_con = answer[0].inquiry_answer_content
                 answer_create_date = answer[0].create_date.strftime('%Y-%m-%d')
                 member_name = answer[0].member.member_name
 
@@ -134,6 +134,64 @@ class InquiryList(View):
 
 
 
-        CampaignParticipant.objects.filter(member_id=member_id,campaign_participant_role='L') 
+        joinList = CampaignParticipant.objects.filter(member_id=member_id,campaign_participant_role='L') 
+        
+        cnt2 = 0
+        dataList2 = {}
+        for key in joinList:
+            data = {}
+            campaign = CampaignInquiry.objects.filter(campaign_id=key.campaign_id,campaign_inquiry_status=1)
+            funding = None
+            if Funding.objects.filter(campaign_id=key.campaign_id):
+                funding = FundingInquiry.objects.filter(funding_id=Funding.objects.filter(campaign_id=key.campaign_id)[0].id,fundinginquiry_status=1)
 
-        return render(request, 'mypage/mypage__007/_T007.html',{'context':sorted_data})
+            if campaign:
+                answer = CampaignInquiryAnswer.objects.filter(campaign_inquiry_id=campaign[0].id)
+                answer_status = 0
+                answer_create_date, member_name, answer_con = None, None, None
+                if answer:
+                    answer_status = 1
+                    answer_con = answer[0].campaign_inquiry_answer_content
+                    answer_create_date = answer[0].create_date.strftime('%Y-%m-%d')
+                    member_name = answer[0].member.member_name
+                data={
+                    'type':0,
+                    'inquiry_id':key.campaign_id,
+                    'status':answer_status,
+                    'content':campaign[0].campaign_inquiry_content,
+                    'answer':answer_con,
+                    'date':campaign[0].create_date.strftime('%Y-%m-%d'),
+                    'answer_date':answer_create_date,
+                    'answer_member':member_name
+                }
+                
+                dataList2[cnt2] = data
+                cnt2 = cnt2 + 1    
+
+            if funding:
+                answer = FundingInquiryAnswer.objects.filter(funding_inquiry_id=funding[0].id)
+                answer_status = 0
+                answer_create_date, member_name, answer_con = None, None, None
+                if answer:
+                    answer_status = 1
+                    answer_con = answer[0].funding_inquiry_answer_content
+                    answer_create_date = answer[0].create_date.strftime('%Y-%m-%d')
+                    member_name = answer[0].member.member_name
+                data={
+                    'type':1,
+                    'inquiry_id':key.campaign_id,
+                    'status':answer_status,
+                    'content':funding[0].funding_inquiry_content,
+                    'answer':answer_con,
+                    'date':funding[0].create_date.strftime('%Y-%m-%d'),
+                    'answer_date':answer_create_date,
+                    'answer_member':member_name
+                }    
+                
+                dataList2[cnt2] = data
+                cnt2 = cnt2 + 1  
+
+        sorted_data2 = dict(sorted(dataList2.items(), key=lambda item: item[1]['date'], reverse=True))
+          
+
+        return render(request, 'mypage/mypage__007/_T007.html',{'context':sorted_data,'context2':sorted_data2})

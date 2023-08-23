@@ -8,4 +8,5 @@ from member.models import Member
 class Cash(View):
 
     def get(self, request, *args, **kwargs):
-        return render(request, 'mypage/mypage__005/_T005.html')
+        member_id = 2
+        return render(request, 'mypage/mypage__005/_T005.html',{'member_id':member_id})
