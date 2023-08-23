@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'campaign',
     'funding',
     'donation',
+    'pay',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -102,17 +103,6 @@ DATABASES = {
 }
 
 ALLOWED_HOSTS = ['*']
-#
-# DATABASES = {
-#     'default' : {
-#         'ENGINE': 'django.db.backends.mysql', # 고정
-#         'NAME': 'django', # DB 이름
-#         'USER': 'app', # 계정
-#         'PASSWORD': '1234', # 암호
-#         'HOST': '172.31.6.246', # IP
-#         'PORT': '3306' # 별도로 설정한 게 아니라면 3306일 것이다.
-#     }
-# }
 
 # DATABASES = {
 #     "default": {

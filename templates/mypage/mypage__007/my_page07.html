@@ -71,36 +71,43 @@
                                 </article>
                             {% endfor %}
                       
-                            {% for index, data in context.items %}
+                            {% for index, data in context2.items %}
                             <article class="inquiry-qna-item received-inquiry-wrap">
                                 <section class="summary">
                                     <div class="inquiry-qna-head">
-                                        <span class="waiting-answer"
-                                              style="background: #00c7ae; color: white;">기부</span>
-                                        <span class="waiting-answer waiting-answer">답변대기</span>
-                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMjBoMjBWMEgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0I1QjVCNSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Im0xNi4wMzggNy41MDItNiA2LTYtNiIvPgogICAgPC9nPgo8L3N2Zz4K"
-                                             alt="arrow" class="arrow">
+                                        {% if data.type == 0 %}
+                                            <span class="waiting-answer" style="background:#FFA41B; color:white;">캠페인</span>
+                                        {% elif data.type == 1 %}
+                                            <span class="waiting-answer" style="background: #004DF7; color: white;">펀딩</span>
+                                        {% elif data.type == 2 %}
+                                            <span class="waiting-answer" style="background: #00c7ae; color: white;">기부</span>
+                                        {% elif data.type == 3 %}
+                                            <span class="waiting-answer" style="background: #FF6969; color: white;">관리자</span>
+                                        {% endif %}
+                                        
+                                        
+                                        {% if data.status == 0 %}<span class="waiting-answer">답변대기</span>
+                                            {% else %}<span class="waiting-answer waiting-answer-success">답변완료</span>
+                                       {% endif %}
+                                       <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMjBoMjBWMEgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0I1QjVCNSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Im0xNi4wMzggNy41MDItNiA2LTYtNiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                                       alt="arrow" class="arrow">
                                     </div>
                                     <div style="display: flex;">
-                                        <p class="inquiry-qna-title">문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의
-                                            내용입니다.</p>
+                                        <p class="inquiry-qna-title">{{ data.content }}</p>
                                     </div>
                                     <div class="author">
-                                        <p class="created-at">2023.08.11</p>
+                                        <p class="created-at">{{ data.date }}</p>
                                     </div>
                                 </section>
                                 <section class="content">
                                     <section class="qna-content">
-                                        <p class="text">문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다. 문의 내용입니다.
+                                        <p class="text">{{ data.content }}
                                         </p>
-                                        <div class="func-btn">
-                                            <button type="button" class="btn-answer">
-                                                답변
-                                            </button>
-                                            <!-- <button type="button" class="btn-delete">
+                                        <!-- <div class="func-btn">
+                                            <button type="button" class="btn-delete">
                                                 삭제
-                                            </button> -->
-                                        </div>
+                                            </button>
+                                        </div> -->
                                     </section>
                                     <section class="qna-content-answer">
                                         <div class="answer-wrapper">
