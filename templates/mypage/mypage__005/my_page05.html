@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="price">
-                            <button class="button">10,000원</button>
+                            <button class="button" id="10000">10,000원</button>
                         </div>
                     </div>
                     <div class="product">
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                         <div class="price">
-                            <button class="button">20,000원</button>
+                            <button class="button" id="20000">20,000원</button>
                         </div>
                     </div>
                     <div class="product">
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="price">
-                            <button class="button">30,000원</button>
+                            <button class="button" id="30000">30,000원</button>
                         </div>
                     </div>
                     <div class="product">
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="price">
-                            <button class="button">50,000원</button>
+                            <button class="button" id="50000">50,000원</button>
                         </div>
                     </div>
                     <div class="product">
@@ -105,13 +105,13 @@
                             </div>
                         </div>
                         <div class="price">
-                            <button class="button">100,000원</button>
+                            <button class="button" id="100000">100,000원</button>
                         </div>
                     </div>
                 </div>
                 <div>
                     <div class="payment-type-wrapper">
-                        <div class="payment-type">
+                        <!-- <div class="payment-type">
                             <div class="payment-type-header">
                                 <div class="title">
                                     결제수단
@@ -193,9 +193,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="purchase-wrapper">
-                            <button class="purchase">
+                            <button class="purchase" onclick="payBtn()">
                                 결제하기
                             </button>
 
@@ -217,6 +217,11 @@
 
                 </div>
             </section>
+            <form id="payForm" method="post" action="/member/mypage/cashhistory/" >
+                {% csrf_token %}
+                <input type="hidden" name="pay" id="pay" value="">
+                <input type="hidden" name="member_id" id="member_id" value="{{member_id}}">
+            </form>
         </div>
 
     </div>

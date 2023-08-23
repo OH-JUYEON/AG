@@ -1,21 +1,6 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var contentDiv = document.getElementById('community');
-        if (contentDiv) {
-            var contentHeight = contentDiv.scrollHeight + 100;
-            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('padding-top'));
-            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('padding-bottom'));
-            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('border-top-width'));
-            contentHeight += parseInt(window.getComputedStyle(contentDiv).getPropertyValue('border-bottom-width'));
-            console.log(contentHeight)
-            document.body.style.height = contentHeight + 'px';
-        }
-    });
-</script>
-
-<script>
 
 
 for (let i = 0; i < 2; i++) {
@@ -36,7 +21,7 @@ for (let i = 0; i < 2; i++) {
     const $pro_next = $(`.slick-next${i}`); //뒤로가기
     const $pro_track = $(`.slick-track${i}`); //베너 트렉
     const $count = $(`.curation-page${i}`); //카운트
-    
+    let page=0;
     let text = `${pro_count + 1}/${cnt}`
     $count.text(text);
 
@@ -112,6 +97,20 @@ for (let i = 0; i < 2; i++) {
                 for (let j = 0; j < 5; j++) {
                     const link = document.querySelector(`.router-link-active${j}`);
                     const contentJ = document.querySelector(`.content${j}`);
+                    
+                    if(j === 4){
+                        window.addEventListener('scroll', () => {
+                        const currentScroll = window.scrollY;
+                        const windowHeight = window.innerHeight;
+                        const bodyHeight = document.body.scrollHeight;
+                        // console.log(currentScroll + windowHeight + 20, bodyHeight);
+                        if(currentScroll + windowHeight + 0.5 >= bodyHeight){
+                            // currentScroll + windowHeight >= bodyHeight
+                            page++;
+                            getList();
+                        }
+                        });
+                    }
 
                     if (j === i) {
                         link.style.background = "#d1f3ff";
@@ -130,6 +129,49 @@ for (let i = 0; i < 2; i++) {
         });
     }
 
+
+function getList(){
+    fetch(`/activity/review/${page}/`)
+        .then((response) => response.json())
+        .then((posts)=>{
+            console.log(posts);
+            let text = "";
+            posts.posts.forEach(post => {
+                console.log(post);
+                // post = post[0];
+                // text += `<div>
+                //             <a href="/notice/detail/${post.id}">
+                //               <div class="recommend-one-post">
+                //                 <button class="recommend-one-post-btn">
+                //                   <div class="recommend-one-post-btn-img">
+                //                     <span class="recommend-one-post-btn-img-span">
+                //                       <span></span>
+                //           `;
+                // if(post.post_file){
+                //     text += `<img style="object-fit: cover" src="/upload/${post.post_file}">`;
+                // } else {
+                //     text += `<img style="object-fit: cover" src="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fsub_banners%2F0731_%25EC%2582%25AC%25EB%259D%25BC%25EC%259E%2588%25EB%2584%25A4.png%3Fauto%3Dformat%252Ccompress%26h%3D840%26lossless%3Dtrue%26w%3D840&w=1920&q=75">`;
+                // }
+                // text += `                
+                //                     </span>
+                //                   </div>
+                //                   <section class="recommend-one-post-btn-content">
+                //                     <div>
+                //                       <strong class="recommend-one-post-btn-content-strong">공지사항</strong>
+                //                       <h2 class="recommend-one-post-btn-content-h2">${post.post_title}</h2>
+                //                     </div>
+                //                     <div style="width: 40px; height: 2px; background-color: #333334;"></div>
+                //                     <p style="overflow: hidden; height: 96px" class="recommend-one-post-btn-content-p">${post.post_content}</p>
+                //                   </section>
+                //                 </button>
+                //               </div>
+                //             </a>
+                //         </div>
+                //     `
+            })
+            // document.querySelector("#post-wrapper").innerHTML += text;
+        })
+}
 
 
     // const slickPrevButtons = document.querySelectorAll(".slick-prev");

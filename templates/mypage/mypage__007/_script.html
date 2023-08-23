@@ -10,10 +10,12 @@
       const myInquiry = document.querySelector(".my-inquiry");
       const receivedInquiry = document.querySelector(".received-inquiry");
       const myInquiryWrap = document.querySelectorAll(".my-inquiry-wrap");
-      const receivedInquiryWrap = document.querySelector(".received-inquiry-wrap");
+      const receivedInquiryWrap = document.querySelectorAll(".received-inquiry-wrap");
+console.log(receivedInquiryWrap)
+console.log(myInquiryWrap)
 
 
-      receivedInquiryWrap.style.display = "none";
+      receivedInquiryWrap.forEach((item) => {item.style.display = "none";})
       answerWrapper.style.display = "none";
 
       // 초기에 모든 content 섹션을 숨김
@@ -63,7 +65,7 @@
 
     // receivedInquiry 클릭 시 해당 wrap 보이도록 처리
     receivedInquiry.addEventListener("click", () => {
-      receivedInquiryWrap.style.display = "block";
+      receivedInquiryWrap.forEach((item) => {item.style.display = "block";})
       receivedInquiry.style.color = "rgba(45,45,45,var(--tw-text-opacity))";
       receivedInquiry.style.fontWeight = "700";
       receivedInquiry.style.borderBottom = "0.125rem solid #2d2d2d";
@@ -86,7 +88,7 @@
       myInquiry.style.fontWeight = "700";
       myInquiry.style.borderBottom = "0.125rem solid #2d2d2d";
 
-      receivedInquiryWrap.style.display = "none";
+      receivedInquiryWrap.forEach((item) => {item.style.display = "none";})
       receivedInquiry.style.color = "rgba(169,169,169,var(--tw-text-opacity))";
       receivedInquiry.style.fontWeight = "400";
       receivedInquiry.style.borderBottom = "none";
