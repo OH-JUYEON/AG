@@ -13,10 +13,10 @@ class ActivityModify(View):
         dataList = {}
 
         for index,key in enumerate(joinList):
-            reviewstatus = 0;
+            reviewstatus = 0
             review = CampaignReview.objects.filter(member_id=kwargs['member_id'], campaign_header = key.campaign_header_id)
             if review:
-                reviewstatus = 1;
+                reviewstatus = 1
  
             data={
                 'campaign_title':key.campaign_header.campaign_title,
@@ -33,10 +33,10 @@ class ActivityModify(View):
         dataList2 = {}
 
         for index,key in enumerate(createList):
-            reviewstatus = 0;
+            reviewstatus = 0
             review = CampaignReview.objects.filter(member_id=kwargs['member_id'], campaign_header = key.campaign_header_id)
             if review:
-                reviewstatus = 1;
+                reviewstatus = 1
  
             data={
                 'campaign_title':key.campaign_header.campaign_title,

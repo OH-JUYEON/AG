@@ -2,11 +2,13 @@ from django.db import models
 
 from AG.models import Period, Validity
 from member.models import Member
-
+from region.models import CityHeader, CityDetail  
 
 # Create your models here.
 class Campaign(Period, Validity):
     member_id = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
+    city_header = models.ForeignKey(CityHeader, null=True, on_delete=models.CASCADE)
+    city_detail = models.ForeignKey(CityDetail, null=True, on_delete=models.CASCADE)
     campaign_title = models.CharField(null=False, max_length=256)
     campaign_category = models.CharField(null=False, max_length=100)
     campaign_description1 = models.CharField(null=False, max_length=100)

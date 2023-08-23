@@ -1,7 +1,6 @@
 from django.db import models
 from AG.models import Period
-from region.models import CityHeader, CityDetail
-
+from region.models import CityHeader, CityDetail  
 
 # Create your models here.
 class Member(Period):
@@ -45,3 +44,4 @@ class InquiryAnswer(Period):
 
     class Meta:
         db_table = "tbl_inquiry_answer"        
+

@@ -2,11 +2,12 @@ from django.db import models
 
 from AG.models import Period, Validity
 from member.models import Member
-
+from campaign.models import Campaign
 
 # Create your models here.
 class Funding(Period, Validity):
     member = models.ForeignKey(Member, null=False, on_delete=models.CASCADE)
+    campaign = models.ForeignKey(Campaign, null=True, on_delete=models.CASCADE)
     funding_title = models.CharField(null=False, max_length=256)
     funding_minimum_amount = models.IntegerField(null=False, default=0)
     funding_description = models.CharField(null=False, max_length=256)
