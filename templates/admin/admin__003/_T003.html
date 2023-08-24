@@ -1,0 +1,24 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+    {% include "../../base/__load__.html" %}
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/lightslider.css' %}">
+    {% include "../../base/__style__.html" %}
+    {% include "./_style.html" %}
+</head>
+
+<body>
+    <div id="__next" data-reactroot="">
+        <div class="screen">
+            {% include "../admin/__admin_header__.html" %}
+            {% include "./admin03.html" %}
+        </div>
+        <div class="z-0"></div>
+    </div>
+</body>
+<script src="{% static 'js/lightslider.js' %}"></script>
+    {% include "./_script.html" %}
+</html>
