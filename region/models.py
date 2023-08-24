@@ -23,6 +23,17 @@ class CityDetail(models.Model):
         db_table = "tbl_city_detail"
 
 
+class SafeRegion(Period):
+    city_header = models.ForeignKey(CityHeader, null=False, on_delete=models.CASCADE)
+    safe_region_description = models.CharField(null=True, max_length=1024)
+    safe_region_description2 = models.CharField(null=True, max_length=1024)
+    safe_region_url = models.CharField(null=True, max_length=100)
+    safe_region_info = models.CharField(null=True, max_length=1024)
+    safe_region_content = models.CharField(null=True, max_length=10240)
+    class Meta:
+        db_table = "tbl_safe_region"
+
+
 class SafetyScoreHeader(Period):
     city_header = models.ForeignKey(CityHeader, null=False, on_delete=models.CASCADE)
     strd_yr = models.CharField(null=True, max_length=4)

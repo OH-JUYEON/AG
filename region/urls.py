@@ -6,5 +6,5 @@ app_name = 'region'
 
 urlpatterns = [
     path("", V0001.SafetyScoreHeader.as_view(), name="region"),
-    path("detail/", V0010.SafetyScoreDetail.as_view(), name="detail"),
+    path("detail/<int:region>/", V0010.SafetyScoreDetail.as_view(), name="detail"),
 ]
