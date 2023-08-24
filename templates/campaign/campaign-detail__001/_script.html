@@ -1,3 +1,7 @@
+{% load static %}
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+{#<script src="{'js/top-button.js'}"></script>#}
+
 <script>
 $(function() { // 보이기 | 숨기기
 	$(window).scroll(function() {
@@ -38,27 +42,28 @@ $(function() { // 보이기 | 숨기기
       }
     });
     </script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
-<script src="top-button.js"></script>
-<script src="./js/faq-board.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#image-gallery').lightSlider({
-            gallery: true,
-            item: 1,
-            thumbItem: 9,
-            slideMargin: 0,
-            speed: 900,
-            auto: true,
-            loop: true,
-            onSliderLoad: function () {
-                $('#image-gallery').removeClass('cS-hidden');
-            }
-        });
-    });
 
-    const modal = document.querySelector('#que');
+{#<script>#}
+{#    #}
+{#    $(document).ready(function () {#}
+{#        $('#image-gallery').lightSlider({#}
+{#            gallery: true,#}
+{#            item: 1,#}
+{#            thumbItem: 9,#}
+{#            slideMargin: 0,#}
+{#            speed: 900,#}
+{#            auto: true,#}
+{#            loop: true,#}
+{#            onSliderLoad: function () {#}
+{#                $('#image-gallery').removeClass('cS-hidden');#}
+{#            }#}
+{#        });#}
+{#    });#}
+{##}
+{#</script>#}
+
+<script>
+const modal = document.querySelector('#que');
 
     function open_modal() {
         modal.style.display = 'block';
@@ -67,4 +72,57 @@ $(function() { // 보이기 | 숨기기
     function modal_close() {
         modal.style.display = 'none';
     }
+</script>
+
+<script>
+    let startDateString = "{{ campaign.started_on|date:'Y-m-d' }}T00:00:00";
+    let endDateString = "{{ campaign.ends_on|date:'Y-m-d' }}T00:00:00";
+
+    let startDate = new Date(startDateString);
+    let endDate = new Date(endDateString);
+
+    let currentDate = new Date();
+
+    if (currentDate >= startDate && currentDate <= endDate) {
+        document.getElementById("status").innerHTML = "진행중";
+    } else {
+        document.getElementById("status").innerHTML = "종료됨";
+    }
+
+</script>
+
+<script>
+
+function parseDateString(dateString) {
+    return new Date(dateString);
+}
+
+function calculateDaysDifference(startDateIntoString) {
+    let startedOn = parseDateString(startDateIntoString);
+    let now = new Date();
+
+    let timeDifference = now - startedOn;
+    let daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+    return daysDifference;
+}
+
+function formatDuration(days) {
+    if (days >= 365) {
+        let years = Math.floor(days / 365);
+        return `${years}년`;
+    } else {
+        return `${days}일`;
+    }
+}
+
+let startDateIntoString = "{{ campaign.started_on|date:'Y-m-d' }}T00:00:00";
+let resultElement = document.getElementById("howlong");
+
+if (resultElement) {
+    let daysActive = calculateDaysDifference(startDateIntoString);
+    let formattedDuration = formatDuration(daysActive);
+    resultElement.textContent = formattedDuration;
+}
+
 </script>
