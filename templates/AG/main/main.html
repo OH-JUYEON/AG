@@ -101,33 +101,33 @@
             </div>
             <!-- 게시판 아이콘 -->
             <ul class="main-category category-list container2">
-                <li class="category-item"><a href="#">
+                <li class="category-item"><a href="/region">
                         <div class="category-icon">
                             <img src="{% static 'img/icon/001-1.png' %}" alt="안전지수" class="category-img">
                             <p class="category-title">안전지수</p>
                         </div>
                     </a></li>
-                <li class="category-item"><a href="#">
+                <li class="category-item"><a href="/campaign">
                         <div class="category-icon">
                             <img src="{% static 'img/icon/002-1.png' %}" alt="캠페인" class="category-img icon-img"
                                 style="width: 2.9rem;">
                             <p class=" category-title">캠페인</p>
                         </div>
                     </a></li>
-                <li class="category-item"><a href="#">
+                <li class="category-item"><a href="/funding">
                         <div class="category-icon">
                             <img src="{% static 'img/icon/003-1.png' %}" alt="펀딩" class="category-img icon-img">
                             <p class="category-title">펀딩</p>
                         </div>
                     </a></li>
-                <li class="category-item"><a href="#">
+                <li class="category-item"><a href="/donation">
                         <div class="category-icon">
                             <img src="https://assets.cdn.soomgo.com/icons/category1/service_heart_with_rate.svg"
                                 alt="기부" class="category-img icon-img" style="width: 3.25rem;">
                             <p class="category-title">기부</p>
                         </div>
                     </a></li>
-                <li class="category-item"><a href="#">
+                <li class="category-item"><a href="/campaign/review">
                         <div class="category-icon">
                             <img src="{% static 'img/icon/005-2.png' %}" alt="이용후기" class="category-img icon-img">
                             <p class="category-title">이용후기</p>
@@ -140,13 +140,13 @@
                             <p class="category-title">지역검색</p>
                         </div>
                     </a></li>
-                <li class="category-item"><a href="#">
+                <li class="category-item"><a href="/member/mypage/faq">
                         <div class="category-icon">
                             <img src="{% static 'img/icon/007-2.png' %}" alt="공지" class="category-img icon-img">
                             <p class="category-title">공지</p>
                         </div>
                     </a></li>
-                <li class="category-item"><a href="#">
+                <li class="category-item"><a href="/member/mypage/account">
                         <div class="category-icon">
                             <img src="https://assets.cdn.soomgo.com/icons/category1/service_square_grid_2x2.svg"
                                 alt="내정보" class="category-img icon-img">
@@ -164,22 +164,22 @@
                                 alt="">
                         </a>
                     </section>
-                    <section class="chips">
-                        <!-- 여러개 복붙 -->
-                        <button type="button" class="btn btn-secondary chip selected">
-                            <span>종합 랭킹</span>
-                        </button>
-                        <button type="button" class="btn btn-secondary chip">
-                            <span>평점순</span>
-                        </button>
-                        <button type="button" class="btn btn-secondary chip">
-                            <span>참여순</span>
-                        </button>
-                        <button type="button" class="btn btn-secondary chip">
-                            <span>지역 추천순</span>
-                        </button>
-                        <!-- 여기까지 -->
-                    </section>
+{#                    <section class="chips">#}
+{#                        <!-- 여러개 복붙 -->#}
+{#                        <button type="button" class="btn btn-secondary chip selected">#}
+{#                            <span>종합 랭킹</span>#}
+{#                        </button>#}
+{#                        <button type="button" class="btn btn-secondary chip">#}
+{#                            <span>평점순</span>#}
+{#                        </button>#}
+{#                        <button type="button" class="btn btn-secondary chip">#}
+{#                            <span>참여순</span>#}
+{#                        </button>#}
+{#                        <button type="button" class="btn btn-secondary chip">#}
+{#                            <span>지역 추천순</span>#}
+{#                        </button>#}
+{#                        <!-- 여기까지 -->#}
+{#                    </section>#}
                     <div class="main-desktop-slide">
                         <div class="slick-slider slick-initialized">
                             <button type="button" class="slick-arrow slick-prev slick-disabled"
@@ -194,9 +194,12 @@
                                                 <section class="meet-provider">
                                                     <img class="meet-provider-icon"
                                                         src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHZpZXdCb3g9IjAgMCA1NiA1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTS0xMTItMjE4NWgxMTcwdjUzNzFILTExMnoiLz4KICAgICAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTIgLTEyKSI+CiAgICAgICAgICAgIDxyZWN0IGZpbGw9IiNGMkYyRjIiIHdpZHRoPSIxODIiIGhlaWdodD0iMTgyIiByeD0iOCIvPgogICAgICAgICAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMiAxMikiPgogICAgICAgICAgICAgICAgPGNpcmNsZSBmaWxsPSIjRDRFMEZFIiBmaWxsLXJ1bGU9Im5vbnplcm8iIGN4PSIyOCIgY3k9IjI4IiByPSIyOCIvPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTM0LjI3IDE2LjA3OGEzLjI3OCAzLjI3OCAwIDAgMC0zLjI4IDMuMTYybC0uMzY1IDEwLjc5NWg3LjI5MWwtLjM2NS0xMC43OTVhMy4yNzggMy4yNzggMCAwIDAtMy4yOC0zLjE2MnpNMjEuMjkyIDE2LjA3OGEzLjI3NyAzLjI3NyAwIDAgMC0zLjI4IDMuMTYybC0uMzY2IDEwLjc5NWg3LjI5MWwtLjM2NS0xMC43OTVhMy4yNzggMy4yNzggMCAwIDAtMy4yOC0zLjE2MnoiIGZpbGw9IiM1MDgwRkEiLz4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Im0zNi44NzcgMTcuOTg1LTcuOTQ4LjUwNmMtLjYxOS4wMzktMS4yNC4wMzktMS44NTggMGwtNy45NDgtLjUwNmE1LjI0NiA1LjI0NiAwIDAgMC01LjUzIDQuNDY4bC0xLjM0MyA5LjE4MmgzMS41bC0xLjM0My05LjE4MmE1LjI0NiA1LjI0NiAwIDAgMC01LjUzLTQuNDY4eiIgZmlsbD0iIzgwQTNGQyIvPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTM4LjEzNSAyNi4yNTVoLTIwLjI3Yy0zLjEwMSAwLTUuNjE1IDIuNTA2LTUuNjE1IDUuNTk4IDAgMy4wOTEgMi41MTQgNS41OTcgNS42MTUgNS41OTdoMjAuMjdjMy4xMDEgMCA1LjYxNS0yLjUwNiA1LjYxNS01LjU5NyAwLTMuMDkyLTIuNTE0LTUuNTk4LTUuNjE1LTUuNTk4eiIgZmlsbD0iIzQyNzBGOCIvPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTM1IDM5LjkyMmMtMy41NDQgMC02LjQxNy0yLjg2NC02LjQxNy02LjM5NyAwLTMuNTMzIDIuODczLTYuMzk3IDYuNDE3LTYuMzk3IDMuNTQzIDAgNi40MTYgMi44NjQgNi40MTYgNi4zOTcgMCAzLjUzMy0yLjg3MyA2LjM5Ny02LjQxNiA2LjM5N3oiIGZpbGw9IiMyQzNFRDAiIGZpbGwtcnVsZT0ibm9uemVybyIvPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTM0Ljk5OSAzNy4xNmEzLjY0IDMuNjQgMCAwIDEtMy42NDYtMy42MzVBMy42NCAzLjY0IDAgMCAxIDM1IDI5Ljg5YTMuNjQgMy42NCAwIDAgMSAzLjY0NiAzLjYzNSAzLjY0IDMuNjQgMCAwIDEtMy42NDYgMy42MzV6IiBmaWxsPSIjRUZGNEZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0yMC43MDggMzkuOTIyYy0zLjU0MyAwLTYuNDE2LTIuODY0LTYuNDE2LTYuMzk3IDAtMy41MzMgMi44NzMtNi4zOTcgNi40MTYtNi4zOTcgMy41NDQgMCA2LjQxNyAyLjg2NCA2LjQxNyA2LjM5NyAwIDMuNTMzLTIuODczIDYuMzk3LTYuNDE3IDYuMzk3eiIgZmlsbD0iIzJDM0VEMCIgZmlsbC1ydWxlPSJub256ZXJvIi8+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMjAuNzA4IDM3LjE2YTMuNjQgMy42NCAwIDAgMS0zLjY0Ni0zLjYzNSAzLjY0IDMuNjQgMCAwIDEgMy42NDYtMy42MzUgMy42NCAzLjY0IDAgMCAxIDMuNjQ2IDMuNjM1IDMuNjQgMy42NCAwIDAgMS0zLjY0NiAzLjYzNXoiIGZpbGw9IiNFRkY0RkYiIGZpbGwtcnVsZT0ibm9uemVybyIvPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                        alt=""> <span class="meet-provider-text total">1324
+                                                        alt="">
+{#                                                    {% safety_score_counts %}#}
+                                                    <span class="meet-provider-text total">{{ safety_score_counts.count }}
                                                         <c:out value="" />팀
                                                     </span>
+{#                                                    {% end %}#}
                                                     <span class="meet-provider-text">의</span> <br>
                                                     <div class="meet-provider-link">
                                                         <span class="meet-provider-text">캠페인 만나보기</span>
@@ -208,20 +211,22 @@
                                         </div>
                                     </div>
                                     <!--(지역별) -->
+                                    {% for safety_score in safety_scores %}
                                     <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">
                                         <div>
                                             <a href="#" style="width: 100%; display: inline-block;">
                                                 <div class="main-pro-card" data-testid="main-pro-card">
                                                     <section class="header">
-                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"
+                                                        <div style="background-image: url('/upload/{{ safety_score.city_header.city_image }}');"
                                                             class="thumb" data-src="" lazy="loaded"></div>
+
                                                         <!-- 프로필 사진 -->
-                                                        <div class="review">
-                                                            <img src="{% static 'img/like.png' %}" alt=""> <span
-                                                                class="rate">200</span>
-                                                        </div>
+{#                                                        <div class="review">#}
+{#                                                            <img src="{% static 'img/like.png' %}" alt=""> <span#}
+{#                                                                class="rate">200</span>#}
+{#                                                        </div>#}
                                                     </section>
-                                                    <p class="name">서울특별시1</p>
+                                                    <p class="name">{{ safety_score.city_header.city_name }}</p>
                                                     <section class="chips" style="display: none;">
                                                         <span class="soomgopay-chip d-flex"> <img
                                                                 src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="
@@ -229,232 +234,231 @@
                                                         </span>
                                                     </section>
                                                     <section class="sub-info">
-                                                        <span>조회수 100</span> <span class="avg-response-time has-career">
-                                                            답변
-                                                            총 100개
+                                                        <span>안전지수</span> <span class="avg-response-time has-career">
+                                                            {{ safety_score.safety_score }}
                                                         </span>
                                                     </section>
                                                 </div>
                                             </a>
                                         </div>
                                     </div>
-
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-pro-card" data-testid="main-pro-card">
-                                                    <section class="header">
-                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"
-                                                            class="thumb" data-src="" lazy="loaded"></div>
-                                                        <!-- 프로필 사진 -->
-                                                        <div class="review">
-                                                            <img src="{% static 'img/like.png' %}" alt=""> <span
-                                                                class="rate">200</span>
-                                                        </div>
-                                                    </section>
-                                                    <p class="name">서울특별시2</p>
-                                                    <!-- <section class="chips" style="display: none;">
-                                                    <span class="soomgopay-chip d-flex"> <img
-                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="
-                                                            alt=""> <span>숨고페이</span>
-                                                    </span>
-                                                </section> -->
-                                                    <section class="sub-info">
-                                                        <span>조회수 100</span> <span class="avg-response-time has-career">
-                                                            답변
-                                                            총 100개
-                                                        </span>
-                                                    </section>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-pro-card" data-testid="main-pro-card">
-                                                    <section class="header">
-                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"
-                                                            class="thumb" data-src="" lazy="loaded"></div>
-                                                        <!-- 프로필 사진 -->
-                                                        <div class="review">
-                                                            <img src="{% static 'img/like.png' %}" alt=""> <span
-                                                                class="rate">200</span>
-                                                        </div>
-                                                    </section>
-                                                    <p class="name">서울특별시3</p>
-                                                    <!-- <section class="chips" style="display: none;">
-                                                    <span class="soomgopay-chip d-flex"> <img
-                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="
-                                                            alt=""> <span>숨고페이</span>
-                                                    </span>
-                                                </section> -->
-                                                    <section class="sub-info">
-                                                        <span>조회수 100</span> <span class="avg-response-time has-career">
-                                                            답변
-                                                            총 100개
-                                                        </span>
-                                                    </section>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-pro-card" data-testid="main-pro-card">
-                                                    <section class="header">
-                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"
-                                                            class="thumb" data-src="" lazy="loaded"></div>
-                                                        <!-- 프로필 사진 -->
-                                                        <div class="review">
-                                                            <img src="{% static 'img/like.png' %}" alt=""> <span
-                                                                class="rate">200</span>
-                                                        </div>
-                                                    </section>
-                                                    <p class="name">서울특별시4</p>
-                                                    <!-- <section class="chips" style="display: none;">
-                                                    <span class="soomgopay-chip d-flex"> <img
-                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="
-                                                            alt=""> <span>숨고페이</span>
-                                                    </span>
-                                                </section> -->
-                                                    <section class="sub-info">
-                                                        <span>조회수 100</span> <span class="avg-response-time has-career">
-                                                            답변
-                                                            총 100개
-                                                        </span>
-                                                    </section>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-pro-card" data-testid="main-pro-card">
-                                                    <section class="header">
-                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"
-                                                            class="thumb" data-src="" lazy="loaded"></div>
-                                                        <!-- 프로필 사진 -->
-                                                        <div class="review">
-                                                            <img src="{% static 'img/like.png' %}" alt=""> <span
-                                                                class="rate">200</span>
-                                                        </div>
-                                                    </section>
-                                                    <p class="name">서울특별시5</p>
-                                                    <!-- <section class="chips" style="display: none;">
-                                                    <span class="soomgopay-chip d-flex"> <img
-                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="
-                                                            alt=""> <span>숨고페이</span>
-                                                    </span>
-                                                </section> -->
-                                                    <section class="sub-info">
-                                                        <span>조회수 100</span> <span class="avg-response-time has-career">
-                                                            답변
-                                                            총 100개
-                                                        </span>
-                                                    </section>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-pro-card" data-testid="main-pro-card">
-                                                    <section class="header">
-                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"
-                                                            class="thumb" data-src="" lazy="loaded"></div>
-                                                        <!-- 프로필 사진 -->
-                                                        <div class="review">
-                                                            <img src="{% static 'img/like.png' %}" alt=""> <span
-                                                                class="rate">200</span>
-                                                        </div>
-                                                    </section>
-                                                    <p class="name">서울특별시6</p>
-                                                    <!-- <section class="chips" style="display: none;">
-                                                    <span class="soomgopay-chip d-flex"> <img
-                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="
-                                                            alt=""> <span>숨고페이</span>
-                                                    </span>
-                                                </section> -->
-                                                    <section class="sub-info">
-                                                        <span>조회수 100</span> <span class="avg-response-time has-career">
-                                                            답변
-                                                            총 100개
-                                                        </span>
-                                                    </section>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-pro-card" data-testid="main-pro-card">
-                                                    <section class="header">
-                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"
-                                                            class="thumb" data-src="" lazy="loaded"></div>
-                                                        <!-- 프로필 사진 -->
-                                                        <div class="review">
-                                                            <img src="{% static 'img/like.png' %}" alt=""> <span
-                                                                class="rate">200</span>
-                                                        </div>
-                                                    </section>
-                                                    <p class="name">서울특별시7</p>
-                                                    <!-- <section class="chips" style="display: none;">
-                                                    <span class="soomgopay-chip d-flex"> <img
-                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="
-                                                            alt=""> <span>숨고페이</span>
-                                                    </span>
-                                                </section> -->
-                                                    <section class="sub-info">
-                                                        <span>조회수 100</span> <span class="avg-response-time has-career">
-                                                            답변
-                                                            총 100개
-                                                        </span>
-                                                    </section>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-pro-card" data-testid="main-pro-card">
-                                                    <section class="header">
-                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"
-                                                            class="thumb" data-src="" lazy="loaded"></div>
-                                                        <!-- 프로필 사진 -->
-                                                        <div class="review">
-                                                            <img src="{% static 'img/like.png' %}" alt=""> <span
-                                                                class="rate">200</span>
-                                                        </div>
-                                                    </section>
-                                                    <p class="name">서울특별시8</p>
-                                                    <!-- <section class="chips" style="display: none;">
-                                                    <span class="soomgopay-chip d-flex"> <img
-                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="
-                                                            alt=""> <span>숨고페이</span>
-                                                    </span>
-                                                </section> -->
-                                                    <section class="sub-info">
-                                                        <span>조회수 100</span> <span class="avg-response-time has-career">
-                                                            답변
-                                                            총 100개
-                                                        </span>
-                                                    </section>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
+{#                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">#}
+{#                                        <div>#}
+{#                                            <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                                <div class="main-pro-card" data-testid="main-pro-card">#}
+{#                                                    <section class="header">#}
+{#                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"#}
+{#                                                            class="thumb" data-src="" lazy="loaded"></div>#}
+{#                                                        <!-- 프로필 사진 -->#}
+{#                                                        <div class="review">#}
+{#                                                            <img src="{% static 'img/like.png' %}" alt=""> <span#}
+{#                                                                class="rate">200</span>#}
+{#                                                        </div>#}
+{#                                                    </section>#}
+{#                                                    <p class="name">서울특별시2</p>#}
+{#                                                    <!-- <section class="chips" style="display: none;">#}
+{#                                                    <span class="soomgopay-chip d-flex"> <img#}
+{#                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="#}
+{#                                                            alt=""> <span>숨고페이</span>#}
+{#                                                    </span>#}
+{#                                                </section> -->#}
+{#                                                    <section class="sub-info">#}
+{#                                                        <span>조회수 100</span> <span class="avg-response-time has-career">#}
+{#                                                            답변#}
+{#                                                            총 100개#}
+{#                                                        </span>#}
+{#                                                    </section>#}
+{#                                                </div>#}
+{#                                            </a>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">#}
+{#                                        <div>#}
+{#                                            <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                                <div class="main-pro-card" data-testid="main-pro-card">#}
+{#                                                    <section class="header">#}
+{#                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"#}
+{#                                                            class="thumb" data-src="" lazy="loaded"></div>#}
+{#                                                        <!-- 프로필 사진 -->#}
+{#                                                        <div class="review">#}
+{#                                                            <img src="{% static 'img/like.png' %}" alt=""> <span#}
+{#                                                                class="rate">200</span>#}
+{#                                                        </div>#}
+{#                                                    </section>#}
+{#                                                    <p class="name">서울특별시3</p>#}
+{#                                                    <!-- <section class="chips" style="display: none;">#}
+{#                                                    <span class="soomgopay-chip d-flex"> <img#}
+{#                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="#}
+{#                                                            alt=""> <span>숨고페이</span>#}
+{#                                                    </span>#}
+{#                                                </section> -->#}
+{#                                                    <section class="sub-info">#}
+{#                                                        <span>조회수 100</span> <span class="avg-response-time has-career">#}
+{#                                                            답변#}
+{#                                                            총 100개#}
+{#                                                        </span>#}
+{#                                                    </section>#}
+{#                                                </div>#}
+{#                                            </a>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">#}
+{#                                        <div>#}
+{#                                            <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                                <div class="main-pro-card" data-testid="main-pro-card">#}
+{#                                                    <section class="header">#}
+{#                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"#}
+{#                                                            class="thumb" data-src="" lazy="loaded"></div>#}
+{#                                                        <!-- 프로필 사진 -->#}
+{#                                                        <div class="review">#}
+{#                                                            <img src="{% static 'img/like.png' %}" alt=""> <span#}
+{#                                                                class="rate">200</span>#}
+{#                                                        </div>#}
+{#                                                    </section>#}
+{#                                                    <p class="name">서울특별시4</p>#}
+{#                                                    <!-- <section class="chips" style="display: none;">#}
+{#                                                    <span class="soomgopay-chip d-flex"> <img#}
+{#                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="#}
+{#                                                            alt=""> <span>숨고페이</span>#}
+{#                                                    </span>#}
+{#                                                </section> -->#}
+{#                                                    <section class="sub-info">#}
+{#                                                        <span>조회수 100</span> <span class="avg-response-time has-career">#}
+{#                                                            답변#}
+{#                                                            총 100개#}
+{#                                                        </span>#}
+{#                                                    </section>#}
+{#                                                </div>#}
+{#                                            </a>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">#}
+{#                                        <div>#}
+{#                                            <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                                <div class="main-pro-card" data-testid="main-pro-card">#}
+{#                                                    <section class="header">#}
+{#                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"#}
+{#                                                            class="thumb" data-src="" lazy="loaded"></div>#}
+{#                                                        <!-- 프로필 사진 -->#}
+{#                                                        <div class="review">#}
+{#                                                            <img src="{% static 'img/like.png' %}" alt=""> <span#}
+{#                                                                class="rate">200</span>#}
+{#                                                        </div>#}
+{#                                                    </section>#}
+{#                                                    <p class="name">서울특별시5</p>#}
+{#                                                    <!-- <section class="chips" style="display: none;">#}
+{#                                                    <span class="soomgopay-chip d-flex"> <img#}
+{#                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="#}
+{#                                                            alt=""> <span>숨고페이</span>#}
+{#                                                    </span>#}
+{#                                                </section> -->#}
+{#                                                    <section class="sub-info">#}
+{#                                                        <span>조회수 100</span> <span class="avg-response-time has-career">#}
+{#                                                            답변#}
+{#                                                            총 100개#}
+{#                                                        </span>#}
+{#                                                    </section>#}
+{#                                                </div>#}
+{#                                            </a>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">#}
+{#                                        <div>#}
+{#                                            <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                                <div class="main-pro-card" data-testid="main-pro-card">#}
+{#                                                    <section class="header">#}
+{#                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"#}
+{#                                                            class="thumb" data-src="" lazy="loaded"></div>#}
+{#                                                        <!-- 프로필 사진 -->#}
+{#                                                        <div class="review">#}
+{#                                                            <img src="{% static 'img/like.png' %}" alt=""> <span#}
+{#                                                                class="rate">200</span>#}
+{#                                                        </div>#}
+{#                                                    </section>#}
+{#                                                    <p class="name">서울특별시6</p>#}
+{#                                                    <!-- <section class="chips" style="display: none;">#}
+{#                                                    <span class="soomgopay-chip d-flex"> <img#}
+{#                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="#}
+{#                                                            alt=""> <span>숨고페이</span>#}
+{#                                                    </span>#}
+{#                                                </section> -->#}
+{#                                                    <section class="sub-info">#}
+{#                                                        <span>조회수 100</span> <span class="avg-response-time has-career">#}
+{#                                                            답변#}
+{#                                                            총 100개#}
+{#                                                        </span>#}
+{#                                                    </section>#}
+{#                                                </div>#}
+{#                                            </a>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">#}
+{#                                        <div>#}
+{#                                            <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                                <div class="main-pro-card" data-testid="main-pro-card">#}
+{#                                                    <section class="header">#}
+{#                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"#}
+{#                                                            class="thumb" data-src="" lazy="loaded"></div>#}
+{#                                                        <!-- 프로필 사진 -->#}
+{#                                                        <div class="review">#}
+{#                                                            <img src="{% static 'img/like.png' %}" alt=""> <span#}
+{#                                                                class="rate">200</span>#}
+{#                                                        </div>#}
+{#                                                    </section>#}
+{#                                                    <p class="name">서울특별시7</p>#}
+{#                                                    <!-- <section class="chips" style="display: none;">#}
+{#                                                    <span class="soomgopay-chip d-flex"> <img#}
+{#                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="#}
+{#                                                            alt=""> <span>숨고페이</span>#}
+{#                                                    </span>#}
+{#                                                </section> -->#}
+{#                                                    <section class="sub-info">#}
+{#                                                        <span>조회수 100</span> <span class="avg-response-time has-career">#}
+{#                                                            답변#}
+{#                                                            총 100개#}
+{#                                                        </span>#}
+{#                                                    </section>#}
+{#                                                </div>#}
+{#                                            </a>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">#}
+{#                                        <div>#}
+{#                                            <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                                <div class="main-pro-card" data-testid="main-pro-card">#}
+{#                                                    <section class="header">#}
+{#                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"#}
+{#                                                            class="thumb" data-src="" lazy="loaded"></div>#}
+{#                                                        <!-- 프로필 사진 -->#}
+{#                                                        <div class="review">#}
+{#                                                            <img src="{% static 'img/like.png' %}" alt=""> <span#}
+{#                                                                class="rate">200</span>#}
+{#                                                        </div>#}
+{#                                                    </section>#}
+{#                                                    <p class="name">서울특별시8</p>#}
+{#                                                    <!-- <section class="chips" style="display: none;">#}
+{#                                                    <span class="soomgopay-chip d-flex"> <img#}
+{#                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="#}
+{#                                                            alt=""> <span>숨고페이</span>#}
+{#                                                    </span>#}
+{#                                                </section> -->#}
+{#                                                    <section class="sub-info">#}
+{#                                                        <span>조회수 100</span> <span class="avg-response-time has-career">#}
+{#                                                            답변#}
+{#                                                            총 100개#}
+{#                                                        </span>#}
+{#                                                    </section>#}
+{#                                                </div>#}
+{#                                            </a>#}
+{#                                        </div>#}
+{#                                    </div>#}
                                     <!-- 여기까지 -->
                                 </div>
                             </div>
@@ -474,107 +478,115 @@
                             <div class="slick-track"
                                 style="width: 1976px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
                                 <!-- 이런거 여러개 복붙 (8개) -->
+                                {% for campaign in campaigns %}
                                 <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
                                     <div>
                                         <a href="#" style="width: 100%; display: inline-block;">
                                             <div class="main-service-card">
                                                 <img class="service-image" data-sre=""
-                                                    src="{% static 'img/samplep_o2.png' %}" alt="" lazy="loaded">
-                                                <p class="service-name">서울지킴이1</p>
+                                                    src="/upload/{{ campaign.campaign_image }}" alt="" lazy="loaded">
+                                                <p class="service-name">{{ campaign.campaign_title }}</p>
                                                 <div class="request-count">
-                                                    <img class="request-icon"
-                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                        alt=""> <span>1234</span> 명 참여중
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
 
-                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                    <div>
-                                        <a href="#" style="width: 100%; display: inline-block;">
-                                            <div class="main-service-card">
-                                                <img class="service-image" data-sre=""
-                                                    src="{% static 'img/samplep_o2.png' %}" alt="" lazy="loaded">
-                                                <p class="service-name">서울지킴이2</p>
-                                                <div class="request-count">
-                                                    <img class="request-icon"
-                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                        alt=""> <span>1234</span> 명 참여중
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
+                                                     {% for campaign_count in campaign_counts %}
+                                                        {% if campaign_count.campaign_id == campaign.id %}
+                                                            <img class="request-icon"
+                                                                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                                                                alt="">
+                                                            <sapn>{{ campaign_count.campaign_count }}명 참여중</sapn>
+                                                        {% endif %}
+                                                    {% endfor %}
 
-                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                    <div>
-                                        <a href="#" style="width: 100%; display: inline-block;">
-                                            <div class="main-service-card">
-                                                <img class="service-image" data-sre=""
-                                                    src="{% static 'img/samplep_o2.png' %}" alt="" lazy="loaded">
-                                                <p class="service-name">서울지킴이3</p>
-                                                <div class="request-count">
-                                                    <img class="request-icon"
-                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                        alt=""> <span>1234</span> 명 참여중
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
                                 </div>
-
-                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                    <div>
-                                        <a href="#" style="width: 100%; display: inline-block;">
-                                            <div class="main-service-card">
-                                                <img class="service-image" data-sre=""
-                                                    src="{% static 'img/samplep_o2.png' %}" alt="" lazy="loaded">
-                                                <p class="service-name">서울지킴이4</p>
-                                                <div class="request-count">
-                                                    <img class="request-icon"
-                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                        alt=""> <span>1234</span> 명 참여중
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                    <div>
-                                        <a href="#" style="width: 100%; display: inline-block;">
-                                            <div class="main-service-card">
-                                                <img class="service-image" data-sre=""
-                                                    src="{% static 'img/samplep_o2.png' %}" alt="" lazy="loaded">
-                                                <p class="service-name">서울지킴이5</p>
-                                                <div class="request-count">
-                                                    <img class="request-icon"
-                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                        alt=""> <span>1234</span> 명 참여중
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                    <div>
-                                        <a href="#" style="width: 100%; display: inline-block;">
-                                            <div class="main-service-card">
-                                                <img class="service-image" data-sre=""
-                                                    src="{% static 'img/samplep_o2.png' %}" alt="" lazy="loaded">
-                                                <p class="service-name">서울지킴이6</p>
-                                                <div class="request-count">
-                                                    <img class="request-icon"
-                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                        alt=""> <span>1234</span> 명 참여중
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
+                                {% endfor %}
+{#                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">#}
+{#                                    <div>#}
+{#                                        <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                            <div class="main-service-card">#}
+{#                                                <img class="service-image" data-sre=""#}
+{#                                                    src="{% static 'img/samplep_o2.png' %}" alt="" lazy="loaded">#}
+{#                                                <p class="service-name">서울지킴이2</p>#}
+{#                                                <div class="request-count">#}
+{#                                                    <img class="request-icon"#}
+{#                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"#}
+{#                                                        alt=""> <span>1234</span> 명 참여중#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">#}
+{#                                    <div>#}
+{#                                        <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                            <div class="main-service-card">#}
+{#                                                <img class="service-image" data-sre=""#}
+{#                                                    src="{% static 'img/samplep_o2.png' %}" alt="" lazy="loaded">#}
+{#                                                <p class="service-name">서울지킴이3</p>#}
+{#                                                <div class="request-count">#}
+{#                                                    <img class="request-icon"#}
+{#                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"#}
+{#                                                        alt=""> <span>1234</span> 명 참여중#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">#}
+{#                                    <div>#}
+{#                                        <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                            <div class="main-service-card">#}
+{#                                                <img class="service-image" data-sre=""#}
+{#                                                    src="{% static 'img/samplep_o2.png' %}" alt="" lazy="loaded">#}
+{#                                                <p class="service-name">서울지킴이4</p>#}
+{#                                                <div class="request-count">#}
+{#                                                    <img class="request-icon"#}
+{#                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"#}
+{#                                                        alt=""> <span>1234</span> 명 참여중#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">#}
+{#                                    <div>#}
+{#                                        <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                            <div class="main-service-card">#}
+{#                                                <img class="service-image" data-sre=""#}
+{#                                                    src="{% static 'img/samplep_o2.png' %}" alt="" lazy="loaded">#}
+{#                                                <p class="service-name">서울지킴이5</p>#}
+{#                                                <div class="request-count">#}
+{#                                                    <img class="request-icon"#}
+{#                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"#}
+{#                                                        alt=""> <span>1234</span> 명 참여중#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">#}
+{#                                    <div>#}
+{#                                        <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                            <div class="main-service-card">#}
+{#                                                <img class="service-image" data-sre=""#}
+{#                                                    src="{% static 'img/samplep_o2.png' %}" alt="" lazy="loaded">#}
+{#                                                <p class="service-name">서울지킴이6</p>#}
+{#                                                <div class="request-count">#}
+{#                                                    <img class="request-icon"#}
+{#                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"#}
+{#                                                        alt=""> <span>1234</span> 명 참여중#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </div>#}
+{#                                </div>#}
                                 <!-- 여기까지 -->
                             </div>
                         </div>
@@ -599,57 +611,59 @@
                             <ul data-testid="curation-list" class="curation-list">
                                 <li data-testid="curation-item" class="curation-list-item">
                                     <!-- 글 개수만큼 붙여넣기 (3개) -->
+                                    {% for campaign_review in campaign_reviews %}
                                     <a href="#" class="curation-list-wrapper">
                                         <div class="curation-contents has-thumbnail">
-                                            <p class="topic-name">수재 피해 도움</p>
-                                            <p class="curation-title">이번 수재피해 도움드려 좋아요</p>
-                                            <p class="curation-content">이번 물난리가 난리에용 다들 조심하세용.</p>
-                                            <div class="curation-reactions">
-                                                <span class="view-count">245</span> <span
-                                                    class="comment-count">32</span>
-                                            </div>
+                                            <p class="topic-name">{{ campaign_review.campaign.campaign_category }}</p>
+                                            <p class="curation-title">{{ campaign_review.campaign_review_title }}</p>
+                                            <p class="curation-content">{{ campaign_review.campaign_review_content }}</p>
+{#                                            <div class="curation-reactions">#}
+{#                                                <span class="view-count">245</span> <span#}
+{#                                                    class="comment-count">32</span>#}
+{#                                            </div>#}
                                         </div>
                                         <div class="curation-topic-image"><img
                                                 alt="00fb27b7-fd73-4dce-a421-2fef75c42c3e.jpg"
                                                 class="topic-thumbnail-image"
                                                 data-src="https://static.cdn.soomgo.com/upload/media/f388c4bc-7a64-422b-bc29-669e018ed133.jpg?webp=1"
-                                                src="https://static.cdn.soomgo.com/upload/media/f388c4bc-7a64-422b-bc29-669e018ed133.jpg?webp=1"
+                                                src="/upload/{{ campaign_review.campaign.campaign_image }}"
                                                 lazy="loaded"></div>
                                     </a>
-                                    <a href="#" class="curation-list-wrapper">
-                                        <div class="curation-contents has-thumbnail">
-                                            <p class="topic-name">수재 피해 도움</p>
-                                            <p class="curation-title">이번 수재피해 도움드려 좋아요</p>
-                                            <p class="curation-content">이번 물난리가 난리에용 다들 조심하세용.</p>
-                                            <div class="curation-reactions">
-                                                <span class="view-count">245</span> <span
-                                                    class="comment-count">32</span>
-                                            </div>
-                                        </div>
-                                        <div class="curation-topic-image"><img
-                                                alt="00fb27b7-fd73-4dce-a421-2fef75c42c3e.jpg"
-                                                class="topic-thumbnail-image"
-                                                data-src="https://static.cdn.soomgo.com/upload/media/f388c4bc-7a64-422b-bc29-669e018ed133.jpg?webp=1"
-                                                src="https://static.cdn.soomgo.com/upload/media/f388c4bc-7a64-422b-bc29-669e018ed133.jpg?webp=1"
-                                                lazy="loaded"></div>
-                                    </a>
-                                    <a href="#" class="curation-list-wrapper">
-                                        <div class="curation-contents has-thumbnail">
-                                            <p class="topic-name">수재 피해 도움</p>
-                                            <p class="curation-title">이번 수재피해 도움드려 좋아요</p>
-                                            <p class="curation-content">이번 물난리가 난리에용 다들 조심하세용.</p>
-                                            <div class="curation-reactions">
-                                                <span class="view-count">245</span> <span
-                                                    class="comment-count">32</span>
-                                            </div>
-                                        </div>
-                                        <div class="curation-topic-image"><img
-                                                alt="00fb27b7-fd73-4dce-a421-2fef75c42c3e.jpg"
-                                                class="topic-thumbnail-image"
-                                                data-src="https://static.cdn.soomgo.com/upload/media/f388c4bc-7a64-422b-bc29-669e018ed133.jpg?webp=1"
-                                                src="https://static.cdn.soomgo.com/upload/media/f388c4bc-7a64-422b-bc29-669e018ed133.jpg?webp=1"
-                                                lazy="loaded"></div>
-                                    </a>
+                                    {% endfor %}
+{#                                    <a href="#" class="curation-list-wrapper">#}
+{#                                        <div class="curation-contents has-thumbnail">#}
+{#                                            <p class="topic-name">수재 피해 도움</p>#}
+{#                                            <p class="curation-title">이번 수재피해 도움드려 좋아요</p>#}
+{#                                            <p class="curation-content">이번 물난리가 난리에용 다들 조심하세용.</p>#}
+{#                                            <div class="curation-reactions">#}
+{#                                                <span class="view-count">245</span> <span#}
+{#                                                    class="comment-count">32</span>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="curation-topic-image"><img#}
+{#                                                alt="00fb27b7-fd73-4dce-a421-2fef75c42c3e.jpg"#}
+{#                                                class="topic-thumbnail-image"#}
+{#                                                data-src="https://static.cdn.soomgo.com/upload/media/f388c4bc-7a64-422b-bc29-669e018ed133.jpg?webp=1"#}
+{#                                                src="https://static.cdn.soomgo.com/upload/media/f388c4bc-7a64-422b-bc29-669e018ed133.jpg?webp=1"#}
+{#                                                lazy="loaded"></div>#}
+{#                                    </a>#}
+{#                                    <a href="#" class="curation-list-wrapper">#}
+{#                                        <div class="curation-contents has-thumbnail">#}
+{#                                            <p class="topic-name">수재 피해 도움</p>#}
+{#                                            <p class="curation-title">이번 수재피해 도움드려 좋아요</p>#}
+{#                                            <p class="curation-content">이번 물난리가 난리에용 다들 조심하세용.</p>#}
+{#                                            <div class="curation-reactions">#}
+{#                                                <span class="view-count">245</span> <span#}
+{#                                                    class="comment-count">32</span>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="curation-topic-image"><img#}
+{#                                                alt="00fb27b7-fd73-4dce-a421-2fef75c42c3e.jpg"#}
+{#                                                class="topic-thumbnail-image"#}
+{#                                                data-src="https://static.cdn.soomgo.com/upload/media/f388c4bc-7a64-422b-bc29-669e018ed133.jpg?webp=1"#}
+{#                                                src="https://static.cdn.soomgo.com/upload/media/f388c4bc-7a64-422b-bc29-669e018ed133.jpg?webp=1"#}
+{#                                                lazy="loaded"></div>#}
+{#                                    </a>#}
 
 
                                     <!-- 여기까지 -->
@@ -658,34 +672,36 @@
                         </div>
                         <div class="knowhow-container half-list" style="margin-top: 3rem;">
                             <!-- 같은거 복붙 (2개) -->
+                            {% for donation in donations %}
                             <a href="#" class="knowhow-card-slide" data-testid="knowhow-item"> <img class="thumb-image"
                                     data-src=""
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7VRqV7rnyg_IfOMVZqvWME_3PMFvBJsGF5_WBhLCl2eIyCjoQw-4QFG9J3ACoYJ2AW6g&usqp=CAU&h=320&w=480"
+                                    src="/upload/{{ donation.donation_image }}"
                                     alt="" lazy="loaded">
                                 <div class="card-desc">
-                                    <p class="service">서울/동작구</p>
+                                    <p class="service">{{ donation.city_name }}/{{ donation.city_detail_name }}</p>
                                     <div class="collapsed">
                                         <div class="line-clamp" style="line-height: 1.5; max-height: 3rem;">
-                                            <p class="title">함께하는 이웃돕기</p>
+                                            <p class="title">{{ donation.donation_title }}</p>
                                         </div>
                                     </div>
-                                    <p class="author">서울특별시</p>
+                                    <p class="author">{{ donation.donation_content }}</p>
                                 </div>
                             </a>
-                            <a href="#" class="knowhow-card-slide" data-testid="knowhow-item"> <img class="thumb-image"
-                                    data-src=""
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7VRqV7rnyg_IfOMVZqvWME_3PMFvBJsGF5_WBhLCl2eIyCjoQw-4QFG9J3ACoYJ2AW6g&usqp=CAU&h=320&w=480"
-                                    alt="" lazy="loaded">
-                                <div class="card-desc">
-                                    <p class="service">서울/동작구</p>
-                                    <div class="collapsed">
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem;">
-                                            <p class="title">함께하는 이웃돕기</p>
-                                        </div>
-                                    </div>
-                                    <p class="author">서울특별시</p>
-                                </div>
-                            </a>
+                            {% endfor %}
+{#                            <a href="#" class="knowhow-card-slide" data-testid="knowhow-item"> <img class="thumb-image"#}
+{#                                    data-src=""#}
+{#                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7VRqV7rnyg_IfOMVZqvWME_3PMFvBJsGF5_WBhLCl2eIyCjoQw-4QFG9J3ACoYJ2AW6g&usqp=CAU&h=320&w=480"#}
+{#                                    alt="" lazy="loaded">#}
+{#                                <div class="card-desc">#}
+{#                                    <p class="service">서울/동작구</p>#}
+{#                                    <div class="collapsed">#}
+{#                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem;">#}
+{#                                            <p class="title">함께하는 이웃돕기</p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    <p class="author">서울특별시</p>#}
+{#                                </div>#}
+{#                            </a>#}
                             <!-- 여기까지 -->
                         </div>
                     </div>
@@ -695,7 +711,7 @@
 
             <!-- 중간 고정 배너 -->
             <div class="main-app-banner container2">
-                <a href="#">
+                <a href="/campaign">
                     <div class="app-download-banner"></div>
                 </a>
             </div>
@@ -711,108 +727,118 @@
                             <div class="slick-track"
                                 style="width: 1976px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
                                 <!-- 이런거 여러개 복붙 (8개) -->
+                                {% for funding in fundings %}
                                 <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
                                     <div>
                                         <a href="#" style="width: 100%; display: inline-block;">
                                             <div class="main-service-card">
                                                 <img class="service-image" data-sre=""
-                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&usqp=CAU"
+                                                    src="/upload/{{ funding.funding_image }}"
                                                     alt="" lazy="loaded">
-                                                <p class="service-name">서울지킴이</p>
+                                                <p class="service-name">{{ funding.funding_title }}</p>
                                                 <div class="request-count">
-                                                    <img class="request-icon"
-                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                        alt=""> <span>1234</span> 명 참여중
+{#                                                    <img class="request-icon"#}
+{#                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"#}
+{#                                                        alt="">#}
+                                                    {% for funding_count in funding_counts %}
+                                                            {% if funding_count.funding_id == funding.id %}
+                                                                <img class="request-icon"
+                                                                     src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                                                                    alt="">
+                                                                <span>{{ funding_count.funding_count }}명 참여중</span>
+                                                            {% endif %}
+                                                    {% endfor %}
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
                                 </div>
-                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                    <div>
-                                        <a href="#" style="width: 100%; display: inline-block;">
-                                            <div class="main-service-card">
-                                                <img class="service-image" data-sre=""
-                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&usqp=CAU"
-                                                    alt="" lazy="loaded">
-                                                <p class="service-name">서울지킴이</p>
-                                                <div class="request-count">
-                                                    <img class="request-icon"
-                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                        alt=""> <span>1234</span> 명 참여중
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                    <div>
-                                        <a href="#" style="width: 100%; display: inline-block;">
-                                            <div class="main-service-card">
-                                                <img class="service-image" data-sre=""
-                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&usqp=CAU"
-                                                    alt="" lazy="loaded">
-                                                <p class="service-name">서울지킴이</p>
-                                                <div class="request-count">
-                                                    <img class="request-icon"
-                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                        alt=""> <span>1234</span> 명 참여중
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                    <div>
-                                        <a href="#" style="width: 100%; display: inline-block;">
-                                            <div class="main-service-card">
-                                                <img class="service-image" data-sre=""
-                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&usqp=CAU"
-                                                    alt="" lazy="loaded">
-                                                <p class="service-name">서울지킴이</p>
-                                                <div class="request-count">
-                                                    <img class="request-icon"
-                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                        alt=""> <span>1234</span> 명 참여중
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                    <div>
-                                        <a href="#" style="width: 100%; display: inline-block;">
-                                            <div class="main-service-card">
-                                                <img class="service-image" data-sre=""
-                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&usqp=CAU"
-                                                    alt="" lazy="loaded">
-                                                <p class="service-name">서울지킴이</p>
-                                                <div class="request-count">
-                                                    <img class="request-icon"
-                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                        alt=""> <span>1234</span> 명 참여중
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                    <div>
-                                        <a href="#" style="width: 100%; display: inline-block;">
-                                            <div class="main-service-card">
-                                                <img class="service-image" data-sre=""
-                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&usqp=CAU"
-                                                    alt="" lazy="loaded">
-                                                <p class="service-name">서울지킴이</p>
-                                                <div class="request-count">
-                                                    <img class="request-icon"
-                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                        alt=""> <span>1234</span> 명 참여중
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
+                                {% endfor %}
+{#                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">#}
+{#                                    <div>#}
+{#                                        <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                            <div class="main-service-card">#}
+{#                                                <img class="service-image" data-sre=""#}
+{#                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&usqp=CAU"#}
+{#                                                    alt="" lazy="loaded">#}
+{#                                                <p class="service-name">서울지킴이</p>#}
+{#                                                <div class="request-count">#}
+{#                                                    <img class="request-icon"#}
+{#                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"#}
+{#                                                        alt=""> <span>1234</span> 명 참여중#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">#}
+{#                                    <div>#}
+{#                                        <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                            <div class="main-service-card">#}
+{#                                                <img class="service-image" data-sre=""#}
+{#                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&usqp=CAU"#}
+{#                                                    alt="" lazy="loaded">#}
+{#                                                <p class="service-name">서울지킴이</p>#}
+{#                                                <div class="request-count">#}
+{#                                                    <img class="request-icon"#}
+{#                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"#}
+{#                                                        alt=""> <span>1234</span> 명 참여중#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">#}
+{#                                    <div>#}
+{#                                        <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                            <div class="main-service-card">#}
+{#                                                <img class="service-image" data-sre=""#}
+{#                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&usqp=CAU"#}
+{#                                                    alt="" lazy="loaded">#}
+{#                                                <p class="service-name">서울지킴이</p>#}
+{#                                                <div class="request-count">#}
+{#                                                    <img class="request-icon"#}
+{#                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"#}
+{#                                                        alt=""> <span>1234</span> 명 참여중#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">#}
+{#                                    <div>#}
+{#                                        <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                            <div class="main-service-card">#}
+{#                                                <img class="service-image" data-sre=""#}
+{#                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&usqp=CAU"#}
+{#                                                    alt="" lazy="loaded">#}
+{#                                                <p class="service-name">서울지킴이</p>#}
+{#                                                <div class="request-count">#}
+{#                                                    <img class="request-icon"#}
+{#                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"#}
+{#                                                        alt=""> <span>1234</span> 명 참여중#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">#}
+{#                                    <div>#}
+{#                                        <a href="#" style="width: 100%; display: inline-block;">#}
+{#                                            <div class="main-service-card">#}
+{#                                                <img class="service-image" data-sre=""#}
+{#                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&usqp=CAU"#}
+{#                                                    alt="" lazy="loaded">#}
+{#                                                <p class="service-name">서울지킴이</p>#}
+{#                                                <div class="request-count">#}
+{#                                                    <img class="request-icon"#}
+{#                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"#}
+{#                                                        alt=""> <span>1234</span> 명 참여중#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </div>#}
+{#                                </div>#}
                                 <!-- 여기까지 -->
                             </div>
                         </div>
@@ -853,4 +879,22 @@
             </div>
         </div>
     </div>
+{#    <ul>#}
+{#        {% for donation in donations %}#}
+{#            <li>#}
+{#                <p>{{ donation.city_header.city_header_city_name }}</p>#}
+{#                <img src="/upload/{{ campaign_review.campaign.campaign_image }}" alt="Campaign Image">#}
+{#            </li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+{#    <ul>#}
+{#        {% for donation in donations %}#}
+{#            <li>#}
+{#                <p>Member City: {{ donation.member_id.city_header_id.city_name }} - {{ donation.member_id.city_detail_id.city_detail_name }}</p>#}
+{#            </li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+
+
+
 </body>

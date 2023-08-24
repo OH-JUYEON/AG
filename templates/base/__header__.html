@@ -54,39 +54,43 @@
                         </div>
                     </div>
                     <!-- 로그인, 회원가입-->
+                    {% if request.session.session_key %}
                     <div class="right-side">
                         <nav class="right-side-menu">
                             <!-- 로그아웃 -->
                             <div class="navigation-item right-side-item">
-                                <a href="logout.member" class="link">
-                                    <span>로그아웃</span>
-                                </a>
+                                    <a href="logout.member" class="link">
+                                        <span>로그아웃</span>
+                                    </a>
+
                             </div>
                         </nav>
                             <!-- 마이페이지 -->
                         <button type="button" class="log-in log-in-button">
-                            <a href="mypageOk.member" class="link">
+                            <a href="/member/mypage" class="link">
                                 <span>마이페이지</span>
                             </a>
                         </button>
                     </div>
                     <!-- 로그인, 회원가입-->
-                    <div class="right-side" style="display: none">
+                    {% else %}
+                    <div class="right-side" >
                         <nav class="right-side-menu">
                             <!-- 회원가입 -->
                             <div class="navigation-item right-side-item">
-                                <a href="#" class="link">
+                                <a href="/AG/signup" class="link">
                                     <span>회원가입</span>
                                 </a>
                             </div>
                         </nav>
                         <!-- 로그인 -->
                         <button type="button" class="log-in log-in-button">
-                            <a href="#" class="link">
+                            <a href="/AG/login" class="link">
                                 <span>로그인</span>
                             </a>
                         </button>
                     </div>
+                    {% endif %}
                 </div>
             </section>
         </div>
