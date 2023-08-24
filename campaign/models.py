@@ -47,6 +47,8 @@ class CampaignReview(Period):
     campaign_review_title = models.CharField(null=False, max_length=50)
     campaign_review_content = models.CharField(null=False, max_length=10240)
     campaign_review_status = models.SmallIntegerField(null=False, default=0)
+    campaign_review_image = models.ImageField(null=True, blank=False, upload_to='Campaign/Review/%Y/%m/%d')
+    
 
     class Meta:
         db_table = "tbl_campaign_review"

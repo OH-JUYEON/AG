@@ -1,0 +1,217 @@
+{% load static %}
+
+<div id="app-body">
+    <div class="provider-profile">
+        <div class="profile-header" style="background-image: url('{{ dataObj.city_img }}');">
+            <div class="backdrop"></div>
+        </div>
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="profile-section col-lg-auto col-12">
+                    <div class="profile-body">
+                        <div class="profile-overview">
+                            <div class="thumb">
+                                <div class="user-profile-picture">
+                                    <div class="is-square" lazy="loaded" style="background-image: url('{{ dataObj.city_img }}');"></div>
+
+                                </div>
+                            </div>
+                            <div class="info">
+                                <div class="info-section-header">
+                                    <h1 class="nickname"> {{ dataObj.city_name }}</h1>
+                                    <button type="button" class="btn share-button btn-none"></button>
+                                </div>
+                                <div class="info-section-sub-header">
+                                    <div class="category">{{ dataObj.safe_region_description }}</div>
+                                    <div class="address">{{ dataObj.safe_region_description2 }}</div>
+                                </div>
+                                <a href="{{ dataObj.safe_region_url }}">
+                                    <div class="introduce">{{ dataObj.safe_region_url }}</div>
+                                </a>
+                                <div class="detail-info">
+                                    <div class="statistics-info">
+                                        <div class="statistics-info-item">
+                                            <div class="statistics-info-item-header">안전 점수</div>
+                                            <div class="statistics-info-item-contents">928</div>
+                                        </div>
+                                        <!-- <div class="statistics-info-item review-info">
+                                            <div class="statistics-info-item-header review-rate"> 평점
+                                                <span></span>
+                                            </div>
+                                            <div class="statistics-info-item-contents">
+                                                <img
+                                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Im03LjQ5NiAxLjU5NiAxLjQwNyAyLjc0MiAzLjE0NS40NGMuOTEuMTI3IDEuMjc1IDEuMjA0LjYxNSAxLjgyMmwtMi4yNzYgMi4xMzQuNTM4IDMuMDE1Yy4xNTUuODcyLS43OTcgMS41MzgtMS42MTIgMS4xMjZMNi41IDExLjQ1MmwtMi44MTMgMS40MjNjLS44MTUuNDEyLTEuNzY3LS4yNTQtMS42MTItMS4xMjZsLjUzOC0zLjAxNUwuMzM3IDYuNmMtLjY2LS42MTgtLjI5Ni0xLjY5NS42MTUtMS44MjJsMy4xNDUtLjQ0IDEuNDA3LTIuNzQyQzUuOTEyLjggNy4wODguOCA3LjQ5NiAxLjU5NiIgZmlsbD0iI0ZGQ0UyMSIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPgo=">
+                                                <span class="rate">4.8</span>
+                                                <span class="count">(760)</span>
+                                            </div>
+                                        </div> -->
+                                        <div class="statistics-info-item">
+                                            <div class="statistics-info-item-header">캠페인 참여수</div>
+                                            <div class="statistics-info-item-contents">4568명</div>
+                                        </div>
+                                        <div class="statistics-info-item">
+                                            <div class="statistics-info-item-header">안전 랭킹</div>
+                                            <div class="statistics-info-item-contents">1위</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="background-block"></div>
+                        <ul class="sticky-nav has-price">
+                            <li tab-id="about" class="about active">
+                                <span>상세 정보</span>
+                            </li>
+                            <li class="about" id="cam">
+                                <span>캠페인 참여</span>
+                            </li>
+                            <!-- <li tab-id="community" class="community">
+                                <span>커뮤니티글</span>
+                            </li> -->
+                        </ul>
+                        <div class="observer-container">
+                            <section id="about">
+                                <div class="profile-provider-info">
+                                    <div class="profile-provider-info-title">
+                                        <h2>지역 정보</h2>
+                                    </div>
+                                    <ul>
+                                        <li class="active-time">{{dataObj.safe_region_info}}</li>
+                                        <!-- <li class="answered-count">질문 답변 143개</li>
+                                        <li class="total-posts">총 게시글 256개</li> -->
+                                    </ul>
+                                </div>
+                                <div class="profile-service-desc collapsed">
+                                    <h2>지역 상세소개</h2>
+                                    <div class="description">
+                                        {{dataObj.safe_region_content|safe}}
+                                        <!-- 대한민국의 수도인 서울을 지방자치단체인 특별시로 부르는 명칭이다.<br> 한반도 중앙에 있으며, 한강을 사이에 두고 남북으로
+                                        펼쳐져 있다.<br> 북쪽 끝은 도봉구 도봉동, 동쪽 끝은 강동구 상일동, 남쪽 끝은 서초구 원지동, 서쪽 끝은 강서구
+                                        오곡동이다.<br> 시청은 중구 을지로1가(태평로1가 31)에 있다. -->
+                                    </div>
+                                </div>
+                                <!-- <div class="profile-career">
+                                    <h2>itPocket 전문가 경력</h2>
+                                    <div class="header">
+                                        <img src="./static/image/career.png" alt="career icon">
+                                        <h3 class="title">총 6개월</h3>
+                                    </div>
+                                    <div class="profile-career-item-wrap">
+                                        <div class="career-list-item profile">
+                                            <div class="contents">
+                                                <h3 class="header">강트럭</h3>
+                                                <div class="date-info"> 2022년 11월 - 현재 · 6개월 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </section>
+                            <!-- <section id="FAQ">
+                                <div class="profile-qna">
+                                    <h2>질문 답변</h2>
+                                    <ul>
+                                        <li>
+                                            <div class="question">Q. 질문게시판의 질문내용 여기 들어올 예정</div>
+                                            <div class="answer">
+                                                <div class="collapsed-text-line collapsed">
+                                                    <div class="wrapper">
+                                                        <p>댓글로 단 답변 내용 여기 들어갑니다<br><br>형식 맞춰서<br>일부만 불러옵니다!!</p>
+                                                    </div>
+                                                    <div class="collapse-button">
+                                                        <div class="view-more-button">
+                                                            <span role="button">더보기</span>
+                                                            <span role="button" style="display: none;">접기</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="question">Q. 질문게시판의 질문내용 여기 들어올 예정</div>
+                                            <div class="answer">
+                                                <div class="collapsed-text-line collapsed">
+                                                    <div class="wrapper">
+                                                        <p>댓글로 단 답변 내용 여기 들어갑니다<br><br>형식 맞춰서<br>일부만 불러옵니다!!</p>
+                                                    </div>
+                                                    <div class="collapse-button">
+                                                        <div class="view-more-button">
+                                                            <span role="button">더보기</span>
+                                                            <span role="button" style="display: none;">접기</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="question">Q. 질문게시판의 질문내용 여기 들어올 예정</div>
+                                            <div class="answer">
+                                                <div class="collapsed-text-line collapsed">
+                                                    <div class="wrapper">
+                                                        <p>댓글로 단 답변 내용 여기 들어갑니다<br><br>형식 맞춰서<br>일부만 불러옵니다!!</p>
+                                                    </div>
+                                                    <div class="collapse-button">
+                                                        <div class="view-more-button">
+                                                            <span role="button">더보기</span>
+                                                            <span role="button" style="display: none;">접기</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section> -->
+                            <div id="forView" style="width: 100%; height: 50px;"></div>
+                            <section id="community">
+                                <div class="profile-knowhow" style="margin-top: 0;">
+                                    <div class="profile-knowhow-div">
+                                        <h2 class="title">모집중인 캠페인</h2>
+                                        <a href="#" class="go-list"> <span>전체보기</span><img src="{% static 'img/icon-next.png' %}"
+                                                alt="">
+                                        </a>
+                                    </div>
+                                    <ul class="row profile-knowhow-item-wrap">
+                                        {% for data in campaignObj %}
+                                            <li class="col-4">
+                                                <div>
+                                                    <div class="profile-knowhow-link">
+                                                        <div class="profile-knowhow-image">
+                                                            <img src="{{ data.campaign_image.url }} " lazy=loaded>
+                                                        </div>
+                                                        <div class="profile-knowhow-title">
+                                                            <div class="collapsed">
+                                                                <div class="line-clamp">
+                                                                    <h3>{{ data.campaign_title }} </h3>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+                                        <!-- <li class="col-4">
+                                            <div>
+                                                <div class="profile-knowhow-link">
+                                                    <div class="profile-knowhow-image">
+                                                        <img src="./ban1.jpg?h=320&w=480" lazy=loaded>
+                                                    </div>
+                                                    <div class="profile-knowhow-title">
+                                                        <div class="collapsed">
+                                                            <div class="line-clamp">
+                                                                <h3>칼럼글 제목입니다</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div />
+                                                </div>
+                                        </li> -->
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
