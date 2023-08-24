@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
+
 from member.view import V0005, V0015, V0016
+
 
 
 urlpatterns = [
@@ -32,8 +35,9 @@ urlpatterns = [
         include(
             [
             path("", V0005.Main.as_view(), name="home"),
-            path("login/", V0015.Login.as_view(), name="login"),
+            path("login/", TemplateView.as_view(template_name='AG/login/_T001.html'), name="login"),
             path("signup/", V0016.SignUp.as_view(), name="signup"),
+            path('oauth/redirect/', V0015.Login.as_view(), name='redirect')
             ]
         ),
     ),
