@@ -3,13 +3,17 @@
 <script>
 
 
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 4; i++) {
     let dataCnt;
 
     if (i === 0){
         dataCnt = {{ len1 }};
     } else if(i === 1){
         dataCnt = {{ len2 }};
+    } else if(i === 2){
+        dataCnt = {{ len3 }};
+    } else if(i === 3){
+        dataCnt = {{ len4 }};
     }
     
     
@@ -21,7 +25,7 @@ for (let i = 0; i < 2; i++) {
     const $pro_next = $(`.slick-next${i}`); //뒤로가기
     const $pro_track = $(`.slick-track${i}`); //베너 트렉
     const $count = $(`.curation-page${i}`); //카운트
-    let page=0;
+    
     let text = `${pro_count + 1}/${cnt}`
     $count.text(text);
 
@@ -83,7 +87,7 @@ for (let i = 0; i < 2; i++) {
     // });
 
     let currentContent = document.querySelector(".content0");
-
+    let page = 0;
     for (let i = 0; i < 5; i++) {
         const list = document.querySelector(`.router-link-active${i}`);
         const content = document.querySelector(`.content${i}`);
@@ -99,7 +103,9 @@ for (let i = 0; i < 2; i++) {
                     const contentJ = document.querySelector(`.content${j}`);
                     
                     if(j === 4){
+                        
                         window.addEventListener('scroll', () => {
+                        
                         const currentScroll = window.scrollY;
                         const windowHeight = window.innerHeight;
                         const bodyHeight = document.body.scrollHeight;
@@ -129,15 +135,53 @@ for (let i = 0; i < 2; i++) {
         });
     }
 
-
+let jsonDataObj ="" 
 function getList(){
-    fetch(`/activity/review/${page}/`)
+    fetch(`/member/mypage/activity/review/${page}/`)
         .then((response) => response.json())
-        .then((posts)=>{
-            console.log(posts);
+        .then((data)=>{
+         
+            let jsonDataObj = JSON.parse(data.result);
+            // console.log(jsonDataObj);
+            
             let text = "";
-            posts.posts.forEach(post => {
-                console.log(post);
+
+            for (let key in jsonDataObj) {
+                if (jsonDataObj.hasOwnProperty(key)) {
+                    let item = jsonDataObj[key];
+
+                    text +=`  <li class="review-wrap">
+                                    <a href="${item.campaign_id}">
+                                        <div class="review-wrap2">
+                                            <div>
+                                                <section>
+                                                    <h3 class="review-title">
+                                                        ${item.campaign_title}
+                                                    </h3>
+                                                    <p class="review-content">
+                                                        ${item.campaign_review_content} 
+                                                    </p>
+                                                </section>
+                                                <p class="review-region">
+                                                    ${item.header_name}/${item.detail_name}
+                                                </p>
+                                            </div>
+                                            <img src="${item.campaign_image}"
+                                                 alt="">
+                                        </div>
+                                        </a>
+                                </li>
+                                `
+
+                    console.log(item.campaign_title);
+                    console.log(item.campaign_review_content);
+                    // 다른 속성에 대한 작업 수행
+                }
+            }
+            document.querySelector("#recontent").innerHTML += text;
+            // jsonDataObj.forEach(item => {
+            //     console.log(item);
+                
                 // post = post[0];
                 // text += `<div>
                 //             <a href="/notice/detail/${post.id}">
@@ -168,7 +212,7 @@ function getList(){
                 //             </a>
                 //         </div>
                 //     `
-            })
+            // })
             // document.querySelector("#post-wrapper").innerHTML += text;
         })
 }
