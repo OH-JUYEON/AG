@@ -6,4 +6,4 @@ from django.views import View
 class FundingDetail(View):
 
     def get(self, request, *args, **kwargs):
-        return render(request, 'funding/funding__002/_T002.html')
+        return render(request, 'funding_donation/funding__001/_T001.html')

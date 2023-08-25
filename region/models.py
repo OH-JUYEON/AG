@@ -1,9 +1,7 @@
 from django.db import models
 
 from AG.models import Period
-# from campaign.models import CampaignHeader
-# from donation.models import DonationHeader
-# from funding.models import FundingHeader
+
 
 
 # Create your models here.
@@ -43,6 +41,11 @@ class SafetyScoreHeader(Period):
 
     class Meta:
         db_table = "tbl_safety_score_header"
+
+
+
+
+                
 #
 #
 # class SafetyScoreDetail(models.Model):
@@ -127,15 +130,4 @@ class SafetyScoreHeader(Period):
 #         db_table = "tbl_safety_score_detail"
 
 #
-# class SafetyScoreAction(Period):
-#     safety_score_action_id = models.IntegerField(primary_key=True)
-#     safety_score_header_id = models.ForeignKey(SafetyScoreHeader, null=False, on_delete=models.CASCADE)
-#     campaign_header_id = models.ForeignKey(CampaignHeader, null=False, on_delete=models.CASCADE)
-#     funding_header_id = models.ForeignKey(FundingHeader, null=False, on_delete=models.CASCADE)
-#     donation_header_id = models.ForeignKey(DonationHeader, null=False, on_delete=models.CASCADE)
-#     score = models.IntegerField(null=True)
-#
-#     class Meta:
-#         db_table = "tbl_safety_score_action"
 
-        
