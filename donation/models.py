@@ -2,6 +2,10 @@ from django.db import models
 
 from AG.models import Period, Validity
 from member.models import Member
+from region.models import SafetyScoreHeader 
+from campaign.models import Campaign
+from funding.models import Funding
+
 
 
 # Create your models here.
@@ -55,3 +59,15 @@ class DonationDoner(models.Model):
 
     class Meta:
         db_table = "tbl_donation_doner"
+
+
+class SafetyScoreDetail(Period):
+    safety_score_header = models.ForeignKey(SafetyScoreHeader, null=False, on_delete=models.CASCADE)
+    campaign = models.ForeignKey(Campaign, null=False, on_delete=models.CASCADE)
+    funding = models.ForeignKey(Funding, null=False, on_delete=models.CASCADE)
+    donation = models.ForeignKey(Donation, null=False, on_delete=models.CASCADE)
+    score = models.IntegerField(null=True)
+    
+
+    class Meta:
+        db_table = "tbl_safety_score_detail"
