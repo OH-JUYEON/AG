@@ -1,733 +1,122 @@
 {% load static %}
 
 <body>
-  
-  <div>
-    <header class="united-header">
-      <div class="united-header-section">
-          <section class="united-header header-box">
-              <div class="united-header-area">
-                  <!-- 헤더 왼쪽 메뉴 -->
-                  <div class="left-side">
-                      <!-- 로고 -->
-                      <div class="ag-logo">
-                        <a href="main"> <img src="../image/newLogo.png" style="width: 50px">
-                          </a>
-                      </div>
-                      <nav>
-                          <!-- 내비게이션 메뉴 -->
-                          <ul class="navigation">
-                              <li class="navigation-category navigation-item">
-                                  <a href="" class="link">
-                                      <span>안전 정보</span>
-                                  </a>
-                              </li>
-                              <li class="navigation-category navigation-item">
-                                  <a href="#" class="link">
-                                      <span>지역 검색</span>
-                                  </a>
-                              </li>
-                              <li class="navigation-category navigation-item">
-                                  <a href="#" class="link"> 
-                                      <span>소개</span>
-                                  </a>
-                              </li>
-                              <li class="navigation-category navigation-item">
-                                  <a href="#" class="link">
-                                      <span>FAQ</span>
-                                  </a>
-                              </li>
-                          </ul>
-                      </nav>
-                  </div>
-                  <!-- 검색 -->
-                  <div class="search-box">
-                      <div class="searcher">
-                          <form class="search-bar">
-                              <div class="input-box">
-                                  <div class="input-box-pre">
-                                      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQgNCkiIHN0cm9rZT0iI0I1QjVCNSIgc3Ryb2tlLXdpZHRoPSIxLjYiPgogICAgICAgICAgICA8Y2lyY2xlIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGN4PSI2LjUiIGN5PSI2LjUiIHI9IjYuNSIvPgogICAgICAgICAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Im0xMS41IDExLjUgNSA1Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K" alt="">
-                                  </div>
-                                  <input type="text" placeholder="어떤 서비스가 필요하세요?" class="input-content">
-                                  <div class="input-box-append">
-                                      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMgMykiPgogICAgICAgICAgICA8Y2lyY2xlIGZpbGw9IiNDNUM1QzUiIGN4PSI5IiBjeT0iOSIgcj0iOSIvPgogICAgICAgICAgICA8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Im02IDYgNi4wMDUgNi4wMDZNMTIuMDA1IDYgNiAxMi4wMDYiLz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo=" alt="" style="display: none;">
-                                  </div>
-                              </div>
-                          </form>
-                      </div>
-                  </div>
-                  <!-- 로그인, 회원가입-->
-                  <div class="right-side">
-                      <nav class="right-side-menu">
-                          <!-- 로그아웃 -->
-                          <div class="navigation-item right-side-item">
-                              <a href="logout.member" class="link">
-                                  <span>로그아웃</span>
-                              </a>
-                          </div>
-                      </nav>
-                          <!-- 마이페이지 -->
-                      <button type="button" class="log-in log-in-button">
-                          <a href="mypageOk.member" class="link">
-                              <span>마이페이지</span>
-                          </a>
-                      </button>
-                  </div>
-              </div>
-          </section>
-      </div>
-  </header>
+<div>
     <div id="app-body">
-      <div class="body-content-wrap">
-        <main class="campaign-list">
-          <div>
-            <header class="campaign-list">
-                <h1 class="page-title">캠페인</h1>
-            </header>
-          </div>
-          <div class="search-bar">
-            <section class="search-bar">
-              <div class="search-area">
-                <div class="input-wrap">
-                  <div class="input-group-grey">
-                    <div class="prepand-glass">
-                      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMSkiIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGNpcmNsZSBjeD0iNi42MTEiIGN5PSI2LjYxMSIgcj0iNS44NjEiLz4KICAgICAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Im0xNS4yNSAxNS4yNS00LjI0My00LjI0MyIvPgogICAgPC9nPgo8L3N2Zz4K" 
-                      alt="검색" class="search-icon">
-                    </div>
-                    <input type="text" class="search-form" placeholder="참여 할 캠페인을 찾아보세요" maxlength="15">
-                    <div class="input-group-append">
-                      <button type="button" class="keywords-del-button">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMgMykiPgogICAgICAgICAgICA8Y2lyY2xlIGZpbGw9IiNDNUM1QzUiIGN4PSI5IiBjeT0iOSIgcj0iOSIvPgogICAgICAgICAgICA8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Im02IDYgNi4wMDUgNi4wMDZNMTIuMDA1IDYgNiAxMi4wMDYiLz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo=" 
-                        alt="키워드 삭제">
-                      </button>
-                    </div>
-                  </div>
+        <div class="body-content-wrap">
+            <main class="campaign-list">
+                <div>
+                    <header class="campaign-list">
+                        <h1 class="page-title">캠페인</h1>
+                    </header>
                 </div>
-              </div>
-            </section>
-          </div>
-          <section class="filter-group">
-            <ul class="group-tab">
-              <li class="group-tab">
-                <a href="/ip/products" target="_self" class="group-tab">지역순찰</a>
-              </li>
-              <li class="group-tab">
-                <a href="/ip/products" target="_self" class="group-tab">미화</a>
-              </li>
-              <li class="group-tab">
-                <a href="/ip/products" target="_self" class="group-tab">봉사활동</a>
-              </li>
-              <li class="group-tab">
-                <a href="/ip/products" target="_self" class="group-tab">캠페인</a>
-              </li>
-              <li class="campaign-create-button">
-                <button type="button" class="campaign-create-button" style="width:140px;">캠페인 개설하기
-                  <a href="campaign-make.html"></a>
-                </button>
-              </li>
-            </ul>
-          </section>
-          <section class="page-content-wrap">
-            <div class="campaign-curation-group">
-               <!-- campaign-curation -->
-              <article class="campaign-list-curation">
-                <header class="content-title">
-                  <h3 class="content-title">[서울] 지역 순찰</h3>
-                </header>
-                <section class="campaign-content">
-                  <div class="campaign-content-1">
-                    <div class="campaign-content-2">
-                      <div class="campaign-content-3">
-                        <div class="campaign-content-4">
-                          <div class="campaign-content-5">
-                            <div class="campaign-content-box" tabindex="-1" data-index="0" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
-                                        </div>
-                                      </article>
+                <div class="search-bar">
+                    <section class="search-bar">
+                        <div class="search-area">
+                            <div class="input-wrap">
+                                <div class="input-group-grey">
+                                    <div class="prepand-glass">
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMSkiIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGNpcmNsZSBjeD0iNi42MTEiIGN5PSI2LjYxMSIgcj0iNS44NjEiLz4KICAgICAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Im0xNS4yNSAxNS4yNS00LjI0My00LjI0MyIvPgogICAgPC9nPgo8L3N2Zz4K"
+                                             alt="검색" class="search-icon">
                                     </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">길동 보디가드😄</strong>
+                                    <input type="text" class="search-form" placeholder="참여하고 싶은 캠페인을 찾아보세요" maxlength="15">
+                                    <div class="input-group-append">
+                                        <button type="button" class="keywords-del-button">
+                                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMgMykiPgogICAgICAgICAgICA8Y2lyY2xlIGZpbGw9IiNDNUM1QzUiIGN4PSI5IiBjeT0iOSIgcj0iOSIvPgogICAgICAgICAgICA8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Im02IDYgNi4wMDUgNi4wMDZNMTIuMDA1IDYgNiAxMi4wMDYiLz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                                                 alt="키워드 삭제">
+                                        </button>
                                     </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [강동구 길동] 마을 순찰대 2-30대 군필자들의 모임 입니다, 
-                                            많은 분 들의 참여 부탁 드립니다! 감사합니다❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    
-                                  </a>
-                                </article>
-                              </div>
+                                </div>
                             </div>
-                            <div class="campaign-content-box" tabindex="-1" data-index="1" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
-                                        </div>
-                                      </article>
-                                    </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">강동순찰대👮‍♂️</strong>
-                                    </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [강동구 길동] 마을 순찰대 2-30대 군필자들의 모임 입니다, 
-                                            많은 분 들의 참여 부탁 드립니다! 감사합니다❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    
-                                  </a>
-                                </article>
-                              </div>
-                            </div>
-                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
+                    </section>
+                </div>
+                <section class="filter-group">
+                    <ul class="group-tab">
+                        <li class="group-tab">
+                            <a href="/ip/products" target="_self" class="group-tab">지역순찰</a>
+                        </li>
+                        <li class="group-tab">
+                            <a href="/ip/products" target="_self" class="group-tab">미화</a>
+                        </li>
+                        <li class="group-tab">
+                            <a href="/ip/products" target="_self" class="group-tab">봉사활동</a>
+                        </li>
+                        <li class="group-tab">
+                            <a href="/ip/products" target="_self" class="group-tab">캠페인</a>
+                        </li>
+                    </ul>
                 </section>
-              </article>
-              <article class="campaign-list-curation">
-                <header class="content-title">
-                  <h3 class="content-title">[경기] 지역 순찰</h3>
-                </header>
-                <section class="campaign-content">
-                  <div class="campaign-content-1">
-                    <div class="campaign-content-2">
-                      <div class="campaign-content-3">
-                        <button class="pre-slick-arrow" type="button" data-roll="none">
-                          Previous
-                        </button>
-                        <div class="campaign-content-4">
-                          <!-- 첫 번째 캠페인 컨텐츠 라인과 분기점 -->
-                          <!-- 여기서 부터 다시 확인 하기 뭔가 꼬여있음 -->
-                          <div class="campaign-secound-content-slick">
-                            <!--campaign-content-box -->
-                            <div class="campaign-content-box" tabindex="-1" data-index="0" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
+                <section class="page-content-wrap">
+                    <div class="campaign-curation-group">
+                        <!-- campaign-curation -->
+                        {% for region in regions %}
+                            <article class="campaign-list-curation">
+                                <header class="content-title">
+                                    <h3 class="content-title">[{{ region.city_name }}] 지역 순찰</h3>
+                                </header>
+                                <section class="campaign-content">
+                                    <div class="campaign-content-1">
+                                        <div class="campaign-content-2">
+                                            <div class="campaign-content-3">
+                                                <div class="campaign-content-4">
+                                                    <div class="campaign-content-5" style="width: 988px;">
+                                                        {% for campaign in campaigns %}
+                                                            <div class="campaign-content-box" tabindex="-1"
+                                                                 data-index="0"
+                                                                 aria-hidden="false"
+                                                                 style="outline: none; width: 245px;">
+                                                                <div>
+                                                                    <article class="campaign-list-box" tabindex="-1"
+                                                                             style="width: 100%; display: inline-block;">
+                                                                        <a class data-testid="campaign-list-item"
+                                                                           href="/ip/products/64095a6336c562ffd43e7793?from">
+                                                                            <div class="item-image">
+                                                                                <article class="preview-image">
+                                                                                    <div class="preview-image-wrap"
+                                                                                         style="padding-top: 66.6667%;">
+                                                                                        <img src="{{ campaign.campaign_image.url }}"
+                                                                                             lazy="loaded"
+                                                                                             class="preview-image">
+                                                                                    </div>
+                                                                                </article>
+                                                                            </div>
+                                                                            <div class="campaign-team-name">
+                                                                                <strong class="campaign-team-name">길동
+                                                                                    보디가드😄</strong>
+                                                                            </div>
+                                                                            <div class="campaign-category">
+                                                                                <span>{{ campaign.campaign_description1 }}</span>
+                                                                            </div>
+                                                                            <div class="campaign-title">
+                                                                                <div>
+                                                                                    <div class="line-clamp"
+                                                                                         style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
+                                                                                        <h3 class="content-infomation">
+                                                                                            [ {{ campaign.campaign_description2 }}
+                                                                                            ]
+                                                                                            {{ campaign.campaign_description3 }}
+                                                                                        </h3>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </article>
+                                                                </div>
+                                                            </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                      </article>
                                     </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">원미동 안심귀가💕</strong>
-                                    </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [부천시 원미동] 마을 순찰대 늦은 저녁 시간, 
-                                            안전한 귀가를 도와 드립니다!❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    
-                                  </a>
-                                </article>
-                              </div>
-                            </div>
-                            <div class="campaign-content-box" tabindex="-1" data-index="1" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
-                                        </div>
-                                      </article>
-                                    </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">부천순찰대</strong>
-                                    </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [부천시 부천동] 마을 순찰대 2-30대 군필자들의 모임 입니다, 
-                                            많은 분 들의 참여 부탁 드립니다! 감사합니다❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </a>
-                                </article>
-                              </div>
-                            </div>
-                            <div class="campaign-content-box" tabindex="-1" data-index="2" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
-                                        </div>
-                                      </article>
-                                    </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">원미동 안심귀가💕</strong>
-                                    </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [부천시 원미동] 마을 순찰대 늦은 저녁 시간, 
-                                            안전한 귀가를 도와 드립니다!❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </a>
-                                </article>
-                              </div>
-                            </div>
-                            <div class="campaign-content-box" tabindex="-1" data-index="3" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
-                                        </div>
-                                      </article>
-                                    </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">원미동 안심귀가💕</strong>
-                                    </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [부천시 원미동] 마을 순찰대 늦은 저녁 시간, 
-                                            안전한 귀가를 도와 드립니다!❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </a>
-                                </article>
-                              </div>
-                            </div>
-                            <div class="campaign-content-box" tabindex="-1" data-index="0" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
-                                        </div>
-                                      </article>
-                                    </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">원미동 안심귀가💕</strong>
-                                    </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [부천시 원미동] 마을 순찰대 늦은 저녁 시간, 
-                                            안전한 귀가를 도와 드립니다!❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    
-                                  </a>
-                                </article>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <button class="next-slick-arrow" type="button" data-role="none"></button>
-                        </div>
-                      </div>
+                                </section>
+                            </article>
+                        {% endfor %}
                     </div>
-                  </div>
                 </section>
-              </article>
-              <!-- campaign-curation -->
-              <article class="campaign-list-curation">
-                <header class="content-title">
-                  <h3 class="content-title">[부산] 지역 순찰</h3>
-                </header>
-                <section class="campaign-content">
-                  <div class="campaign-content-1">
-                    <div class="campaign-content-2">
-                      <div class="campaign-content-3">
-                        <button class="pre-slick-arrow" type="button" data-roll="none">
-                          Previous
-                        </button>
-                        <div class="campaign-content-4">
-                          <!-- 첫 번째 캠페인 컨텐츠 라인과 분기점 -->
-                          <div class="campaign-secound-content-slick">
-                            <div class="campaign-content-box" tabindex="-1" data-index="0" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
-                                        </div>
-                                      </article>
-                                    </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">원미동 안심귀가💕</strong>
-                                    </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [부천시 원미동] 마을 순찰대 늦은 저녁 시간, 
-                                            안전한 귀가를 도와 드립니다!❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    
-                                  </a>
-                                </article>
-                              </div>
-                            </div>
-                            <div class="campaign-content-box" tabindex="-1" data-index="1" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
-                                        </div>
-                                      </article>
-                                    </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">부천순찰대</strong>
-                                    </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [부천시 부천동] 마을 순찰대 2-30대 군필자들의 모임 입니다, 
-                                            많은 분 들의 참여 부탁 드립니다! 감사합니다❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </a>
-                                </article>
-                              </div>
-                            </div>
-                            <div class="campaign-content-box" tabindex="-1" data-index="0" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
-                                        </div>
-                                      </article>
-                                    </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">원미동 안심귀가💕</strong>
-                                    </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [부천시 원미동] 마을 순찰대 늦은 저녁 시간, 
-                                            안전한 귀가를 도와 드립니다!❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </a>
-                                </article>
-                              </div>
-                            </div>
-                            <div class="campaign-content-box" tabindex="-1" data-index="1" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
-                                        </div>
-                                      </article>
-                                    </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">원미동 안심귀가💕</strong>
-                                    </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [부천시 원미동] 마을 순찰대 늦은 저녁 시간, 
-                                            안전한 귀가를 도와 드립니다!❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </a>
-                                </article>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        </div>
-                        <button class="next-slick-arrow" type="button" data-role="none"></button>
-                      </div>
-                    </div>
-                    <article class="campaign-list-curation">
-                <header class="content-title">
-                  <h3 class="content-title">[인천] 지역 순찰</h3>
-                </header>
-                <section class="campaign-content">
-                  <div class="campaign-content-1">
-                    <div class="campaign-content-2">
-                      <div class="campaign-content-3">
-                        <div class="campaign-content-4">
-                          <div class="campaign-content-5">
-                            <div class="campaign-content-box" tabindex="-1" data-index="2" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
-                                        </div>
-                                      </article>
-                                    </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">길동 보디가드😄</strong>
-                                    </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [강동구 길동] 마을 순찰대 2-30대 군필자들의 모임 입니다, 
-                                            많은 분 들의 참여 부탁 드립니다! 감사합니다❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    
-                                  </a>
-                                </article>
-                              </div>
-                            </div>
-                            <div class="campaign-content-box" tabindex="-1" data-index="3" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
-                                        </div>
-                                      </article>
-                                    </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">강동순찰대👮‍♂️</strong>
-                                    </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [강동구 길동] 마을 순찰대 2-30대 군필자들의 모임 입니다, 
-                                            많은 분 들의 참여 부탁 드립니다! 감사합니다❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    
-                                  </a>
-                                </article>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </article>
-              <article class="campaign-list-curation">
-                <header class="content-title">
-                  <h3 class="content-title">[강원도] 지역 순찰</h3>
-                </header>
-                <section class="campaign-content">
-                  <div class="campaign-content-1">
-                    <div class="campaign-content-2">
-                      <div class="campaign-content-3">
-                        <div class="campaign-content-4">
-                          <div class="campaign-content-5">
-                            <div class="campaign-content-box" tabindex="-1" data-index="0" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
-                                        </div>
-                                      </article>
-                                    </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">길동 보디가드😄</strong>
-                                    </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [강동구 길동] 마을 순찰대 2-30대 군필자들의 모임 입니다, 
-                                            많은 분 들의 참여 부탁 드립니다! 감사합니다❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    
-                                  </a>
-                                </article>
-                              </div>
-                            </div>
-                            <div class="campaign-content-box" tabindex="-1" data-index="1" aria-hidden="false" style="outline: none; width: 247px;">
-                              <div>
-                                <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                  <a class data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
-                                    <div class="item-image">
-                                      <article class="preview-image">
-                                        <div class="preview-image-wrap" style="padding-top: 66.6667%;">
-                                          <img src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1" data-src="https://static.cdn.soomgo.com/upload/market/da8a8960-7579-43ee-97a4-32e0366c07eb.jpg?h=320&w=480&webp=1"
-                                           lazy="loaded" class="preview-image">
-                                        </div>
-                                      </article>
-                                    </div>
-                                    <div class="campaign-team-name">
-                                      <strong class="campaign-team-name">강동순찰대👮‍♂️</strong>
-                                    </div>
-                                    <div class="campaign-category">
-                                      <span>지역 순찰</span>
-                                    </div>
-                                    <div class="campaign-title">
-                                      <div>
-                                        <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                          <h3 class="content-infomation">
-                                            [강동구 길동] 마을 순찰대 2-30대 군필자들의 모임 입니다, 
-                                            많은 분 들의 참여 부탁 드립니다! 감사합니다❤️
-                                          </h3>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </a>
-                                </article>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </article>
-                    <!-- curation들은 아래 div  -->
-                  </div>
-                </section>
-              </article>
-            </div>
-            <!-- 위 div는class="campaign-curation-group"  -->
-          </section>
-          <!--위로 가기 버튼-->
-               <a id="top-btn" class="top-btn" role="button" aria-label="위로 가기 버튼" style="right: 211px;">
-                  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGc+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTAgMEgyNFYyNEgweiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMyMy4wMDAwMDAsIC02ODAuMDAwMDAwKSB0cmFuc2xhdGUoMzExLjAwMDAwMCwgNjY4LjAwMDAwMCkgdHJhbnNsYXRlKDEyLjAwMDAwMCwgMTIuMDAwMDAwKSIvPgogICAgICAgICAgICAgICAgICAgIDxnIHN0cm9rZT0iI0I1QjVCNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik03IDBMNyAxNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMyMy4wMDAwMDAsIC02ODAuMDAwMDAwKSB0cmFuc2xhdGUoMzExLjAwMDAwMCwgNjY4LjAwMDAwMCkgdHJhbnNsYXRlKDEyLjAwMDAwMCwgMTIuMDAwMDAwKSB0cmFuc2xhdGUoNS4wMDAwMDAsIDQuNTAwMDAwKSIvPgogICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMCA3TDcgMCAxNCA3IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzIzLjAwMDAwMCwgLTY4MC4wMDAwMDApIHRyYW5zbGF0ZSgzMTEuMDAwMDAwLCA2NjguMDAwMDAwKSB0cmFuc2xhdGUoMTIuMDAwMDAwLCAxMi4wMDAwMDApIHRyYW5zbGF0ZSg1LjAwMDAwMCwgNC41MDAwMDApIi8+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K" alt="위로 가기">
-               </a>
-        </main>
-      </div>
+            </main>
+        </div>
     </div>
+</div>
 </body>
-</html>
