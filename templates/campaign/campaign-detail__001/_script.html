@@ -126,3 +126,23 @@ if (resultElement) {
 }
 
 </script>
+
+<script>
+    const join = document.getElementById('hb_modal_area')
+    const join_button = document.getElementById('join-campaign')
+    const close_button = document.getElementById('hb_goback')
+
+    join_button.addEventListener('click', () => {
+    join.style.display = 'block';
+    });
+
+    close_button.addEventListener('click', () => {
+    join.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+    if (event.target === join) {
+        join.style.display = 'none';
+        }
+    });
+</script>
