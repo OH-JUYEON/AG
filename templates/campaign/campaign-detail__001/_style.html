@@ -721,7 +721,7 @@ h3.review-name {
   color: rgba(45,45,45,var(--tw-text-opacity));
   font-size: 14px;
   letter-spacing: -.3px;
-  margin-top: 0;
+  margin-top: 15px;
 }
 
 p.feed-content {
@@ -1714,7 +1714,7 @@ a.top-btn {
     box-shadow: 0 0.125rem 0.375rem 0 rgba(0,0,0,.2);
     width: 3rem;
     height: 3rem;
-    background: #3E72F5;
+    background: #fff;
     border-radius: 50%;
     display: none;
     cursor: pointer;
@@ -1737,9 +1737,164 @@ a.top-btn {
     object-fit: cover;
 }
 
+.categories{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.review-writer{
+    width: 150px;
+}
+
+.review-written-on{
+    text-align: right;
+    margin-left: 500px;
+    margin-bottom: 0.5rem;
+    --tw-text-opacity: 1;
+    color: rgba(136,136,136,var(--tw-text-opacity));
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: -.2px;
+    font-weight: 400;
+}
+
+#hb_modal_area{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    -webkit-box-pack: center;
+    justify-content: center !important;
+    -webkit-box-align: center;
+    align-items: center !important;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+:root, html[data-theme=light] {
+    --theme-palette-colors-pink-400: #f348a3;
+    --theme-palette-colors-gray-900: #333;
+    --theme-palette-colors-black-100: #000;
+    --theme-palette-colors-bluegray-200: #e1e2e3;
+    --theme-palette-colors-gray-700: #767676;
+    --theme-palette-colors-blue-800: #002fdb;
+    --theme-palette-colors-gray-600: #888;
+    --theme-palette-colors-gray-800: #666;
+    --theme-palette-colors-purple-400: #8958fa;
+    --theme-palette-colors-gray-300: #ccc;
+    --theme-palette-colors-green-400: #08ba9c;
+    --theme-palette-colors-blue-400: #36f;
+    --theme-palette-colors-gray-200: #ececec;
+    --theme-palette-colors-red-400: #fe415c;
+    --theme-palette-colors-gray-500: #939393;
+    --theme-palette-colors-gray-400: #aaa;
+    --theme-palette-colors-pastel-lime-50: #f6f8ee;
+    --theme-palette-colors-pastel-purple-50: #f7f2f9;
+    --theme-palette-colors-pastel-blue-50: #eff1fb;
+    --theme-palette-colors-pastel-lightblue-50: #f3f9fe;
+    --theme-palette-colors-pastel-cyan-50: #eefaf9;
+    --theme-palette-colors-pastel-green-100: #e4f4ec;
+    --theme-palette-colors-bluegray-100: #f2f4f7;
+    --theme-palette-colors-pastel-green-50: #f2fbf5;
+    --theme-palette-colors-base-bg: #f7f7f7;
+    --theme-palette-colors-white-100: #fff;
+    --theme-palette-colors-pastel-indigo-50: #f3f2fb;
+    --theme-palette-colors-gray-100: #f8f8f8;
+    --theme-palette-colors-elevated-bg: #fff;
+    --theme-palette-colors-contents-bg: #fff;
+    --theme-palette-colors-common-white: #fff;
+    --theme-palette-colors-orange-400: #ff9100;
+    --theme-palette-colors-blue-invert: #4d7dff;
+    --theme-palette-colors-dimmer: rgba(0,0,0,.5);
+    --theme-palette-colors-blue-600: #2658f6;
+}
+
+.hb_modal{
+    width: 100%;
+    max-width: 400px;
+    min-height: 200px;
+    margin-top: 262px;
+    margin-left: 567px;
+    border-radius: 8px;
+    background-color: var(--theme-palette-colors-contents-bg);
+}
+
+.hb_content1 p, .hb_content2 p{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+}
+
+.hb_upper-text{
+    padding-top: 20px;
+    padding-right: 3px;
+}
+
+.hb_bottom-text{
+    padding-top: 10px
+}
+
+.hb_firework{
+    width: 40px;
+    height: 40px;
+}
+
+.hb_modal_button{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.hb_back{
+    height: 50px;
+    min-height: 50px;
+    border-radius: 25px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: var(--theme-palette-colors-contents-bg);
+    border: 1px solid var(--theme-palette-colors-bluegray-200);
+    width: auto;
+    padding: 0px 32px;
+    margin-left: 8px;
+
+}
+
+.hb_button-text{
+    color: var(--theme-palette-colors-black-100);
+    {#font-weight: var(--text-weight-body-bold);#}
+    text-align: left;
+    {#letter-spacing: var(--text-spacing-body);#}
+    {#font-size: var(--text-size-body);#}
+    {#line-height: var(--text-height-body);#}
+}
+
+.hb_more{
+    height: 50px;
+    min-height: 50px;
+    border-radius: 25px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: var(--theme-palette-colors-blue-400);
+    border: none;
+    width: auto;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-top: 12px;
+    margin-left: 8px;
+}
+
+.hb_more span{
+    color: var(--theme-palette-colors-common-white);
+}
 
 
-
-
+.hb_padding{
+    width: 10px;
+}
 
 </style>
