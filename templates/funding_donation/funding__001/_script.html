@@ -1,4 +1,46 @@
 <script>
+    //댓글 참여 이동
+    const cam = document.querySelector('#cam');
+    const can = document.querySelector('#can');
+    const des = document.querySelector('#des');
+
+    const community = document.querySelector('#forView');
+
+    cam.addEventListener('click', e => {
+        community.scrollIntoView({ behavior: 'smooth' });
+        can.classList.remove('active2'); 
+        des.classList.remove('active2'); 
+        cam.classList.add('active2'); 
+  
+    });
+
+    
+    const forViewCancel = document.querySelector('#forViewCancel');
+
+    can.addEventListener('click', e => {
+        forViewCancel.scrollIntoView({ behavior: 'smooth' });
+        cam.classList.remove('active2'); 
+        des.classList.remove('active2'); 
+        can.classList.add('active2'); 
+  
+    });
+
+
+    const forViewDes = document.querySelector('#forViewDes');
+
+    des.addEventListener('click', e => {
+        forViewDes.scrollIntoView({ behavior: 'smooth' });
+        can.classList.remove('active2'); 
+        cam.classList.remove('active2'); 
+        des.classList.add('active2'); 
+  
+    });
+</script>
+
+
+
+
+<script>
     $(document).ready(function () {
         $('#image-gallery').lightSlider({
             gallery: true,
