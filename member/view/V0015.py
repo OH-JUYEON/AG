@@ -34,19 +34,20 @@ class Login(View):
         thumbnail_image_url = info.get('profile').get('thumbnail_image_url')
         email = info.get('email')
 
-        request.session['member_email'] = email
+        member = Member.objects.filter(member_email=email).first()
+      
+        if not member:
+            Member.objects.create(member_email=email, member_name=nickname, status=1)
+            request.session['member_id'] = member.id
+            request.session['thumbnail_image_url'] = thumbnail_image_url
+            request.session['access_token'] = access_token
+
+            return redirect('/member/mypage/account')
+        
+        request.session['member_id'] = member.id
         request.session['thumbnail_image_url'] = thumbnail_image_url
         request.session['access_token'] = access_token
 
-
-        member = Member.objects.filter(member_email=email).first()
-
-        if not member:
-            Member.objects.create(member_email=email, member_name=nickname, status=1)
-            request.session['member_id'] = member.member_id
-            return redirect('/member/mypage/account')
-
-        request.session['member_id'] = member.id
 
         for key, value in request.session.items():
             print(f"Key: {key}, Value: {value}")

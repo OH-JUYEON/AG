@@ -12,19 +12,21 @@ import json
 class AccountModify(View):
 
     def get(self, request, *args, **kwargs):
-        kwargs['member_id'] = 2
-        user = Member.objects.get(id=kwargs['member_id'])
-        data={
-                'member_id':user.id,
-                'member_name':user.member_name,
-                'member_email':user.member_email,
-                'member_image':user.member_image.url,
-                'city_name':user.city_header.city_name,
-                'city_detail_name':user.city_detail.city_detail_name,
-            }
-            
-        return render(request, 'mypage/mypage__002/_T002.html',{'context':data})
-    
+        if 'member_id' in request.session:
+            user = Member.objects.get(id=request.session['member_id'])
+            data={
+                    'member_id':user.id,
+                    'member_name':user.member_name,
+                    'member_email':user.member_email,
+                    'member_image':request.session['thumbnail_image_url'],
+                    'city_name':user.city_header.city_name,
+                    'city_detail_name':user.city_detail.city_detail_name,
+                }
+                
+            return render(request, 'mypage/mypage__002/_T002.html',{'context':data})
+        
+        else:
+            return redirect('/AG/login/')
 
     def post(self, request):
 

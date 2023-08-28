@@ -16,7 +16,7 @@ class ReviewList(View):
     def get(self, request, *args, **kwargs):     
         
         try:
-            member_id=2
+            member_id=request.session['member_id']
             page = kwargs['page']
             start = page * 5
             end = start + 5 

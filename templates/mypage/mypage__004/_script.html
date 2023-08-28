@@ -1,19 +1,42 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
-
+const type = parseInt(`{{type}}`)
+const first_set = document.querySelector(`.router-link-active${type}`);   
+const first_content = document.querySelector(`.content${type}`);
+first_set.style.background = "#d1f3ff";
+first_set.querySelector("span").style.fontWeight = "700";
+first_set.querySelector("span").style.color = "rgb(45, 45, 45)";
+let page = 0;
+if (type === 4){
+    
+    window.addEventListener('scroll', () => {
+                  
+    const currentScroll = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const bodyHeight = document.body.scrollHeight;
+    console.log(currentScroll)
+    console.log(windowHeight)
+    console.log(bodyHeight)
+    
+    if(currentScroll + windowHeight + 0.5 >= bodyHeight){
+        page++;
+        getList();
+    }
+    });
+}
 
 for (let i = 0; i < 4; i++) {
     let dataCnt;
 
     if (i === 0){
-        dataCnt = {{ len1 }};
+        dataCnt = parseInt(`{{ len1 }}`);
     } else if(i === 1){
-        dataCnt = {{ len2 }};
+        dataCnt = parseInt(`{{ len2 }}`);
     } else if(i === 2){
-        dataCnt = {{ len3 }};
+        dataCnt = parseInt(`{{ len3 }}`);
     } else if(i === 3){
-        dataCnt = {{ len4 }};
+        dataCnt = parseInt(`{{ len4 }}`);
     }
     
     
@@ -85,19 +108,22 @@ for (let i = 0; i < 4; i++) {
     //         currentCurationIndex = index;
     //     });
     // });
-
-    let currentContent = document.querySelector(".content0");
-    let page = 0;
+   
+// const first_content = document.querySelector(`.content${type}`);
+    let currentContent = document.querySelector(`.content${type}`);
+    
+ 
     for (let i = 0; i < 5; i++) {
         const list = document.querySelector(`.router-link-active${i}`);
         const content = document.querySelector(`.content${i}`);
 
-        if (i !== 0) {
+        if (i !== type) {
             content.style.display = "none";
         }
 
         list.addEventListener("click", function () {
             if (currentContent !== content) {
+                
                 for (let j = 0; j < 5; j++) {
                     const link = document.querySelector(`.router-link-active${j}`);
                     const contentJ = document.querySelector(`.content${j}`);
@@ -134,15 +160,17 @@ for (let i = 0; i < 4; i++) {
             }
         });
     }
-
+ 
+           
 let jsonDataObj ="" 
 function getList(){
+ 
     fetch(`/member/mypage/activity/review/${page}/`)
         .then((response) => response.json())
         .then((data)=>{
          
             let jsonDataObj = JSON.parse(data.result);
-            // console.log(jsonDataObj);
+            console.log(jsonDataObj);
             
             let text = "";
 

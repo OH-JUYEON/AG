@@ -11,7 +11,7 @@ class CashHistory(View):
     # 1 - 펀딩
     # 2 - 기부
     def get(self, request, *args, **kwargs):
-        member_id=2
+        member_id=request.session['member_id']
         pay_obj = Pay.objects.filter(member_id=member_id).order_by('-id')
         dataList = {}
         ag_type=0
@@ -35,7 +35,7 @@ class CashHistory(View):
 
     def post(self, request, *args, **kwargs):
 
-        id = request.POST.get("member_id")
+        id = request.session['member_id']
         pay = int(request.POST.get("pay"))
         pay_amount = 0
         pay_obj = Pay.objects.filter(member_id=id).order_by('-id')

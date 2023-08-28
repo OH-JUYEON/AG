@@ -5,18 +5,18 @@
       const contentSections = document.querySelectorAll(".content");
       const arrows = document.querySelectorAll(".arrow");
       const answerButton = document.querySelector(".btn-answer");
-      const answerWrapper = document.querySelector(".answer-wrapper");
+      // const answerWrapper = document.querySelector(".answer-wrapper");
       const inquiryType = document.querySelector(".inquiry-type");
       const myInquiry = document.querySelector(".my-inquiry");
       const receivedInquiry = document.querySelector(".received-inquiry");
       const myInquiryWrap = document.querySelectorAll(".my-inquiry-wrap");
       const receivedInquiryWrap = document.querySelectorAll(".received-inquiry-wrap");
-console.log(receivedInquiryWrap)
-console.log(myInquiryWrap)
 
 
-      receivedInquiryWrap.forEach((item) => {item.style.display = "none";})
-      answerWrapper.style.display = "none";
+
+      receivedInquiryWrap.forEach((item) => {
+      item.style.display = "none";})
+      // answerWrapper.style.display = "none";
 
       // 초기에 모든 content 섹션을 숨김
       contentSections.forEach(section => {
@@ -59,9 +59,9 @@ console.log(myInquiryWrap)
         });
       });
 
-      answerButton.addEventListener("click", () => {
-        answerWrapper.style.display = "block";
-      });
+      // answerButton.addEventListener("click", () => {
+      //   answerWrapper.style.display = "block";
+      // });
 
     // receivedInquiry 클릭 시 해당 wrap 보이도록 처리
     receivedInquiry.addEventListener("click", () => {
@@ -94,6 +94,42 @@ console.log(myInquiryWrap)
       receivedInquiry.style.borderBottom = "none";
     });
 
+
+    function answer_sub( id, type ){
+      
+        // CSRF 토큰 가져오기
+        let csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+        let content = document.getElementsByClassName(`${type}answer${id}`)[0]
+        // 서버로 보낼 데이터 구성
+        let dataToSend = {
+            id: id,
+            answer: content,
+            type: type,
+        };
+
+        // 요청 헤더에 CSRF 토큰 추가
+        let headers = {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken, 
+        };
+
+        // 서버로 데이터를 전송합니다.
+        fetch('/member/mypage/inquiry/', {
+            method: 'POST',
+            headers: headers, // 요청 헤더에 CSRF 토큰을 추가
+            body: JSON.stringify(dataToSend),
+        })
+        .then(response => response.json())
+        .then(data => {
+            // 서버로부터 받은 응답 데이터를 처리합니다.
+            console.log(data.result);
+        })
+        .catch(error => {
+            // 오류 처리
+            console.error('Error:', error);
+        });
+        
+    }
 
 
 </script>

@@ -34,18 +34,19 @@
                 <!-- 회원 관리 메뉴 -->
                 <section>
                     <ul class="account-info">
-                        <a href="#" class="item-container">
+                        <a href="/member/mypage/name/" class="item-container">
                             <div class="item">
                                 <div class="item-title">닉네임</div>
                                 <div class="item-info">
                                     {{context.member_name}}
                                 </div>
                             </div>
-                            <!-- <div>
+                            <div>
                                 <img src="	https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-                            </div> -->
+                            </div>
                         </a>
-                        <a class="item-container" href="/member/mypage/email/?email={{context.member_email}}&id={{context.member_id}}">
+                        <!-- <a class="item-container" href="/member/mypage/email/?email={{context.member_email}}&id={{context.member_id}}"> -->
+                            <a class="item-container" href="#" style="cursor: default;">
                             <div class="item">
                                 <div class="item-title">이메일</div>
                                 <div class="item-info">
@@ -56,7 +57,7 @@
                                 </div>
                             </div>
                             <div>
-                                <img src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+                                <!-- <img src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
                             </div>
                         </a>
                  
@@ -76,7 +77,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="item-container" href="/member/mypage/account/delete/?id={{context.member_id}}">
+                        <a class="item-container" href="/member/mypage/unregister/">
                             <div class="item">계정 탈퇴</div>
                             <div>
                                 <img src="	https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">

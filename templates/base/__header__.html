@@ -2,7 +2,7 @@
 
 <header class="united-header">
         <div class="united-header-section">
-            <section class="united-header header-box">
+            <section class="united-header header-box" style="display: flex; flex-direction: column; align-items: center;">
                 <div class="united-header-area">
                     <!-- 헤더 왼쪽 메뉴 -->
                     <div class="left-side">
@@ -19,7 +19,7 @@
                                         <span>안전 정보</span>
                                     </a>
                                 </li>
-                                <li class="navigation-category navigation-item">
+                                <li class="navigation-category navigation-item" onclick="region_click()">
                                     <a href="#" class="link">
                                         <span>지역 검색</span>
                                     </a>
@@ -92,6 +92,26 @@
                     </div>
                     {% endif %}
                 </div>
+                <section class="service-area-filter all fixed region-modal" style="display:none"><!---->
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span >전국</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>서울</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>세종</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>강원</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>인천</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>경기</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>충북</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>충남</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>경북</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>대전</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>대구</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>전북</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>경남</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>울산</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>광주</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>부산</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>전남</span></button>
+                    <button type="button" class="btn btn-none chip-btn filter-btn"><span>제주</span></button>
+                </section>
             </section>
         </div>
     </header>

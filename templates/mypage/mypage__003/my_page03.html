@@ -10,22 +10,22 @@
         </div>
         <div class="container container-md">
             <main class="account-info-container">
-                <h1>이메일 수정</h1>
+                <h1>닉네임 수정</h1>
                 <section>
                     <fieldset class="form-group text-field">
                         <legend class="bv-no-focus-ring col-form-label pt-0">
-                            이메일
+                            닉네임
                         </legend>
-                        <form action="/member/mypage/email/" method="post" id="form">
+                        <form action="/member/mypage/name/" method="post" id="form">
                             {% csrf_token %}
-                            <input name="memberEmail" type="text" placeholder="" class="form-control is-valid" value="{{email}}">
+                            <input name="memberName" type="text" placeholder="" class="form-control is-valid" value="{{name}}">
                             <input type="hidden" name="member_id" value="{{id}}">
-                            <div class="invalid-feedback" id="pw-text">이메일 주소를 입력해주세요.</div>
+                            <div class="invalid-feedback" id="pw-text">닉네임을 입력해주세요.</div>
                         </form>
                     </fieldset>
                 </section>
                 <footer class="button-group">
-                    <a href="accountSettingOk.member" class="btn btn-cancel btn-active btn-outline-secondary"
+                    <a href="#" class="btn btn-cancel btn-active btn-outline-secondary" onclick="window.history.back();"
                        target="_self">취소</a>
                     <button type="submit" class="btn btn-primary" id="button">수정 완료</button>
                 </footer>

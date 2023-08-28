@@ -28,7 +28,7 @@
                                 <div class="radio-group">
                                     <input name="reason-radio" type="radio" id="desc-one">
                                     <label class="label" for="desc-one" id="label">
-{#                                        <span class="radio"></span>#}
+<!-- {#                                        <span class="radio"></span>#} -->
                                         <span class="text desc-one"> 알림이 너무 많이 와요</span>
                                     </label>
                                     <div class="description-wrapper" id="desc-one">
@@ -44,7 +44,7 @@
                                 <div class="radio-group">
                                     <input name="reason-radio" type="radio" id="desc-two">
                                     <label class="label" for="desc-two">
-{#                                        <span class="radio"></span>#}
+<!-- {#                                        <span class="radio"></span>#} -->
                                         <span class="text color-two"> 사용하기 어려워요 </span>
                                     </label>
                                     <div class="description-wrapper" id="desc-two">
@@ -60,7 +60,7 @@
                                 <div class="radio-group">
                                     <input name="reason-radio" type="radio" id="desc-three">
                                     <label class="label" for="desc-three">
-{#                                        <span class="radio"></span>#}
+<!-- {#                                        <span class="radio"></span>#} -->
                                         <span class="text"> 오류가 많아서 불편해요
 										</span>
                                     </label>
@@ -77,7 +77,7 @@
                                 <div class="radio-group">
                                     <input name="reason-radio" type="radio" id="desc-four">
                                     <label class="label" for="desc-four">
-{#                                        <span class="radio"></span>#}
+<!-- {#                                        <span class="radio"></span>#} -->
                                         <span class="text"> 기타 </span>
                                     </label>
                                     <div class="description-wrapper" id="desc-four">
@@ -99,9 +99,9 @@
                     </article>
                 </section>
                 <footer class="button-group">
-                    <a href="accountSettingOk.member" target="_self"
-                       class="btn router-link-active btn-outline-primary">취소</a>
-                    <button type="submit" class="btn btn-primary" onClick="location.href='userOutOk.member'">탈퇴 완료
+                    <a href="#" target="_self"
+                       class="btn router-link-active btn-outline-primary" onclick="window.history.back();">취소</a>
+                    <button type="submit" class="btn btn-primary" onClick="location.href='/member/mypage/account/delete/'">탈퇴 완료
                     </button>
                 </footer>
             </main>

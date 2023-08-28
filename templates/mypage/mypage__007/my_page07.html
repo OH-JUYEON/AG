@@ -3,6 +3,7 @@
 
 <div class="app">
     <!--중단부 -->
+    {% csrf_token %}
     <div id="app-body">
         <div class="container container-md">
             <main>
@@ -109,20 +110,22 @@
                                             </button>
                                         </div> -->
                                     </section>
-                                    <section class="qna-content-answer">
-                                        <div class="answer-wrapper">
-                                            <textarea data-v-30a01857="" name="accountDeleteReason"
-                                                      placeholder="답변을 입력하세요." rows="2" wrap="soft"
-                                                      class="textarea form-control error"
-                                                      data-testid="account-delete-reason" data-vv-validate-on="blur"
-                                                      maxlength="500" aria-invalid="true" id="__BVID__354"
-                                                      aria-required="true"></textarea>
-                                            <button type="button" class="btn-answer">
-                                                완료
-                                            </button>
-                                        </div>
+                                    {% if data.status == 0 %}
+                                        <section class="qna-content-answer">
+                                            <div class="answer-wrapper">
+                                                <textarea name="accountDeleteReason"
+                                                        placeholder="답변을 입력하세요." rows="2" wrap="soft"
+                                                        class="textarea form-control error {{data.type}}answer{{data.inquiry_id}}"
+                                                        data-testid="account-delete-reason" data-vv-validate-on="blur"
+                                                        maxlength="500" aria-invalid="true" id="__BVID__354"
+                                                        aria-required="true"></textarea>
+                                                <button type="button" class="btn-answer" onclick="answer_sub('{{data.inquiry_id}}','{{data.type}}')">
+                                                    완료
+                                                </button>
+                                            </div>
 
-                                    </section>
+                                        </section>
+                                    {% endif %}
                                 </section>
                             </article>
                             {% endfor %}

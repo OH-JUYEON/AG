@@ -5,7 +5,8 @@ from campaign.models import CampaignInquiry, CampaignInquiryAnswer, CampaignPart
 from funding.models import FundingInquiry, FundingInquiryAnswer, Funding
 from donation.models import DonationInquiry, DonationInquiryAnswer
 from member.models import Inquiry, InquiryAnswer
-
+from django.http import JsonResponse
+import json
 
 
 # Create your views here.
@@ -16,8 +17,7 @@ from member.models import Inquiry, InquiryAnswer
 class InquiryList(View):
 
     def get(self, request, *args, **kwargs):
-        kwargs['member_id'] = 2
-        member_id = kwargs['member_id']
+        member_id = request.session['member_id']
         campaignList = CampaignInquiry.objects.filter(member_id=member_id,campaign_inquiry_status=1) 
         fundingList = FundingInquiry.objects.filter(member_id=member_id,fundinginquiry_status=1)
         donationList = DonationInquiry.objects.filter(member_id=member_id,donation_inquiry_status=1)
@@ -195,3 +195,20 @@ class InquiryList(View):
           
 
         return render(request, 'mypage/mypage__007/_T007.html',{'context':sorted_data,'context2':sorted_data2})
+
+    def post(self, request, *args, **kwargs):     
+        
+        try:
+            data = json.loads(request.body)
+            # answer = CityHeader.objects.get(city_name=data['city_header_name'])
+            # city_detail = CityDetail.objects.get(city_detail_name=data['city_detail_name'])
+            
+            # user = Member.objects.get(id=data['member_id'])
+            # user.city_header_id = city_header.id
+            # user.city_detail_id = city_detail.id
+            # user.save()
+
+        except json.JSONDecodeError as e:
+            return JsonResponse({'error': 'Invalid JSON'}, status=400)
+
+        return JsonResponse({'result': 'OK'}, status=200)

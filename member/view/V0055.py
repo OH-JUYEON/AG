@@ -8,10 +8,10 @@ from django.http import HttpResponseRedirect
 class AccountDel(View):
 
     def get(self, request, *args, **kwargs):
-        id = request.GET.get('id', '')
+        id = request.session['member_id']
 
-        user = Member.objects.get(id=request.GET.get('id', ''))
+        user = Member.objects.get(id=id)
         user.status = 0
         user.save()
         
-        return HttpResponseRedirect('/AG/')  
+        return HttpResponseRedirect('/AG/logout/')  
