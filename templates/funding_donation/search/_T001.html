@@ -1,0 +1,22 @@
+<html lang="ja">
+
+<head>
+    {% include "../../base/__load__.html" %}
+    <title>{% block title %}{% endblock %}</title>
+    {% include "../../base/__style__.html" %}
+    {% include "../../AG/main/_style.html" %}
+    {% include "./_style.html" %}
+</head>
+
+<body>
+    <div class="webp-bgroup">
+        {% include "../../base/__header__.html" %}
+        {% include "./main.html" %}
+    </div>
+    {% include "../../base/__footer__.html" %}
+    {% include "./modal.html" %}
+
+    {% include "./_script.html" %}
+</body>
+
+</html>

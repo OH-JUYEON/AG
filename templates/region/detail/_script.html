@@ -8,3 +8,117 @@
   
     });
 </script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  const ranking = JSON.parse(`{{ ranking|safe }}`);
+  const ranking_detail = JSON.parse(`{{ ranking_detail|safe }}`);
+  google.charts.load("current", {packages:["corechart"]});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+      let data_obj =[];
+      // let data = google.visualization.arrayToDataTable([
+      // ['Task', 'Hours per Day'],
+      // ]);
+      data_obj.push(['Task', 'Hours per Day']);
+      for (let key in ranking_detail) {
+        let name='';
+        if (key !== '0') {
+          if (key === '1'){
+            name = '성범죄';
+          }else if(key === '2'){
+            name = '살인강도';
+          }else if(key === '3'){
+            name = '교통범죄';
+          }else if(key === '4'){
+            name = '절도범죄';
+          }else if(key === '5'){
+            name = '폭력범죄';
+          }else if(key === '6'){
+            name = '경제범죄';
+          }else if(key === '7'){
+            name = '기타';
+          }
+          let saferowData = [name,ranking_detail[key]];
+          
+          // 데이터 배열에 추가
+          data_obj.push(saferowData);
+        }
+      }
+
+      let data = google.visualization.arrayToDataTable(data_obj)
+
+      console.log(data_obj)
+      console.log(data)
+      // dataRows 배열을 data.addRows에 전달
+      // data(data_obj);
+
+
+    // var data = google.visualization.arrayToDataTable([
+    //   ['Task', 'Hours per Day'],
+    //   ['Work',     11],
+    //   ['Eat',      2],
+    //   ['Commute',  2],
+    //   ['Watch TV', 2],
+    //   ['Sleep',    7]
+    // ]);
+
+    var options = {
+      title: '안전 지역 점수',
+      is3D: false,
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+    chart.draw(data, options);
+  }
+</script>
+
+<script>
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Data Name');
+      data.addColumn('number', 'Motivation Level');
+          
+      // 데이터를 담을 배열 초기화
+      var dataRows = [];
+
+      // ranking 객체 순회
+  
+      for (var key in ranking) {
+
+        if (ranking.hasOwnProperty(key)) {
+          // key를 사용하여 데이터 생성
+          var rowData = [key,Math.round(ranking[key])];
+          
+          // 데이터 배열에 추가
+          dataRows.push(rowData);
+        }
+      }
+      // dataRows 배열을 data.addRows에 전달
+      data.addRows(dataRows);
+
+      var options = {
+        title: '안전 지역 랭킹',
+        hAxis: {
+        //   title: 'Time of Day',
+          // format: 'h:mm a',
+          // viewWindow: {
+          //   min: [7, 30, 0],
+          //   max: [17, 30, 0]
+          // }
+        },
+        vAxis: {
+        //   title: 'Rating (scale of 1-10)'
+        }
+      };
+
+      var chart = new google.visualization.ColumnChart(
+      document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+</script>
