@@ -9,6 +9,9 @@ from member.models import Member
 class Login(View):
 
     def get(self, request, *args, **kwargs):
+        url_path = request.GET.get('state')
+        print(1234)
+        print(url_path)
         code = request.GET.get("code")
         query_string = '?Content-type: application/x-www-form-urlencoded;charset=utf-8&' \
                        'grant_type=authorization_code&' \
@@ -33,13 +36,20 @@ class Login(View):
 
         request.session['member_email'] = email
         request.session['thumbnail_image_url'] = thumbnail_image_url
+        request.session['access_token'] = access_token
+
 
         member = Member.objects.filter(member_email=email).first()
 
         if not member:
             Member.objects.create(member_email=email, member_name=nickname, status=1)
+            request.session['member_id'] = member.member_id
             return redirect('/member/mypage/account')
 
-        return redirect('/AG')
+        request.session['member_id'] = member.id
 
-        # return render(request, 'AG/login/_T001.html')
+        for key, value in request.session.items():
+            print(f"Key: {key}, Value: {value}")
+
+        return redirect(url_path)
+
