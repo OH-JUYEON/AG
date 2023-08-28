@@ -1,0 +1,160 @@
+{% load static %}
+<div id="app-body">
+    {% csrf_token %}
+    <div class="instant-purchase-container">
+        <main>
+            <div class="observer-container">
+                <header class="page-heading">
+                    <h1 class="page-title">희망나눔마켓</h1>
+                </header>
+            </div>
+            <div class="observer-container">
+                <section class="market-keyword-search-form2">
+                    <div class="search-area2">
+                        <div class="input-wrap2">
+                            <div role="group" class="input-group2">
+                                <div class="input-group-prepend2"><img
+                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMSkiIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGNpcmNsZSBjeD0iNi42MTEiIGN5PSI2LjYxMSIgcj0iNS44NjEiLz4KICAgICAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Im0xNS4yNSAxNS4yNS00LjI0My00LjI0MyIvPgogICAgPC9nPgo8L3N2Zz4K"
+                                        alt="검색" class="search-icon2"></div><input type="text"
+                                    placeholder="원하는 내용을 검색해보세요" class="form-control" maxlength="15">
+                                <div class="input-group-append2" style="display: none;">
+                                    <button type="button" class="btn2" onclick="valueClear()"
+                                        style="cursor: pointer;"><img
+                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMgMykiPgogICAgICAgICAgICA8Y2lyY2xlIGZpbGw9IiNDNUM1QzUiIGN4PSI5IiBjeT0iOSIgcj0iOSIvPgogICAgICAgICAgICA8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Im02IDYgNi4wMDUgNi4wMDZNMTIuMDA1IDYgNiAxMi4wMDYiLz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo="
+                                            alt="키워드 삭제"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+            <div class="list-contents">
+                <div class="main-service container2 no-mobile-padding fundingservice" style="margin-top:2.5rem">
+                    <h2 class="title">캠페인</h2>
+                    <div class="main-desktop-slide">
+                        {% if len1 == 0 %}
+                                    <h2>검색결과가 없습니다.</h2>
+                                    {% else %}
+                        <div class="slick-slider slick-initialized">
+                            <button type="button" class="slick-arrow slick-prev fundingbtn slick-prev0"
+                                style="display: none;">Previous</button>
+                            <div class="slick-list">
+                                <div class="slick-track slick-track0"
+                                    style="width: 1976px; opacity: 1; transform: translate3d(0px, 0px, 0px);">                                    
+                                    
+                                    {% for data in campaign %}
+                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
+                                        <div>
+                                            <a href="#" style="width: 100%; display: inline-block;">
+                                                <div class="main-service-card">
+                                                    <img class="service-image" data-sre=""
+                                                        src="{{ data.campaign_image.url }}" alt="" lazy="loaded">
+                                                    <p class="service-name">{{ data.campaign_title }}</p>
+                                                    <div class="request-count">
+                                                        <img class="request-icon"
+                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                                                            alt=""> <span>{{data.campaign_participant_count}}</span> 명 참여중
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                   
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <button type="button" class="slick-arrow slick-next fundingbtnNext slick-next0" style="display: block;">Next</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="funding-service container2 no-mobile-padding">
+                    <h2 class="title">펀딩</h2>
+                    <div class="main-desktop-slide">
+                        {% if len2 == 0 %}
+                        <h2>검색결과가 없습니다.</h2>
+                        {% else %}
+                        <div class="slick-slider slick-initialized">
+                            <button type="button" class="slick-arrow slick-prev slick-prev1"
+                                style="display: none;">Previous</button>
+                            <div class="slick-list">
+                                <div class="slick-track slick-track1"
+                                    style="width: 1976px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+                                   
+                                    {% for data in funding %}
+                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
+                                        <div>
+                                            <a href="#" style="width: 100%; display: inline-block;">
+                                                <div class="main-service-card">
+                                                    <img class="service-image" data-sre=""
+                                                        src="{{data.funding_image.url}}"
+                                                        alt="" lazy="loaded">
+                                                    <p class="service-name">{{data.funding_title}}</p>
+                                                    <div class="request-count">
+                                                        <img class="request-icon"
+                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                                                            alt=""> <span>{{data.funding_sponsor_count}}</span> 명 참여중
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <button type="button" class="slick-arrow slick-next slick-next1" style="display: block;">Next</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="donation-service container2 no-mobile-padding">
+                    <h2 class="title">기부</h2>
+                    <div class="main-desktop-slide">
+                        {% if len3 == 0 %}
+                        <h2>검색결과가 없습니다.</h2>
+                        {% else %}
+                        <div class="slick-slider slick-initialized">
+                            <button type="button" class="slick-arrow slick-prev slick-prev2"
+                                style="display: none;">Previous</button>
+                            <div class="slick-list">
+                                <div class="slick-track slick-track2"
+                                    style="width: 1976px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+                                  
+                                    {% for data in donation %}
+                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
+                                        <div>
+                                            <a href="#" style="width: 100%; display: inline-block;">
+                                                <div class="main-service-card">
+                                                    <img class="service-image" data-sre=""
+                                                        src="{{data.donation_image.url}}"
+                                                        alt="" lazy="loaded">
+                                                    <p class="service-name">{{data.donation_title}}</p>
+                                                    <div class="request-count">
+                                                        <img class="request-icon"
+                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                                                            alt=""> <span>{{data.donation_doner_count}}</span> 명 참여중
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <button type="button" class="slick-arrow slick-next slick-next2" style="display: block;">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+               
+            </div>
+
+
+        </main>
+    </div>
+</div>

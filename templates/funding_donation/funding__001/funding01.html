@@ -1,5 +1,6 @@
 {% load static %}
-
+<div id="forViewDes" style="width: 100%; height: 80px;"></div>
+        
 <div class="detail-container" id="detail-container">
     <article class="instant-purchase-product-detail no-recent-view">
         <div class="flex-aside left">
@@ -32,24 +33,25 @@
                     <ul class="sticky-nav2">
                         <li id="nav-price" class="price"><button type="button" class="btn-d-1"><span> 서비스
                                     가격</span></button></li>
-                        <li id="nav-explanation" class="explanation active2"><button type="button"
+                        <li id="nav-explanation" class="explanation active2"><button type="button"  id="des"
                                 class="btn-d-1"><span> 펀딩 설명</span></button></li>
-                        <li id="nav-questions" class="questions"><button type="button" class="btn-d-1"><span>
+                        <li id="nav-questions" class="questions"><button type="button" class="btn-d-1"  id="can"><span>
                                     취소/환불</span></button></li>
-                        <li id="nav-qna" class="qna"><button type="button" class="btn-d-1"><span>
+                        <li id="nav-qna" class="qna"><button type="button" class="btn-d-1" id="cam"><span>
                                     댓글 </span></button></li>
                         <!-- <li id="nav-refund" class="refund"><button type="button" class="btn-d-1"><span>
                                             취소/환불 </span></button></li> -->
                     </ul>
                 </section>
+              
                 <section class="product-explanation2" id="explanation">
                     <article class="product-provider2">
                         <div class="row provider-overview no-gutters">
                             <div class="col-auto"><img
-                                    src="https://static.cdn.soomgo.com/upload/profile/ddb12c74-aec6-4d92-a994-450016880d4d.png?h=160&amp;w=160&amp;webp=1"
+                                    src="{{funding.campaign.campaign_image.url}}"
                                     alt="이엘코드" class="provider-profile">
                             </div>
-                            <div class="col"><span class="provider-name">홍길동</span>
+                            <div class="col"><span class="provider-name">{{funding.member.member_name}}</span>
                                 <div class="provider-review">
                                     <ul class="star-rate readonly" style="--gap: 0px;">
                                         <li><img src="https://assets.cdn.soomgo.com/icons/icon-common-review-star-small-full.svg"
@@ -62,7 +64,7 @@
                                                 alt="Star Icon"></li>
                                         <li><img src="https://assets.cdn.soomgo.com/icons/icon-common-review-star-small-full.svg"
                                                 alt="Star Icon"></li>
-                                    </ul><span class="review-count">(10)</span>
+                                    </ul><span class="review-count">({{reviews}})</span>
                                 </div>
                             </div>
                             <div class="share-button-wrapper col-auto"><button type="button"
@@ -78,17 +80,7 @@
                         <div class="line-clamp" style="line-height: 1.71;">
                             <p class="description">* 소개
 
-                                안녕하세요.냥냥방범대 입니다.
-
-                                우리나라 고유의 민족명절 설!
-                                명절 휴무에도 냥냥방범대는 시민의 안전을 위해 발로 뜁니다.
-                                상가, 주택 등 관내를 꼼꼼하게 순찰하는 것은 물론!
-                                주택가 일대, 공원 화장실 등 발길 닿는 곳을 꼼꼼하게 순찰하고!
-                                시민들에게 절도 예방법 및 방범 예방활동을 강조하며
-                                오늘도 범죄 예방을 위해 앞장섭니다!
-
-
-                                여러분의 가정도 평화가 깃들기를 서울 냥냥방범대가 기원합니다!
+                                {{funding.funding_content}}
 
 
                             </p>
@@ -98,7 +90,7 @@
                         </button>
 
                     </article>
-                    <article class="product-description-images">
+                    <!-- <article class="product-description-images">
                         <div class="height-clamp hide-less" style="--hc-gradient-height: 120px; --hc-height: 464px;">
                             <div><img
                                     src="https://mblogthumb-phinf.pstatic.net/MjAxODA1MTZfMjk4/MDAxNTI2NDM0MDU3MDUz.6juaLV40Zuy2vubLqLbFEQfQfC0JeXjgUsD5DUpuoa4g.OjSk1xtlUMpbLgxH4cT56eHe7Vd4Hq3v_2FTLrPJ7CIg.JPEG.withbupyeong/KakaoTalk_20180501_183832873.jpg?type=w800&webp=1"
@@ -111,11 +103,11 @@
                                     data-exthumbimage="https://static.cdn.soomgo.com/upload/market/c4a05215-a3c5-4e76-b82b-f996c2378622.jpg?h=160&amp;w=160&amp;webp=1"
                                     data-src="https://static.cdn.soomgo.com/upload/market/c4a05215-a3c5-4e76-b82b-f996c2378622.jpg?webp=1"
                                     role="button"></div>
-                            <!-- <div class="collapse-toggle"><button type="button"
+                            <div class="collapse-toggle"><button type="button"
                                             class="btn border-gray btn-outline-primary btn-block"> 접기
-                                        </button></div> -->
+                                        </button></div>
                         </div>
-                    </article>
+                    </article> -->
                 </section>
                 <!-- <section data-observe="questions" class="product-questions" id="questions">
                             <h4 class="section-title">질문답변</h4>
@@ -156,7 +148,7 @@
                                 </div>
                             </div>
                         </section> -->
-
+            <div id="forViewCancel" style="width: 100%; height: 80px;"></div>
                 <section class="product-refund-policy" id="refund">
                     <h4 class="section-title1">취소 및 환불 규정</h4>
                     <div>1. 구매 취소는 구매 직후 3시간 안에 가능합니다. 구매내역 페이지에서 구매취소
@@ -170,7 +162,7 @@
                         4. 개발 도중 환불은 가능하며, 결제대금의 30%를 제외한 나머지 금액만 가능합니다.</div>
                 </section>
 
-
+                <div id="forView" style="width: 100%; height: 80px;"></div>
 
                 <section class="re-body">
                     <div class="profile-review" id="profile-link">
@@ -229,7 +221,7 @@
                                         </div> 
                                         </div>
                                     </ul> -->
-
+                            
                             <div class="comment-inner container2">
                                 <div class="register flex-container">
                                     <div class="user-img"
@@ -312,15 +304,15 @@
             <div class="product-controller">
                 <section class="bread-crumbs no-space">
                     <ol class="page-breadcrumbs list-inline">
-                        <li><a href="/ip/products?group_slug=%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4">서울</a>
+                        <li><a href="#">{{funding.campaign.city_header.city_name}} </a>
                         </li>
                         <li><a
-                                href="/ip/products?group_slug=%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4&amp;section_slug=%EC%9B%B9-%EC%95%B1-%EA%B0%9C%EB%B0%9C">동작구</a>
+                                href="#"> / {{funding.campaign.city_detail.city_detail_name}}</a>
                         </li>
                     </ol>
                 </section>
                 <section class="product-title">
-                    <h3>냥냥캠페인에 나눔하세요</h3>
+                    <h3>{{funding.funding_title}}</h3>
                 </section>
                 <section class="product-options">
                     <div class="bottom-sheet">
@@ -345,18 +337,15 @@
                                                     <div class="option-title selected">
                                                         나도 캠페인 펀딩하기 </div>
                                                 </label>
-                                            </div><strong class="option-price">10000원 ~ </strong>
+                                            </div><strong class="option-price">{{funding.funding_minimum_amount}}원 ~ </strong>
                                             <div class="collapsed clamped">
                                                 <div class="line-clamp"
                                                     style="line-height: 1.5; max-height: 4.5rem; -webkit-line-clamp: 3;">
-                                                    <p class="option-detail">원페이지 반응형 랜딩 홈페이지
-                                                        원페이지 랜딩페이지 개발
-                                                        Contact 메일보내기 포함
-                                                        도메인 등록 배포 등의 완벽한
-                                                        사후 관리 까지</p>
-                                                </div><button type="button" class="btn collapse-toggle btn-none"><span>더
+                                                    <p class="option-detail">{{funding.funding_description}}</p>
+                                                </div>
+                                                <!-- <button type="button" class="btn collapse-toggle btn-none"><span>더
                                                         보기</span><img src="{% static 'img/icon-down.png' %}" alt=""
-                                                        class="arrow"></button>
+                                                        class="arrow"></button> -->
                                             </div>
                                         </div>
                                         <div data-testid="item-option no-selected" class="item-option">

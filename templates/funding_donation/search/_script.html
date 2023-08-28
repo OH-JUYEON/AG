@@ -1,0 +1,130 @@
+
+<!-- <script>
+/* 캠페인 */
+const $campaign_prev = $(".main-service .slick-prev"); //앞으로가기
+const $campaign_next = $(".main-service .slick-next"); //뒤로가기
+const $campaign_track = $(".main-service .slick-track"); //베너 트렉
+
+$campaign_prev.on("click", function () {
+  $campaign_prev.css("display", "none"); //앞으로가기 버튼 안보이게하고
+  $campaign_next.css("display", "block"); //뒤로가기 버튼 보이게하고
+  $campaign_track.css("transform", "translate3d(0px, 0px, 0px)");
+  $campaign_track.css("transition", "0.7s");
+});
+
+$campaign_next.on("click", function () {
+  $campaign_next.css("display", "none"); //앞으로가기 버튼 안보이게하고
+  $campaign_prev.css("display", "block"); //뒤로가기 버튼 보이게하고
+  $campaign_track.css("transform", "translate3d(-494px, 0px, 0px)");
+  $campaign_track.css("transition", "0.7s");
+  if ($campaign_prev.hasClass("slick-disabled")) {
+    $campaign_prev.removeClass("slick-disabled");
+  }
+});
+</script>
+
+<script>
+    /* 펀딩 */
+const $funding_prev = $(".funding-service .slick-prev"); //앞으로가기
+const $funding_next = $(".funding-service .slick-next"); //뒤로가기
+const $funding_track = $(".funding-service .slick-track"); //베너 트렉
+
+$funding_prev.on("click", function () {
+  $funding_prev.css("display", "none"); //앞으로가기 버튼 안보이게하고
+  $funding_next.css("display", "block"); //뒤로가기 버튼 보이게하고
+  $funding_track.css("transform", "translate3d(0px, 0px, 0px)");
+  $funding_track.css("transition", "0.7s");
+});
+
+$funding_next.on("click", function () {
+  $funding_next.css("display", "none"); //앞으로가기 버튼 안보이게하고
+  $funding_prev.css("display", "block"); //뒤로가기 버튼 보이게하고
+  $funding_track.css("transform", "translate3d(-494px, 0px, 0px)");
+  $funding_track.css("transition", "0.7s");
+  if ($funding_prev.hasClass("slick-disabled")) {
+    $funding_prev.removeClass("slick-disabled");
+  }
+});
+
+</script> -->
+
+
+
+<script>
+    
+for (let i = 0; i < 3; i++) {
+    let dataCnt;
+
+    if (i === 0){
+        dataCnt = parseInt(`{{ len1 }}`);
+    } else if(i === 1){
+        dataCnt = parseInt(`{{ len2 }}`);
+    } else if(i === 2){
+        dataCnt = parseInt(`{{ len3 }}`);
+    }
+    
+    
+    let cnt = Math.ceil(dataCnt / 4);
+
+    let pro_count = 0;
+    const $slide = $(`.slick-track${i}`); //앞으로가기
+    const $pro_prev = $(`.slick-prev${i}`); //앞으로가기
+    const $pro_next = $(`.slick-next${i}`); //뒤로가기
+    const $pro_track = $(`.slick-track${i}`); //베너 트렉
+    const $count = $(`.curation-page${i}`); //카운트
+    
+    let text = `${pro_count + 1}/${cnt}`
+    $count.text(text);
+
+    $slide.css("width", 988*cnt); 
+    if (cnt < 2) {
+        $pro_next.css("display", "none");
+    }
+    $pro_prev.on("click", function () {
+        pro_count -= 1;
+        text = `${pro_count + 1}/${cnt}`
+        $count.text(text);
+        $pro_track.css("transform", `translate3d(${-988 * pro_count}px, 0px, 0px)`);
+        $pro_track.css("transition", "0.7s");
+        if (pro_count < cnt) {
+            $pro_next.css("display", "block"); //앞으로가기 버튼 보이게하고
+            $pro_prev.css("display", "block"); 
+        }
+        if (pro_count == 0) {
+            $pro_prev.css("display", "none"); //뒤로가기 버튼 안보이게하고
+        }
+    });
+
+    $pro_next.on("click", function () {
+        pro_count += 1;
+        text = `${pro_count + 1}/${cnt}`
+        $count.text(text);
+        $pro_track.css("transform", `translate3d(${-988 * pro_count}px, 0px, 0px)`);
+        $pro_track.css("transition", "0.7s");
+        $pro_prev.css("display", "block");
+
+        if (pro_count == cnt - 1) {
+            $pro_next.css("display", "none"); //앞으로가기 버튼 안보이게하고
+        }
+    });
+    
+  }
+    
+</script>
+
+<script>
+    const searchInput = document.querySelector('.form-control');
+    const valueClose = document.querySelector('.input-group-append2');
+
+    // Enter 키를 눌렀을 때 이벤트 핸들링
+    searchInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            // 엔터 키를 눌렀을 때 검색 페이지로 이동
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm.length > 0) {
+                // 검색어가 비어 있지 않으면 검색 페이지로 이동
+                window.location.href = `/funding/search?q=${encodeURIComponent(searchTerm)}`;
+            }
+        }
+    }, false);
+</script>

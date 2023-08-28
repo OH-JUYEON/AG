@@ -7,6 +7,11 @@
     const imgSrc = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik04IDEuNjY3YzIuNzU4IDAgNSAyLjA2MiA1IDQuNjE2IDAgMi41MTctMS44MDMgNS4xNjgtNC4yMTQgNy40OTdsLS4xNDQuMTM3LS4xOTcuMTg0LS4xMzEuMTE3YS40ODQuNDg0IDAgMCAxLS42Mi4wMDdsLS4xLS4wODVjLS4wMy0uMDI1LS4wNi0uMDUtLjA5MS0uMDc4bC0uMjA0LS4xODEtLjIzLS4yMTMtLjI1My0uMjQzYTE3Ljk4IDE3Ljk4IDAgMCAxLTEuNTc4LTEuNzU3QzMuODM4IDkuODggMyA4LjA1OCAzIDYuMjgzIDMgMy43MyA1LjI0MyAxLjY2NyA4IDEuNjY3em0wIC44OTVjLTIuMjQ5IDAtNC4wNjUgMS42Ny00LjA2NSAzLjcyMSAwIDEuNTQ2Ljc2MSAzLjIgMi4wNTIgNC44NDlhMTcuMDgxIDE3LjA4MSAwIDAgMCAxLjYyIDEuNzg2bC4yMjguMjE0LjE1Ni4xNDMuMTMzLS4xMjdjMi4xNzItMi4wOTggMy44MzQtNC41MDcgMy45MzYtNi42NThsLjAwNS0uMjA3YzAtMi4wNTEtMS44MTYtMy43MjEtNC4wNjUtMy43MjF6bS4xMjUgMi4yMDJjMS4xNTEgMCAyLjA4Ni44OTQgMi4wODYgMS45OTcgMCAxLjEwMi0uOTM1IDEuOTk2LTIuMDg2IDEuOTk2LTEuMTUyIDAtMi4wODctLjg5NC0yLjA4Ny0xLjk5NiAwLTEuMTAzLjkzNS0xLjk5NyAyLjA4Ny0xLjk5N3ptMCAuODk1Yy0uNjM2IDAtMS4xNTIuNDk0LTEuMTUyIDEuMTAyIDAgLjYwOC41MTYgMS4xMDEgMS4xNTIgMS4xMDEuNjM1IDAgMS4xNS0uNDkzIDEuMTUtMS4xMDFzLS41MTUtMS4xMDItMS4xNS0xLjEwMnoiIGZpbGw9IiM4ODg4ODgiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4K";
     const allCity = document.querySelector('.allcity');
     let cityChoice = [];
+    let city = '전국';
+    let type = 0;
+    let catetype = 0; 
+    let page = 0;
+    let html ='';
 
     function open_modal() {
 
@@ -14,7 +19,7 @@
     }
 
     function all_check(num) {
-
+        page = 0;
         modal_close();
 
         let allCitySpan = allCity.querySelector('span');
@@ -23,6 +28,7 @@
         let name = num === 0 ? '지역선택' : allCitySpan.innerText;
 
         change_name(name);
+        fetch_data( name );
 
         let color = num === 0 ? '#737373' : 'black';
 
@@ -60,7 +66,9 @@
                                 item.classList.remove('modal-selected');
                                 item.querySelector('span').style.color = '#323232';
                             });
-
+                            html ='';
+                            page=0;
+                            fetch_data(item.innerText);
                             change_name(item.innerText);
                             item.style.color = '#004DF7';
                             item.classList.add('modal-selected');
@@ -97,7 +105,7 @@
         let img = new Image();
         img.src = imgSrc;
         cityName.appendChild(img);
-        console.log(cityName)
+    
         cityName.style.color = 'black';
         modal.style.display = 'none';
 
@@ -115,11 +123,36 @@
 
 
 
-    // 검색창 값 지우기
+    // // 검색창 값 지우기
+    // const searchInput = document.querySelector('.form-control');
+    // const valueClose = document.querySelector('.input-group-append2');
+
+    // searchInput.addEventListener("input", valueCheck, false);
+
+    // function valueCheck() {
+    //     valueClose.style.display = searchInput.value.length >= 1 ? "block" : "none";
+    // }
+
+    // function valueClear() {
+    //     searchInput.value = '';
+    //     valueClose.style.display = 'none';
+    // }
+
+
     const searchInput = document.querySelector('.form-control');
     const valueClose = document.querySelector('.input-group-append2');
 
-    searchInput.addEventListener("input", valueCheck, false);
+    // Enter 키를 눌렀을 때 이벤트 핸들링
+    searchInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            // 엔터 키를 눌렀을 때 검색 페이지로 이동
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm.length > 0) {
+                // 검색어가 비어 있지 않으면 검색 페이지로 이동
+                window.location.href = `/funding/search?q=${encodeURIComponent(searchTerm)}`;
+            }
+        }
+    }, false);
 
     function valueCheck() {
         valueClose.style.display = searchInput.value.length >= 1 ? "block" : "none";
@@ -133,12 +166,40 @@
     //홈 펀딩 기부 click event
     const $pro_buttons = $(".btn3");
     const $page = $(".list-contents");
+    const $regionChoice = $(".li3-choice");
 
     $pro_buttons.each((i, pro_button) => {
         let $pro_button = $(pro_button);
         let $target_page = $($page[i]); // 해당 버튼에 대응하는 컨텐츠 영역
 
         $pro_button.on("click", () => {
+            type = i;
+            catetype = 0;
+            html ='';
+            page=0;
+            
+            if(i !== 0){
+                fetch_data( cityName.textContent );
+                $regionChoice.css("display", "block");
+
+
+                window.addEventListener('scroll', () => {
+                  
+                  const currentScroll = window.scrollY;
+                  const windowHeight = window.innerHeight;
+                  const bodyHeight = document.body.scrollHeight;
+                  
+                  if(currentScroll + windowHeight + 0.5 >= bodyHeight){
+                      page++;
+                      fetch_data( cityName.textContent );
+                  }
+                  });
+
+              
+            }else{
+                window.removeEventListener('scroll', scrollListener);
+                $regionChoice.css("display", "none");
+            }
             // nowPage = i;
 
             // 모든 컨텐츠 숨기기
@@ -163,8 +224,13 @@
         let $list_button = $(list_button);
 
         $list_button.on("click", () => {
+            catetype = i;
+            html ='';
+            page=0;
+            fetch_data( cityName.textContent );
             $list_buttons.removeClass("router-link-exact-active");
             $list_button.addClass("router-link-exact-active");
+       
         })
     });
 
@@ -175,8 +241,14 @@
         let $list_button = $(list_button);
 
         $list_button.on("click", () => {
+            catetype = i;
+            html ='';
+            page=0;
+            
+            fetch_data( cityName.textContent );
             $list_buttons2.removeClass("router-link-exact-active");
             $list_button.addClass("router-link-exact-active");
+            
         })
     });
 </script>
@@ -222,4 +294,141 @@
     showTab(currentTabIndex); // 초기 탭 보이기
     intervalId = setInterval(switchToNextTab, 4000); // 3초마다 다음 탭으로 전환
 
+</script>
+
+<script>
+/* 인기 캠페인 */
+const $campaign_prev = $(".main-service .slick-prev"); //앞으로가기
+const $campaign_next = $(".main-service .slick-next"); //뒤로가기
+const $campaign_track = $(".main-service .slick-track"); //베너 트렉
+
+$campaign_prev.on("click", function () {
+  $campaign_prev.css("display", "none"); //앞으로가기 버튼 안보이게하고
+  $campaign_next.css("display", "block"); //뒤로가기 버튼 보이게하고
+  $campaign_track.css("transform", "translate3d(0px, 0px, 0px)");
+  $campaign_track.css("transition", "0.7s");
+});
+
+$campaign_next.on("click", function () {
+  $campaign_next.css("display", "none"); //앞으로가기 버튼 안보이게하고
+  $campaign_prev.css("display", "block"); //뒤로가기 버튼 보이게하고
+  $campaign_track.css("transform", "translate3d(-494px, 0px, 0px)");
+  $campaign_track.css("transition", "0.7s");
+  if ($campaign_prev.hasClass("slick-disabled")) {
+    $campaign_prev.removeClass("slick-disabled");
+  }
+});
+</script>
+
+<script>
+    /* 펀딩 */
+const $funding_prev = $(".funding-service .slick-prev"); //앞으로가기
+const $funding_next = $(".funding-service .slick-next"); //뒤로가기
+const $funding_track = $(".funding-service .slick-track"); //베너 트렉
+
+$funding_prev.on("click", function () {
+  $funding_prev.css("display", "none"); //앞으로가기 버튼 안보이게하고
+  $funding_next.css("display", "block"); //뒤로가기 버튼 보이게하고
+  $funding_track.css("transform", "translate3d(0px, 0px, 0px)");
+  $funding_track.css("transition", "0.7s");
+});
+
+$funding_next.on("click", function () {
+  $funding_next.css("display", "none"); //앞으로가기 버튼 안보이게하고
+  $funding_prev.css("display", "block"); //뒤로가기 버튼 보이게하고
+  $funding_track.css("transform", "translate3d(-494px, 0px, 0px)");
+  $funding_track.css("transition", "0.7s");
+  if ($funding_prev.hasClass("slick-disabled")) {
+    $funding_prev.removeClass("slick-disabled");
+  }
+});
+
+</script>
+
+<script>
+    function fetch_data( name ){
+
+        // CSRF 토큰 가져오기
+        let csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+        
+        // 서버로 보낼 데이터 구성
+        let dataToSend = {
+            city_detail_name: name,
+            type:type,
+            page:page,
+            catetype:catetype
+        };
+
+        // 요청 헤더에 CSRF 토큰 추가
+        let headers = {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken, // 이 부분이 중요합니다
+        };
+
+        //  서버로 데이터를 전송합니다.
+         fetch('/funding/donation/', {
+            method: 'POST',
+            headers: headers, // 요청 헤더에 CSRF 토큰을 추가
+            body: JSON.stringify(dataToSend),
+        })
+        .then(response => response.json())
+        .then(data => {
+            // 서버로부터 받은 응답 데이터를 처리합니다.
+            get_list(data.result,data.cnt);
+        })
+        .catch(error => {
+            // 오류 처리
+            console.error('Error:', error);
+        });
+    }
+
+
+    function get_list( data,cnt ){
+        let dataObj = JSON.parse(data);
+        let con = document.querySelector(`#con${type}`);
+        let cntNum = document.querySelector(`.cnt${type}`);
+
+        for (let j=0; j<Object.keys(dataObj).length; j++){
+            let obj = dataObj[j].fields;
+            let img;
+            let title;
+            let amount;
+            let href;
+            
+            if(type == 1){
+                img = obj.funding_image;
+                title = obj.funding_title;
+                amount = obj.funding_minimum_amount;
+                href = obj.id
+            }else if(type == 2){
+                img = obj.donation_image;
+                title = obj.donation_title;
+                amount = obj.donation_minimum_amount;
+                href = obj.id
+            }    
+                html += `   <article class="product-list-item5 responsive5"><a href="${href}">
+                                                    <div class="item-image5">
+                                                        <article class="preview-image5">
+                                                            <div class="image-wrap5" style="padding-top: 66.6667%;"><img
+                                                                    data-src="/upload/${img}"
+                                                                    src="/upload/${img}"
+                                                                    lazy="loaded"></div>
+                                                        </article>
+                                                    </div>
+                                                    <div class="service-name"><span>펀딩</span></div>
+                                                    <div class="item-title">
+                                                        <div class="collapsed">
+                                                            <div class="line-clamp">
+                                                                <h3>${title}</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-price"><strong>${amount}원 ~</strong></div>
+                                                </a></article>`
+                                            
+        }
+        con.innerHTML = html;
+        cntNum.innerHTML = cnt;
+        
+    }
 </script>

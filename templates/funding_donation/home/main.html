@@ -1,6 +1,6 @@
 {% load static %}
-
 <div id="app-body">
+    {% csrf_token %}
     <div class="instant-purchase-container">
         <main>
             <div class="observer-container">
@@ -41,12 +41,12 @@
                     </li>
 
 
-                    <li class="li3" style="display: block; position: absolute; right: 90px; bottom: 5px; width: 60px; margin-right: 20px;"
+                    <li class="li3 li3-choice" style="display: none; position: absolute; right: 110px; bottom: 5px; width: 60px;"
                         onclick="all_check( 0 )">
                         <a href="#" class="btn-reset4 reset-btn" style="height: 42px; margin-bottom: 1px; justify-content: center;">
                             <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xMC4yNjYgMS45NzVhLjUuNSAwIDAgMSAuMDcuMjU2bC4wMDEgMS4yNDNjMy41MjUuMTg0IDYuMzMgMy4yNTIgNi4zMyA3LjAwOCAwIDMuODc2LTIuOTg1IDcuMDE4LTYuNjY3IDcuMDE4cy02LjY2Ny0zLjE0Mi02LjY2Ny03LjAxOGMwLS40ODQuMzczLS44NzcuODM0LS44NzcuNDYgMCAuODMzLjM5My44MzMuODc3IDAgMi45MDcgMi4yMzkgNS4yNjQgNSA1LjI2NHM1LTIuMzU3IDUtNS4yNjRjMC0yLjc4Ny0yLjA1OS01LjA2OS00LjY2My01LjI1MXYxLjE5MWEuNS41IDAgMCAxLS43NTYuNDNMNi4wNiA0Ljc2MmEuNS41IDAgMCAxIDAtLjg2bDMuNTIxLTIuMWEuNS41IDAgMCAxIC42ODYuMTczeiIgZmlsbD0iIzg4ODg4OCIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPgo="
                                 alt="" style="margin: 0;"></a></li>
-                    <li class="li3" style="position: absolute; right: 0; max-width: 124px;"><label
+                    <li class="li3 li3-choice" style="display: none; position: absolute; right: 0; max-width: 124px;"><label
                             class="label4"><button style="height: 2.6rem;" type="button" class="btn-area-filter"
                                 onclick="open_modal()"> 지역선택 <img
                                     src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik04IDEuNjY3YzIuNzU4IDAgNSAyLjA2MiA1IDQuNjE2IDAgMi41MTctMS44MDMgNS4xNjgtNC4yMTQgNy40OTdsLS4xNDQuMTM3LS4xOTcuMTg0LS4xMzEuMTE3YS40ODQuNDg0IDAgMCAxLS42Mi4wMDdsLS4xLS4wODVjLS4wMy0uMDI1LS4wNi0uMDUtLjA5MS0uMDc4bC0uMjA0LS4xODEtLjIzLS4yMTMtLjI1My0uMjQzYTE3Ljk4IDE3Ljk4IDAgMCAxLTEuNTc4LTEuNzU3QzMuODM4IDkuODggMyA4LjA1OCAzIDYuMjgzIDMgMy43MyA1LjI0MyAxLjY2NyA4IDEuNjY3em0wIC44OTVjLTIuMjQ5IDAtNC4wNjUgMS42Ny00LjA2NSAzLjcyMSAwIDEuNTQ2Ljc2MSAzLjIgMi4wNTIgNC44NDlhMTcuMDgxIDE3LjA4MSAwIDAgMCAxLjYyIDEuNzg2bC4yMjguMjE0LjE1Ni4xNDMuMTMzLS4xMjdjMi4xNzItMi4wOTggMy44MzQtNC41MDcgMy45MzYtNi42NThsLjAwNS0uMjA3YzAtMi4wNTEtMS44MTYtMy43MjEtNC4wNjUtMy43MjF6bS4xMjUgMi4yMDJjMS4xNTEgMCAyLjA4Ni44OTQgMi4wODYgMS45OTcgMCAxLjEwMi0uOTM1IDEuOTk2LTIuMDg2IDEuOTk2LTEuMTUyIDAtMi4wODctLjg5NC0yLjA4Ny0xLjk5NiAwLTEuMTAzLjkzNS0xLjk5NyAyLjA4Ny0xLjk5N3ptMCAuODk1Yy0uNjM2IDAtMS4xNTIuNDk0LTEuMTUyIDEuMTAyIDAgLjYwOC41MTYgMS4xMDEgMS4xNTIgMS4xMDEuNjM1IDAgMS4xNS0uNDkzIDEuMTUtMS4xMDFzLS41MTUtMS4xMDItMS4xNS0xLjEwMnoiIGZpbGw9IiM4ODg4ODgiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4K"
@@ -61,121 +61,39 @@
                 </ul>
             </section>
             <div class="list-contents">
-                <div class="main-service container2 no-mobile-padding" style="margin-top:2.5rem">
+                <div class="main-service container2 no-mobile-padding fundingservice" style="margin-top:2.5rem">
                     <h2 class="title">새로운 펀딩</h2>
                     <div class="main-desktop-slide">
                         <div class="slick-slider slick-initialized">
-                            <button type="button" class="slick-arrow slick-prev slick-disabled"
+                            <button type="button" class="slick-arrow slick-prev slick-disabled fundingbtn"
                                 style="display: block;">Previous</button>
                             <div class="slick-list">
                                 <div class="slick-track"
                                     style="width: 1976px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
-                                    <!-- 이런거 여러개 복붙 (8개) -->
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-service-card">
-                                                    <img class="service-image" data-sre=""
-                                                        src="{% static 'img//samplep_o2.png' %}" alt="" lazy="loaded">
-                                                    <p class="service-name">서울지킴이1</p>
-                                                    <div class="request-count">
-                                                        <img class="request-icon"
-                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                            alt=""> <span>1234</span> 명 참여중
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    
 
+                                    {% for data in fundingList %}
                                     <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
                                         <div>
                                             <a href="#" style="width: 100%; display: inline-block;">
                                                 <div class="main-service-card">
                                                     <img class="service-image" data-sre=""
-                                                        src="{% static 'img//samplep_o2.png' %}" alt="" lazy="loaded">
-                                                    <p class="service-name">서울지킴이2</p>
+                                                        src="{{ data.funding_image.url }}" alt="" lazy="loaded">
+                                                    <p class="service-name">{{ data.funding_title }}</p>
                                                     <div class="request-count">
                                                         <img class="request-icon"
                                                             src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                            alt=""> <span>1234</span> 명 참여중
+                                                            alt=""> <span>{{data.funding_sponsor_count}}</span> 명 참여중
                                                     </div>
                                                 </div>
                                             </a>
                                         </div>
                                     </div>
-
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-service-card">
-                                                    <img class="service-image" data-sre=""
-                                                        src="{% static 'img//samplep_o2.png' %}" alt="" lazy="loaded">
-                                                    <p class="service-name">서울지킴이3</p>
-                                                    <div class="request-count">
-                                                        <img class="request-icon"
-                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                            alt=""> <span>1234</span> 명 참여중
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-service-card">
-                                                    <img class="service-image" data-sre=""
-                                                        src="{% static 'img//samplep_o2.png' %}" alt="" lazy="loaded">
-                                                    <p class="service-name">서울지킴이4</p>
-                                                    <div class="request-count">
-                                                        <img class="request-icon"
-                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                            alt=""> <span>1234</span> 명 참여중
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-service-card">
-                                                    <img class="service-image" data-sre=""
-                                                        src="{% static 'img//samplep_o2.png' %}" alt="" lazy="loaded">
-                                                    <p class="service-name">서울지킴이5</p>
-                                                    <div class="request-count">
-                                                        <img class="request-icon"
-                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                            alt=""> <span>1234</span> 명 참여중
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-service-card">
-                                                    <img class="service-image" data-sre=""
-                                                        src="{% static 'img//samplep_o2.png' %}" alt="" lazy="loaded">
-                                                    <p class="service-name">서울지킴이6</p>
-                                                    <div class="request-count">
-                                                        <img class="request-icon"
-                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                            alt=""> <span>1234</span> 명 참여중
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- 여기까지 -->
+                                    {% endfor %}
+                                   
                                 </div>
                             </div>
-                            <button type="button" class="slick-arrow slick-next" style="display: block;">Next</button>
+                            <button type="button" class="slick-arrow slick-next fundingbtnNext" style="display: block;">Next</button>
                         </div>
                     </div>
                 </div>
@@ -188,110 +106,25 @@
                             <div class="slick-list">
                                 <div class="slick-track"
                                     style="width: 1976px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
-                                    <!-- 이런거 여러개 복붙 (8개) -->
+                                    {% for data in donationList %}
                                     <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
                                         <div>
                                             <a href="#" style="width: 100%; display: inline-block;">
                                                 <div class="main-service-card">
                                                     <img class="service-image" data-sre=""
-                                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&amp;usqp=CAU"
+                                                        src="{{data.donation_image.url}}"
                                                         alt="" lazy="loaded">
-                                                    <p class="service-name">서울지킴이</p>
+                                                    <p class="service-name">{{data.donation_title}}</p>
                                                     <div class="request-count">
                                                         <img class="request-icon"
                                                             src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                            alt=""> <span>1234</span> 명 참여중
+                                                            alt=""> <span>{{data.donation_doner_count}}</span> 명 참여중
                                                     </div>
                                                 </div>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-service-card">
-                                                    <img class="service-image" data-sre=""
-                                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&amp;usqp=CAU"
-                                                        alt="" lazy="loaded">
-                                                    <p class="service-name">서울지킴이</p>
-                                                    <div class="request-count">
-                                                        <img class="request-icon"
-                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                            alt=""> <span>1234</span> 명 참여중
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-service-card">
-                                                    <img class="service-image" data-sre=""
-                                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&amp;usqp=CAU"
-                                                        alt="" lazy="loaded">
-                                                    <p class="service-name">서울지킴이</p>
-                                                    <div class="request-count">
-                                                        <img class="request-icon"
-                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                            alt=""> <span>1234</span> 명 참여중
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-service-card">
-                                                    <img class="service-image" data-sre=""
-                                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&amp;usqp=CAU"
-                                                        alt="" lazy="loaded">
-                                                    <p class="service-name">서울지킴이</p>
-                                                    <div class="request-count">
-                                                        <img class="request-icon"
-                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                            alt=""> <span>1234</span> 명 참여중
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-service-card">
-                                                    <img class="service-image" data-sre=""
-                                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&amp;usqp=CAU"
-                                                        alt="" lazy="loaded">
-                                                    <p class="service-name">서울지킴이</p>
-                                                    <div class="request-count">
-                                                        <img class="request-icon"
-                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                            alt=""> <span>1234</span> 명 참여중
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
-                                        <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
-                                                <div class="main-service-card">
-                                                    <img class="service-image" data-sre=""
-                                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAwbWqbESZY0uB-fbQpFqwcq6OstULInRBog&amp;usqp=CAU"
-                                                        alt="" lazy="loaded">
-                                                    <p class="service-name">서울지킴이</p>
-                                                    <div class="request-count">
-                                                        <img class="request-icon"
-                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMykiPgogICAgICAgICAgICA8cmVjdCBmaWxsPSIjQzVDNUM1IiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHJ4PSIxIi8+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTEyIDIuNS01IDMtNS0zIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                            alt=""> <span>1234</span> 명 참여중
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- 여기까지 -->
+                                    {% endfor %}
                                 </div>
                             </div>
                             <button type="button" class="slick-arrow slick-next" style="display: block;">Next</button>
@@ -313,17 +146,18 @@
                                 <li id="meta-25"><button type="button" class="btn btn-section"> 인기 캠페인 </button>
                                 </li>
                             </ul><a href="#" class="go-list d-none d-md-flex ml-auto"><span>상품
-                                    더보기</span><img src="./icon-next.png"></a>
+                                    더보기</span><img src="{% static 'img/icon-next.png' %}"></a>
                         </section>
                         <section class="list-meta list0">
                             <div class="list-wrap">
+                                {% for data in fundingResult %}
                                 <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
+                                        href="{{data.id}}" data-testid="product-list-item">
                                         <div class="item-image">
                                             <article class="preview-image">
                                                 <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
+                                                        data-src="{{data.funding_image.url}}"
+                                                        src="{{data.funding_image.url}}"
                                                         lazy="loaded"></div>
                                             </article>
                                         </div>
@@ -331,169 +165,13 @@
                                             <div class="collapsed">
                                                 <div class="line-clamp2"
                                                     style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
+                                                    <h3>funding_title</h3>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
+                                        <div class="item-price"><strong>{{data.funding_minimum_amount}}원 ~</strong></div>
                                     </a></article>
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-
-
+                                {% endfor %}
                             </div>
                             <!-- <div class="list-more-button-wrap"><a data-v-cbc4fb12=""
                                         href="/ip/products?group_id=4&amp;section_id=25"
@@ -503,13 +181,14 @@
 
                         <section class="list-meta list1" style="display: none;">
                             <div class="list-wrap">
+                                {% for data in donationResult %}
                                 <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
+                                        href="{{data.id}}" data-testid="product-list-item">
                                         <div class="item-image">
                                             <article class="preview-image">
                                                 <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
+                                                        data-src="{{data.donation_image.url}}"
+                                                        src="{{data.donation_image.url}}"
                                                         lazy="loaded"></div>
                                             </article>
                                         </div>
@@ -517,180 +196,27 @@
                                             <div class="collapsed">
                                                 <div class="line-clamp2"
                                                     style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기222222222222</h3>
+                                                    <h3>{{data.donation_title}}</h3>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
+                                        <div class="item-price"><strong>{{data.donation_minimum_amount}}원 ~</strong></div>
                                     </a></article>
 
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-
+                                {% endfor %}
 
                             </div>
                         </section>
                         <section class="list-meta list2" style="display: none;">
                             <div class="list-wrap">
+                                {% for data in campaignResult %}
                                 <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
+                                        href="{{data.id}}" data-testid="product-list-item">
                                         <div class="item-image">
                                             <article class="preview-image">
                                                 <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
+                                                        data-src="{{data.campaign_image.url}}"
+                                                        src="{{data.campaign_image.url}}"
                                                         lazy="loaded"></div>
                                             </article>
                                         </div>
@@ -698,169 +224,13 @@
                                             <div class="collapsed">
                                                 <div class="line-clamp2"
                                                     style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기33333333333</h3>
+                                                    <h3>{{data.campaign_title}}</h3>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
+                                        <!-- <div class="item-price"><strong>220,000원 ~</strong></div> -->
                                     </a></article>
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-                                <article class="product-list-item responsive"><a
-                                        href="/ip/products/6368dea2a16dbfd4af137237" data-testid="product-list-item">
-                                        <div class="item-image">
-                                            <article class="preview-image">
-                                                <div class="image-wrap"><img
-                                                        data-src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        src="https://static.cdn.soomgo.com/upload/unknown/74284277-78b8-4589-b178-17aecbc27b01.jpg?h=320&amp;w=480&amp;webp=1"
-                                                        lazy="loaded"></div>
-                                            </article>
-                                        </div>
-                                        <div class="item-title">
-                                            <div class="collapsed">
-                                                <div class="line-clamp2"
-                                                    style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                    <h3>PT 바디프로필, 동네 몸짱
-                                                        무조껀 되기</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-price"><strong>220,000원 ~</strong></div>
-                                    </a></article>
-
-
-
+                                    {% endfor %}
                             </div>
                         </section>
 
@@ -869,7 +239,8 @@
             </div>
 
 
-            <div class="list-contents" style="display: none;">
+            <div class="list-contents" style="display: none; opacity: 0; /* 처음에는 투명하게 설정 */
+            animation: fadeInFetch 1s ease forwards;">
 
                 <section class="page-content4">
                     <div class="flex-container4">
@@ -883,12 +254,12 @@
                                         <li class="s-li4"><a href="#" class="btn btn4-1 btn4-2 btn4-2-1">
                                                 참여순
                                             </a></li>
-                                        <li class="s-li4"><a href="#" class="btn btn4-1 btn4-2 btn4-2-1">
+                                        <!-- <li class="s-li4"><a href="#" class="btn btn4-1 btn4-2 btn4-2-1">
                                                 최신순
                                             </a></li>
                                         <li class="s-li4"><a href="#" class="btn btn4-1 btn4-2 btn4-2-1">
                                                 펀딩순
-                                            </a></li>
+                                            </a></li> -->
                                     </ul>
                                 </div>
                             </section>
@@ -896,33 +267,11 @@
                         <div class="flex-side-right5">
                             <div>
                                 <section>
-                                    <div class="product-total-count5"><strong>970</strong><span
+                                    <div class="product-total-count5"><strong class="cnt1"></strong><span
                                             class="product-total-count5" style="color: #737373;">개 서비스</span>
                                     </div>
                                 </section>
-                                <div class="product-list5 responsive5">
-                                    <article class="product-list-item5 responsive5"><a href="#">
-                                            <div class="item-image5">
-                                                <article class="preview-image5">
-                                                    <div class="image-wrap5" style="padding-top: 66.6667%;"><img
-                                                            data-src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            lazy="loaded"></div>
-                                                </article>
-                                            </div>
-                                            <div class="service-name"><span>마케팅</span></div>
-                                            <div class="item-title">
-                                                <div class="collapsed">
-                                                    <div class="line-clamp">
-                                                        <h3 data-v-85c61b32="">브랜딩블로그, 최적화
-                                                            블로그,
-                                                            수익블로그 만들기</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div data-v-85c61b32="" class="item-price"><strong
-                                                    data-v-85c61b32="">50,000원 ~</strong></div>
-                                        </a></article>
+                                <div class="product-list5 responsive5" id="con1">
 
 
 
@@ -978,12 +327,12 @@
                                         <li class="s-li4"><a href="#" class="btn btn4-1 btn4-2 btn4-2-2">
                                                 참여순
                                             </a></li>
-                                        <li class="s-li4"><a href="#" class="btn btn4-1 btn4-2 btn4-2-2">
+                                        <!-- <li class="s-li4"><a href="#" class="btn btn4-1 btn4-2 btn4-2-2">
                                                 최신순
                                             </a></li>
                                         <li class="s-li4"><a href="#" class="btn btn4-1 btn4-2 btn4-2-2">
                                                 기부순
-                                            </a></li>
+                                            </a></li> -->
                                     </ul>
                                 </div>
                             </section>
@@ -991,201 +340,12 @@
                         <div class="flex-side-right5">
                             <div>
                                 <section>
-                                    <div class="product-total-count5"><strong>970</strong><span
+                                    <div class="product-total-count5"><strong class="cnt2"></strong><span
                                             class="product-total-count5" style="color: #737373;">개 서비스</span>
                                     </div>
                                 </section>
-                                <div class="product-list5 responsive5">
-                                    <article class="product-list-item5 responsive5"><a href="#">
-                                            <div class="item-image5">
-                                                <article class="preview-image5">
-                                                    <div class="image-wrap5" style="padding-top: 66.6667%;"><img
-                                                            data-src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            lazy="loaded"></div>
-                                                </article>
-                                            </div>
-                                            <div class="service-name"><span>마케팅</span></div>
-                                            <div class="item-title">
-                                                <div class="collapsed">
-                                                    <div class="line-clamp">
-                                                        <h3>브랜딩블로그, 최적화
-                                                            블로그,
-                                                            수익블로그 만들기</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-price"><strong>50,000원 ~</strong></div>
-                                        </a></article>
-                                    <article class="product-list-item5 responsive5"><a href="#">
-                                            <div class="item-image5">
-                                                <article class="preview-image5">
-                                                    <div class="image-wrap5" style="padding-top: 66.6667%;"><img
-                                                            data-src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            lazy="loaded"></div>
-                                                </article>
-                                            </div>
-                                            <div class="service-name"><span>마케팅</span></div>
-                                            <div class="item-title">
-                                                <div class="collapsed">
-                                                    <div class="line-clamp">
-                                                        <h3>브랜딩블로그, 최적화
-                                                            블로그,
-                                                            수익블로그 만들기</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-price"><strong>50,000원 ~</strong></div>
-                                        </a></article>
-                                    <article class="product-list-item5 responsive5"><a href="#">
-                                            <div class="item-image5">
-                                                <article class="preview-image5">
-                                                    <div class="image-wrap5" style="padding-top: 66.6667%;"><img
-                                                            data-src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            lazy="loaded"></div>
-                                                </article>
-                                            </div>
-                                            <div class="service-name"><span>마케팅</span></div>
-                                            <div class="item-title">
-                                                <div class="collapsed">
-                                                    <div class="line-clamp">
-                                                        <h3>브랜딩블로그, 최적화
-                                                            블로그,
-                                                            수익블로그 만들기</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-price"><strong>50,000원 ~</strong></div>
-                                        </a></article>
-                                    <article class="product-list-item5 responsive5"><a href="#">
-                                            <div class="item-image5">
-                                                <article class="preview-image5">
-                                                    <div class="image-wrap5" style="padding-top: 66.6667%;"><img
-                                                            data-src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            lazy="loaded"></div>
-                                                </article>
-                                            </div>
-                                            <div class="service-name"><span>마케팅</span></div>
-                                            <div class="item-title">
-                                                <div class="collapsed">
-                                                    <div class="line-clamp">
-                                                        <h3>브랜딩블로그, 최적화
-                                                            블로그,
-                                                            수익블로그 만들기</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-price"><strong>50,000원 ~</strong></div>
-                                        </a></article>
-                                    <article class="product-list-item5 responsive5"><a href="#">
-                                            <div class="item-image5">
-                                                <article class="preview-image5">
-                                                    <div class="image-wrap5" style="padding-top: 66.6667%;"><img
-                                                            data-src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            lazy="loaded"></div>
-                                                </article>
-                                            </div>
-                                            <div class="service-name"><span>마케팅</span></div>
-                                            <div class="item-title">
-                                                <div class="collapsed">
-                                                    <div class="line-clamp">
-                                                        <h3>브랜딩블로그, 최적화
-                                                            블로그,
-                                                            수익블로그 만들기</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-price"><strong>50,000원 ~</strong></div>
-                                        </a></article>
-                                    <article class="product-list-item5 responsive5"><a href="#">
-                                            <div class="item-image5">
-                                                <article class="preview-image5">
-                                                    <div class="image-wrap5" style="padding-top: 66.6667%;"><img
-                                                            data-src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            lazy="loaded"></div>
-                                                </article>
-                                            </div>
-                                            <div class="service-name"><span>마케팅</span></div>
-                                            <div class="item-title">
-                                                <div class="collapsed">
-                                                    <div class="line-clamp">
-                                                        <h3>브랜딩블로그, 최적화
-                                                            블로그,
-                                                            수익블로그 만들기</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-price"><strong>50,000원 ~</strong></div>
-                                        </a></article>
-                                    <article class="product-list-item5 responsive5"><a href="#">
-                                            <div class="item-image5">
-                                                <article class="preview-image5">
-                                                    <div class="image-wrap5" style="padding-top: 66.6667%;"><img
-                                                            data-src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            lazy="loaded"></div>
-                                                </article>
-                                            </div>
-                                            <div class="service-name"><span>마케팅</span></div>
-                                            <div class="item-title">
-                                                <div class="collapsed">
-                                                    <div class="line-clamp">
-                                                        <h3>브랜딩블로그, 최적화
-                                                            블로그,
-                                                            수익블로그 만들기</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-price"><strong>50,000원 ~</strong></div>
-                                        </a></article>
-                                    <article class="product-list-item5 responsive5"><a href="#">
-                                            <div class="item-image5">
-                                                <article class="preview-image5">
-                                                    <div class="image-wrap5" style="padding-top: 66.6667%;"><img
-                                                            data-src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            lazy="loaded"></div>
-                                                </article>
-                                            </div>
-                                            <div class="service-name"><span>마케팅</span></div>
-                                            <div class="item-title">
-                                                <div class="collapsed">
-                                                    <div class="line-clamp">
-                                                        <h3>브랜딩블로그, 최적화
-                                                            블로그,
-                                                            수익블로그 만들기</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-price"><strong>50,000원 ~</strong></div>
-                                        </a></article>
-                                    <article class="product-list-item5 responsive5"><a href="#">
-                                            <div class="item-image5">
-                                                <article class="preview-image5">
-                                                    <div class="image-wrap5" style="padding-top: 66.6667%;"><img
-                                                            data-src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            src="https://static.cdn.soomgo.com/upload/unknown/c4599b71-2610-4775-a472-db72243e8bb6.jpg?h=320&amp;w=480&amp;webp=1"
-                                                            lazy="loaded"></div>
-                                                </article>
-                                            </div>
-                                            <div class="service-name"><span>마케팅</span></div>
-                                            <div class="item-title">
-                                                <div class="collapsed">
-                                                    <div class="line-clamp">
-                                                        <h3>브랜딩블로그, 최적화
-                                                            블로그,
-                                                            수익블로그 만들기</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-price"><strong>50,000원 ~</strong></div>
-                                        </a></article>
-
+                                <div class="product-list5 responsive5" id="con2">
+                                 
 
                                 </div>
                             </div>
