@@ -19,19 +19,20 @@
                         <div class="thumb">
                             <div class="user-profile-picture h-100">
                                 <div class="is-square">
-                                    <img src="{% static 'img/img.jpg' %}">
+                                    <!-- <img src="{% static 'img/img.jpg' %}"> -->
+                                    <img src="{{img}}">
                                 </div>
                             </div>
                         </div>
                         <div class="user-info">
                             <div class="user-name">
-                                <span class="user-type"> 고객님</span>
+                                <span class="user-type"> {{name}}고객님</span>
                             </div>
 
                         </div>
 
                         <div class="account-setting">
-                            <button type="button" class="btn btn-account-setting btn-seconday">계정설정</button>
+                            <button type="button" class="btn btn-account-setting btn-seconday" onclick="window.location.href='/member/mypage/account/'">계정설정</button>
                         </div>
                     </a>
 
@@ -45,8 +46,8 @@
                             내 활동
                             <a role="button"></a>
                         </li>
-                        <li href="#" class="sub-menu-container soomgopay-list">
-                            <a class="sub-menu-list" id="gosu">
+                        <li class="sub-menu-container soomgopay-list">
+                            <a class="sub-menu-list" id="gosu" href="/member/mypage/activity/0/">
                                 <div class="sub-content">
                                     <div class="sub-menu">
                                         <span class="sub-menu-title">참여한 캠페인</span>
@@ -60,7 +61,7 @@
                             </a>
                         </li>
                         <li class="sub-menu-container soomgopay-list">
-                            <a href="#" class="sub-menu-list">
+                            <a href="/member/mypage/activity/1/" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
                                         <span class="sub-menu-title">개설한 캠페인</span>
@@ -74,7 +75,7 @@
                             </a>
                         </li>
                         <li class="sub-menu-container soomgopay-list">
-                            <a href="#" class="sub-menu-list">
+                            <a href="/member/mypage/activity/2/" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
                                         <span class="sub-menu-title">펀딩한 캠페인</span>
@@ -88,7 +89,7 @@
                             </a>
                         </li>
                         <li class="sub-menu-container soomgopay-list">
-                            <a href="#" class="sub-menu-list">
+                            <a href="/member/mypage/activity/3/" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
                                         <span class="sub-menu-title">내 기부 현황</span>
@@ -102,7 +103,7 @@
                             </a>
                         </li>
                         <li class="sub-menu-container soomgopay-list">
-                            <a href="#" class="sub-menu-list">
+                            <a href="/member/mypage/activity/4/" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
                                         <span class="sub-menu-title">작성한 후기</span>
@@ -124,7 +125,7 @@
                             <a role="button"></a>
                         </li>
                         <li class="sub-menu-container soomgopay-list">
-                            <a href="#" class="sub-menu-list">
+                            <a href="/member/mypage/cash/" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
                                         <span class="sub-menu-title">충전</span>
@@ -138,7 +139,7 @@
                             </a>
                         </li>
                         <li class="sub-menu-container soomgopay-list">
-                            <a href="#" class="sub-menu-list">
+                            <a href="/member/mypage/cashhistory/" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
                                         <span class="sub-menu-title">충전 내역</span>
@@ -160,7 +161,7 @@
                             <a role="button"></a>
                         </li>
                         <li class="sub-menu-container soomgopay-list">
-                            <a href="#" class="sub-menu-list">
+                            <a href="/member/mypage/inquiry/" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
                                         <span class="sub-menu-title">문의하기</span>

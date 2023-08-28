@@ -1,18 +1,25 @@
-{% extends "../../base/__base__.html" %}
+{% load static %}
 
-{% block title %}
+<html lang="ja">
 
-{% endblock %}
+<head>
+    {% include "../../base/__load__.html" %}
+    {% include "../../base/__script__.html" %}
+    <title>{% block title %}{% endblock %}</title>
+    {% include "../../base/__style__.html" %}
+    {% include "./_style.html" %}
+</head>
 
-{% block style %}
-{% include "./_style.html" %}
-{% endblock %}
+<body class="home">
+    <div id="app" data-browser="Chrome" data-is-loaded="true">
+        <div id="app-body">
+            {% include "../../base/__header__.html" %}
+            {% include "./main.html" %}
+        </div>
+    </div>
+    {% include "../../base/__footer__.html" %}
 
-{% block content %}
-{% include "./main.html" %}
-{% endblock %}
+    {% include "./_script.html" %}
+</body>
 
-
-{% block script %}
-{% include "./_script.html" %}
-{% endblock %}
+</html>

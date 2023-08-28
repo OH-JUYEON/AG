@@ -14,14 +14,14 @@ from region.models import CityDetail
 class ActivityModify(View):
 
     def get(self, request, *args, **kwargs):
-
+        member_id=request.session['member_id']
         len1, len2, len3, len4 = 0, 0, 0, 0
-        joinList = CampaignParticipant.objects.filter(member_id=kwargs['member_id'],campaign_participant_status=1,campaign_participant_role='T')
+        joinList = CampaignParticipant.objects.filter(member_id=member_id,campaign_participant_status=1,campaign_participant_role='T')
         dataList = {}
 
         for index,key in enumerate(joinList):
             reviewstatus = 0
-            review = CampaignReview.objects.filter(member_id=kwargs['member_id'], campaign = key.campaign_id)
+            review = CampaignReview.objects.filter(member_id=member_id, campaign = key.campaign_id)
             if review:
                 reviewstatus = 1
  
@@ -36,12 +36,12 @@ class ActivityModify(View):
             dataList[index] = data
             len1 = index + 1
 
-        createList = CampaignParticipant.objects.filter(member_id=kwargs['member_id'],campaign_participant_status=1,campaign_participant_role='L')
+        createList = CampaignParticipant.objects.filter(member_id=member_id,campaign_participant_status=1,campaign_participant_role='L')
         dataList2 = {}
 
         for index,key in enumerate(createList):
             reviewstatus = 0
-            review = CampaignReview.objects.filter(member_id=kwargs['member_id'], campaign = key.campaign_id)
+            review = CampaignReview.objects.filter(member_id=member_id, campaign = key.campaign_id)
             if review:
                 reviewstatus = 1
  
@@ -57,7 +57,7 @@ class ActivityModify(View):
             len2 = index + 1   
 
 
-        fundingList = FundingSponsor.objects.filter(member_id=kwargs['member_id'])
+        fundingList = FundingSponsor.objects.filter(member_id=member_id)
         dataList3 = {}
 
         for index,key in enumerate(fundingList):
@@ -72,7 +72,7 @@ class ActivityModify(View):
             dataList3[index] = data
             len3 = index + 1  
 
-        donationList = DonationDoner.objects.filter(member_id=kwargs['member_id'])
+        donationList = DonationDoner.objects.filter(member_id=member_id)
         dataList4 = {}
 
         for index,key in enumerate(donationList):
@@ -87,7 +87,7 @@ class ActivityModify(View):
             dataList4[index] = data
             len4 = index + 1  
 
-        reviewList = CampaignReview.objects.filter(member_id=kwargs['member_id'],campaign_review_status=1).order_by('-id')[:5]
+        reviewList = CampaignReview.objects.filter(member_id=member_id,campaign_review_status=1).order_by('-id')[:5]
         dataList5 = {}
 
         for index,key in enumerate(reviewList):
@@ -105,4 +105,4 @@ class ActivityModify(View):
             dataList5[index] = data
                   
 
-        return render(request, 'mypage/mypage__004/_T004.html',{'context1':dataList,'len1':len1,'context2':dataList2,'len2':len2,'context3':dataList3,'len3':len3,'context4':dataList4,'len4':len4,'context5':dataList5})
+        return render(request, 'mypage/mypage__004/_T004.html',{'context1':dataList,'len1':len1,'context2':dataList2,'len2':len2,'context3':dataList3,'len3':len3,'context4':dataList4,'len4':len4,'context5':dataList5,'type':kwargs.get('type')})
