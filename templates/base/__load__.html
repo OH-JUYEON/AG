@@ -16,3 +16,48 @@
 <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.3.0/kakao.min.js"
+  integrity="sha384-70k0rrouSYPWJt7q9rSTKpiTfX6USlMYjZUtr1Du+9o4cGvhPAWxngdtVZDdErlh" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('a689ba2d7065e5de5b990f2247ddb1da'); // 사용하려는 앱의 JavaScript 키 입력
+</script>
+<script>
+    function kakaoLogout() {
+    Kakao.Auth.logout()
+      .then(function() {
+        alert('logout ok\naccess token -> ' + Kakao.Auth.getAccessToken());
+        deleteCookie();
+      })
+      .catch(function() {
+        alert('Not logged in');
+      });
+  }
+
+  // 아래는 데모를 위한 UI 코드입니다.
+  function deleteCookie() {
+    document.cookie = 'authorize-access-token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.querySelector('#loginButton');
+
+        btn.addEventListener("click", () => {
+
+            let sta =window.location.pathname;
+            window.location.href = `/AG/login?path=${sta}`;
+        });
+    });
+</script>
+
+<!--//     let sta =window.location.pathname;-->
+<!--// /AG/login/?path=sta-->
+<!--// requst.get(path)-->
+<!--</script>-->
+
+
+
+
+

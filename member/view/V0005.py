@@ -14,7 +14,12 @@ class Main(View):
 
     def get(self, request,  *args, **kwargs):
 
-        campaigns = Campaign.objects.all()[:6]
+        # campaigns = Campaign.objects.all()[:6]
+        # campaign_id_counts = CampaignParticipant.objects.values('campaign_id').annotate(campaign_id_count=Count('campaign_id')).order_by('-campaign_id_count')
+        # sorted_campaign_ids = [item['campaign_id'] for item in campaign_id_counts]
+        # campaigns = Campaign.objects.filter(id__in=sorted_campaign_ids)[:6]
+        campaigns = Campaign.objects.annotate(campaign_participant_count=Count('campaignparticipant__campaign_id')).order_by('-campaign_participant_count')[:6]
+
         campaign_reviews = CampaignReview.objects.all().order_by('-id')[:3]
         fundings = Funding.objects.all().order_by('-id')[:6]
         donations = Donation.objects.all().select_related(
