@@ -1,6 +1,6 @@
 from django.urls import path, include
 from django.views.generic import TemplateView
-from member.view import V0001, V0010, V0020, V0030, V0035, V0040, V0045, V0050, V0060, V0070, V0055, V0065, V0025
+from member.view import V0001, V0010, V0020, V0030, V0035, V0040, V0045, V0050, V0060, V0070, V0055, V0065, V0025, V0075, V0080
 
 app_name = 'member'
 
@@ -21,7 +21,10 @@ urlpatterns = [
             path("faq/", V0070.Faq.as_view(), name="faq"),
             path("noinquiry/", V0035.NoInquiry.as_view(), name="noinquiry"),
             path("unregister/", V0045.Unregister.as_view(), name="unregister"),
-        ]
-    ),),
+            path("notice/", V0075.NoticeView.as_view(), name="notice"),
+            path("notice-detail/<int:id>/", V0080.NoticeDetail.as_view(), name="notice-detail"),
 
+
+        ]
+    ))
 ]

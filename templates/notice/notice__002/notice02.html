@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,36 +32,40 @@
                 <section class="article-sidebar">
                     <section class="section-articles collapsible-sidebar">
                         <h3 class="collapsible-sidebar-title sidenav-title">이 섹션의 문서</h3>
+
                         <ul>
+                    {% for notice in notices %}
                             <li>
-                                <a href="/hc/ko/articles/21347831309337--23-08-02-%EC%9E%90%EB%8F%99%EC%B0%A8-%EC%A0%95%EB%B9%84-%EB%B0%8F-%EC%9E%90%EB%8F%99%EC%B0%A8-%ED%8A%9C%EB%8B%9D-%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B2%80%EC%A6%9D-%EC%A0%88%EC%B0%A8-%EB%B3%80%EA%B2%BD-%EC%95%88%EB%82%B4-08-31-%EB%B0%98%EC%98%81-" class="sidenav-item current-article">[23.08.02] 자동차 정비 및 자동차 튜닝 서비스 검증 절차 변경 안내 (08/31 반영)</a>
+                                <a href= # class="sidenav-item current-article">{{ notice.notice_title }}</a>
+                            </li>
+                    {% endfor %}
+                            <li>
+                                <a href="/hc/ko/articles/20873970589721--23-07-20-%EC%88%A8%EA%B3%A0-%EB%A7%88%EC%BC%93-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9E%AC%EA%B0%9C-%EC%95%88%EB%82%B4-7-27-%EB%B0%98%EC%98%81-" class="sidenav-item "></a>
+                            </li>
+
+                            <li>
+                                <a href="/hc/ko/articles/20050043314201--23-06-27-6%EC%9B%94-30%EC%9D%BC-%EA%B3%A0%EA%B0%9D%EC%84%BC%ED%84%B0-%EC%9D%BC%EB%B6%80-%EC%B1%84%EB%84%90-%EC%9A%B4%EC%98%81-%EC%95%88%EB%82%B4" class="sidenav-item "></a>
                             </li>
                             <li>
-                                <a href="/hc/ko/articles/20873970589721--23-07-20-%EC%88%A8%EA%B3%A0-%EB%A7%88%EC%BC%93-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9E%AC%EA%B0%9C-%EC%95%88%EB%82%B4-7-27-%EB%B0%98%EC%98%81-" class="sidenav-item ">[23.07.20] 숨고 마켓 서비스 재개 안내 (7/27 반영)</a>
+                                <a href="/hc/ko/articles/19873610491161--23-06-22-%EC%A7%80%EB%8F%84%EB%A1%9C-%EA%B3%A0%EC%88%98-%EC%B0%BE%EA%B8%B0-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%98%A4%ED%94%88-%EC%98%88%EC%A0%95-7-12-%EB%B0%98%EC%98%81-" class="sidenav-item "></a>
                             </li>
                             <li>
-                                <a href="/hc/ko/articles/20050043314201--23-06-27-6%EC%9B%94-30%EC%9D%BC-%EA%B3%A0%EA%B0%9D%EC%84%BC%ED%84%B0-%EC%9D%BC%EB%B6%80-%EC%B1%84%EB%84%90-%EC%9A%B4%EC%98%81-%EC%95%88%EB%82%B4" class="sidenav-item ">[23.06.27] 6월 30일 고객센터 일부 채널 운영 안내</a>
+                                <a href="/hc/ko/articles/18645751876761--23-05-24-%EB%B0%94%EB%A1%9C%EA%B2%AC%EC%A0%81-%EB%B0%9C%EC%86%A1-%EC%BA%90%EC%8B%9C-%ED%95%A0%EC%9D%B8%EC%9C%A8-%EB%B3%80%EA%B2%BD-%EC%95%88%EB%82%B4-5-31%EB%B0%98%EC%98%81-" class="sidenav-item "></a>
                             </li>
                             <li>
-                                <a href="/hc/ko/articles/19873610491161--23-06-22-%EC%A7%80%EB%8F%84%EB%A1%9C-%EA%B3%A0%EC%88%98-%EC%B0%BE%EA%B8%B0-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%98%A4%ED%94%88-%EC%98%88%EC%A0%95-7-12-%EB%B0%98%EC%98%81-" class="sidenav-item ">[23.06.22] '지도로 고수 찾기' 서비스 오픈 예정 (7/12 반영)</a>
+                                <a href="/hc/ko/articles/18292383938841--23-05-10-%EC%88%A8%EA%B3%A0-%ED%9A%8C%EC%9B%90-%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80-%EB%B3%80%EA%B2%BD-%EC%95%88%EB%82%B4-6-7-%EB%B0%98%EC%98%81-" class="sidenav-item "></a>
                             </li>
                             <li>
-                                <a href="/hc/ko/articles/18645751876761--23-05-24-%EB%B0%94%EB%A1%9C%EA%B2%AC%EC%A0%81-%EB%B0%9C%EC%86%A1-%EC%BA%90%EC%8B%9C-%ED%95%A0%EC%9D%B8%EC%9C%A8-%EB%B3%80%EA%B2%BD-%EC%95%88%EB%82%B4-5-31%EB%B0%98%EC%98%81-" class="sidenav-item ">[23.05.24] 바로견적 발송 캐시 할인율 변경 안내 (5/31반영)</a>
+                                <a href="/hc/ko/articles/17877403318681--23-04-25-%EB%B3%B8%EC%9D%B8%EC%9D%B8%EC%A6%9D-%EB%B0%A9%EC%8B%9D-%EB%B3%80%EA%B2%BD" class="sidenav-item ">{{ notice.notice_title }}</a>
                             </li>
                             <li>
-                                <a href="/hc/ko/articles/18292383938841--23-05-10-%EC%88%A8%EA%B3%A0-%ED%9A%8C%EC%9B%90-%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80-%EB%B3%80%EA%B2%BD-%EC%95%88%EB%82%B4-6-7-%EB%B0%98%EC%98%81-" class="sidenav-item ">[23.05.10] 숨고 회원 이용약관 변경 안내 (6/7 반영)</a>
+                                <a href="/hc/ko/articles/4407888693401--21-10-15-%ED%97%88%EC%9C%84-%EB%A6%AC%EB%B7%B0-%EC%9E%91%EC%84%B1-%EB%B0%8F-%EB%A6%AC%EB%B7%B0-%EA%B3%A0%EC%9A%A9%EC%88%98-%EC%A1%B0%EC%9E%91-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81-%EA%B0%95%ED%99%94" class="sidenav-item "></a>
                             </li>
                             <li>
-                                <a href="/hc/ko/articles/17877403318681--23-04-25-%EB%B3%B8%EC%9D%B8%EC%9D%B8%EC%A6%9D-%EB%B0%A9%EC%8B%9D-%EB%B3%80%EA%B2%BD" class="sidenav-item ">[23.04.25] 본인인증 방식 변경</a>
+                                <a href="/hc/ko/articles/20322483094169--23-07-05-%EC%88%A8%EA%B3%A0-%EB%A7%88%EC%BC%93-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%BC%EC%8B%9C-%EC%A4%91%EB%8B%A8-%EA%B8%B0%EA%B0%84-%EC%97%B0%EC%9E%A5-%EC%95%88%EB%82%B4" class="sidenav-item "></a>
                             </li>
                             <li>
-                                <a href="/hc/ko/articles/4407888693401--21-10-15-%ED%97%88%EC%9C%84-%EB%A6%AC%EB%B7%B0-%EC%9E%91%EC%84%B1-%EB%B0%8F-%EB%A6%AC%EB%B7%B0-%EA%B3%A0%EC%9A%A9%EC%88%98-%EC%A1%B0%EC%9E%91-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81-%EA%B0%95%ED%99%94" class="sidenav-item ">[21.10.15] 허위 리뷰 작성 및 리뷰/고용수 조작 모니터링 강화</a>
-                            </li>
-                            <li>
-                                <a href="/hc/ko/articles/20322483094169--23-07-05-%EC%88%A8%EA%B3%A0-%EB%A7%88%EC%BC%93-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%BC%EC%8B%9C-%EC%A4%91%EB%8B%A8-%EA%B8%B0%EA%B0%84-%EC%97%B0%EC%9E%A5-%EC%95%88%EB%82%B4" class="sidenav-item ">[23.07.05] 숨고 마켓 서비스 일시 중단 기간 연장 안내</a>
-                            </li>
-                            <li>
-                                <a href="/hc/ko/articles/19640510030233--23-06-16-%EC%88%A8%EA%B3%A0-%EB%A7%88%EC%BC%93-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%BC%EC%8B%9C-%EC%A4%91%EB%8B%A8-%EC%95%88%EB%82%B4-6-29-%EB%B0%98%EC%98%81-" class="sidenav-item ">[23.06.16] 숨고 마켓 서비스 일시 중단 안내 (6/29 반영)</a>
+                                <a href="/hc/ko/articles/19640510030233--23-06-16-%EC%88%A8%EA%B3%A0-%EB%A7%88%EC%BC%93-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%BC%EC%8B%9C-%EC%A4%91%EB%8B%A8-%EC%95%88%EB%82%B4-6-29-%EB%B0%98%EC%98%81-" class="sidenav-item "></a>
                             </li>
                         </ul>
                         <a href="/hc/ko/sections/360006534351-%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD" class="article-sidebar-item">더보기</a>
@@ -67,42 +73,47 @@
                 </section>
                 <article class="article">
                     <header class="article-header">
-                        <h1 title="[23.08.02] 자동차 정비 및 자동차 튜닝 서비스 검증 절차 변경 안내 (08/31 반영)" class="article-title">
-                        [23.08.02] 자동차 정비 및 자동차 튜닝 서비스 검증 절차 변경 안내 (08/31 반영)
+
+                        <h1 class="article-title">
+                            {{ noticeCheck.notice_title }}
                         </h1>
+
                     </header>
+                    {#공지사항 본문#}
                     <section class="article-info">
                         <div class="article-content">
                             <div class="article-body">
-                                <p>서비스 운영 정책이 변경되어 다음 서비스의 고수로 활동하기 위해서는 사업자등록증과 관련 서류를 필수로 등록해야 합니다.</p>
-                                <p>본 정책은 2023년 8월 31(목)일부터 적용되며, 미 등록 시 해당 서비스의 고수로 활동할 수<br>
-                                    없습니다.<br><br>
-                                    <strong>[ 변경 예정 서비스 목록 ]</strong>
-                                    <br>■ 기타 &gt; 자동차 &gt;
-                                    <strong>자동차 정비, 자동차 튜닝</strong>
-                                </p>
-                                <p>&nbsp;</p>
-                                <p><strong>[ 서비스별 필요 서류 ]</strong></p>
-                                <p><strong>■ 자동차 정비</strong></p>
-                                <p>1. 사업자 등록증: 업종 코드 922201, 922202</p>
-                                <p>2. 자격증 및 기타 서류: 자동차관리사업등록증 (사업 종류: 자동차정비업)</p>
-                                <p><strong>■ 자동차 튜닝</strong></p>
-                                <p>1. 사업자 등록증: 업종 코드 922202</p>
-                                <p>2. 자격증 및 기타 서류: 자동차관리사업등록증 (사업 종류: 자동차정비업)</p>
-                                <p>&nbsp;</p>
-                                <p><strong>
-                                    <span style="background-color: #ffffff;">[ 서류 등록 방법 ]</span>
-                                    </strong>
-                                </p>
-                                <p><strong>■ 사업자등록증</strong></p>
-                                <p>프로필 &gt; 사업자등록증 &gt; <strong>등록하기</strong> 버튼 클릭</p>
-                                <p><strong>■ 자격증 및 기타 서류</strong></p>
-                                <p>프로필 &gt; 자격증 및 기타 서류 &gt; <strong>+</strong> 버튼 클릭</p>
-                                <p>&nbsp;</p>
-                                <p><span style="background-color: #ffffff;">관련 서류가 없는 경우 발급 후 등록해 주시기 바랍니다.</span></p>
-                                <p><span style="background-color: #ffffff;">*관련 법령에 따라 필요한 사업자등록증/자격증은&nbsp; 추가되거나 변경될 수 있습니다.</span></p>
-                                <p><span style="background-color: #ffffff;"><br></span><span style="background-color: #ffffff;">해당 서비스를 제공 중인 고수님들에게는&nbsp; 8월 3일(목) 개별 메시지를 통해 안내드릴 예정입니다.</span></p>
-                                <p><span style="background-color: #ffffff;">사업자등록증, 자격증 및 기타 서류에 관한 자세한 안내는 아래 게시물을 참고해 주세요.</span></p>
+                                    <strong>{{ noticeCheck.notice_content }}</strong>
+
+{#                                <p>안전하고 밝은 미래를 위해</p>#}
+{#                                <p>본 정책은 2023년 8월 31(목)일부터 적용되며, 미 등록 시 해당 서비스의 고수로 활동할 수<br>#}
+{#                                    없습니다.<br><br>#}
+{#                                    <strong>[ 변경 예정 서비스 목록 ]</strong>#}
+{#                                    <br>■ 기타 &gt; 자동차 &gt;#}
+{#                                    <strong>자동차 정비, 자동차 튜닝</strong>#}
+{#                                </p>#}
+{#                                <p>&nbsp;</p>#}
+{#                                <p><strong>[ 서비스별 필요 서류 ]</strong></p>#}
+{#                                <p><strong>■ 자동차 정비</strong></p>#}
+{#                                <p>1. 사업자 등록증: 업종 코드 922201, 922202</p>#}
+{#                                <p>2. 자격증 및 기타 서류: 자동차관리사업등록증 (사업 종류: 자동차정비업)</p>#}
+{#                                <p><strong>■ 자동차 튜닝</strong></p>#}
+{#                                <p>1. 사업자 등록증: 업종 코드 922202</p>#}
+{#                                <p>2. 자격증 및 기타 서류: 자동차관리사업등록증 (사업 종류: 자동차정비업)</p>#}
+{#                                <p>&nbsp;</p>#}
+{#                                <p><strong>#}
+{#                                    <span style="background-color: #ffffff;">[ 서류 등록 방법 ]</span>#}
+{#                                    </strong>#}
+{#                                </p>#}
+{#                                <p><strong>■ 사업자등록증</strong></p>#}
+{#                                <p>프로필 &gt; 사업자등록증 &gt; <strong>등록하기</strong> 버튼 클릭</p>#}
+{#                                <p><strong>■ 자격증 및 기타 서류</strong></p>#}
+{#                                <p>프로필 &gt; 자격증 및 기타 서류 &gt; <strong>+</strong> 버튼 클릭</p>#}
+{#                                <p>&nbsp;</p>#}
+{#                                <p><span style="background-color: #ffffff;">관련 서류가 없는 경우 발급 후 등록해 주시기 바랍니다.</span></p>#}
+{#                                <p><span style="background-color: #ffffff;">*관련 법령에 따라 필요한 사업자등록증/자격증은&nbsp; 추가되거나 변경될 수 있습니다.</span></p>#}
+{#                                <p><span style="background-color: #ffffff;"><br></span><span style="background-color: #ffffff;">해당 서비스를 제공 중인 고수님들에게는&nbsp; 8월 3일(목) 개별 메시지를 통해 안내드릴 예정입니다.</span></p>#}
+{#                                <p><span style="background-color: #ffffff;">사업자등록증, 자격증 및 기타 서류에 관한 자세한 안내는 아래 게시물을 참고해 주세요.</span></p>#}
                                 <!-- <p>&nbsp;</p> -->
                                 <!-- <p><a href="https://help.soomgo.com/hc/ko/articles/360002512392--%EC%9E%90%EA%B2%A9-%EC%A6%9D%EB%B9%99-%EC%82%AC%EC%97%85%EC%9E%90%EB%93%B1%EB%A1%9D%EC%A6%9D%EC%9D%B4%EB%82%98-%EC%9E%90%EA%B2%A9%EC%A6%9D%EC%9D%B4-%ED%95%84%EC%88%98%EC%9D%B8%EA%B0%80%EC%9A%94-" target="_blank" rel="noopener noreferrer">
                                         <strong><span class="wysiwyg-color-cyan120" style="background-color: #ffffff;">🏷️ 사업자등록증이나 자격증이 필수인 서비스는 무엇인가요?</span></strong>
@@ -131,16 +142,16 @@
                                 </ul>
                             </div>
                         </div> -->
-                        <!-- <div class="article-votes">
-                            <span class="article-votes-question">도움이 되었습니까?</span>
-                            <div class="article-votes-controls" role="radiogroup">
-                                <a class="button article-vote article-vote-up" data-auth-action="signin" aria-selected="false" role="radio" rel="nofollow" title="예" href="/hc/ko/signin?return_to=https%3A%2F%2Fhelp.soomgo.com%2Fhc%2Fko%2Farticles%2F21347831309337--23-08-02-%25EC%259E%2590%25EB%258F%2599%25EC%25B0%25A8-%25EC%25A0%2595%25EB%25B9%2584-%25EB%25B0%258F-%25EC%259E%2590%25EB%258F%2599%25EC%25B0%25A8-%25ED%258A%259C%25EB%258B%259D-%25EC%2584%259C%25EB%25B9%2584%25EC%258A%25A4-%25EA%25B2%2580%25EC%25A6%259D-%25EC%25A0%2588%25EC%25B0%25A8-%25EB%25B3%2580%25EA%25B2%25BD-%25EC%2595%2588%25EB%2582%25B4-08-31-%25EB%25B0%2598%25EC%2598%2581-"></a>
-                                <a class="button article-vote article-vote-down" data-auth-action="signin" aria-selected="false" role="radio" rel="nofollow" title="아니요" href="/hc/ko/signin?return_to=https%3A%2F%2Fhelp.soomgo.com%2Fhc%2Fko%2Farticles%2F21347831309337--23-08-02-%25EC%259E%2590%25EB%258F%2599%25EC%25B0%25A8-%25EC%25A0%2595%25EB%25B9%2584-%25EB%25B0%258F-%25EC%259E%2590%25EB%258F%2599%25EC%25B0%25A8-%25ED%258A%259C%25EB%258B%259D-%25EC%2584%259C%25EB%25B9%2584%25EC%258A%25A4-%25EA%25B2%2580%25EC%25A6%259D-%25EC%25A0%2588%25EC%25B0%25A8-%25EB%25B3%2580%25EA%25B2%25BD-%25EC%2595%2588%25EB%2582%25B4-08-31-%25EB%25B0%2598%25EC%2598%2581-"></a>
-                            </div>
-                            <small class="article-votes-count">
-                                <span class="article-vote-label">0명 중 0명이 도움이 되었다고 했습니다.</span>
-                            </small>
-                        </div> -->
+{#                        <div class="article-votes">#}
+{#                            <span class="article-votes-question">도움이 되었습니까?</span>#}
+{#                            <div class="article-votes-controls" role="radiogroup">#}
+{#                                <a class="button article-vote article-vote-up" data-auth-action="signin" aria-selected="false" role="radio" rel="nofollow" title="예" href="/hc/ko/signin?return_to=https%3A%2F%2Fhelp.soomgo.com%2Fhc%2Fko%2Farticles%2F21347831309337--23-08-02-%25EC%259E%2590%25EB%258F%2599%25EC%25B0%25A8-%25EC%25A0%2595%25EB%25B9%2584-%25EB%25B0%258F-%25EC%259E%2590%25EB%258F%2599%25EC%25B0%25A8-%25ED%258A%259C%25EB%258B%259D-%25EC%2584%259C%25EB%25B9%2584%25EC%258A%25A4-%25EA%25B2%2580%25EC%25A6%259D-%25EC%25A0%2588%25EC%25B0%25A8-%25EB%25B3%2580%25EA%25B2%25BD-%25EC%2595%2588%25EB%2582%25B4-08-31-%25EB%25B0%2598%25EC%2598%2581-"></a>#}
+{#                                <a class="button article-vote article-vote-down" data-auth-action="signin" aria-selected="false" role="radio" rel="nofollow" title="아니요" href="/hc/ko/signin?return_to=https%3A%2F%2Fhelp.soomgo.com%2Fhc%2Fko%2Farticles%2F21347831309337--23-08-02-%25EC%259E%2590%25EB%258F%2599%25EC%25B0%25A8-%25EC%25A0%2595%25EB%25B9%2584-%25EB%25B0%258F-%25EC%259E%2590%25EB%258F%2599%25EC%25B0%25A8-%25ED%258A%259C%25EB%258B%259D-%25EC%2584%259C%25EB%25B9%2584%25EC%258A%25A4-%25EA%25B2%2580%25EC%25A6%259D-%25EC%25A0%2588%25EC%25B0%25A8-%25EB%25B3%2580%25EA%25B2%25BD-%25EC%2595%2588%25EB%2582%25B4-08-31-%25EB%25B0%2598%25EC%2598%2581-"></a>#}
+{#                            </div>#}
+{#                            <small class="article-votes-count">#}
+{#                                <span class="article-vote-label">0명 중 0명이 도움이 되었다고 했습니다.</span>#}
+{#                            </small>#}
+{#                        </div>#}
                         <div class="article-more-questions">
                         또 다른 질문이 있으십니까?
                             <div class="go-to-inquiry">

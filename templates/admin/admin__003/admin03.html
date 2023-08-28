@@ -17,8 +17,9 @@
               <div class="relative">
                   <button class="profile-img-content">
                       <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-                          <img src="danbi.jpg" alt="프로필 이미지" class="profile-img-file" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+{#                          <img src="/upload/{{ post_file.image }}" alt="프로필 이미지" class="profile-img-file" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">#}
                       </span>
+                        <span class="side-profile-img-style"></span>
                   </button>
               </div>
           </div>
@@ -30,13 +31,17 @@
                       <div class="side-profile-img">
                           <button class="side-profile-img-btn" style="width: 68px; height: 68px;">
                               <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-                                  <img alt="프로필 이미지" sizes="100vw" src="danbi.jpg" class="side-profile-img-content" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+                                {% for member in admins %}
+{#                                  <img alt="프로필 이미지" sizes="100vw" src="/upload/{{ post_file.image }}" class="side-profile-img-content" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">#}
+                                {% endfor %}
                               </span>
                               <span class="side-profile-img-style"></span>
                           </button>
                       </div>
-                      <h2 class="manager">관리자 김혜빈</h2>
+                    {% for member in admins %}
+                      <h2 class="manager">{{ member.member_name }}</h2>
                       <a target="_blank" href="#">
+                    {% endfor %}
                           <button type="button" class="go-to-site">
                               <div class="go-to-path">
                                   <div>사이트 바로가기</div>

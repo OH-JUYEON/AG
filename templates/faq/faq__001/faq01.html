@@ -5,6 +5,7 @@
     {#            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">#}
             <section class="section hero">
                 <div class="hero-inner">
+{#                    <a href="{% url 'AG:"" '%}"></a>#}
                     <form role="search" class="search search-full" autocomplete="off" action="#" accept-charset="UTF-8" method="get">
                         <input name="utf8" type="hidden" value="✓" autocomplete="off">
                         <input type="search" name="query" id="query" placeholder="검색" autocomplete="off" aria-label="검색">
@@ -16,32 +17,34 @@
                 <section class="categories blocks">
                     <ul class="blocks-list">
                         <li class="blocks-item">
-                        <a href="#" class="blocks-item-link">
+                        <a href="{% url 'campaign:list' %}" class="blocks-item-link">
                             <img src="{% static 'img/faq001.png' %}" class="list-img">
                             <h4 class="blocks-item-title">캠페인 첫걸음</h4>
                             <p class="blocks-item-description"></p>
                         </a>
                         </li>
                         <li class="blocks-item">
-                        <a href="#" class="blocks-item-link">
+                        <a href="{% url 'funding:funding' %}" class="blocks-item-link">
                             <img src="{% static 'img/faq002.png' %}" class="list-img">
                             <h4 class="blocks-item-title">펀딩 가이드</h4>
                             <p class="blocks-item-description"></p>
                         </a>
                         </li>
                         <li class="blocks-item">
-                        <a href="#" class="blocks-item-link">
+                        <a href="{% url 'donation:answer' %}" class="blocks-item-link">
                             <img src="{% static 'img/faq003.png' %}" class="list-img">
                             <h4 class="blocks-item-title">기부 가이드</h4>
                             <p class="blocks-item-description"></p>
                         </a>
                         </li>
                         <li class="blocks-item">
-                        <a href="/hc/ko/categories/360002081551-%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD" class="blocks-item-link">
+                        <a href="{% url 'member:notice' %}" class="blocks-item-link">
                             <img src="{% static 'img/faq004.png' %}" class="list-img">
                             <h4 class="blocks-item-title">공지사항</h4>
                             <p class="blocks-item-description"></p>
                         </a>
+
+
                         </li>
                     </ul>
                 </section>
