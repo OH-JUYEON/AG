@@ -1,5 +1,5 @@
 {% load static %}
-<form action="" method="post">
+<form action="/campaign/reviewWrite/{{ campaign_id }}/" enctype="multipart/form-data" method="post">
     {% csrf_token %}
     <div class="web-body">
         <div class="community-container container">
@@ -28,7 +28,7 @@
                             <div class="add-image-icon"></div>
                             <!-- 사진 인풋 태그 -->
                             <div class="custom-file b-form-file file-input">
-                                <input type="file" name="uploadFile"
+                                <input type="file" name="campaign_review_image"
                                        accept="image/jpg,image/jpeg,image/png,image/gif,image/bmp,image/heic"
                                        multiple="multiple" class="custom-file-input" id="__BVID__1171"
                                        style="z-index: -5;">
@@ -72,6 +72,8 @@
                             <main style="margin-top: 48px">
                                 <div class="write-wrapper">
                                     <section class="content">
+                                        <input type="hidden" name = "campaign_id" value="{{ campaign_id }}">
+
 
                                         <div>
                                             <div style="margin-bottom: 48px">
