@@ -1,0 +1,59 @@
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/oyftbbpg9czujh22qz99ti5pkpym01nfis0fadhi5mzxxhxv/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const addImageIcon = document.querySelector('.add-image-icon');
+        const fileInput = document.querySelector('.custom-file-input');
+
+        addImageIcon.addEventListener('click', function () {
+            fileInput.click(); // 파일 첨부 input 엘리먼트를 클릭하도록 호출
+        });
+    });
+
+    const titleInput = document.querySelector('#post-title-input');
+    const contentInput = document.querySelector('#image-tools');
+    const btn_submit = document.querySelector('.write-post-submit');
+
+    function updateSubmitButtonState() {
+        if (titleInput.value.trim() !== '' && contentInput.value.trim() !== '') {
+            btn_submit.classList.add('active');
+        } else {
+            btn_submit.classList.remove('active');
+        }
+    }
+
+    // input 내용이 변경될 때마다 버튼 상태 업데이트
+    titleInput.addEventListener('input', updateSubmitButtonState);
+    contentInput.addEventListener('input', updateSubmitButtonState);
+
+
+    tinymce.init({
+        language: "ko_KR",
+        selector: 'textarea#image-tools',
+        height: 500,
+        width: 970,
+        menubar: false,
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste imagetools wordcount',
+
+        ],
+        toolbar:
+            'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+        content_style:
+            'body { font-family:Helvetica,Arial,sans-serif; font-size:16px; font-weight: 400; }',
+        content_style: `.mce-content-body[data-mce-placeholder]:not(.mce-visualblocks)::before {
+						font-weight: 400;
+						font-size: 16px;
+						line-height: 16px;
+						color: #c0b9bb;
+						fill: #c0b9bb;
+
+					}
+					`,
+        placeholder: '내용을 입력해주세요.',
+    });
+</script>

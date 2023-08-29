@@ -301,4 +301,12 @@ function getList(){
         });
     });
 
+    const btn_review = document.querySelector('.btn_review');
+
+    btn_review.addEventListener('click', function () {
+        var campaign_id = btn_review.getAttribute('data-campaign-id');
+        window.location.href = "/campaign/reviewWrite/" + campaign_id + "/";
+    })
+
+
 </script>
