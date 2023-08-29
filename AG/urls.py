@@ -35,8 +35,8 @@ urlpatterns = [
              [
                  path("", V0005.Main.as_view(), name="home"),
                  path("login/", TemplateView.as_view(template_name='AG/login/_T001.html'), name="login"),
+                 path("signup/", TemplateView.as_view(template_name='AG/signUp/_T001.html'), name="signup"),
                  path("logout/", V0017.Logout.as_view(), name="logout"),
-                 path("signup/", V0016.SignUp.as_view(), name="signup"),
                  path("oauth/redirectSignup/", V0016.SignUp.as_view(), name="redirectSignup"),
                  path('oauth/redirectLogin/', V0015.Login.as_view(), name='redirectLogin')
              ]
