@@ -31,7 +31,7 @@ class AdminRead(View):
         context = {
 
             'campaigns': campaigns,
-            # 'admins': admins,
+            'admins': 'admins',
 
         }
-        return render(request, 'admin/admin__002/_T002.html', context)
+        return render(request, 'admin/admin__005/_T005.html', context)

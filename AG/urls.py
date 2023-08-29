@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 
-from member.view import V0005, V0015, V0016, V0017, V0002, V0003, V0004
+from member.view import V0005, V0015, V0016, V0017, V0002, V0003, V0004, V0006, V0007, V0008, V0009, V0011
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -48,6 +49,11 @@ urlpatterns = [
                  path("<int:id>/", V0002.Admin.as_view(), name="admin"),
                  path("write/<int:id>/", V0003.AdminWrite.as_view(), name='write'),
                  path("read/<int:id>/", V0004.AdminRead.as_view(), name='read'),
+                 path("meeber/<int:id>/", V0006.AdminRead.as_view(), name='read'),
+                 path("pay/<int:id>/", V0007.AdminRead.as_view(), name='read'),
+                 path("donate/<int:id>/", V0008.AdminRead.as_view(), name='read'),
+                 path("reply/<int:id>/", V0009.AdminRead.as_view(), name='read'),
+                 path("option/<int:id>/", V0011.AdminRead.as_view(), name='read'),
 
              ]
          ),

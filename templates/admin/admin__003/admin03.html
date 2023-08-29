@@ -1,29 +1,29 @@
 <body>
-<div id="wrap">
-    <div class="screen">
-      <nav class="header">
-          <div>
-              <div class="logo">
-                  <a href="/">
-                      <img src="white.png" style="width:50px">
-                  </a>
-                  <div class="classifying-bar">|</div>
-                  <div class="font-box">
-                      <span>Admin Board</span>
-                  </div>
-              </div>
-          </div>
-          <div class="profile-img">
-              <div class="relative">
-                  <button class="profile-img-content">
-                      <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+{#<div id="wrap">#}
+{#    <div class="screen">#}
+{#      <nav class="header">#}
+{#          <div>#}
+{#              <div class="logo">#}
+{#                  <a href="/">#}
+{#                      <img src="white.png" style="width:50px">#}
+{#                  </a>#}
+{#                  <div class="classifying-bar">|</div>#}
+{#                  <div class="font-box">#}
+{#                      <span>Admin Board</span>#}
+{#                  </div>#}
+{#              </div>#}
+{#          </div>#}
+{#          <div class="profile-img">#}
+{#              <div class="relative">#}
+{#                  <button class="profile-img-content">#}
+{#                      <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">#}
 {#                          <img src="/upload/{{ post_file.image }}" alt="프로필 이미지" class="profile-img-file" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">#}
-                      </span>
-                        <span class="side-profile-img-style"></span>
-                  </button>
-              </div>
-          </div>
-      </nav>
+{#                      </span>#}
+{#                        <span class="side-profile-img-style"></span>#}
+{#                  </button>#}
+{#              </div>#}
+{#          </div>#}
+{#      </nav>#}
       <div class="body-content">
           <nav class="navigation">
               <div class="side-profile">
@@ -31,17 +31,13 @@
                       <div class="side-profile-img">
                           <button class="side-profile-img-btn" style="width: 68px; height: 68px;">
                               <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-                                {% for member in admins %}
-{#                                  <img alt="프로필 이미지" sizes="100vw" src="/upload/{{ post_file.image }}" class="side-profile-img-content" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">#}
-                                {% endfor %}
+{#                                  <img src="/upload/{{ post_file.image }} alt="프로필 이미지" sizes="100vw" class="side-profile-img-content" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">#}
                               </span>
                               <span class="side-profile-img-style"></span>
                           </button>
                       </div>
-                    {% for member in admins %}
-                      <h2 class="manager">{{ member.member_name }}</h2>
+                      <h2 class="manager">{{ admins.member_name }}</h2>
                       <a target="_blank" href="#">
-                    {% endfor %}
                           <button type="button" class="go-to-site">
                               <div class="go-to-path">
                                   <div>사이트 바로가기</div>
@@ -140,8 +136,9 @@
                     <div class="title-wrapper">
                       <h3>문의 답변 작성</h3>
                       <div style="display: flex; float: right;">
-                        <div style="width: 100px">
+                        <div style="width: 220px">
                           <button class="go-to-list" type="button">목록 보기</button>
+                          <button  id="save" class="go-to-list" type="button">등록 하기</button>
                         </div>
                       </div>
                     </div>
@@ -158,9 +155,10 @@
                           </div>
                         </div>
                         <div>
-                          <div style="margin-bottom: 48px">
-                            <textarea id="image-tools"></textarea>
-                          </div>
+                            <form method="post">
+                              <textarea id="editor">Hello, World!</textarea>
+{#                              <button type="button" id="save">게시글 저장</button>#}
+                            </form>
                         </div>
                       </section>
                       <section class="info-wrapper">
@@ -175,11 +173,11 @@
                               <div style="width: 100%; margin-top: 24px">
                                 <div>
                                   <label class="tag-label" for="email-input">
-                                    <input placeholder="문의 접수 이메일을 입력하세요." id="email-input" type="email" />
+                                    <input placeholder="문의 접수 이메일을 입력하세요." class="email-input" type="email" name="email" autocomplete="none" />
                                   </label>
                                   <div class="tag-explain">
                                     <div class="tag-explain-text">
-                                      이메일을 정확히 입력하세요.
+                                      <p id="email-result"></p>
                                     </div>
                                   </div>
                                 </div>
@@ -187,13 +185,13 @@
                             </div>
                           </div>
                           <div class="sub-title">
-                            <div style="display: flex; align-items: center">
-                              <strong class="sub-title-text">파일 첨부</strong>
+                            <div class="wrap" style="display: flex; align-items: center">
+                              <label class="file-upload-label" for="file-upload">
+                                <div class="image"></div>
+                             </label>
+                             <div class="cancel"></div>
                             </div>
-                            <label class="file-upload-label" for="file-upload">
-                              <input style="display: none" type="file" id="file-upload" />
-                              업로드
-                            </label>
+                            <input style="display: none" type="file" id="attach" />
                           </div>
                           <div class="info-content">
                             <div class="file-wrapper">

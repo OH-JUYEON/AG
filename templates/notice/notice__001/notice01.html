@@ -5,8 +5,11 @@
     <div class="container">
       <nav class="sub-nav">
         <ol class="breadcrumbs">
+          <li>
+              <a href="#"></a>어노니머스 가디언
+          </li>
           <li title="자주묻는 질문 - 어노니머스 가디언">
-            <a href="{% url 'member:faq' %}">자주묻는 질문 - 어노니머스 가디언</a>
+            <a href="#">자주묻는 질문</a>
           </li>
           <li title="공지사항">공지사항</li>
         </ol>
@@ -29,7 +32,7 @@
             {% for notice in notices %}
               <li class="article-list-item article-promoted">
                 <span data-title="승격된 문서" class="icon-star"></span>
-                <a href="#" class="article-list-link">{{ notice.notice_title }}</a>
+                <a href="{% url 'member:notice-detail ' %}" class="article-list-link">{{ notice.notice_title }}</a>
               </li>
             {% endfor %}
 {#              <li class="article-list-item article-promoted">#}
@@ -52,7 +55,7 @@
             </ul>
 
             <a href="#" class="see-all-articles">
-              문서 119개 모두 보기
+              더 보기
             </a>
           </section>
           <section class="section">
@@ -79,7 +82,7 @@
             </ul>
           {% endfor %}
             <a href="#" class="see-all-articles">
-              문서 20개 모두 보기
+              더 보기
             </a>
           </section>
         </div>
