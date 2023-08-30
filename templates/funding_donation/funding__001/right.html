@@ -1,5 +1,6 @@
 {% load static %}
 
+    {% csrf_token %}
 <div style="position: absolute; z-index: 100000; display: none;" id="que">
     <div class="modal fade show question-register-modal" aria-modal="true" style="display: block; padding-right: 17px;">
         <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable mobile-full-modal"><span
@@ -15,14 +16,14 @@
                             <p class="title">문의 유형</p>
                             <div tabindex="-1" class="radio-group bv-no-focus-ring">
                                 <div class="custom-control5 custom-radio5"><input type="radio" name="type"
-                                        class="custom-control-input5" checked><label
+                                        class="custom-control-input5" checked value="0"><label
                                         class="custom-control-label5"><span>캠페인
                                             참여</span></label></div>
                                 <div class="custom-control5 custom-radio5"><input type="radio" name="type"
-                                        class="custom-control-input5"><label class="custom-control-label5"><span>펀딩
+                                        class="custom-control-input5" value="1"><label class="custom-control-label5"><span>펀딩
                                             참여</span></label></div>
                                 <div class="custom-control5 custom-radio5"><input type="radio" name="type"
-                                        class="custom-control-input5"><label
+                                        class="custom-control-input5" value="2"><label
                                         class="custom-control-label5"><span>기타</span></label></div>
                             </div>
                         </div>
@@ -37,8 +38,8 @@
                         </div>
                     </div>
                 </div>
-                <footer class="modal-footer"><button type="button" disabled="disabled"
-                        class="btn btn-registration btn-secondary disabled"> 등록
+                <footer class="modal-footer"><button type="button" 
+                        class="btn btn-registration btn-secondary" onclick="fetch_data()"> 등록
                     </button></footer>
             </div><span tabindex="0"></span>
         </div>

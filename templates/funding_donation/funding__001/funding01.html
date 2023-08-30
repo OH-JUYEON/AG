@@ -232,66 +232,39 @@
                                             <p contenteditable="plaintext-only" data-placeholder="내용 입력">
                                             </p>
                                         </div>
-                                    </div> <button type="button" disabled="disabled"
+                                    </div> <button type="button" disabled="disabled" onclick="reply_upload()"
                                         class="post-btn flex-container mds-button mds-button--secondary mds-button--flex mds-button--h56 mds-button--r4"><span>등록</span></button>
                                 </div>
                             </div>
 
                             <div>
                                 <ul class="review-container">
-                                    <li>
-                                        <article class="profile-review-item">
-                                            <section class="meta"><span class="author">❤️김**❤️</span>
-                                                <div class="profile-review-item-badge"> </div>
-                                            </section>
-                                            <!-- <section class="service-score">
-                                                        <p>왁싱</p><img
-                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Im03LjQ5NiAxLjU5NiAxLjQwNyAyLjc0MiAzLjE0NS40NGMuOTEuMTI3IDEuMjc1IDEuMjA0LjYxNSAxLjgyMmwtMi4yNzYgMi4xMzQuNTM4IDMuMDE1Yy4xNTUuODcyLS43OTcgMS41MzgtMS42MTIgMS4xMjZMNi41IDExLjQ1MmwtMi44MTMgMS40MjNjLS44MTUuNDEyLTEuNzY3LS4yNTQtMS42MTItMS4xMjZsLjUzOC0zLjAxNUwuMzM3IDYuNmMtLjY2LS42MTgtLjI5Ni0xLjY5NS42MTUtMS44MjJsMy4xNDUtLjQ0IDEuNDA3LTIuNzQyQzUuOTEyLjggNy4wODguOCA3LjQ5NiAxLjU5NiIgZmlsbD0iI0ZGQ0UyMSIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPgo="
-                                                            alt="평점"> 5.0
-                                                    </section> -->
-                                            <div class="line-clamp collapsed">
-                                                <div class="line-clamp"
-                                                    style="line-height: 1.57; max-height: 4.71rem; -webkit-line-clamp: 3;">
-                                                    <p class="review-text">응원합니다!!</p>
+                                    {% for data in replay %}
+                                        <li>
+                                            <article class="profile-review-item">
+                                                <section class="meta"><span class="author">❤️{{data.member.member_name}}❤️</span>
+                                                    <div class="profile-review-item-badge"> </div>
+                                                </section>
+                                                <!-- <section class="service-score">
+                                                            <p>왁싱</p><img
+                                                                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Im03LjQ5NiAxLjU5NiAxLjQwNyAyLjc0MiAzLjE0NS40NGMuOTEuMTI3IDEuMjc1IDEuMjA0LjYxNSAxLjgyMmwtMi4yNzYgMi4xMzQuNTM4IDMuMDE1Yy4xNTUuODcyLS43OTcgMS41MzgtMS42MTIgMS4xMjZMNi41IDExLjQ1MmwtMi44MTMgMS40MjNjLS44MTUuNDEyLTEuNzY3LS4yNTQtMS42MTItMS4xMjZsLjUzOC0zLjAxNUwuMzM3IDYuNmMtLjY2LS42MTgtLjI5Ni0xLjY5NS42MTUtMS44MjJsMy4xNDUtLjQ0IDEuNDA3LTIuNzQyQzUuOTEyLjggNy4wODguOCA3LjQ5NiAxLjU5NiIgZmlsbD0iI0ZGQ0UyMSIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPgo="
+                                                                alt="평점"> 5.0
+                                                        </section> -->
+                                                <div class="line-clamp collapsed">
+                                                    <div class="line-clamp"
+                                                        style="line-height: 1.57; max-height: 4.71rem; -webkit-line-clamp: 3;">
+                                                        <p class="review-text">{{data.funding_reply_content}}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <section class="review-footer">
-                                                <div class="left"><span class="date">2023. 02.
-                                                        05</span><span style="display: none;">·</span><button
-                                                        type="button" class="btn btn-reply" style="display: none;">답변
-                                                        달기</button></div>
-                                            </section>
-                                            <section></section>
-                                        </article>
-                                    </li>
-
-                                    <li>
-                                        <article class="profile-review-item">
-                                            <section class="meta"><span class="author">❤️박**❤️</span>
-                                                <div class="profile-review-item-badge"> </div>
-                                            </section>
-                                            <!-- <section class="service-score">
-                                                        <p>왁싱</p><img
-                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Im03LjQ5NiAxLjU5NiAxLjQwNyAyLjc0MiAzLjE0NS40NGMuOTEuMTI3IDEuMjc1IDEuMjA0LjYxNSAxLjgyMmwtMi4yNzYgMi4xMzQuNTM4IDMuMDE1Yy4xNTUuODcyLS43OTcgMS41MzgtMS42MTIgMS4xMjZMNi41IDExLjQ1MmwtMi44MTMgMS40MjNjLS44MTUuNDEyLTEuNzY3LS4yNTQtMS42MTItMS4xMjZsLjUzOC0zLjAxNUwuMzM3IDYuNmMtLjY2LS42MTgtLjI5Ni0xLjY5NS42MTUtMS44MjJsMy4xNDUtLjQ0IDEuNDA3LTIuNzQyQzUuOTEyLjggNy4wODguOCA3LjQ5NiAxLjU5NiIgZmlsbD0iI0ZGQ0UyMSIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPgo="
-                                                            alt="평점"> 5.0
-                                                    </section> -->
-                                            <div class="line-clamp collapsed">
-                                                <div class="line-clamp"
-                                                    style="line-height: 1.57; max-height: 4.71rem; -webkit-line-clamp: 3;">
-                                                    <p class="review-text">항상 감사합니다!!</p>
-                                                </div>
-                                            </div>
-                                            <section class="review-footer">
-                                                <div class="left"><span class="date">2023. 02.
-                                                        05</span><span style="display: none;">·</span><button
-                                                        type="button" class="btn btn-reply" style="display: none;">답변
-                                                        달기</button></div>
-                                            </section>
-                                            <section></section>
-                                        </article>
-                                    </li>
-
-
+                                                <section class="review-footer">
+                                                    <div class="left"><span class="date">{{data.create_date|date:"Y.m.d"}}</span><span style="display: none;">·</span><button
+                                                            type="button" class="btn btn-reply" style="display: none;">답변
+                                                            달기</button></div>
+                                                </section>
+                                                <section></section>
+                                            </article>
+                                        </li>
+                                    {% endfor %}
 
                                 </ul>
                             </div>
@@ -333,7 +306,7 @@
                                         <div class="item-option selected">
                                             <div class="custom-control custom-radio">
                                                 <input type="radio" class="custom-control-input"><label
-                                                    class="custom-control-label" for="__BVID__1203">
+                                                    class="custom-control-label fun-label" for="__BVID__1203">
                                                     <div class="option-title selected">
                                                         나도 캠페인 펀딩하기 </div>
                                                 </label>
@@ -351,7 +324,7 @@
                                         <div data-testid="item-option no-selected" class="item-option">
                                             <div class="custom-control custom-radio">
                                                 <input type="radio" class="custom-control-input"><label
-                                                    class="custom-control-label2" for="__BVID__1204">
+                                                    class="custom-control-label2 fun-label" for="__BVID__1204">
                                                     <div class="option-title"> 나도 캠페인 참여하기
                                                     </div>
                                                 </label>
@@ -374,8 +347,8 @@
                 </section>
                 <section class="buy-button">
                     <div class="sticky-btn-group"><button type="button" class="btn btn-qna2"
-                            onclick="open_modal()"><span>문의</span></button><button type="button" class="btn btn-buy">
-                            구매하기 </button>
+                            onclick="open_modal()"><span>문의</span></button><button type="button" onclick="open_pay()" class="btn btn-buy">
+                            펀딩하기 </button>
                     </div>
                 </section>
                 <figure class="guarantee-banner"><img alt="숨고보증"
@@ -390,3 +363,9 @@
         </div>
     </article>
 </div>
+<input type="hidden" value="{{funding.id}}" id="fundingid">
+<input type="hidden" value="{{funding.funding_minimum_amount}}" id="minimum_amount">
+
+{% for key, value in request.session.items %}
+    <input type="hidden" value="{{ value }}" id="{{ key }}">
+{% endfor %}
