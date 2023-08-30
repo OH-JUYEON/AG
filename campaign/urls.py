@@ -1,6 +1,6 @@
 from django.urls import path, include
 from django.views.generic import TemplateView
-from campaign.view import V0001, V0010, V0020, V0030, V0040, V0050, V0060
+from campaign.view import V0001, V0010, V0020, V0030, V0040, V0050, V0060, V0070
 
 app_name = 'campaign'
 
@@ -14,6 +14,8 @@ urlpatterns = [
     # path("photo/<int:campaign_header_id>/", V0050.CampaignPhoto.as_view(), name="photo"),
     path("photo/", V0050.CampaignPhoto.as_view(), name="photo"),
     path("reviewWrite/<int:campaign_id>/", V0060.CampaignReviewWrite.as_view(), name="reviewWrite"),
+    path("more/<str:category>/", V0070.CampaignMoreList.as_view(), name="more"),
+
     path("inquiry/",
          include(
              [
