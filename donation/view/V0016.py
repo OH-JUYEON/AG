@@ -13,8 +13,7 @@ class FundingReplyDetail(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'funding_donation/funding__001/_T001.html')
     
-    # 0 - 펀딩 
-    # 1 - 기부
+
     def post(self, request, **kwargs):
  
         # JSON 데이터를 파싱
@@ -28,10 +27,6 @@ class FundingReplyDetail(View):
                 donation_reply_content = content,
                 donation_status=1
             )
-
-            # new_data.save()
-
-            # data = FundingReply.objects.filter(member_id=request.session['member_id'], funding_id=int(data['id'])).first()
 
 
           
