@@ -16,7 +16,8 @@ class Donation(Period, Validity):
     donation_description = models.CharField(null=False, max_length=256)
     donation_content = models.CharField(null=False, max_length=10240)
     donation_image = models.ImageField(null=False, blank=False, upload_to='Donation/%Y/%m/%d')
-
+    donation_sub_image = models.ImageField(null=True, blank=False, upload_to='Donation/%Y/%m/%d')
+    
     class Meta:
         db_table = "tbl_donation"
 

@@ -15,10 +15,10 @@
                                             <div class="image-wrap2">
                                                 <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
                                                     <li data-thumb="{% static 'img/sample_1.webp' %}"><img
-                                                            src="{% static 'img/sample_1.webp' %}" lazy="loaded">
+                                                            src="{{ funding.funding_image.url}}" lazy="loaded">
                                                     </li>
                                                     <li data-thumb="{% static 'img/sample_2.png' %}"><img
-                                                            src="{% static 'img/sample_2.png' %}" lazy="loaded">
+                                                            src="{{ funding.funding_sub_image.url}}" lazy="loaded">
                                                     </li>
                                                 </ul>
                                             </div>

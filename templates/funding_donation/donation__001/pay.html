@@ -1,0 +1,101 @@
+{% load static %}
+
+<div class="modalBackground" style="z-index: 1050; display: none; ">
+    <donation-modal>
+        <modal>
+          <div class="ngdialog-content fund_modal" id="modalON" style=" position: fixed; display: block; inset: 0px; margin-left: 0px; align-items: center; justify-content: center; ">
+            <modal-content style ="display: flex; align-items: center; height: 100%;" >
+              <div class="inner_modal">
+                <div class="layer_body">
+                 
+                  <div class="form_manage ng-pristine ng-valid ng-touched ng-submitted" style="border: 1px solid #3460d1;">
+                   
+                    <fieldset>
+                      <div class="layer_head"><strong class="tit_head">기부하기</strong></div>
+
+                      <div class="info_profile">
+                        <div kagetype="c360" class="thumb_img" style="background-image: url('{{donation.donation_image}}');"></div>
+                        <div class="area_info">
+                          <strong class="tit_info">{{donation.funding_title}}</strong>
+                          <p class="txt_sponsor">{{donation.donation_description}}</p>
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="wrap_fund">
+                        <div class="donate_step1 ">
+                          <h4 class="title_h4">
+                            후원 금액(캐시)
+                          </h4>
+                          <div>
+                            ※ 원하시는 금액을 선택해 주세요
+                          </div>
+                        </div>
+                        <div class="input_radio_wrap">
+                          <label for="30000" class="input_radio_label">
+                            <input id="30000" name="support_amount" type="radio" class="input_radio_tab_input" value="30000">
+                            <div class="input_radio_radio_btn " style="border-bottom: none;">
+                              <span class="input_radio_text">30,000</span>
+                            </div>
+
+                          </label>
+                          <label for="50000" class="input_radio_label">
+                            <input id="50000" name="support_amount" type="radio" class="input_radio_tab_input" value="50000">
+                            <div class="input_radio_radio_btn" style="border-left: none; border-bottom: none;">
+                              <span class="input_radio_text">50,000</span>
+                            </div>
+
+                          </label>
+                          <label for="100000" class="input_radio_label">
+                            <input id="100000" name="support_amount" type="radio" class="input_radio_tab_input" value="100000">
+                            <div class="input_radio_radio_btn" style="border-left: none;">
+                              <span class="input_radio_text">100,000</span>
+                            </div>
+
+                          </label>
+
+                        </div>
+                        <div class="input_radio_wrap2">
+                          <label for="200000" class="input_radio_label">
+                            <input id="200000" name="support_amount" type="radio" class="input_radio_tab_input" value="200000">
+                            <div class="input_radio_radio_btn">
+                              <span class="input_radio_text">200,000</span>
+                            </div>
+
+                          </label>
+                          <label for="300000" class="input_radio_label">
+                            <input id="300000" name="support_amount" type="radio" class="input_radio_tab_input" value="300000">
+                            <div class="input_radio_radio_btn" style="border-left: none;">
+                              <span class="input_radio_text">300,000</span>
+                            </div>
+
+                          </label>
+                          <input placeholder="금액 직접 입력" name="support_amount_input" type="text" class="input_text" value inputmode="numeric" style="border: 1px solid #3460d1; border-left: none;">
+                        </div>
+                        <div class="donate_total">
+                          <h4 class="title_h4_2">
+                            총 후원금액
+                          </h4>
+                          <div class="donate_total_price">0캐시</div>
+                        </div>
+                        
+                      </div>
+                      <div class="wrap_btns">
+                        <button type="button" class="btn_submit" onclick="pay_btn()">
+                          펀딩하기
+                        </button>
+                        <!-- <button type="button" class="btn_set">기부하기</button> -->
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="layer_foot">
+                  <button type="button" class="btn_close" onclick="close_pay()">
+                    <span class="ico_close ir_pm">닫기</span>
+                  </button>
+                </div>
+              </div>
+            </modal-content>
+          </div>
+        </modal>
+      </donation-modal>
+  </div>

@@ -13,6 +13,7 @@ class Funding(Period, Validity):
     funding_description = models.CharField(null=False, max_length=256)
     funding_content = models.CharField(null=False, max_length=10240)
     funding_image = models.ImageField(null=False, blank=False, upload_to='Funding/%Y/%m/%d')
+    funding_sub_image = models.ImageField(null=True, blank=False, upload_to='Funding/%Y/%m/%d')
 
     class Meta:
         db_table = "tbl_funding"
