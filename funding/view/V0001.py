@@ -12,7 +12,7 @@ from django.core import serializers
 class FundingDonationList(View):
 
     def get(self, request, *args, **kwargs):
-        kwargs['region'] ='동작구'
+        kwargs['region'] ='강동구'
         if kwargs['region'] != 'all':
             city = CityDetail.objects.filter(city_detail_name__contains=kwargs['region'])
 
