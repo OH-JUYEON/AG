@@ -11,8 +11,8 @@ class Period(models.Model):
 
 class Validity(models.Model):
     status = models.SmallIntegerField(null=False, default=0)
-    started_on = models.DateTimeField(null=True, auto_now_add=True)
-    ends_on = models.DateTimeField(null=True, auto_now=True)
+    started_on = models.DateTimeField(null=True)
+    ends_on = models.DateTimeField(null=True)
 
     class Meta:
         abstract = True
