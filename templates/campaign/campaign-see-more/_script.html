@@ -1,0 +1,23 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const button = document.getElementById("go-to-write");
+      const footer = document.getElementById("__end");
+
+      const footerTop = footer.getBoundingClientRect().top;
+      const buttonInitialBottom = parseInt(getComputedStyle(button).bottom, 10);
+
+      function updateButtonPosition() {
+        const footerPosition = footer.getBoundingClientRect().top;
+
+        if (footerPosition <= window.innerHeight) {
+          const offset = Math.max(footerTop - footerPosition, 0);
+          button.style.bottom = `${buttonInitialBottom + offset}px`;
+        } else {
+          button.style.bottom = `${buttonInitialBottom}px`;
+        }
+      }
+
+      window.addEventListener("scroll", updateButtonPosition);
+      window.addEventListener("resize", updateButtonPosition);
+    });
+</script>
