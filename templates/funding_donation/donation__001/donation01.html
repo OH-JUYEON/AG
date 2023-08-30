@@ -1,5 +1,5 @@
 {% load static %}
-<div id="forViewDes" style="width: 100%; height: 80px;"></div>
+<div id="forViewDes" style="width: 100%;"></div>
 <div class="detail-container" id="detail-container">
     <article class="instant-purchase-product-detail no-recent-view">
         <div class="flex-aside left">
@@ -16,7 +16,7 @@
                                                     <li data-thumb="{{ donation.donation_image.url }}">
                                                         <img src="{{ donation.donation_image.url }}" alt="Donation Image" lazy="loaded">
                                                     </li>
-                                                    <li data-thumb="{{ donation.donation_image.url }}">
+                                                    <li data-thumb="{{ donation.donation_sub_image.url }}">
                                                         <img src="{{ donation.donation_sub_image.url }}" lazy="loaded">
                                                     </li>
                                                 </ul>
@@ -46,8 +46,8 @@
                     <article class="product-provider2">
                         <div class="row provider-overview no-gutters">
                             <div class="col-auto"><img
-                                    src="https://static.cdn.soomgo.com/upload/profile/ddb12c74-aec6-4d92-a994-450016880d4d.png?h=160&amp;w=160&amp;webp=1"
-                                    alt="이엘코드" class="provider-profile">
+                                src="{{donation.member.member_image}}"
+                                    alt="" class="provider-profile">
                             </div>
                             <div class="col"><span class="provider-name">{{donation.member.member_name}}</span>
                                 <div class="provider-review">
@@ -236,9 +236,15 @@
 
                             <div class="comment-inner container2">
                                 <div class="register flex-container">
+                                    {% if request.session.session_key %}
                                     <div class="user-img"
-                                        style="margin-right: 0px; background-image: url(&quot;https://ofbxchnhqinp910256.cdn.ntruss.com/160/f5b3297b50171cf00041efaa97e382d0.png?type=w&amp;w=160&amp;quality=100&quot;);">
+                                        style="margin-right: 0px; background-image: url('{{request.session.thumbnail_image_url}}');">
                                     </div>
+                                    {% else %}
+                                    <div class="user-img"
+                                    style="margin-right: 0px; background-image: url(&quot;https://ofbxchnhqinp910256.cdn.ntruss.com/160/f5b3297b50171cf00041efaa97e382d0.png?type=w&amp;w=160&amp;quality=100&quot;);">
+                                    </div>
+                                    {% endif %}
                                     <div class="register-box">
                                         <div class="register-box-inner">
                                             <span data-v-35475912="">댓글</span>

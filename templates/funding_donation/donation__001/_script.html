@@ -307,7 +307,7 @@
                 var userResponse = confirm("충전이필요합니다. 충전하시겠습니까?");
 
                     if (userResponse == true) {
-                        location.href=`/member/mypage/cash/?path=/detail/detail/${id}`
+                        location.href=`/member/mypage/cash/?path=/donation/detail/${id}`
                     } 
             }
             // get_list(data.result);
@@ -326,9 +326,6 @@
     // contenteditable 속성을 가진 요소 선택
     const contentEditableElement = document.querySelector('[contenteditable="plaintext-only"]');
     const reBtn = document.querySelector('.post-btn')
-
-    console.log(contentEditableElement)
-    console.log(reBtn)
 
     // input 이벤트 리스너 추가
     contentEditableElement.addEventListener('input', function() {

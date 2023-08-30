@@ -1,5 +1,5 @@
 {% load static %}
-<div id="forViewDes" style="width: 100%; height: 80px;"></div>
+<div id="forViewDes" style="width: 100%;"></div>
         
 <div class="detail-container" id="detail-container">
     <article class="instant-purchase-product-detail no-recent-view">
@@ -14,10 +14,10 @@
                                         <article class="preview-image" tabindex="-1">
                                             <div class="image-wrap2">
                                                 <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                                    <li data-thumb="{% static 'img/sample_1.webp' %}"><img
+                                                    <li data-thumb="{{ funding.funding_image.url}}"><img
                                                             src="{{ funding.funding_image.url}}" lazy="loaded">
                                                     </li>
-                                                    <li data-thumb="{% static 'img/sample_2.png' %}"><img
+                                                    <li data-thumb="{{ funding.funding_sub_image.url}}"><img
                                                             src="{{ funding.funding_sub_image.url}}" lazy="loaded">
                                                     </li>
                                                 </ul>
@@ -47,9 +47,10 @@
                 <section class="product-explanation2" id="explanation">
                     <article class="product-provider2">
                         <div class="row provider-overview no-gutters">
-                            <div class="col-auto"><img
-                                    src="{{funding.campaign.campaign_image.url}}"
-                                    alt="이엘코드" class="provider-profile">
+                            <div class="col-auto">
+                                <img
+                                    src="{{funding.member.member_image}}"
+                                    alt="" class="provider-profile">
                             </div>
                             <div class="col"><span class="provider-name">{{funding.member.member_name}}</span>
                                 <div class="provider-review">
@@ -224,9 +225,15 @@
                             
                             <div class="comment-inner container2">
                                 <div class="register flex-container">
+                                    {% if request.session.session_key %}
                                     <div class="user-img"
-                                        style="margin-right: 0px; background-image: url(&quot;https://ofbxchnhqinp910256.cdn.ntruss.com/160/f5b3297b50171cf00041efaa97e382d0.png?type=w&amp;w=160&amp;quality=100&quot;);">
+                                        style="margin-right: 0px; background-image: url('{{request.session.thumbnail_image_url}}');">
                                     </div>
+                                    {% else %}
+                                    <div class="user-img"
+                                    style="margin-right: 0px; background-image: url(&quot;https://ofbxchnhqinp910256.cdn.ntruss.com/160/f5b3297b50171cf00041efaa97e382d0.png?type=w&amp;w=160&amp;quality=100&quot;);">
+                                    </div>
+                                    {% endif %}
                                     <div class="register-box">
                                         <div class="register-box-inner"><span data-v-35475912="">댓글</span>
                                             <p contenteditable="plaintext-only" data-placeholder="내용 입력">
