@@ -66,6 +66,9 @@
     var options = {
       title: '안전 지역 점수',
       is3D: false,
+      backgroundColor: 'transparent',
+      width: 400,
+      height: 300
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
@@ -103,6 +106,9 @@ function drawBasic() {
 
       var options = {
         title: '안전 지역 랭킹',
+        backgroundColor: 'transparent',
+        width: 400,
+        height: 300,
         hAxis: {
         //   title: 'Time of Day',
           // format: 'h:mm a',
