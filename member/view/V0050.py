@@ -14,8 +14,9 @@ class CashHistory(View):
         member_id=request.session['member_id']
         pay_obj = Pay.objects.filter(member_id=member_id).order_by('-id')
         dataList = {}
-        ag_type=0
+       
         for index,key in enumerate(pay_obj):
+            ag_type=0
             if key.funding_id:
                 ag_type=1
             elif key.donation_id:
@@ -46,6 +47,4 @@ class CashHistory(View):
             member_id=id, pay_allowance=pay, pay_amount=pay_amount+pay
         )
 
-
-
-        return render(request, 'mypage/mypage__006/_T006.html')
+        return redirect('/member/mypage/cashhistory/')

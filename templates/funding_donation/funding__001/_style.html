@@ -1,3 +1,325 @@
+<!-- pay modal -->
+
+<style>
+.register-box-inner p[contenteditable]:focus {
+    background-color: initial; /* 원하는 배경색 또는 none 으로 변경 */
+    outline: none; /* 포커스 표시 제거 */
+    /* 다른 원하는 스타일을 여기에 추가하세요 */
+}
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* backdrop-filter: blur(5px); */
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.ngdialog-content {
+  overflow: hidden;
+  position: absolute;
+  z-index: 999999;
+  top: 50%;
+  left: 50%;
+}
+
+.inner_modal {
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  width: 440px;
+  min-height: 200px;
+  max-height: 95vh;
+  background-color: #fff;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.inner_modal .tit_head {
+  display: flex;
+  height: 60px;
+  padding: 0 50px;
+  border-bottom: 1px solid #eee;
+  font-family: KakaoBig Bold;
+  font-size: 19px;
+  /* font-weight: 400; */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -.15px;
+}
+
+.inner_modal .layer_body {
+  overflow: auto;
+  letter-spacing: -.3px;
+}
+
+.layer_body{
+  border: 1px solid #3460d1;
+}
+
+.inner_modal .info_profile {
+  display: flex;
+  overflow: hidden;
+  padding: 20px;
+  align-items: center;
+}
+
+.inner_modal .info_profile .thumb_img {
+  float: left;
+  width: 67px;
+  height: 4rem;
+  margin-right: 16px;
+  border-radius: 6px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  flex-shrink: 0;
+}
+
+.inner_modal .info_profile .area_info {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.inner_modal .info_profile .tit_info {
+  display: block;
+  overflow: hidden;
+  color: #202020;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  letter-spacing: -.15px;
+}
+
+.inner_modal .info_profile .txt_sponsor {
+  padding-top: 4px;
+  color: #888;
+  font-size: 13px;
+}
+
+.inner_modal .wrap_fund {
+  padding: 0 20px;
+}
+
+.donate_step1{
+  display: flex;
+  margin-top: 2rem;
+}
+
+.title_h4{
+  padding-bottom: 16px;
+  font-size: 20px;
+}
+
+.line{
+  content: "";
+    position:relative;
+    left: 20px;
+    top: 0;
+    width: calc(90%);
+    height: 6px;
+    background-color: #f4f4f4;
+}
+
+.donate_step1 div{
+  padding: 0px 0px 6px 2px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 13px;
+  color: rgb(45, 41, 38);
+}
+
+.input_radio_wrap{
+  margin-bottom: -1px;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin-top: 1rem;
+}
+
+.input_radio_label{
+  display: table-cell;
+  max-width: 162px;
+  min-width: 100%;
+  cursor: pointer;
+  color: rgb(45, 41, 38);
+  vertical-align: middle;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.input_radio_tab_input{
+  display: block;
+  z-index: -1;
+  height: 1px;
+  overflow: hidden;
+  color: transparent;
+  border: 0px;
+  padding: 0px;
+  opacity: 0;
+  background: none;
+  position: absolute;
+  width: 1px;
+  margin: 0px;
+  cursor: pointer;
+  outline: 0px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+input[type="radio"]:checked + .input_radio_radio_btn {
+  color: rgb(255, 255, 255);
+  background: #3460d1;
+}
+
+.input_radio_radio_btn{
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  height: 56px;
+  line-height: 54px;
+  border: 1px solid #3460d1;
+  color: #3460d1;
+  background: transparent;
+  transition: background 0.25s ease 0s, color 0.25s ease 0s;
+
+}
+
+
+
+.input_radio_text{
+  display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.input_radio_wrap2{
+  display: table;
+    width: 100%;
+    table-layout: fixed;
+
+}
+
+.input_text{
+  display: table-cell;
+  width: 100%;
+  height: 56px;
+  padding: 0px 16px;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(229, 230, 232);
+  font-size: 14px;
+  outline: 0px;
+  color: rgb(45, 41, 38);
+  vertical-align: middle;
+}
+
+.donate_total{
+  position: relative;
+  padding: 32px 0px;
+  margin: 56px 0px 80px;
+  border-top: 1px solid rgb(183, 184, 186);
+  border-bottom: 1px solid rgb(183, 184, 186);
+}
+
+.title_h4_2{
+  position: absolute;
+  left: 0px;
+  bottom: 16px;
+  margin: 0px;
+  padding-bottom: 16px;
+  font-size: 20px;
+}
+
+.donate_total_price{
+  font-size: 32px;
+  font-weight: bold;
+  color: #3460d1;
+  text-align: right;
+}
+
+.btn_submit:hover{
+  background-color: #28499e;
+}
+
+.btn_submit{
+  cursor: pointer;
+  font-size: 20px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  font-weight: bold;
+  border-width: 1px;
+  border-style: solid;
+  transition: color 0.15s ease-in-out 0s, background-color 0.15s ease-in-out 0s, border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  background-color: #3460d1;
+  border-color: #3460d1;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+
+
+.inner_modal .wrap_btns {
+  display: flex;
+  padding: 0 20px 20px;
+  align-items: center;
+}
+
+.inner_modal .wrap_btns .btn_set {
+  width: 100%;
+  height: 46px;
+  border-radius: 6px;
+  background-color: #3460d1;
+  color: #fff;
+  font-family: KakaoBig Bold;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.inner_modal .btn_close {
+  position: absolute;
+  right: 0.5rem;
+  top: 1rem;
+  padding: 0.5rem 0.5rem;
+  background-color: white;
+  border-style: none;
+  cursor: pointer;
+}
+
+.ir_pm {
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+}
+
+.inner_modal .ico_close {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: url(//t1.kakaocdn.net/together_image/svg/ico_close.svg) no-repeat 50%/cover;
+}
+
+
+
+</style>
 <style>
     html {
         height: auto !important;
@@ -811,6 +1133,7 @@ section {
     }
 
     .item-option {
+        cursor: pointer;
         display: flex;
         flex-direction: column;
         border: 0.0625rem solid #e1e1e1;
@@ -1196,7 +1519,7 @@ section {
     }
 
     .register-box-inner {
-        height: 60%;
+        height: 100%;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-direction: column;
@@ -1225,6 +1548,8 @@ section {
     }
 
     .register .post-btn {
+        width: 60px;
+        border-radius: 10px;
         -ms-flex-align: center;
         align-items: center;
         height: 60px;
@@ -1246,6 +1571,8 @@ section {
         justify-content: center;
         position: relative;
         z-index: 1;
+        text-align: center;
+        width: 100%;
     }
 
     .comment-inner {
