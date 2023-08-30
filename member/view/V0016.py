@@ -41,7 +41,7 @@ class SignUp(View):
             city_header_instance = city_detail_instance.city_header
 
             member = Member.objects.create(member_email=email, member_name=nickname, city_header=city_header_instance,
-                                           city_detail=city_detail_instance, status=1)
+                                           city_detail=city_detail_instance, status=1, member_image = thumbnail_image_url)
             request.session['member_id'] = member.id
             request.session['thumbnail_image_url'] = thumbnail_image_url
             request.session['access_token'] = access_token
