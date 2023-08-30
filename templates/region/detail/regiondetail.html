@@ -11,10 +11,15 @@
                     <div class="profile-body">
                         <div class="profile-overview">
                             <div class="thumb">
-                                <div class="user-profile-picture">
-                                    <div class="is-square" lazy="loaded" style="background-image: url('{{ dataObj.city_img }}');"></div>
-
+                                <div class="user-profile-picture" style="position: absolute; top: -125px;">
+                                    <div class="is-square" lazy="loaded" style="background-image: url('{{ dataObj.city_img }}')"></div>            
                                 </div>
+                                <div id="piechart_3d" style="width:30%; top: -42px; position: absolute;
+                                left: 72px;"></div>
+                                <div id="chart_div" style="width:40%; position: absolute;
+                                top: -42px;
+                                left: 380px;"></div>
+                        
                             </div>
                             <div class="info">
                                 <div class="info-section-header">
@@ -90,10 +95,10 @@
                                         오곡동이다.<br> 시청은 중구 을지로1가(태평로1가 31)에 있다. -->
                                     </div>
                                 </div>
-                                <div style="display: flex;">
+                                <!-- <div style="display: flex;">
 
                                 <div id="piechart_3d" style="flex:50%"></div>
-                                <div id="chart_div" style="flex:50%"></div>
+                                <div id="chart_div" style="flex:50%"></div> -->
                                 <!-- <div class="profile-career">
                                     <h2>itPocket 전문가 경력</h2>
                                     <div class="header">
@@ -109,7 +114,7 @@
                                         </div>
                                     </div>
                                 </div> -->
-                                </div>
+                                <!-- </div> -->
                             </section>
                             <!-- <section id="FAQ">
                                 <div class="profile-qna">
