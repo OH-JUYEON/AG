@@ -58,7 +58,7 @@
 
 </script>
 
-<script>
+<!-- <script>
     let replyBox = document.getElementById("reply");
     let submitButton = document.getElementById("submit");
     let registerText = document.getElementById("register");
@@ -72,5 +72,385 @@
         registerText.style.color = '#fff';
 
     }}))
+
+</script> -->
+
+
+<script>
+    const loginCheck = document.getElementById('member_id');
+    const minimum_amount = document.getElementById('minimum_amount');
+    
+    let page = 0;
+    let funding_amount=0;
+    // CSRF 토큰 가져오기
+    let csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+    let type = document.getElementsByName('type');
+    let content = document.getElementsByName('qnaInputForm')[0];
+    let id = document.getElementById('donation_id').value;
+    let typedValue = content.value;
+    let recon ='';
+
+    content.addEventListener('input', function() {
+        typedValue = content.value;
+     
+        let modalBtn = document.getElementsByClassName('btn-secondary')[0]
+
+        if (typedValue !== "") {
+
+            modalBtn.style.backgroundColor ='#3E72F5';
+        } else {
+            modalBtn.style.backgroundColor ='rgb(181, 181, 181)';
+        }
+
+    });
+
+    function fetch_data(){
+
+        if (typedValue === "") {
+            alert("문의 내용이 없습니다.");
+            return;
+        } 
+
+        for (let i=0; i < type.length; i++){
+            if (type[i].checked){
+                typeVal = type[i].value;
+            }
+        }
+
+        
+    // } 
+
+    // 서버로 보낼 데이터 구성
+    let dataToSend = {
+        id: id,
+        type:typeVal,
+        content:content.value
+    };
+
+    // 요청 헤더에 CSRF 토큰 추가
+    let headers = {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrfToken, // 이 부분이 중요합니다
+    };
+
+    //  서버로 데이터를 전송합니다.
+    fetch(`/donation/detail/${id}/`, {
+        method: 'POST',
+        headers: headers, // 요청 헤더에 CSRF 토큰을 추가
+        body: JSON.stringify(dataToSend),
+    })
+    .then(response => response.json())
+    .then(data => {
+
+        if(data.result === 'OK'){
+            alert('문의가등록되었습니다!');
+            modal_close();
+        }
+        // get_list(data.result);
+    })
+    .catch(error => {
+        // 오류 처리
+        console.error('Error:', error);
+    });
+    }
+</script>
+
+<script>
+    //댓글 참여 이동
+    const cam = document.querySelector('#cam');
+    const can = document.querySelector('#can');
+    const des = document.querySelector('#des');
+    const explanation = document.querySelector('#nav-explanation');
+    const questions = document.querySelector('#nav-questions');
+    const qna = document.querySelector('#nav-qna');
+
+    
+
+    const community = document.querySelector('#forView');
+
+    cam.addEventListener('click', e => {
+        explanation.classList.remove('active2'); 
+        questions.classList.remove('active2'); 
+        qna.classList.add('active2'); 
+        community.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    
+    const forViewCancel = document.querySelector('#forViewCancel');
+
+    can.addEventListener('click', e => {
+        explanation.classList.remove('active2'); 
+        qna.classList.remove('active2'); 
+        questions.classList.add('active2'); 
+        forViewCancel.scrollIntoView({ behavior: 'smooth' });
+  
+    });
+
+
+    const forViewDes = document.querySelector('#forViewDes');
+
+    des.addEventListener('click', e => {
+
+        qna.classList.remove('active2'); 
+        questions.classList.remove('active2'); 
+        explanation.classList.add('active2'); 
+        forViewDes.scrollIntoView({ behavior: 'smooth' });
+  
+    });
+</script>
+
+
+<script>
+
+    const labels = document.querySelectorAll(".input_radio_label");
+    const total = document.querySelector(".donate_total_price");
+    const input = document.querySelector(".input_text");
+    const radioButtons = document.querySelectorAll(".input_radio_tab_input");
+    
+    // 세자리마다 , 찍는 함수
+    function formatAmount(amount) {
+      return amount.toLocaleString() + "캐시";
+    }
+  
+    function updateTotalAmount() {
+
+      const enteredAmount = parseInt(input.value || 0); // 입력된 값을 정수로 변환
+      funding_amount = enteredAmount;
+      if (!isNaN(enteredAmount)) {
+        total.textContent = formatAmount(enteredAmount);
+      } else {
+        total.textContent = "0캐시"; // 유효한 숫자가 아닐 경우 0을 표시
+      }
+    }
+  
+    labels.forEach(label => {
+      label.addEventListener("click", () => {
+        const selectedValue = parseInt(label.querySelector(".input_radio_tab_input").value);
+        funding_amount = selectedValue;
+        input.value = ""; // 직접 입력된 값을 지움
+        total.textContent = formatAmount(selectedValue);
+        // radioButtons[index].checked = true;
+      });
+    });
+  
+    input.addEventListener("input", () => {
+      updateTotalAmount();
+      // 직접 입력 값이 변경되면 선택된 라디오 버튼을 해제
+      radioButtons.forEach(button => {
+        button.checked = false;
+      });
+    });
+  
+   
+  </script>
+
+<script>
+    const payModal = document.querySelector(".modalBackground")
+    const home = document.querySelector(".home")
+
+    function open_pay(){
+
+
+        if(!loginCheck){
+            var userResponse = confirm("로그인이필요합니다. 로그인하시겠습니까?");
+
+            if (userResponse == true) {
+                location.href=`/AG/login/?path=/funding/detail/${id}/`
+            } 
+
+        }else{
+            payModal.style.display = 'block';
+        
+        }
+  
+    }
+
+    function close_pay(){
+        payModal.style.display = 'none';    
+    }
+
+    function pay_btn(){
+
+        let minimum = minimum_amount.value
+
+
+       if(minimum > funding_amount){
+            alert('최저금액보다 적습니다.');
+            return;
+       }
+        // 서버로 보낼 데이터 구성
+        let dataToSend = {
+            id: id,
+            amount:funding_amount
+        };
+
+        // 요청 헤더에 CSRF 토큰 추가
+        let headers = {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken, // 이 부분이 중요합니다
+        };
+        //  서버로 데이터를 전송합니다.
+        fetch(`/funding/detail/pay/1/`, {
+            method: 'POST',
+            headers: headers, // 요청 헤더에 CSRF 토큰을 추가
+            body: JSON.stringify(dataToSend),
+        })
+        .then(response => response.json())
+        .then(data => {
+            // 서버로부터 받은 응답 데이터를 처리합니다.
+            console.log(data.result);
+            if(data.result === 'OK'){
+                
+                alert('기부되었습니다. 감사합니다.')
+                close_pay();
+            }else if(data.result === 'charge'){
+                var userResponse = confirm("충전이필요합니다. 충전하시겠습니까?");
+
+                    if (userResponse == true) {
+                        location.href=`/member/mypage/cash/?path=/donation/detail/${id}`
+                    } 
+            }
+            // get_list(data.result);
+        })
+        .catch(error => {
+            // 오류 처리
+            console.error('Error:', error);
+        });
+        
+        }
+    
+</script>
+
+
+<script>
+    // contenteditable 속성을 가진 요소 선택
+    const contentEditableElement = document.querySelector('[contenteditable="plaintext-only"]');
+    const reBtn = document.querySelector('.post-btn')
+
+    // input 이벤트 리스너 추가
+    contentEditableElement.addEventListener('input', function() {
+    // 요소의 현재 내용 가져오기
+    const recontent = contentEditableElement.textContent;
+    recon = recontent;
+    // 내용이 변경될 때마다 실행되는 코드 추가
+    if (recontent.trim() === "") { 
+        reBtn.disabled = true;
+        reBtn.style.backgroundColor  ='#EFEFEF4D';
+        reBtn.style.color  ='#1010104D';
+        reBtn.style.cursor = 'default';
+
+    } else {
+        reBtn.disabled = false;
+        reBtn.style.backgroundColor  ='#3E72F5';
+        reBtn.style.color  ='#ffff';
+        reBtn.style.cursor = 'pointer';
+    }
+
+
+
+});
+
+
+
+
+    contentEditableElement.addEventListener('click', function() {
+        // <p> 요소 내용이 비어 있는 경우에만 처리
+        if (!this.textContent.trim()) {
+            // 포커스를 맨 처음으로 이동
+            const range = document.createRange();
+            const sel = window.getSelection();
+            range.setStart(this.firstChild, 0);
+            range.collapse(true);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+        
+        // 클릭 시 포커스를 맨 처음으로 이동하여 가장 처음에서 입력되도록 합니다.
+    });
+
+
+    function reply_upload(){
+        if(!loginCheck){
+                var userResponse = confirm("로그인이필요합니다. 로그인하시겠습니까?");
+
+                if (userResponse == true) {
+                    location.href=`/AG/login/?path=/funding/detail/${id}/`
+                } 
+
+        }
+
+            // 서버로 보낼 데이터 구성
+            let dataToSend = {
+                id: id,
+                content:recon
+            };
+
+            // 요청 헤더에 CSRF 토큰 추가
+            let headers = {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken, // 이 부분이 중요합니다
+            };
+            //  서버로 데이터를 전송합니다.
+            fetch(`/donation/detail/reply/`, {
+                method: 'POST',
+                headers: headers, // 요청 헤더에 CSRF 토큰을 추가
+                body: JSON.stringify(dataToSend),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 서버로부터 받은 응답 데이터를 처리합니다.
+                console.log(data.result);
+                if(data.result === 'OK'){
+                    reply_data(data.name, data.date, data.content);
+                }
+            })
+            .catch(error => {
+                // 오류 처리
+                console.error('Error:', error);
+            });
+            
+        }
+
+
+        // ul 요소를 선택합니다.
+        const ulElement = document.querySelector('.review-container');
+
+        function reply_data( name, date, con ){
+
+
+
+        // 새로운 li 요소를 생성합니다.
+        let newLiElement = document.createElement('li');
+
+        // li 요소 내용을 설정합니다.
+        newLiElement.innerHTML = `
+            <article class="profile-review-item">
+                <section class="meta"><span class="author">❤️${name}❤️</span>
+                    <div class="profile-review-item-badge"> </div>
+                </section>
+                <div class="line-clamp collapsed">
+                    <div class="line-clamp" style="line-height: 1.57; max-height: 4.71rem; -webkit-line-clamp: 3;">
+                        <p class="review-text">${con}</p>
+                    </div>
+                </div>
+                <section class="review-footer">
+                    <div class="left"><span class="date">${date}</span><span style="display: none;">·</span><button type="button" class="btn btn-reply" style="display: none;">답변 달기</button></div>
+                </section>
+                <section></section>
+            </article>
+        `;
+
+        // ul 요소에 새로운 li 요소를 추가합니다.
+        ulElement.insertBefore(newLiElement, ulElement.firstChild);
+        contentEditableElement.textContent ='';
+        reBtn.disabled = true;
+        reBtn.style.backgroundColor  ='#EFEFEF4D';
+        reBtn.style.color  ='#1010104D';
+        reBtn.style.cursor = 'default';
+
+        }
+
+
+
 
 </script>

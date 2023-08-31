@@ -1,156 +1,122 @@
 {% load static %}
-
-  <div class="web-body">
-			<div class="community-container container">
-				<div class="life-container">
-					<section class="write-post-container">
-						<!-- 커뮤니티 선택 선택, 등록 -->
-						<div class="select-subject-header">
-							<div class="subject-header-wrapper">
-								<section
-									class="post-subject-select-box custom-select sg-text-subhead3 sg-font-medium">
-									<!-- 주제 종류 -->
-									<option>카테고리&nbsp;선택&nbsp;</option>
-								</section>
-								<button type="button"
-									class="btn btn-secondary write-post-submit active">등록</button>
-							</div>
-						</div>
-						<!-- 사진 첨부 -->
-						<div class="attach-file-wrapper">
-							<div class="attach-file-area">
-								<!-- 카메라 사진 -->
-								<div class="add-image-icon"></div>
-								<!-- 사진 인풋 태그 -->
-								<div class="custom-file b-form-file file-input"></div>
-								<!-- 사진 수 -->
-								<span class="image-count sg-text-body2 sg-font-regular">0/15</span>
-							</div>
-						</div>
-						<!-- 지역 선택 -->
-						<li class="li3" style="display: block; position: absolute; right: 90px; bottom: 5px;"
-                                onclick="all_check( 0 )"><a href="#" class="btn-reset4" style="border: 0;">
-                                    초기화
-                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xMC4yNjYgMS45NzVhLjUuNSAwIDAgMSAuMDcuMjU2bC4wMDEgMS4yNDNjMy41MjUuMTg0IDYuMzMgMy4yNTIgNi4zMyA3LjAwOCAwIDMuODc2LTIuOTg1IDcuMDE4LTYuNjY3IDcuMDE4cy02LjY2Ny0zLjE0Mi02LjY2Ny03LjAxOGMwLS40ODQuMzczLS44NzcuODM0LS44NzcuNDYgMCAuODMzLjM5My44MzMuODc3IDAgMi45MDcgMi4yMzkgNS4yNjQgNSA1LjI2NHM1LTIuMzU3IDUtNS4yNjRjMC0yLjc4Ny0yLjA1OS01LjA2OS00LjY2My01LjI1MXYxLjE5MWEuNS41IDAgMCAxLS43NTYuNDNMNi4wNiA0Ljc2MmEuNS41IDAgMCAxIDAtLjg2bDMuNTIxLTIuMWEuNS41IDAgMCAxIC42ODYuMTczeiIgZmlsbD0iIzg4ODg4OCIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPgo="
-                                        alt=""></a></li>
-                            <li class="li3" style="position: absolute; right: 0; max-width: 124px;"><label
-                                    class="label4"><button style="height: 2.6rem;" type="button" class="btn-area-filter"
-                                        onclick="open_modal()"> 지역선택 <img
-                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik04IDEuNjY3YzIuNzU4IDAgNSAyLjA2MiA1IDQuNjE2IDAgMi41MTctMS44MDMgNS4xNjgtNC4yMTQgNy40OTdsLS4xNDQuMTM3LS4xOTcuMTg0LS4xMzEuMTE3YS40ODQuNDg0IDAgMCAxLS42Mi4wMDdsLS4xLS4wODVjLS4wMy0uMDI1LS4wNi0uMDUtLjA5MS0uMDc4bC0uMjA0LS4xODEtLjIzLS4yMTMtLjI1My0uMjQzYTE3Ljk4IDE3Ljk4IDAgMCAxLTEuNTc4LTEuNzU3QzMuODM4IDkuODggMyA4LjA1OCAzIDYuMjgzIDMgMy43MyA1LjI0MyAxLjY2NyA4IDEuNjY3em0wIC44OTVjLTIuMjQ5IDAtNC4wNjUgMS42Ny00LjA2NSAzLjcyMSAwIDEuNTQ2Ljc2MSAzLjIgMi4wNTIgNC44NDlhMTcuMDgxIDE3LjA4MSAwIDAgMCAxLjYyIDEuNzg2bC4yMjguMjE0LjE1Ni4xNDMuMTMzLS4xMjdjMi4xNzItMi4wOTggMy44MzQtNC41MDcgMy45MzYtNi42NThsLjAwNS0uMjA3YzAtMi4wNTEtMS44MTYtMy43MjEtNC4wNjUtMy43MjF6bS4xMjUgMi4yMDJjMS4xNTEgMCAyLjA4Ni44OTQgMi4wODYgMS45OTcgMCAxLjEwMi0uOTM1IDEuOTk2LTIuMDg2IDEuOTk2LTEuMTUyIDAtMi4wODctLjg5NC0yLjA4Ny0xLjk5NiAwLTEuMTAzLjkzNS0xLjk5NyAyLjA4Ny0xLjk5N3ptMCAuODk1Yy0uNjM2IDAtMS4xNTIuNDk0LTEuMTUyIDEuMTAyIDAgLjYwOC41MTYgMS4xMDEgMS4xNTIgMS4xMDEuNjM1IDAgMS4xNS0uNDkzIDEuMTUtMS4xMDFzLS41MTUtMS4xMDItMS4xNS0xLjEwMnoiIGZpbGw9IiM4ODg4ODgiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4K"
-                                            alt=""></button>
-
-                                    <article class="area-filter4">
-                                        <button type="button" class="bt-media-4" onclick="open_modal()">
-                                            전국
-                                        </button>
-                                    </article>
-                                </label></li>
-						<!-- <li class="li3" style="display: block; position: absolute; right: 90px; bottom: 5px;" onclick="all_check( 0 )">
-							<a href="#" class="btn-reset4" style="border: 0;">초기화
-								<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xMC4yNjYgMS45NzVhLjUuNSAwIDAgMSAuMDcuMjU2bC4wMDEgMS4yNDNjMy41MjUuMTg0IDYuMzMgMy4yNTIgNi4zMyA3LjAwOCAwIDMuODc2LTIuOTg1IDcuMDE4LTYuNjY3IDcuMDE4cy02LjY2Ny0zLjE0Mi02LjY2Ny03LjAxOGMwLS40ODQuMzczLS44NzcuODM0LS44NzcuNDYgMCAuODMzLjM5My44MzMuODc3IDAgMi45MDcgMi4yMzkgNS4yNjQgNSA1LjI2NHM1LTIuMzU3IDUtNS4yNjRjMC0yLjc4Ny0yLjA1OS01LjA2OS00LjY2My01LjI1MXYxLjE5MWEuNS41IDAgMCAxLS43NTYuNDNMNi4wNiA0Ljc2MmEuNS41IDAgMCAxIDAtLjg2bDMuNTIxLTIuMWEuNS41IDAgMCAxIC42ODYuMTczeiIgZmlsbD0iIzg4ODg4OCIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPgo="
-										alt="">
-							</a>
-						</li>
-						<li class="li3" style="position: absolute; right: 0; max-width: 124px;">
-							<label class="label4">
-								<button style="height: 2.6rem;" type="button" class="btn-area-filter"onclick="open_modal()"> 지역선택
-										<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik04IDEuNjY3YzIuNzU4IDAgNSAyLjA2MiA1IDQuNjE2IDAgMi41MTctMS44MDMgNS4xNjgtNC4yMTQgNy40OTdsLS4xNDQuMTM3LS4xOTcuMTg0LS4xMzEuMTE3YS40ODQuNDg0IDAgMCAxLS42Mi4wMDdsLS4xLS4wODVjLS4wMy0uMDI1LS4wNi0uMDUtLjA5MS0uMDc4bC0uMjA0LS4xODEtLjIzLS4yMTMtLjI1My0uMjQzYTE3Ljk4IDE3Ljk4IDAgMCAxLTEuNTc4LTEuNzU3QzMuODM4IDkuODggMyA4LjA1OCAzIDYuMjgzIDMgMy43MyA1LjI0MyAxLjY2NyA4IDEuNjY3em0wIC44OTVjLTIuMjQ5IDAtNC4wNjUgMS42Ny00LjA2NSAzLjcyMSAwIDEuNTQ2Ljc2MSAzLjIgMi4wNTIgNC44NDlhMTcuMDgxIDE3LjA4MSAwIDAgMCAxLjYyIDEuNzg2bC4yMjguMjE0LjE1Ni4xNDMuMTMzLS4xMjdjMi4xNzItMi4wOTggMy44MzQtNC41MDcgMy45MzYtNi42NThsLjAwNS0uMjA3YzAtMi4wNTEtMS44MTYtMy43MjEtNC4wNjUtMy43MjF6bS4xMjUgMi4yMDJjMS4xNTEgMCAyLjA4Ni44OTQgMi4wODYgMS45OTcgMCAxLjEwMi0uOTM1IDEuOTk2LTIuMDg2IDEuOTk2LTEuMTUyIDAtMi4wODctLjg5NC0yLjA4Ny0xLjk5NiAwLTEuMTAzLjkzNS0xLjk5NyAyLjA4Ny0xLjk5N3ptMCAuODk1Yy0uNjM2IDAtMS4xNTIuNDk0LTEuMTUyIDEuMTAyIDAgLjYwOC41MTYgMS4xMDEgMS4xNTIgMS4xMDEuNjM1IDAgMS4xNS0uNDkzIDEuMTUtMS4xMDFzLS41MTUtMS4xMDItMS4xNS0xLjEwMnoiIGZpbGw9IiM4ODg4ODgiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4K"
-										alt="">
-								</button>
-								<article class="area-filter4">
-										<button type="button" class="bt-media-4" onclick="open_modal()">
-												전국
-										</button>
-								</article>
-						</label>
-					</li> -->
-						<!-- 글쓰기 -->
-						<div class="editor-body-container is-bottom-margin">
-							<div class="editor-body-wrapper">
-								<!-- 제목 -->
-								<div class="editor-title-wrapper">
-									<div class="editor-title-container">
-										<label class="editor-title-label"> <input type="text"
-											placeholder="제목을 입력해주세요."
-											class="post-title-input sg-text-subhead5 sg-font-medium sg-text-gray-900">
-										</label>
-									</div>
-								</div>
-								<!-- 분단선 -->
-								<div class="divider-wrapper">
-									<hr class="hr-divider">
-								</div>
-								<!-- 서비스, 지역 선택 -->
-
-								<!-- 분단선 -->
-								<div class="divider-wrapper">
-									<hr class="hr-divider">
-								</div>
-								<!-- 본문 -->
-								<main style="margin-top: 48px">
-                  <div class="write-wrapper">
-                    <section class="content">
-											<!-- 아래 주석 된 태그들은 없어도 됩니다 중복 코드에요 -->
-                      <!-- <div style="margin-bottom: 14px">
-                        <div>
-                          <label class="title-label" for="title">
-                            <input id="title" class="title-input" placeholder="제목을 입력해주세요." type="text" />
-                          </label>
+<form action="/campaign/write/" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <div class="web-body">
+        <div class="community-container container">
+            <div class="life-container">
+                <section class="write-post-container">
+                    <!-- 커뮤니티 선택 선택, 등록 -->
+                    <div class="select-subject-header">
+                        <div class="subject-header-wrapper">
+                            <select
+                                    class="post-subject-select-box custom-select sg-text-subhead3 sg-font-medium"
+                                    id="__BVID__85" name="campaign_category">
+                                <!-- 주제 종류 -->
+                                <option value>카테고리&nbsp;선택&nbsp;</option>
+                                <option value="지역순찰">지역순찰</option>
+                                <option value="미화">미화</option>
+                                <option value="봉사활동">봉사활동</option>
+                                <option value="캠페인">캠페인</option>
+                            </select>
+                            <button type="submit" value="등록" class="btn btn-secondary write-post-submit">등록</button>
                         </div>
-                      </div> -->
-                      <div>
-                        <div style="margin-bottom: 48px">
-                          <textarea id="image-tools"></textarea>
+                    </div>
+                    <!-- 사진 첨부 -->
+                    <div class="attach-file-wrapper">
+                        <div class="attach-file-area">
+                            <!-- 카메라 사진 -->
+                            <div class="add-image-icon"></div>
+                            <!-- 사진 인풋 태그 -->
+                            <div class="custom-file b-form-file file-input">
+                                <input type="file" name="campaign_image"
+                                       accept="image/jpg,image/jpeg,image/png,image/gif,image/bmp,image/heic"
+                                       multiple="multiple" class="custom-file-input" id="__BVID__1171"
+                                       style="z-index: -5;">
+                                <label data-browse="Browse" class="custom-file-label" for="__BVID__1171">
+                                    <span class="d-block form-file-text"
+                                          style="pointer-events: none;">No file chosen</span>
+                                </label>
+                            </div>
+                            <span class="image-title">대표 이미지</span>
+                            <img src="https://i0.wp.com/adventure.co.kr/wp-content/uploads/2020/09/no-image.jpg" class="image-box" alt="">
                         </div>
-												<span class="editor-contents-textarea-placeholder sg-text-body2 sg-font-regular sg-text-gray-500">
+                    </div>
+
+                    <!-- 글쓰기 -->
+                    <div class="editor-body-container is-bottom-margin">
+                        <div class="editor-body-wrapper">
+                            <!-- 제목 -->
+                            <div class="editor-title-wrapper">
+                                <div class="editor-title-container">
+                                    <label for="post-title-input" class="editor-title-label">
+                                        <input id="post-title-input" type="text" name="campaign_title"
+                                               placeholder="제목을 입력해 주세요."
+                                               class="post-title-input sg-text-subhead5 sg-font-medium sg-text-gray-900">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- 분단선 -->
+                            <div class="divider-wrapper">
+                                <hr class="hr-divider">
+                            </div>
+                            <!-- 서비스, 지역 선택 -->
+{#                            <div class="service-region-wrapper">#}
+{#                                <button class="category-select-box">#}
+{#                                    <span class="text">(선택) 지역</span>#}
+{#                                </button>#}
+{#                            </div>#}
+{##}
+{#                            <!-- 분단선 -->#}
+{#                            <div class="divider-wrapper">#}
+{#                                <hr class="hr-divider">#}
+{#                            </div>#}
+
+                            <div class="period-wrapper">
+                                <div class="period">
+                                    <span class="period-span">캠페인 기간:</span>
+                                    <input type="datetime-local" id="DateLocal"  class="datetime" name="started_on">
+                                    <span style="margin-left: 1rem">~</span>
+                                    <input type="datetime-local"  class="datetime" name="ends_on">
+
+                                </div>
+                            </div>
+                            <div class="divider-wrapper">
+                                <hr class="hr-divider">
+                            </div>
+                            <div class="editor-title-wrapper">
+                                <div class="editor-title-container">
+                                    <label for="post-title-input" class="editor-title-label">
+                                        <input id="post-title-input" type="text" name="campaign_description3"
+                                               placeholder="캠페인에 대해 간략하게 설명해 주세요."
+                                               class="post-title-input sg-text-subhead5 sg-font-medium sg-text-gray-900">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- 본문 -->
+                            <main style="margin-top: 48px">
+                                <div class="write-wrapper">
+                                    <section class="content">
+                                        <input type="hidden" name = "campaign_id" value="{{ campaign_id }}">
+
+
+                                        <div>
+                                            <div style="margin-bottom: 48px">
+                                                <textarea id="image-tools" name="campaign_content"></textarea>
+                                            </div>
+                                            <span class="editor-contents-textarea-placeholder sg-text-body2 sg-font-regular sg-text-gray-500">
 													주제에 맞지 않는 글이나 커뮤니티 이용정책에 위배되어 일정 수 이상 신고를 받는 경우 글이 숨김 및 삭제될 수 있습니다.
 												</span>
-                      </div>
-                    </section>
-                    <!-- <section class="info-wrapper">
-                      <div class="info">
-                        <div class="sub-title">
-                          <div style="display: flex; align-items: center">
-                            <strong class="sub-title-text">접수 이메일</strong>
-                          </div>
-                        </div>
-                        <div class="info-content">
-                          <div class="tag-input-wrapper">
-                            <div style="width: 100%; margin-top: 24px">
-                              <div>
-                                <label class="tag-label" for="email-input">
-                                  <input placeholder="문의 접수 이메일을 입력하세요." id="email-input" type="email" />
-                                </label>
-                                <div class="tag-explain">
-                                  <div class="tag-explain-text">
-                                    이메일을 정확히 입력하세요.
-                                  </div>
+                                        </div>
+                                    </section>
+
                                 </div>
-                              </div>
-                            </div>
-                          </div>
+                            </main>
                         </div>
-                        <div class="sub-title">
-                          <div style="display: flex; align-items: center">
-                            <strong class="sub-title-text">파일 첨부</strong>
-                          </div>
-                          <label class="file-upload-label" for="file-upload">
-                            <input style="display: none" type="file" id="file-upload" />
-                            업로드
-                          </label>
-                        </div>
-                        <div class="info-content">
-                          <div class="file-wrapper">
-                            <span class="file-text">첨부된 파일이 없습니다.</span>
-                          </div>
-                        </div> -->
-                      <!-- </div> -->
-                    <!-- </section> -->
-                  </div>
-                </main>
-							</div>
-						</div>
-					</section>
-				</div>
-			</div>
-		</div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</form>

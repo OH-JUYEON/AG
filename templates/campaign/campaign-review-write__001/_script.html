@@ -12,6 +12,17 @@
         });
     });
 
+    const fileDOM = document.querySelector('#__BVID__1171');
+    const preview = document.querySelector('.image-box');
+
+    fileDOM.addEventListener('change', () => {
+      const reader = new FileReader();
+      reader.onload = ({ target }) => {
+        preview.src = target.result;
+      };
+      reader.readAsDataURL(fileDOM.files[0]);
+    });
+
     const titleInput = document.querySelector('#post-title-input');
     const contentInput = document.querySelector('#image-tools');
     const btn_submit = document.querySelector('.write-post-submit');
@@ -54,6 +65,6 @@
 
 					}
 					`,
-        placeholder: '내용을 입력해주세요.',
+        placeholder: '내용을 입력해 주세요.',
     });
 </script>

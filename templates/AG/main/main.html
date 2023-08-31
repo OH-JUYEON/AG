@@ -226,7 +226,7 @@
                                     {% for safety_score in safety_scores %}
                                     <div class="slick-slide" aria-hidden="" style="outline: none; width: 198px;">
                                         <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
+                                            <a href="/region/detail/{{safety_score.id}}" style="width: 100%; display: inline-block;">
                                                 <div class="main-pro-card" data-testid="main-pro-card">
                                                     <section class="header">
                                                         <div style="background-image: url('/upload/{{ safety_score.city_header.city_image }}');"
@@ -261,7 +261,7 @@
 <!--                                                    <section class="header">-->
 <!--                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"-->
 <!--                                                            class="thumb" data-src="" lazy="loaded"></div>-->
-<!--                                                         프로필 사진 -->-->
+<!--                                                         프로필 사진 -->
 <!--                                                        <div class="review">-->
 <!--                                                            <img src="{% static 'img/like.png' %}" alt=""> <span-->
 <!--                                                                class="rate">200</span>-->
@@ -273,7 +273,7 @@
 <!--                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="-->
 <!--                                                            alt=""> <span>숨고페이</span>-->
 <!--                                                    </span>-->
-<!--                                                </section> -->-->
+<!--                                                </section> -->
 <!--                                                    <section class="sub-info">-->
 <!--                                                        <span>조회수 100</span> <span class="avg-response-time has-career">-->
 <!--                                                            답변-->
@@ -292,7 +292,7 @@
 <!--                                                    <section class="header">-->
 <!--                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"-->
 <!--                                                            class="thumb" data-src="" lazy="loaded"></div>-->
-<!--                                                         프로필 사진 -->-->
+<!--                                                         프로필 사진 -->
 <!--                                                        <div class="review">-->
 <!--                                                            <img src="{% static 'img/like.png' %}" alt=""> <span-->
 <!--                                                                class="rate">200</span>-->
@@ -304,7 +304,7 @@
 <!--                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="-->
 <!--                                                            alt=""> <span>숨고페이</span>-->
 <!--                                                    </span>-->
-<!--                                                </section> -->-->
+<!--                                                </section> -->
 <!--                                                    <section class="sub-info">-->
 <!--                                                        <span>조회수 100</span> <span class="avg-response-time has-career">-->
 <!--                                                            답변-->
@@ -323,7 +323,7 @@
 <!--                                                    <section class="header">-->
 <!--                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"-->
 <!--                                                            class="thumb" data-src="" lazy="loaded"></div>-->
-<!--                                                         프로필 사진 -->-->
+<!--                                                         프로필 사진 -->
 <!--                                                        <div class="review">-->
 <!--                                                            <img src="{% static 'img/like.png' %}" alt=""> <span-->
 <!--                                                                class="rate">200</span>-->
@@ -335,7 +335,7 @@
 <!--                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="-->
 <!--                                                            alt=""> <span>숨고페이</span>-->
 <!--                                                    </span>-->
-<!--                                                </section> -->-->
+<!--                                                </section> -->
 <!--                                                    <section class="sub-info">-->
 <!--                                                        <span>조회수 100</span> <span class="avg-response-time has-career">-->
 <!--                                                            답변-->
@@ -354,7 +354,7 @@
 <!--                                                    <section class="header">-->
 <!--                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"-->
 <!--                                                            class="thumb" data-src="" lazy="loaded"></div>-->
-<!--                                                        프로필 사진 -->-->
+<!--                                                        프로필 사진 -->
 <!--                                                        <div class="review">-->
 <!--                                                            <img src="{% static 'img/like.png' %}" alt=""> <span-->
 <!--                                                                class="rate">200</span>-->
@@ -366,7 +366,7 @@
 <!--                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="-->
 <!--                                                            alt=""> <span>숨고페이</span>-->
 <!--                                                    </span>-->
-<!--                                                </section> -->-->
+<!--                                                </section> -->
 <!--                                                    <section class="sub-info">-->
 <!--                                                        <span>조회수 100</span> <span class="avg-response-time has-career">-->
 <!--                                                            답변-->
@@ -385,7 +385,7 @@
 <!--                                                    <section class="header">-->
 <!--                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"-->
 <!--                                                            class="thumb" data-src="" lazy="loaded"></div>-->
-<!--                                                         프로필 사진 -->-->
+<!--                                                         프로필 사진 -->
 <!--                                                        <div class="review">-->
 <!--                                                            <img src="{% static 'img/like.png' %}" alt=""> <span-->
 <!--                                                                class="rate">200</span>-->
@@ -397,7 +397,7 @@
 <!--                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="-->
 <!--                                                            alt=""> <span>숨고페이</span>-->
 <!--                                                    </span>-->
-<!--                                                </section> -->-->
+<!--                                                </section> -->
 <!--                                                    <section class="sub-info">-->
 <!--                                                        <span>조회수 100</span> <span class="avg-response-time has-career">-->
 <!--                                                            답변-->
@@ -416,7 +416,7 @@
 <!--                                                    <section class="header">-->
 <!--                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"-->
 <!--                                                            class="thumb" data-src="" lazy="loaded"></div>-->
-<!--                                                         프로필 사진 -->-->
+<!--                                                         프로필 사진 -->
 <!--                                                        <div class="review">-->
 <!--                                                            <img src="{% static 'img/like.png' %}" alt=""> <span-->
 <!--                                                                class="rate">200</span>-->
@@ -428,7 +428,7 @@
 <!--                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="-->
 <!--                                                            alt=""> <span>숨고페이</span>-->
 <!--                                                    </span>-->
-<!--                                                </section> -->-->
+<!--                                                </section> -->
 <!--                                                    <section class="sub-info">-->
 <!--                                                        <span>조회수 100</span> <span class="avg-response-time has-career">-->
 <!--                                                            답변-->
@@ -447,7 +447,7 @@
 <!--                                                    <section class="header">-->
 <!--                                                        <div style="background-image: url({% static 'img/sample_city_logo_s.png' %});"-->
 <!--                                                            class="thumb" data-src="" lazy="loaded"></div>-->
-<!--                                                         프로필 사진 -->-->
+<!--                                                         프로필 사진 -->
 <!--                                                        <div class="review">-->
 <!--                                                            <img src="{% static 'img/like.png' %}" alt=""> <span-->
 <!--                                                                class="rate">200</span>-->
@@ -459,7 +459,7 @@
 <!--                                                            src="S4zNDYgMC0uNjMzLS4xMTItLjg1OC0uMzM1YTEuMTQ0IDEuMTQ0IDAgMCAxLS4zMzgtLjg0OWMwLS4yMTYuMDY0LS40MzUuMTkzLS42NTYuMTI4LS4yMi4yODctLjM5Mi40NzktLjUxNmwtLjAwMi0uMDAyYS41NTMuNTUzIDAgMCAwIC4yNy0uNDc3YzAtLjMwNC0uMjQtLjU1LS41MzYtLjU1YS41Mi41MiAwIDAgMC0uMjUyLjA2NVY1LjYyYy0uMDkxLjA1NS0uMTgzLjEyMS0uMjc4LjE5OEMzLjMyNCA2LjM0NiAzIDcuMDA0IDMgNy43OTNjMCAuNjQ1LjIwOSAxLjE3NC42MjYgMS41ODcuNDE3LjQxMy45NTEuNjIgMS42MDQuNjIuODQyIDAgMS41MjQtLjMwNyAyLjA0NC0uOTJhMi4zMyAyLjMzIDAgMCAwIC41NzEtMS41NmMwLS42MS0uMjE1LTEuMTg5LS42NDYtMS43MzZsLS4yMjMtLjI3Ni0uMTQ0LS4xODgtLjU0OC0uNzAxYy0uMzAyLS4zOC0uMTc1LS43ODUtLjE3NS0uNzg1LjA1LS4xOTEuMTc0LS4zNjUuMzc0LS41Mi4yNDgtLjE5NC41MjMtLjI5LjgyNS0uMjlhLjguOCAwIDAgMSAuNDY0LjEyYy4xMTYuMDgxLjE3NC4xODguMTc0LjMyIDAgLjI0Ny0uMTUuNDAzLS40NS40NzFsLjAwMS4wMDFhLjUxNi41MTYgMCAwIDAtLjQwNi41MWMwIC4yODcuMjI2LjUyLjUwNS41Mi4wNCAwIC4wNzktLjAwNS4xMTYtLjAxNC4yNC0uMDQzLjQzMy0uMTEuNTc4LS4yMDUuNDczLS4zMDIuNzEtLjczNy43MS0xLjMwNCAwLS40MjYtLjE0OS0uNzczLS40NDctMS4wNDEiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="-->
 <!--                                                            alt=""> <span>숨고페이</span>-->
 <!--                                                    </span>-->
-<!--                                                </section> -->-->
+<!--                                                </section> -->
 <!--                                                    <section class="sub-info">-->
 <!--                                                        <span>조회수 100</span> <span class="avg-response-time has-career">-->
 <!--                                                            답변-->
@@ -627,7 +627,7 @@
                                         <div class="curation-contents has-thumbnail">
                                             <p class="topic-name">{{ campaign_review.campaign.campaign_category }}</p>
                                             <p class="curation-title">{{ campaign_review.campaign_review_title }}</p>
-                                            <p class="curation-content">{{ campaign_review.campaign_review_content }}</p>
+                                            <p class="curation-content">{{ campaign_review.campaign_review_content |striptags}}</p>
 <!--                                            <div class="curation-reactions">-->
 <!--                                                <span class="view-count">245</span> <span>-->
 <!--                                                    class="comment-count">32</span>-->
@@ -684,18 +684,18 @@
                         <div class="knowhow-container half-list" style="margin-top: 3rem;">
                             <!-- 같은거 복붙 (2개) -->
                             {% for donation in donations %}
-                            <a href="#" class="knowhow-card-slide" data-testid="knowhow-item"> <img class="thumb-image"
+                            <a href="/donation/detail/{{donation.id}}" class="knowhow-card-slide" data-testid="knowhow-item"> <img class="thumb-image"
                                     data-src=""
                                     src="/upload/{{ donation.donation_image }}"
                                     alt="" lazy="loaded">
                                 <div class="card-desc">
-                                    <p class="service">{{ donation.city_name }}/{{ donation.city_detail_name }}</p>
+                                    <p class="service">{{ donation.city_header.city_name }}/{{ donation.city_detail.city_detail_name }}</p>
                                     <div class="collapsed">
                                         <div class="line-clamp" style="line-height: 1.5; max-height: 3rem;">
                                             <p class="title">{{ donation.donation_title }}</p>
                                         </div>
                                     </div>
-                                    <p class="author">{{ donation.donation_content }}</p>
+{#                                    <p class="author">{{ donation.donation_description }}</p>#}
                                 </div>
                             </a>
                             {% endfor %}
@@ -741,7 +741,7 @@
                                 {% for funding in fundings %}
                                 <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
                                     <div>
-                                        <a href="#" style="width: 100%; display: inline-block;">
+                                        <a href="/funding/detail/{{funding.id}}" style="width: 100%; display: inline-block;">
                                             <div class="main-service-card">
                                                 <img class="service-image" data-sre=""
                                                     src="/upload/{{ funding.funding_image }}"

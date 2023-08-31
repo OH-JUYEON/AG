@@ -1,5 +1,5 @@
 {% load static %}
-
+<div id="forViewDes" style="width: 100%;"></div>
 <div class="detail-container" id="detail-container">
     <article class="instant-purchase-product-detail no-recent-view">
         <div class="flex-aside left">
@@ -16,8 +16,8 @@
                                                     <li data-thumb="{{ donation.donation_image.url }}">
                                                         <img src="{{ donation.donation_image.url }}" alt="Donation Image" lazy="loaded">
                                                     </li>
-                                                    <li data-thumb="{{ donation.donation_image.url }}">
-                                                        <img src="{{ donation.donation_image.url }}" lazy="loaded">
+                                                    <li data-thumb="{{ donation.donation_sub_image.url }}">
+                                                        <img src="{{ donation.donation_sub_image.url }}" lazy="loaded">
                                                     </li>
                                                 </ul>
                                             </div>
@@ -32,11 +32,11 @@
                     <ul class="sticky-nav2">
                         <li id="nav-price" class="price"><button type="button" class="btn-d-1"><span> 서비스
                                     가격</span></button></li>
-                        <li id="nav-explanation" class="explanation active2"><button type="button"
-                                class="btn-d-1"><span> 펀딩 설명</span></button></li>
-                        <li id="nav-questions" class="questions"><button type="button" class="btn-d-1"><span>
+                        <li id="nav-explanation" class="explanation active2"><button type="button" id="des"
+                                class="btn-d-1"><span> 기부 설명</span></button></li>
+                        <li id="nav-questions" class="questions"><button type="button" class="btn-d-1"  id="can"><span>
                                     취소/환불</span></button></li>
-                        <li id="nav-qna" class="qna"><button type="button" class="btn-d-1"><span>
+                        <li id="nav-qna" class="qna"><button type="button" class="btn-d-1"  id="cam"><span>
                                     댓글 </span></button></li>
                         <!-- <li id="nav-refund" class="refund"><button type="button" class="btn-d-1"><span>
                                             취소/환불 </span></button></li> -->
@@ -46,10 +46,10 @@
                     <article class="product-provider2">
                         <div class="row provider-overview no-gutters">
                             <div class="col-auto"><img
-                                    src="https://static.cdn.soomgo.com/upload/profile/ddb12c74-aec6-4d92-a994-450016880d4d.png?h=160&amp;w=160&amp;webp=1"
-                                    alt="이엘코드" class="provider-profile">
+                                src="{{donation.member.member_image}}"
+                                    alt="" class="provider-profile">
                             </div>
-                            <div class="col"><span class="provider-name">{{ writer }}</span>
+                            <div class="col"><span class="provider-name">{{donation.member.member_name}}</span>
                                 <div class="provider-review">
                                     <ul class="star-rate readonly" style="--gap: 0px;">
                                         <li><img src="https://assets.cdn.soomgo.com/icons/icon-common-review-star-small-full.svg"
@@ -62,7 +62,7 @@
                                                 alt="Star Icon"></li>
                                         <li><img src="https://assets.cdn.soomgo.com/icons/icon-common-review-star-small-full.svg"
                                                 alt="Star Icon"></li>
-                                    </ul><span class="review-count">(10)</span>
+                                    </ul><span class="review-count">({{cnt}})</span>
                                 </div>
                             </div>
                             <div class="share-button-wrapper col-auto"><button type="button"
@@ -94,13 +94,14 @@
 
 
                             </p>
-                        </div><button type="button"
+                        </div>
+                        <!-- <button type="button"
                             class="btn border-gray collapse-toggle btn-outline-primary btn-block"
                             style="display: none;"> 더 보기
-                        </button>
+                        </button> -->
 
                     </article>
-                    <article class="product-description-images">
+                    <!-- <article class="product-description-images">
                         <div class="height-clamp hide-less" style="--hc-gradient-height: 120px; --hc-height: 464px;">
                             <div><img
                                     src="{{ donation.donation_image.url }}"
@@ -114,11 +115,11 @@
                                     data-src="https://static.cdn.soomgo.com/upload/market/c4a05215-a3c5-4e76-b82b-f996c2378622.jpg?webp=1"
                                     role="button">
                             </div>
-                            <!-- <div class="collapse-toggle"><button type="button"
+                            <div class="collapse-toggle"><button type="button"
                                             class="btn border-gray btn-outline-primary btn-block"> 접기
-                                        </button></div> -->
+                                        </button></div>
                         </div>
-                    </article>
+                    </article> -->
                 </section>
                 <!-- <section data-observe="questions" class="product-questions" id="questions">
                             <h4 class="section-title">질문답변</h4>
@@ -159,7 +160,7 @@
                                 </div>
                             </div>
                         </section> -->
-
+             <div id="forViewCancel" style="width: 100%; height: 80px;"></div>
                 <section class="product-refund-policy" id="refund">
                     <h4 class="section-title1">취소 및 환불 규정</h4>
                     <div>1. 구매 취소는 구매 직후 3시간 안에 가능합니다. 구매내역 페이지에서 구매취소
@@ -173,7 +174,7 @@
                         4. 개발 도중 환불은 가능하며, 결제대금의 30%를 제외한 나머지 금액만 가능합니다.</div>
                 </section>
 
-
+                <div id="forView" style="width: 100%; height: 80px;"></div>
 
                 <section class="re-body">
                     <div class="profile-review" id="profile-link">
@@ -235,15 +236,22 @@
 
                             <div class="comment-inner container2">
                                 <div class="register flex-container">
+                                    {% if request.session.session_key %}
                                     <div class="user-img"
-                                        style="margin-right: 0px; background-image: url(&quot;https://ofbxchnhqinp910256.cdn.ntruss.com/160/f5b3297b50171cf00041efaa97e382d0.png?type=w&amp;w=160&amp;quality=100&quot;);">
+                                        style="margin-right: 0px; background-image: url('{{request.session.thumbnail_image_url}}');">
                                     </div>
+                                    {% else %}
+                                    <div class="user-img"
+                                    style="margin-right: 0px; background-image: url(&quot;https://ofbxchnhqinp910256.cdn.ntruss.com/160/f5b3297b50171cf00041efaa97e382d0.png?type=w&amp;w=160&amp;quality=100&quot;);">
+                                    </div>
+                                    {% endif %}
                                     <div class="register-box">
                                         <div class="register-box-inner">
-                                            <input id="reply" type="text" placeholder="댓글">
+                                            <span data-v-35475912="">댓글</span>
+                                            <p contenteditable="plaintext-only" data-placeholder="내용 입력">
                                         </div>
                                     </div>
-                                    <button id="submit" type="button" disabled="disabled"
+                                    <button id="submit" type="button" onclick="reply_upload()"
                                         class="post-btn flex-container mds-button mds-button--secondary mds-button--flex mds-button--h56 mds-button--r4">
                                         <span id="register">등록</span>
                                     </button>
@@ -252,9 +260,10 @@
 
                             <div>
                                 <ul class="review-container">
+                                    {% for data in replay %}
                                     <li>
                                         <article class="profile-review-item">
-                                            <section class="meta"><span class="author">❤️김**❤️</span>
+                                            <section class="meta"><span class="author">❤️{{data.member.member_name}}❤️</span>
                                                 <div class="profile-review-item-badge"> </div>
                                             </section>
                                             <!-- <section class="service-score">
@@ -265,45 +274,20 @@
                                             <div class="line-clamp collapsed">
                                                 <div class="line-clamp"
                                                     style="line-height: 1.57; max-height: 4.71rem; -webkit-line-clamp: 3;">
-                                                    <p class="review-text">응원합니다!!</p>
+                                                    <p class="review-text">{{data.funding_reply_content}}</p>
                                                 </div>
                                             </div>
                                             <section class="review-footer">
-                                                <div class="left"><span class="date">2023. 02.
-                                                        05</span><span style="display: none;">·</span><button
+                                                <div class="left"><span class="date">{{data.create_date|date:"Y.m.d"}}
+                                                        </span><span style="display: none;">·</span><button
                                                         type="button" class="btn btn-reply" style="display: none;">답변
                                                         달기</button></div>
                                             </section>
                                             <section></section>
                                         </article>
                                     </li>
-
-                                    <li>
-                                        <article class="profile-review-item">
-                                            <section class="meta"><span class="author">❤️박**❤️</span>
-                                                <div class="profile-review-item-badge"> </div>
-                                            </section>
-                                            <!-- <section class="service-score">
-                                                        <p>왁싱</p><img
-                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Im03LjQ5NiAxLjU5NiAxLjQwNyAyLjc0MiAzLjE0NS40NGMuOTEuMTI3IDEuMjc1IDEuMjA0LjYxNSAxLjgyMmwtMi4yNzYgMi4xMzQuNTM4IDMuMDE1Yy4xNTUuODcyLS43OTcgMS41MzgtMS42MTIgMS4xMjZMNi41IDExLjQ1MmwtMi44MTMgMS40MjNjLS44MTUuNDEyLTEuNzY3LS4yNTQtMS42MTItMS4xMjZsLjUzOC0zLjAxNUwuMzM3IDYuNmMtLjY2LS42MTgtLjI5Ni0xLjY5NS42MTUtMS44MjJsMy4xNDUtLjQ0IDEuNDA3LTIuNzQyQzUuOTEyLjggNy4wODguOCA3LjQ5NiAxLjU5NiIgZmlsbD0iI0ZGQ0UyMSIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPgo="
-                                                            alt="평점"> 5.0
-                                                    </section> -->
-                                            <div class="line-clamp collapsed">
-                                                <div class="line-clamp"
-                                                    style="line-height: 1.57; max-height: 4.71rem; -webkit-line-clamp: 3;">
-                                                    <p class="review-text">항상 감사합니다!!</p>
-                                                </div>
-                                            </div>
-                                            <section class="review-footer">
-                                                <div class="left"><span class="date">2023. 02.
-                                                        05</span><span style="display: none;">·</span><button
-                                                        type="button" class="btn btn-reply" style="display: none;">답변
-                                                        달기</button></div>
-                                            </section>
-                                            <section></section>
-                                        </article>
-                                    </li>
-
+                                    {% endfor %}
+                            
 
 
                                 </ul>
@@ -346,18 +330,18 @@
                                                     <div class="option-title selected">
                                                         나도 기부 나눔하기 </div>
                                                 </label>
-                                            </div><strong class="option-price">{{ donation.donation_minimum_amount }} ~ </strong>
+                                            </div><strong class="option-price">{{ donation.donation_minimum_amount }} 원~ </strong>
                                             <div class="collapsed clamped">
                                                 <div class="line-clamp"
                                                     style="line-height: 1.5; max-height: 4.5rem; -webkit-line-clamp: 3;">
                                                     <p class="option-detail">{{ donation.donation_description }}</p>
                                                 </div>
-                                                <button type="button" class="btn collapse-toggle btn-none"><span>더
+                                                <!-- <button type="button" class="btn collapse-toggle btn-none"><span>더
                                                         보기</span><img src="{% static 'img/icon-down.png' %}" alt=""
-                                                        class="arrow"></button>
+                                                        class="arrow"></button> -->
                                             </div>
                                         </div>
-                                        <div data-testid="item-option no-selected" class="item-option">
+                                        <!-- <div data-testid="item-option no-selected" class="item-option">
                                             <div class="custom-control custom-radio">
                                                 <input type="radio" class="custom-control-input"><label
                                                     class="custom-control-label2" for="__BVID__1204">
@@ -365,7 +349,7 @@
                                                     </div>
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- <div data-testid="item-option no-selected" class="item-option">
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" class="custom-control-input"><label
@@ -383,7 +367,7 @@
                 </section>
                 <section class="buy-button">
                     <div class="sticky-btn-group"><button type="button" class="btn btn-qna2"
-                            onclick="open_modal()"><span>문의</span></button><button type="button" class="btn btn-buy">
+                            onclick="open_modal()"><span>문의</span></button><button type="button" class="btn btn-buy" onclick="open_pay()">
                             기부하기 </button>
                     </div>
                 </section>
@@ -399,3 +383,10 @@
         </div>
     </article>
 </div>
+
+<input type="hidden" value="{{donation.id}}" id="donation_id">
+<input type="hidden" value="{{donation.donation_minimum_amount}}" id="minimum_amount">
+
+{% for key, value in request.session.items %}
+    <input type="hidden" value="{{ value }}" id="{{ key }}">
+{% endfor %}

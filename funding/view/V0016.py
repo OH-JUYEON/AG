@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from funding.models import Funding, FundingReply
+from donation.models import Donation, DonationReply
 from django.db.models import Count, F, Max
 import json
 from django.http import JsonResponse
@@ -22,11 +22,11 @@ class FundingReplyDetail(View):
             data = json.loads(request.body)
             content = data['content'].replace(" ", "")
             
-            data = FundingReply.objects.create(
+            data = DonationReply.objects.create(
                 member_id=request.session['member_id'],
-                funding_id = int(data['id']),
-                funding_reply_content = content,
-                funding_status=1
+                donation_id = int(data['id']),
+                donation_reply_content = content,
+                donation_status=1
             )
 
             # new_data.save()
@@ -37,5 +37,5 @@ class FundingReplyDetail(View):
           
         except json.JSONDecodeError as e:
             return JsonResponse({'result': 'Invalid JSON'}, status=400)
-        return JsonResponse({'result': 'OK','name':data.member.member_name,'date':data.create_date.strftime('%Y.%m.%d'),'content':data.funding_reply_content}, status=200)
+        return JsonResponse({'result': 'OK','name':data.member.member_name,'date':data.create_date.strftime('%Y.%m.%d'),'content':data.donation_reply_content}, status=200)
 

@@ -38,6 +38,8 @@ class CashHistory(View):
 
         id = request.session['member_id']
         pay = int(request.POST.get("pay"))
+        path = request.POST.get("path")
+        
         pay_amount = 0
         pay_obj = Pay.objects.filter(member_id=id).order_by('-id')
         if pay_obj:
@@ -47,4 +49,6 @@ class CashHistory(View):
             member_id=id, pay_allowance=pay, pay_amount=pay_amount+pay
         )
 
+        if path != '': 
+            return redirect(path)
         return redirect('/member/mypage/cashhistory/')
