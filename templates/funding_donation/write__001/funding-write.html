@@ -1,5 +1,5 @@
 {% load static %}
-<form action="/campaign/write/" enctype="multipart/form-data" method="post">
+<form action="/funding/write/{{ campaign_id }}/" enctype="multipart/form-data" method="post">
     {% csrf_token %}
     <div class="web-body">
         <div class="community-container container">
@@ -8,16 +8,16 @@
                     <!-- 커뮤니티 선택 선택, 등록 -->
                     <div class="select-subject-header">
                         <div class="subject-header-wrapper">
-                            <select
-                                    class="post-subject-select-box custom-select sg-text-subhead3 sg-font-medium"
-                                    id="__BVID__85" name="campaign_category">
-                                <!-- 주제 종류 -->
-                                <option value>카테고리&nbsp;선택&nbsp;</option>
-                                <option value="지역순찰">지역순찰</option>
-                                <option value="미화">미화</option>
-                                <option value="봉사활동">봉사활동</option>
-                                <option value="기타">기타</option>
-                            </select>
+{#                            <select#}
+{#                                    class="post-subject-select-box custom-select sg-text-subhead3 sg-font-medium"#}
+{#                                    id="__BVID__85" name="campaign_category">#}
+{#                                <!-- 주제 종류 -->#}
+{#                                <option value>카테고리&nbsp;선택&nbsp;</option>#}
+{#                                <option value="지역순찰">지역순찰</option>#}
+{#                                <option value="미화">미화</option>#}
+{#                                <option value="봉사활동">봉사활동</option>#}
+{#                                <option value="기타">기타</option>#}
+{#                            </select>#}
                             <button type="submit" value="등록" class="btn btn-secondary write-post-submit">등록</button>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                             <div class="add-image-icon"></div>
                             <!-- 사진 인풋 태그 -->
                             <div class="custom-file b-form-file file-input">
-                                <input type="file" name="campaign_image"
+                                <input type="file" name="funding_image"
                                        accept="image/jpg,image/jpeg,image/png,image/gif,image/bmp,image/heic"
                                        multiple="multiple" class="custom-file-input" id="__BVID__1171"
                                        style="z-index: -5;">
@@ -49,7 +49,7 @@
                             <div class="editor-title-wrapper">
                                 <div class="editor-title-container">
                                     <label for="post-title-input" class="editor-title-label">
-                                        <input id="post-title-input" type="text" name="campaign_title"
+                                        <input id="post-title-input" type="text" name="funding_title"
                                                placeholder="제목을 입력해 주세요."
                                                class="post-title-input sg-text-subhead5 sg-font-medium sg-text-gray-900">
                                     </label>
@@ -61,11 +61,11 @@
                                 <hr class="hr-divider">
                             </div>
                             <!-- 서비스, 지역 선택 -->
-                            <div class="service-region-wrapper">
-                                <button class="category-select-box">
-                                    <span class="text">(선택) 지역</span>
-                                </button>
-                            </div>
+{#                            <div class="service-region-wrapper">#}
+{#                                <button class="category-select-box">#}
+{#                                    <span class="text">(선택) 지역</span>#}
+{#                                </button>#}
+{#                            </div>#}
 
                             <!-- 분단선 -->
                             <div class="divider-wrapper">
@@ -74,7 +74,7 @@
 
                             <div class="period-wrapper">
                                 <div class="period">
-                                    <span class="period-span">캠페인 기간:</span>
+                                    <span class="period-span">펀딩 기간:</span>
                                     <input type="datetime-local" id="DateLocal"  class="datetime" name="started_on">
                                     <span style="margin-left: 1rem">~</span>
                                     <input type="datetime-local"  class="datetime" name="ends_on">
@@ -87,12 +87,27 @@
                             <div class="editor-title-wrapper">
                                 <div class="editor-title-container">
                                     <label for="post-title-input" class="editor-title-label">
-                                        <input id="post-title-input" type="text" name="campaign_description3"
-                                               placeholder="캠페인에 대해 간략하게 설명해 주세요."
+                                        <input id="post-title-input" type="text" name="funding_description"
+                                               placeholder="펀딩에 대해 간략하게 설명해 주세요."
                                                class="post-title-input sg-text-subhead5 sg-font-medium sg-text-gray-900">
                                     </label>
                                 </div>
                             </div>
+
+                            <div class="editor-title-wrapper">
+                                <div class="editor-title-container">
+                                    <label for="post-title-input1" class="editor-title-label">
+                                        <span class="minimum">최소 금액을 입력해 주세요. :</span>
+                                        <input id="post-title-input1" type="text" name="funding_minimum_amount"
+                                               placeholder="0"
+                                               class="post-title-input sg-text-subhead5 sg-font-medium sg-text-gray-900"
+                                               oninput="formatNumberWithCommas(this)"
+                                        >
+                                        <span class="won">캐시</span>
+                                    </label>
+                                </div>
+                            </div>
+
 
                             <!-- 본문 -->
                             <main style="margin-top: 48px">
@@ -103,7 +118,7 @@
 
                                         <div>
                                             <div style="margin-bottom: 48px">
-                                                <textarea id="image-tools" name="campaign_content"></textarea>
+                                                <textarea id="image-tools" name="funding_content"></textarea>
                                             </div>
                                             <span class="editor-contents-textarea-placeholder sg-text-body2 sg-font-regular sg-text-gray-500">
 													주제에 맞지 않는 글이나 커뮤니티 이용정책에 위배되어 일정 수 이상 신고를 받는 경우 글이 숨김 및 삭제될 수 있습니다.

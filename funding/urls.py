@@ -10,7 +10,7 @@ urlpatterns = [
     path("detail/<int:funding_header_id>/", V0010.FundingDetail.as_view(), name="detail"),
     path("detail/pay/<int:type>/", V0015.FundingDetail.as_view(), name="detail"),
     path("detail/reply/", V0016.FundingReplyDetail.as_view(), name="detail"),
-    path("write/<int:funding_header_id>/", V0020.FundingWrite.as_view(), name="write"),
+    path("write/<int:campaign_id>/", V0020.FundingWrite.as_view(), name="write"),
     path("inquiry/",
     include(
         [
