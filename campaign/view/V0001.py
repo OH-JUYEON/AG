@@ -32,13 +32,14 @@ class CampaignListAPI(APIView):
                 'city_name': city_header.city_name
             })
 
-            campaign_list = Campaign.objects.filter(id=CityHeader.objects.get(city_name=city_header.city_name).id).order_by('id')[:4]
+            campaign_list = Campaign.objects.filter(city_header_id=CityHeader.objects.get(city_name=city_header.city_name).id).order_by('id')[:4]
             campaigns = []
             for campaign in campaign_list:
                 data = {'title': campaign.campaign_title, 'url': campaign.campaign_image.url, 'description1': campaign.campaign_description1,
                         'description2': campaign.campaign_description2, 'description3': campaign.campaign_description3}
                 campaigns.append(data)
-            all_campaigns.append(campaigns)
+            if campaigns:
+                all_campaigns.append(campaigns)
 
         result['regions'] = regions
         result['all_campaigns'] = all_campaigns
@@ -51,8 +52,12 @@ class CampaignListAPI(APIView):
             data = json.loads(request.body)
             filtered_campaigns = Campaign.objects.all()
 
-            if data.get('type'):
+            if data.get('type') == 0:
+                filtered_campaigns = filtered_campaigns.filter(campaign_category=categories[data['type']])  
+            elif data.get('type'):
                 filtered_campaigns = filtered_campaigns.filter(campaign_category=categories[data['type']])
+
+  
 
             if data['name'] != "지역선택":
                 location = CityDetail.objects.get(city_detail_name=data['name'])
