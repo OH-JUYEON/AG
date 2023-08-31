@@ -5,7 +5,7 @@ from member.models import Member
 from region.models import SafetyScoreHeader 
 from campaign.models import Campaign
 from funding.models import Funding
-
+from region.models import CityHeader, CityDetail  
 
 
 # Create your models here.
@@ -17,6 +17,8 @@ class Donation(Period, Validity):
     donation_content = models.CharField(null=False, max_length=10240)
     donation_image = models.ImageField(null=False, blank=False, upload_to='Donation/%Y/%m/%d')
     donation_sub_image = models.ImageField(null=True, blank=False, upload_to='Donation/%Y/%m/%d')
+    city_header = models.ForeignKey(CityHeader, null=True, on_delete=models.CASCADE)
+    city_detail = models.ForeignKey(CityDetail, null=True, on_delete=models.CASCADE)
     
     class Meta:
         db_table = "tbl_donation"

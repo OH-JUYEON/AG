@@ -75,7 +75,7 @@
                                     {% for data in fundingList %}
                                     <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
                                         <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
+                                            <a href="/funding/detail/{{ data.id }}/" style="width: 100%; display: inline-block;">
                                                 <div class="main-service-card">
                                                     <img class="service-image" data-sre=""
                                                         src="{{ data.funding_image.url }}" alt="" lazy="loaded">
@@ -109,7 +109,7 @@
                                     {% for data in donationList %}
                                     <div class="slick-slide" aria-hidden="" style="outline: none; width: 247px;">
                                         <div>
-                                            <a href="#" style="width: 100%; display: inline-block;">
+                                            <a href="/donation/detail/{{ data.id }}/" style="width: 100%; display: inline-block;">
                                                 <div class="main-service-card">
                                                     <img class="service-image" data-sre=""
                                                         src="{{data.donation_image.url}}"
@@ -152,7 +152,7 @@
                             <div class="list-wrap">
                                 {% for data in fundingResult %}
                                 <article class="product-list-item responsive"><a
-                                        href="{{data.id}}" data-testid="product-list-item">
+                                        href="/funding/detail/{{data.id}}/" data-testid="product-list-item">
                                         <div class="item-image">
                                             <article class="preview-image">
                                                 <div class="image-wrap"><img
@@ -183,7 +183,7 @@
                             <div class="list-wrap">
                                 {% for data in donationResult %}
                                 <article class="product-list-item responsive"><a
-                                        href="{{data.id}}" data-testid="product-list-item">
+                                        href="/donation/detail/{{data.id}}/" data-testid="product-list-item">
                                         <div class="item-image">
                                             <article class="preview-image">
                                                 <div class="image-wrap"><img
@@ -211,7 +211,7 @@
                             <div class="list-wrap">
                                 {% for data in campaignResult %}
                                 <article class="product-list-item responsive"><a
-                                        href="{{data.id}}" data-testid="product-list-item">
+                                        href="/campaign/detail/{{ data.id }}/" data-testid="product-list-item">
                                         <div class="item-image">
                                             <article class="preview-image">
                                                 <div class="image-wrap"><img
