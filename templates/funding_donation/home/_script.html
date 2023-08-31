@@ -163,10 +163,47 @@
         valueClose.style.display = 'none';
     }
 
+
+        //펀딩 사이드 바 이벤트
+        const $list_buttons = $(".btn4-2-1");
+
+        $list_buttons.each((i, list_button) => {
+            let $list_button = $(list_button);
+
+            $list_button.on("click", () => {
+                catetype = i;
+                html ='';
+                page=0;
+                fetch_data( cityName.textContent );
+                $list_buttons.removeClass("router-link-exact-active");
+                $list_button.addClass("router-link-exact-active");
+        
+            })
+        });
+
+        //기부 사이드 바 이벤트
+        const $list_buttons2 = $(".btn4-2-2");
+
+        $list_buttons2.each((i, list_button) => {
+            let $list_button = $(list_button);
+
+            $list_button.on("click", () => {
+                catetype = i;
+                html ='';
+                page=0;
+                
+                fetch_data( cityName.textContent );
+                $list_buttons2.removeClass("router-link-exact-active");
+                $list_button.addClass("router-link-exact-active");
+                
+            })
+        });
+
     //홈 펀딩 기부 click event
     const $pro_buttons = $(".btn3");
     const $page = $(".list-contents");
     const $regionChoice = $(".li3-choice");
+    
 
     $pro_buttons.each((i, pro_button) => {
         let $pro_button = $(pro_button);
@@ -195,8 +232,10 @@
                   }
                   });
 
-
-
+                $list_buttons.removeClass("router-link-exact-active");
+                $list_buttons.eq(0).addClass("router-link-exact-active");
+                $list_buttons2.removeClass("router-link-exact-active");
+                $list_buttons2.eq(0).addClass("router-link-exact-active");
                 // 스크롤 이벤트 리스너 등록
                 // window.addEventListener('scroll', scrollEventListener);
 
@@ -221,42 +260,6 @@
             // 선택된 버튼에 스타일 적용
             $pro_button.addClass("btn3-active");
         });
-    });
-
-
-    //펀딩 사이드 바 이벤트
-    const $list_buttons = $(".btn4-2-1");
-
-    $list_buttons.each((i, list_button) => {
-        let $list_button = $(list_button);
-
-        $list_button.on("click", () => {
-            catetype = i;
-            html ='';
-            page=0;
-            fetch_data( cityName.textContent );
-            $list_buttons.removeClass("router-link-exact-active");
-            $list_button.addClass("router-link-exact-active");
-       
-        })
-    });
-
-    //기부 사이드 바 이벤트
-    const $list_buttons2 = $(".btn4-2-2");
-
-    $list_buttons2.each((i, list_button) => {
-        let $list_button = $(list_button);
-
-        $list_button.on("click", () => {
-            catetype = i;
-            html ='';
-            page=0;
-            
-            fetch_data( cityName.textContent );
-            $list_buttons2.removeClass("router-link-exact-active");
-            $list_button.addClass("router-link-exact-active");
-            
-        })
     });
 </script>
 

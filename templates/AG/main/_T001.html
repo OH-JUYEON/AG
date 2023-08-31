@@ -4,7 +4,12 @@
 
 <head>
     {% include "../../base/__load__.html" %}
-    {% include "../../base/__script__.html" %}
+    {% if request.session.session_key %}
+        {% include "../../base/__script__.html" %}  
+    {% else %}
+        {% include "../../base/__loginscript__.html" %}  
+    {% endif %}
+    
     <title>{% block title %}{% endblock %}</title>
     {% include "../../base/__style__.html" %}
     {% include "./_style.html" %}

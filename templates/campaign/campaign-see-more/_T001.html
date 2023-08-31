@@ -6,6 +6,12 @@
     {% include "../../base/__style__.html" %}
     {% include "../../AG/main/_style.html" %}
     {% include "./_style.html" %}
+
+    {% if request.session.session_key %}
+        {% include "../../base/__script__.html" %}  
+    {% else %}
+        {% include "../../base/__loginscript__.html" %}  
+    {% endif %}    
 </head>
 
 <body>
