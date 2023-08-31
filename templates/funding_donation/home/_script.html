@@ -177,12 +177,12 @@
             catetype = 0;
             html ='';
             page=0;
-            
+  
             if(i !== 0){
                 fetch_data( cityName.textContent );
                 $regionChoice.css("display", "block");
 
-
+             
                 window.addEventListener('scroll', () => {
                   
                   const currentScroll = window.scrollY;
@@ -195,9 +195,16 @@
                   }
                   });
 
+
+
+                // 스크롤 이벤트 리스너 등록
+                // window.addEventListener('scroll', scrollEventListener);
+
+
               
             }else{
-                window.removeEventListener('scroll', scrollListener);
+                
+
                 $regionChoice.css("display", "none");
             }
             // nowPage = i;
@@ -347,7 +354,7 @@ $funding_next.on("click", function () {
 
 <script>
     function fetch_data( name ){
-
+        // name = name ==='지역선택'? 'all':name;
         // CSRF 토큰 가져오기
         let csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
         
@@ -366,7 +373,7 @@ $funding_next.on("click", function () {
         };
 
         //  서버로 데이터를 전송합니다.
-         fetch('/funding/donation/', {
+         fetch(`/funding/donation/${name}/`, {
             method: 'POST',
             headers: headers, // 요청 헤더에 CSRF 토큰을 추가
             body: JSON.stringify(dataToSend),
@@ -394,17 +401,20 @@ $funding_next.on("click", function () {
             let title;
             let amount;
             let href;
+            let ta;
             
             if(type == 1){
                 img = obj.funding_image;
                 title = obj.funding_title;
                 amount = obj.funding_minimum_amount;
                 href = obj.id
+                ta = '펀딩'
             }else if(type == 2){
                 img = obj.donation_image;
                 title = obj.donation_title;
                 amount = obj.donation_minimum_amount;
                 href = obj.id
+                ta = '기부'
             }    
                 html += `   <article class="product-list-item5 responsive5"><a href="${href}">
                                                     <div class="item-image5">
@@ -415,7 +425,7 @@ $funding_next.on("click", function () {
                                                                     lazy="loaded"></div>
                                                         </article>
                                                     </div>
-                                                    <div class="service-name"><span>펀딩</span></div>
+                                                    <div class="service-name"><span>${ta}</span></div>
                                                     <div class="item-title">
                                                         <div class="collapsed">
                                                             <div class="line-clamp">
