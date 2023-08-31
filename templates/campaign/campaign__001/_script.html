@@ -126,14 +126,26 @@
         let context = document.getElementById('here');
         let html = ``;
         const {regions, all_campaigns} = datas;
-        console.log(datas)
+        console.log(regions)
         console.log("=====")
         console.log(all_campaigns);
         all_campaigns.forEach((campaign, i) => {
             const title = regions[i].city_name;
             const datas = campaign;
 
-            html += `<h1>${title}</h1>`;
+            html += `
+            
+            
+            <article class="campaign-list-curation">
+                                <header class="content-title">
+                                    <h3 class="content-title">${title}</h3>
+                                </header>
+                                <section class="campaign-content" style="height: 280px;">
+                                    <div class="campaign-content-1">
+                                        <div class="campaign-content-2">
+                                            <div class="campaign-content-3">
+                                                <div class="campaign-content-4">
+                                                    <div class="campaign-content-5" style="width: 988px;">`;
             datas.forEach(data => {
                 console.log(data);
                 let title = data.title;
@@ -142,62 +154,47 @@
                 let description3 = data.description3;
                 let img = data.url;
 
-                html += `<section class="campaign-content" style="height: 280px;">
-                            <div class="campaign-content-1">
-                                <div class="campaign-content-2">
-                                    <div class="campaign-content-3">
-                                        <div class="campaign-content-4">
-                                            <div class="campaign-content-5" style="width: 988px;">
-                                                <div class="campaign-content-box" tabindex="-1"
-                                                     data-index="0"
-                                                     aria-hidden="false"
-                                                     style="outline: none; width: 245px;">
-                                                    <div>
-                                                        <article class="campaign-list-box" tabindex="-1"
-                                                                 style="width: 100%; display: inline-block;">
-                                                            <a class data-testid="campaign-list-item"
-                                                               href="/ip/products/64095a6336c562ffd43e7793?from">
-                                                                <div class="item-image">
-                                                                    <article class="preview-image">
-                                                                        <div class="preview-image-wrap"
-                                                                             style="padding-top: 66.6667%;">
-                                                                            <img src="${img}"
-                                                                                 lazy="loaded"
-                                                                                 class="preview-image">
-                                                                        </div>
+                html += `<div class="campaign-content-box" tabindex="-1" data-index="0" aria-hidden="false" style="outline: none; width: 245px;">
+                                                                <div>
+                                                                    <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                                        <a class="" data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
+                                                                            <div class="item-image">
+                                                                                <article class="preview-image">
+                                                                                    <div class="preview-image-wrap" style="padding-top: 66.6667%;">
+                                                                                        <img src="${img}" lazy="loaded" class="preview-image">
+                                                                                    </div>
+                                                                                </article>
+                                                                            </div>
+                                                                            <div class="campaign-team-name">
+                                                                                <strong class="campaign-team-name">${title}</strong>
+                                                                            </div>
+                                                                            <div class="campaign-category">
+                                                                                <span>${description1}</span>
+                                                                            </div>
+                                                                            <div class="campaign-title">
+                                                                                <div>
+                                                                                    <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
+                                                                                        <h3 class="content-infomation">
+                                                                                            [ ${description2}
+                                                                            ]
+                                                                            ${description3}
+                                                                                        </h3>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
                                                                     </article>
                                                                 </div>
-                                        {#                                                                             team name에서 campaign title로 변경#}
-                                                                <div class="campaign-team-name">
-                                                                    <strong class="campaign-team-name">${title}</strong>
-                                                                </div>
-                                                                <div class="campaign-category">
-                                                                    <span>${description1}</span>
-                                                                </div>
-                                                                <div class="campaign-title">
-                                                                    <div>
-                                                                        <div class="line-clamp"
-                                                                             style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                                            <h3 class="content-infomation">
-                                                                                [ ${description2}
-                                                                                ]
-                                                                                ${description3}
-                                                                            </h3>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </article>
+                                                            </div>`
+            })
+            html+=`      
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </section>`
-            })
-
+                                </section>
+                            </article>`
             context.innerHTML = html;
         })
 
@@ -236,7 +233,6 @@
         })
             .then(response => response.json())
             .then(datas => {
-                console.log(datas)
                 append(datas);
             })
             .catch(error => {
@@ -246,70 +242,68 @@
     }
 
     function append(datas) {
+        let categories = ['지역순찰', '미화', '봉사활동', '캠페인']
         let context = document.getElementById('here')
-        let html = ``;
+        let html = `<article class="campaign-list-curation">
+                                <header class="content-title">
+                                    <h3 class="content-title">${categories[type]}</h3>
+                                </header>
+                                <section class="campaign-content" style="height: 280px;">
+                                    <div class="campaign-content-1">
+                                        <div class="campaign-content-2">
+                                            <div class="campaign-content-3">
+                                                <div class="campaign-content-4">
+                                                    <div class="campaign-content-5" style="width: 988px;">`;
         datas.forEach(data => {
             let title = data.campaign_title;
             let description1 = data.campaign_description1;
             let description2 = data.campaign_description2;
             let description3 = data.campaign_description3;
             let img = data.campaign_image;
-            html += `<section class="campaign-content" style="height: 280px;">
-                        <div class="campaign-content-1">
-                            <div class="campaign-content-2">
-                                <div class="campaign-content-3">
-                                    <div class="campaign-content-4">
-                                        <div class="campaign-content-5" style="width: 988px;">
-                                            <div class="campaign-content-box" tabindex="-1"
-                                                 data-index="0"
-                                                 aria-hidden="false"
-                                                 style="outline: none; width: 245px;">
-                                                <div>
-                                                    <article class="campaign-list-box" tabindex="-1"
-                                                             style="width: 100%; display: inline-block;">
-                                                        <a class data-testid="campaign-list-item"
-                                                           href="/ip/products/64095a6336c562ffd43e7793?from">
-                                                            <div class="item-image">
-                                                                <article class="preview-image">
-                                                                    <div class="preview-image-wrap"
-                                                                         style="padding-top: 66.6667%;">
-                                                                        <img src="${img}"
-                                                                             lazy="loaded"
-                                                                             class="preview-image">
-                                                                    </div>
-                                                                </article>
-                                                            </div>
-                                    {#                                                                             team name에서 campaign title로 변경#}
-                                                            <div class="campaign-team-name">
-                                                                <strong class="campaign-team-name">${title}</strong>
-                                                            </div>
-                                                            <div class="campaign-category">
-                                                                <span>${description1}</span>
-                                                            </div>
-                                                            <div class="campaign-title">
+            html += `
+            <div class="campaign-content-box" tabindex="-1" data-index="0" aria-hidden="false" style="outline: none; width: 245px;">
                                                                 <div>
-                                                                    <div class="line-clamp"
-                                                                         style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                                        <h3 class="content-infomation">
-                                                                            [ ${description2}
+                                                                    <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                                        <a class="" data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
+                                                                            <div class="item-image">
+                                                                                <article class="preview-image">
+                                                                                    <div class="preview-image-wrap" style="padding-top: 66.6667%;">
+                                                                                        <img src="${img}" lazy="loaded" class="preview-image">
+                                                                                    </div>
+                                                                                </article>
+                                                                            </div>
+                                                                            <div class="campaign-team-name">
+                                                                                <strong class="campaign-team-name">${title}</strong>
+                                                                            </div>
+                                                                            <div class="campaign-category">
+                                                                                <span>${description1}</span>
+                                                                            </div>
+                                                                            <div class="campaign-title">
+                                                                                <div>
+                                                                                    <div class="line-clamp" style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
+                                                                                        <h3 class="content-infomation">
+                                                                                            [ ${description2}
                                                                             ]
                                                                             ${description3}
-                                                                        </h3>
-                                                                    </div>
+                                                                                        </h3>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </article>
                                                                 </div>
                                                             </div>
-                                                        </a>
-                                                    </article>
+
+                                        `
+        })
+html+=`      
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>`
-        })
-
+                                </section>
+                            </article>`
         context.innerHTML = html;
     }
 
