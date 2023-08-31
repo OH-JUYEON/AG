@@ -627,7 +627,7 @@
                                         <div class="curation-contents has-thumbnail">
                                             <p class="topic-name">{{ campaign_review.campaign.campaign_category }}</p>
                                             <p class="curation-title">{{ campaign_review.campaign_review_title }}</p>
-                                            <p class="curation-content">{{ campaign_review.campaign_review_content }}</p>
+                                            <p class="curation-content">{{ campaign_review.campaign_review_content |striptags}}</p>
 <!--                                            <div class="curation-reactions">-->
 <!--                                                <span class="view-count">245</span> <span>-->
 <!--                                                    class="comment-count">32</span>-->
