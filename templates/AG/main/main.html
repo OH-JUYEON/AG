@@ -689,13 +689,13 @@
                                     src="/upload/{{ donation.donation_image }}"
                                     alt="" lazy="loaded">
                                 <div class="card-desc">
-                                    <p class="service">{{ donation.city_name }}/{{ donation.city_detail_name }}</p>
+                                    <p class="service">{{ donation.city_header.city_name }}/{{ donation.city_detail.city_detail_name }}</p>
                                     <div class="collapsed">
                                         <div class="line-clamp" style="line-height: 1.5; max-height: 3rem;">
                                             <p class="title">{{ donation.donation_title }}</p>
                                         </div>
                                     </div>
-                                    <p class="author">{{ donation.donation_content }}</p>
+{#                                    <p class="author">{{ donation.donation_description }}</p>#}
                                 </div>
                             </a>
                             {% endfor %}
