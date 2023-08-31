@@ -147,6 +147,8 @@
                                                 <div class="campaign-content-4">
                                                     <div class="campaign-content-5" style="width: 988px;">`;
             datas.forEach(data => {
+                console.log(333333333333333333);
+
                 console.log(data);
                 let title = data.title;
                 let description1 = data.description1;
@@ -157,7 +159,7 @@
                 html += `<div class="campaign-content-box" tabindex="-1" data-index="0" aria-hidden="false" style="outline: none; width: 245px;">
                                                                 <div>
                                                                     <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                                                        <a class="" data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
+                                                                        <a class="" data-testid="campaign-list-item" href="/campaign/detail/${data.id}/">
                                                                             <div class="item-image">
                                                                                 <article class="preview-image">
                                                                                     <div class="preview-image-wrap" style="padding-top: 66.6667%;">
@@ -264,7 +266,7 @@
             <div class="campaign-content-box" tabindex="-1" data-index="0" aria-hidden="false" style="outline: none; width: 245px;">
                                                                 <div>
                                                                     <article class="campaign-list-box" tabindex="-1" style="width: 100%; display: inline-block;">
-                                                                        <a class="" data-testid="campaign-list-item" href="/ip/products/64095a6336c562ffd43e7793?from">
+                                                                        <a class="" data-testid="campaign-list-item" href="/campaign/detail/${data.id}/">
                                                                             <div class="item-image">
                                                                                 <article class="preview-image">
                                                                                     <div class="preview-image-wrap" style="padding-top: 66.6667%;">

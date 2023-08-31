@@ -36,7 +36,7 @@ class CampaignListAPI(APIView):
             campaigns = []
             for campaign in campaign_list:
                 data = {'title': campaign.campaign_title, 'url': campaign.campaign_image.url, 'description1': campaign.campaign_description1,
-                        'description2': campaign.campaign_description2, 'description3': campaign.campaign_description3}
+                        'description2': campaign.campaign_description2, 'description3': campaign.campaign_description3, 'id':campaign.id}
                 campaigns.append(data)
             if campaigns:
                 all_campaigns.append(campaigns)
