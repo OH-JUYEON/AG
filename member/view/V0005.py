@@ -1,6 +1,7 @@
 from django.db.models import Count, F
 from django.shortcuts import render, redirect
 from django.views import View
+from random import randint
 
 from campaign.models import Campaign, CampaignReview, CampaignParticipant
 from donation.models import Donation
@@ -31,12 +32,13 @@ class Main(View):
             city_detail_name=F('member__city_detail__city_detail_name')
         ).order_by('-id')[:2]
 
-        safety_scores = SafetyScoreHeader.objects.all().order_by('-safety_score')[:8]
+        safety_scores = SafetyScoreHeader.objects.all().order_by('safety_score')[:8]
         # image_instance = campaign_instance.objects.
 
         funding_counts = FundingSponsor.objects.values('funding_id').annotate(funding_count=Count('funding_id'))
         campaign_counts = CampaignParticipant.objects.values('campaign_id').annotate(campaign_count=Count('campaign_id'))
-        safety_score_counts = SafetyScoreHeader.objects.values('city_header_id').annotate(safety_score_count=Count('city_header_id'))
+        safety_score_counts = Campaign.objects.all().count()
+        print(safety_score_counts)
 
         context = {
             'campaigns': campaigns,
@@ -49,6 +51,17 @@ class Main(View):
             'safety_score_counts': safety_score_counts,
 
         }
+
+        # for index in range(1, 101):  # 1부터 50까지 순회
+        #     Member.objects.create(
+        #         member_name='강감찬' + str(index),
+        #         member_email='kkc' + str(index) + '@nate.com',
+        #         member_image='member/member_basic.jpg',
+        #         city_header_id=15,
+        #         city_detail_id=randint(92, 107),
+        #         member_grade=1,
+        #         status=1
+        #     )
 
         return render(request, 'AG/main/_T001.html',context )
 
