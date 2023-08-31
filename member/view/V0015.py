@@ -17,7 +17,7 @@ class Login(View):
         query_string = '?Content-type: application/x-www-form-urlencoded;charset=utf-8&' \
                        'grant_type=authorization_code&' \
                        'client_id=f8ace2c69dab155b8e7caae84441295d&' \
-                       'redirect_uri=http://localhost:8000/AG/oauth/redirectLogin&' \
+                       'redirect_uri=http://localhost:10000/AG/oauth/redirectLogin&' \
                        f'code={code}'
 
         response = requests.post(f'https://kauth.kakao.com/oauth/token{query_string}')
