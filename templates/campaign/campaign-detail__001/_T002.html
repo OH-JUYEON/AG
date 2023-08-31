@@ -1,18 +1,29 @@
-{% extends "../../base/__base__.html" %}
+<html lang="ja">
 
-{% block title %}
-
-{% endblock %}
-
-{% block style %}
+<head>
+    {% include "../../base/__load__.html" %}
+    <title>{% block title %}{% endblock %}</title>
+    {% include "../../base/__style__.html" %}
+    {% include "../../AG/main/_style.html" %}
     {% include "./_style.html" %}
-{% endblock %}
 
-{% block content %}
-        {% include "./campaign-detail.html" %}
-{% endblock %}
+    {% if request.session.session_key %}
+        {% include "../../base/__script__.html" %}
+    {% else %}
+        {% include "../../base/__loginscript__.html" %}
+    {% endif %}
 
+</head>
 
-{% block script %}
+<body>
+    <div class="webp-bgroup">
+        <div id="app-body">
+            {% include "../../base/__header__.html" %}
+            {% include "./campaign-detail.html" %}
+        </div>
+    </div>
+{#    {% include "../../base/__footer__.html" %}#}
     {% include "./_script.html" %}
-{% endblock %}
+</body>
+
+</html>
