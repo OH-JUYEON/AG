@@ -6,6 +6,7 @@ app_name = 'campaign'
 
 urlpatterns = [
     path("", V0001.CampaignList.as_view(), name="list"),
+    path("api/list", V0001.CampaignListAPI.as_view(), name="api-list"),
     # path("detail/<int:donation_header_id>/", V0010.CampaignDetail.as_view(), name="detail"),
     path("detail/<int:campaign_id>/", V0010.CampaignDetail.as_view(), name="detail"),
     path("write/", V0020.CampaignWrite.as_view(), name="write"),
@@ -14,7 +15,7 @@ urlpatterns = [
     # path("photo/<int:campaign_header_id>/", V0050.CampaignPhoto.as_view(), name="photo"),
     path("photo/", V0050.CampaignPhoto.as_view(), name="photo"),
     path("reviewWrite/<int:campaign_id>/", V0060.CampaignReviewWrite.as_view(), name="reviewWrite"),
-    path("more/<str:category>/", V0070.CampaignMoreList.as_view(), name="more"),
+    # path("more/<str:category>/", V0070.CampaignMoreList.as_view(), name="more"),
 
     path("inquiry/",
          include(

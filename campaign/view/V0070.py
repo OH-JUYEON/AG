@@ -1,3 +1,5 @@
+import json
+
 from django.db.models import Count
 from django.shortcuts import render, redirect
 from django.views import View
@@ -14,33 +16,19 @@ class CampaignMoreList(View):
         campaign_category = kwargs['category']
         city_headers = CityHeader.objects.all()
 
-        if campaign_category == 'j':
-            campaigns = Campaign.objects.filter(campaign_category='지역순찰')
-            campaign_category = '지역순찰'
-
-        elif campaign_category == 'm':
-            campaigns = Campaign.objects.filter(campaign_category='미화')
-            campaign_category = '미화'
-
-        elif campaign_category == 'b':
-            campaigns = Campaign.objects.filter(campaign_category='봉사활동')
-            campaign_category = '봉사활동'
-
-        elif campaign_category == 'c':
-            campaigns = Campaign.objects.filter(campaign_category='캠페인')
+        if campaign_category == 'c':
+            campaign_list = list(Campaign.objects.filter(campaign_category='캠페인').values("campaign_image.url", "campaign_description1", "campaign_description2", "campaign_description3"))
             campaign_category = '캠페인'
 
-        context = {
-            'campaigns': campaigns,
-            'campaign_category': campaign_category,
-        }
+        campaigns = []
+        for campaign in campaign_list:
+            data = {'url': campaign.campaign_image.url, 'description1': campaign.campaign_description1,
+                    'description2': campaign.campaign_description2, 'description3': campaign.campaign_description3}
+            campaigns.append(data)
 
-        # regions = []
-        # for city_header in city_headers:
-        #     regions.append({
-        #         'city_name': city_header.city_name
-        #     })
-        #
-        # context['regions'] = regions
+        context = {
+        'campaigns': json.dumps(campaigns),
+        'campaign_category': campaign_category,
+        }
 
         return render(request, 'campaign/campaign-see-more/_T001.html', context)

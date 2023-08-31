@@ -45,50 +45,7 @@
                                         <div class="campaign-content-3">
                                             <div class="campaign-content-4">
                                                 <div class="campaign-content-5" style="width: 988px;">
-                                                    {% for campaign in campaigns %}
-                                                        <div class="campaign-content-box" tabindex="-1"
-                                                             data-index="0"
-                                                             aria-hidden="false"
-                                                             style="outline: none; width: 245px;">
-                                                            <div>
-                                                                <article class="campaign-list-box" tabindex="-1"
-                                                                         style="width: 100%; display: inline-block;">
-                                                                    <a class data-testid="campaign-list-item"
-                                                                       href="/ip/products/64095a6336c562ffd43e7793?from">
-                                                                        <div class="item-image">
-                                                                            <article class="preview-image">
-                                                                                <div class="preview-image-wrap"
-                                                                                     style="padding-top: 66.6667%;">
-                                                                                    <img src="{{ campaign.campaign_image.url }}"
-                                                                                         lazy="loaded"
-                                                                                         class="preview-image">
-                                                                                </div>
-                                                                            </article>
-                                                                        </div>
-                                                                        <div class="campaign-team-name">
-                                                                            <strong class="campaign-team-name">길동
-                                                                                보디가드😄</strong>
-                                                                        </div>
-                                                                        <div class="campaign-category">
-                                                                            <span>{{ campaign.campaign_description1 }}</span>
-                                                                        </div>
-                                                                        <div class="campaign-title">
-                                                                            <div>
-                                                                                <div class="line-clamp"
-                                                                                     style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
-                                                                                    <h3 class="content-infomation">
-                                                                                        [ {{ campaign.campaign_description2 }}
-                                                                                        ]
-                                                                                        {{ campaign.campaign_description3 }}
-                                                                                    </h3>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </a>
-                                                                </article>
-                                                            </div>
-                                                        </div>
-                                                    {% endfor %}
+
                                                 </div>
                                             </div>
                                         </div>
@@ -110,5 +67,9 @@
         </div>
     <div class="deadline" style="width:100%"></div>
     </div>
+    <input type="hidden" id="campaigns" value="{{ campaigns }}">
 </div>
 </body>
+<script>
+    const campaigns = JSON.parse(document.getElementById("campaigns").value);
+</script>

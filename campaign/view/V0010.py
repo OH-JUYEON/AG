@@ -18,6 +18,7 @@ class CampaignDetail(View):
         # member = request.session['member_id']
 
         context = {
+            'campaign_id': campaign_id,
             'campaign': campaign,
             'region': region_instance.city_name,
             'participated': participated,
