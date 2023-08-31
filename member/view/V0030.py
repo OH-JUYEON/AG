@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 
 from campaign.models import CampaignParticipant, CampaignReview
-from funding.models import FundingSponsor
+from funding.models import FundingSponsor, Funding
 from donation.models import DonationDoner
 
 
@@ -39,9 +39,10 @@ class ActivityModify(View):
         createList = CampaignParticipant.objects.filter(member_id=member_id,campaign_participant_status=1,campaign_participant_role='L')
         dataList2 = {}
 
+
         for index,key in enumerate(createList):
             reviewstatus = 0
-            review = CampaignReview.objects.filter(member_id=member_id, campaign = key.campaign_id)
+            review = Funding.objects.filter(member_id=member_id, campaign=key.campaign_id)
             if review:
                 reviewstatus = 1
  
