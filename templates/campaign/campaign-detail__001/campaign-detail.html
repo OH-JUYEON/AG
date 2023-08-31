@@ -134,7 +134,7 @@
                                                         <div>
                                                             <section class="item-wrapper">
                                                                 <h3 class="review-name">{{ review_data.r_title }}</h3>
-                                                                <p class="feed-content">{{ review_data.r_content }}
+                                                                <p class="feed-content">{{ review_data.r_content|striptags }}
                                                                 </p>
 
                                                             </section>
