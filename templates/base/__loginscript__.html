@@ -1,0 +1,50 @@
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.querySelector('#loginButton');
+
+        btn.addEventListener("click", () => {
+
+            let sta =window.location.pathname;
+            window.location.href = `/AG/login?path=${sta}`;
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn_join = document.querySelector('#joinButton');
+
+        btn_join.addEventListener("click", () => {
+
+            let sta =window.location.pathname;
+            window.location.href = `/AG/signup?path=${sta}`;
+        });
+    });
+</script>
+<script>
+function region_click(){
+    modal = document.getElementsByClassName("region-modal")[0].style.display
+    document.getElementsByClassName("region-modal")[0].style.display = modal==='none'?'block':'none';
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const searchInput = document.querySelector('.input-content');
+
+    // Enter 키를 눌렀을 때 이벤트 핸들링
+    searchInput.addEventListener("keydown", function (event) {
+
+        if (event.key === "Enter") {
+ 
+            // 엔터 키를 눌렀을 때 검색 페이지로 이동
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm.length > 0) {
+                // 검색어가 비어 있지 않으면 검색 페이지로 이동
+                window.location.href = `/funding/search?q=${encodeURIComponent(searchTerm)}`;
+            }
+        }
+    }, false);
+});
+
+
+</script>

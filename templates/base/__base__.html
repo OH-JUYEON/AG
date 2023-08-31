@@ -2,7 +2,12 @@
 <html lang="ja">
 <head>
   {% include "./__load__.html" %}
-  {% include "./__script__.html" %}
+  {% if request.session.session_key %}
+    {% include "./__script__.html" %}   
+  {% else %}
+    {% include "./__loginscript__.html" %}  
+  {% endif %}
+
   <title>{% block title %}{% endblock %}</title>
   {% include "./__style__.html" %}
   {% block style %}{% endblock %}
