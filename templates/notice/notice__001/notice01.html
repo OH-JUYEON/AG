@@ -32,7 +32,7 @@
             {% for notice in notices %}
               <li class="article-list-item article-promoted">
                 <span data-title="승격된 문서" class="icon-star"></span>
-                <a href="{% url 'member:notice-detail ' %}" class="article-list-link">{{ notice.notice_title }}</a>
+                <a href="{% url 'member:notice-detail' id=notice.id %}" class="article-list-link">{{ notice.notice_title }}</a>
               </li>
             {% endfor %}
 {#              <li class="article-list-item article-promoted">#}

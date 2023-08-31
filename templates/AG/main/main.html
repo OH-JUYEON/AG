@@ -114,13 +114,13 @@
                             <p class=" category-title">캠페인</p>
                         </div>
                     </a></li>
-                <li class="category-item"><a href="/funding">
+                <li class="category-item"><a href="/funding/donation/all/">
                         <div class="category-icon">
                             <img src="{% static 'img/icon/003-1.png' %}" alt="펀딩" class="category-img icon-img">
                             <p class="category-title">펀딩</p>
                         </div>
                     </a></li>
-                <li class="category-item"><a href="/donation">
+                <li class="category-item"><a href="/funding/donation/all/">
                         <div class="category-icon">
                             <img src="https://assets.cdn.soomgo.com/icons/category1/service_heart_with_rate.svg"
                                 alt="기부" class="category-img icon-img" style="width: 3.25rem;">
@@ -133,7 +133,7 @@
                             <p class="category-title">이용후기</p>
                         </div>
                     </a></li>
-                <li class="category-item"><a href="#">
+                <li class="category-item"><a  onclick="region_click()">
                         <div class="category-icon">
                             <img src="{% static 'img/icon/006-1.png' %}" alt="지역검색" class="category-img icon-img"
                                 style="width: 2.5rem;">
@@ -612,7 +612,7 @@
             <div class="main-community slide-knowhow-list container2">
                 <section class="header short-bottom">
                     <h2 class="title">작은 나눔부터 실천하세요</h2>
-                    <a href="#" class="go-list" data-testid="community-home"> <span>전체보기</span>
+                    <a href="/funding/donation/all/" class="go-list" data-testid="community-home"> <span>전체보기</span>
                         <img src="{% static 'img/icon-next.png' %}" alt="">
                     </a>
                 </section>
