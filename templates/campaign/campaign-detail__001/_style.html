@@ -1897,4 +1897,361 @@ a.top-btn {
     width: 10px;
 }
 
+ .modal-open .modal {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .modal {
+        padding-left: 0 !important;
+    }
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1050;
+        width: 100%;
+        height: 100%;
+        /* overflow: hidden; */
+        outline: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .fade {
+        transition: opacity .15s linear;
+    }
+
+    .modal .modal-dialog.modal-dialog-centered {
+        min-height: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    .modal.show .modal-dialog {
+        transform: none;
+    }
+
+    .modal.fade .modal-dialog {
+        transition: transform .3s ease-out;
+    }
+
+    .modal .modal-dialog {
+        margin: auto;
+        max-width: 26.25rem;
+    }
+
+    .modal-dialog-centered.modal-dialog-scrollable {
+        height: 100%;
+    }
+
+
+
+    @media (min-width: 576px) {
+        .modal-dialog-scrollable {
+            max-height: calc(100% - 3.5rem);
+        }
+    }
+
+
+    .modal-dialog-centered {
+        display: flex;
+        align-items: center;
+        min-height: calc(100% - 1rem);
+    }
+
+    .modal-dialog {
+        position: relative;
+        width: auto;
+        pointer-events: none;
+    }
+
+    .modal-dialog-centered.modal-dialog-scrollable .modal-content {
+        max-height: none;
+    }
+
+    .modal .modal-content,
+    .modal .modal-header {
+        border-radius: 0;
+        border: none;
+    }
+
+    .modal-dialog-scrollable .modal-content {
+        max-height: calc(100vh - 1rem);
+        overflow: hidden;
+    }
+
+    .modal-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        pointer-events: auto;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 0.0625rem solid rgba(0, 0, 0, .2);
+        border-radius: 0.3rem;
+        outline: 0;
+    }
+
+    @media (min-width: 992px) {
+        .question-register-modal .modal-header {
+            padding: 1.5rem !important;
+        }
+    }
+
+    .question-register-modal .modal-header {
+        padding: 1rem;
+        border-bottom: 0.0625rem solid #f4f4f4 !important;
+    }
+
+    .modal-dialog-scrollable .modal-footer,
+    .modal-dialog-scrollable .modal-header {
+        flex-shrink: 0;
+    }
+
+    /* .modal .modal-header {
+    padding: 1.75rem 1.75rem 0;
+} */
+
+    .modal .modal-content,
+    .modal .modal-header {
+        border-radius: 0;
+        border: none;
+    }
+
+    .question-register-modal .modal-header .modal-title {
+        flex: 1;
+        margin: 0;
+        font-size: 1.125rem;
+        color: #2d2d2d;
+        text-align: center;
+        padding-left: 1.125rem;
+    }
+
+    .modal .modal-header .modal-title {
+        /* font-size: 1.5rem; */
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: -.0313rem;
+        /* margin-top: 1.875rem; */
+    }
+
+    .modal .modal-header button.close {
+        width: 2rem;
+        height: 2rem;
+        padding: 0;
+        margin: 0;
+        font-size: 0;
+        background-color: #323232;
+        -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMCAwaDI0djI0SDB6Ii8+PHBhdGggZD0iTTUuOTM1IDQuOTI5YS43NS43NSAwIDAwLTEuMDYxIDEuMDZMMTAuODg0IDEybC02LjAxIDYuMDFhLjc1Ljc1IDAgMTAxLjA2IDEuMDYxbDYuMDExLTYuMDEgNi4wMSA2LjAxYS43NS43NSAwIDAwMS4wNjEtMS4wNkwxMy4wMDYgMTJsNi4wMS02LjAxYS43NS43NSAwIDAwLTEuMDYtMS4wNjFsLTYuMDExIDYuMDEtNi4wMS02LjAxeiIgZmlsbD0iIzAwMCIvPjwvZz48L3N2Zz4=);
+        mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMCAwaDI0djI0SDB6Ii8+PHBhdGggZD0iTTUuOTM1IDQuOTI5YS43NS43NSAwIDAwLTEuMDYxIDEuMDZMMTAuODg0IDEybC02LjAxIDYuMDFhLjc1Ljc1IDAgMTAxLjA2IDEuMDYxbDYuMDExLTYuMDEgNi4wMSA2LjAxYS43NS43NSAwIDAwMS4wNjEtMS4wNkwxMy4wMDYgMTJsNi4wMS02LjAxYS43NS43NSAwIDAwLTEuMDYtMS4wNjFsLTYuMDExIDYuMDEtNi4wMS02LjAxeiIgZmlsbD0iIzAwMCIvPjwvZz48L3N2Zz4=);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: cover;
+        mask-size: cover;
+    }
+
+    .question-register-modal .modal-header .close {
+        -ms-grid-row-align: center;
+        align-self: center;
+    }
+
+    .modal-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    @media (min-width: 992px) {
+        .question-register-modal .modal-body {
+            padding-bottom: 4rem !important;
+        }
+    }
+
+    .question-register-modal .modal-body {
+        padding-top: 0;
+        padding-bottom: 2.5rem;
+    }
+
+    .modal .modal-body {
+        padding: 1.75rem;
+    }
+
+    .modal-dialog-scrollable .modal-body {
+        overflow-y: auto;
+    }
+
+    .modal-body {
+        position: relative;
+        flex: 1 1 auto;
+        padding: 1rem;
+    }
+
+    .modal-body .titl {
+        font-weight: 500;
+        margin-top: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .custom-control5 {
+        position: relative;
+        display: block;
+        min-height: 1.5rem;
+        padding-left: 2rem;
+    }
+
+
+
+
+    .title {
+        font-weight: 900;
+        margin-top: 1.75rem;
+        margin-bottom: 0.5rem;
+        font-family: Noto Sans KR, Malgun Gothic, -apple-system, Segoe UI, Roboto, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #323232;
+        text-align: left;
+    }
+
+    .qna-content textarea {
+        width: 100%;
+        height: 11.25rem;
+        padding: 0.75rem;
+        margin: 0;
+    }
+
+    .form-control.is-invalid,
+    input.form-control.is-valid,
+    textarea.form-control.is-valid {
+        background-image: none;
+    }
+
+    .custom-select.is-valid,
+    .form-control.is-valid,
+    .was-validated .custom-select:valid,
+    .was-validated .form-control:valid {
+        border-color: #ccc;
+    }
+
+    .form-control {
+        display: block;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #323232;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 0.0625rem solid #e1e1e1;
+        border-radius: 0.25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+    textarea {
+        -webkit-appearance: none;
+    }
+
+    textarea {
+        overflow: auto;
+        resize: vertical;
+    }
+
+    .validate-message {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .validate-message .invalid-feedback {
+        display: inline-flex !important;
+        width: auto;
+        font-size: .75rem;
+        color: #fa5963;
+        margin-top: 0.25rem;
+    }
+
+    .qna-content .text-counter {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 0.25rem;
+        font-size: .75rem;
+        color: #b5b5b5;
+        flex: 1;
+        margin-bottom: 0.5rem;
+    }
+
+    .qna-content .text-counter span {
+        margin-right: 0.125rem;
+    }
+
+    .qna-type .radio-group .custom-radio5 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 0.0625rem solid rgb(242, 242, 242);
+    }
+
+    .custom-control-label5 span {
+        font-family: Noto Sans KR, Malgun Gothic, -apple-system, Segoe UI, Roboto, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.5;
+        color: #323232;
+        text-align: left;
+        margin-left: 0.825rem;
+    }
+
+    .custom-control-input5 {
+        position: absolute;
+        left: 0;
+        /* z-index: -1; */
+        width: 1.25rem;
+        height: 1.375rem;
+        /* opacity: 0; */
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        margin-left: 0.825rem;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        cursor: pointer;
+    }
+
+    .modal .modal-footer {
+        padding: 0;
+        border-top: none;
+    }
+
+    .modal-footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        border-bottom-right-radius: 0.2375rem;
+        border-bottom-left-radius: 0.2375rem;
+    }
+
+    .btn-registration {
+        background: rgb(181, 181, 181);
+        border: 0px;
+        color: rgb(255, 255, 255);
+        height: 3.75rem;
+        font-size: 1.125rem;
+        font-weight: 700;
+        position: relative;
+        width: 100%;
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem;
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .modal-content button {
+        cursor: pointer;
+    }
+
 </style>

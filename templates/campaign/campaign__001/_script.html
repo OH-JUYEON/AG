@@ -1,53 +1,15 @@
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-    const arrows = document.querySelectorAll('button.slick-arrow');
-    var arrowButtonCheck = true;
-    arrows.forEach((arrow) => {
-      arrow.addEventListener('click', function () {
-        if (arrowButtonCheck) {
-          arrowButtonCheck = false;
-          clearInterval(slide);
-          bannerWrap.style.transition = 'transform 0.5s';
-          let arrowType = arrow.classList[1];
-          if (arrowType == 'Pre') {
-            count--;
-            if (count == 0) {
-              bannerWrap.style.transform = 'translate(-' + 1500 * count + 'px)';
-              setTimeout(function () {
-                bannerWrap.style.transition = 'transform 0s';
-                bannerWrap.style.transform = 'translate(-12000px)';
-              }, 500);
-              count = 8;
-            } else {
-              bannerWrap.style.transform = 'translate(-' + 1500 * count + 'px)';
-            }
-          } else {
-            count++;
-            if (count == 9) {
-              bannerWrap.style.transform = 'translate(-' + 1500 * count + 'px)';
-              setTimeout(function () {
-                bannerWrap.style.transition = 'transform 0s';
-                bannerWrap.style.transform = 'translate(-1500px)';
-              }, 500);
-              count = 1;
-            } else {
-              bannerWrap.style.transform = 'translate(-' + 1500 * count + 'px)';
-            }
-          }
-          // temp.style.backgroundColor = "#f0f0f0";
-          // temp = buttons[count];
-          // buttons[count].style.backgroundColor = "black";
-          swiperCurrent.innerHTML = `${count}`;
-          slide = setInterval(autoSlide, 5000);
-          setTimeout(function () {
-            arrowButtonCheck = true;
-          }, 500);
-        }
-      });
-    });
-</script>
-<script>
-    function open_modal() {
+    const select = document.getElementById('select');
+    const modal = document.getElementsByClassName('modal')[0];
+    const $list_modal = $(".parent");
+    const cityName = document.querySelector('.btn-area-filter');
+    let type = 0;
+    select.addEventListener('click', function () {
+        open_modal();
+    })
 
+    function open_modal() {
         modal.style.display = 'block';
     }
 
@@ -61,13 +23,9 @@
         let name = num === 0 ? '지역선택' : allCitySpan.innerText;
 
         change_name(name);
-        fetch_data( name );
 
         let color = num === 0 ? '#737373' : 'black';
-
         cityName.style.color = color;
-
-
     }
 
     function modal_close() {
@@ -79,10 +37,10 @@
             let $list_li = $(list_li);
             $list_modal.removeClass("modal-list-activate");
         });
-
     }
 
     const liList = document.querySelectorAll('.parent');
+
     function list_open() {
         for (let i = 0; i < liList.length; i++) {
             let id = '.level' + String(i);
@@ -93,14 +51,12 @@
                         item.addEventListener("click", function (e) {
                             let detailCheck = document.querySelectorAll('.modal-selected');
 
-
                             detailCheck.forEach((item) => {
                                 item.classList.remove('modal-selected');
                                 item.querySelector('span').style.color = '#323232';
                             });
-                            html ='';
-                            page=0;
-                            fetch_data(item.innerText);
+                            html = '';
+                            page = 0;
                             change_name(item.innerText);
                             item.style.color = '#004DF7';
                             item.classList.add('modal-selected');
@@ -123,53 +79,238 @@
             obj.forEach((item) => {
                 item.style.display = "none";
             });
-
         }
     }
 </script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const button = document.getElementById("go-to-write");
-      const footer = document.getElementById("__end");
+    document.addEventListener("DOMContentLoaded", function () {
+        list_open();
+    });
 
-      const footerTop = footer.getBoundingClientRect().top;
-      const buttonInitialBottom = parseInt(getComputedStyle(button).bottom, 10);
+    //지역 이름 변경
+    function change_name(name) {
+        cityName.innerText = name;
 
-      function updateButtonPosition() {
-        const footerPosition = footer.getBoundingClientRect().top;
+        {#let img = new Image();#}
+        {#img.src = imgSrc;#}
+        {#cityName.appendChild(img);#}
 
-        if (footerPosition <= window.innerHeight) {
-          const offset = Math.max(footerTop - footerPosition, 0);
-          button.style.bottom = `${buttonInitialBottom + offset}px`;
-        } else {
-          button.style.bottom = `${buttonInitialBottom}px`;
-        }
-      }
+        cityName.style.color = 'black';
+        modal.style.display = 'none';
 
-      window.addEventListener("scroll", updateButtonPosition);
-      window.addEventListener("resize", updateButtonPosition);
+        fetch_data(name);
+
+    }
+
+    //모달 - 목록 이벤트
+    $list_modal.each((i, list_li) => {
+        let $list_li = $(list_li);
+
+        $list_li.on("click", () => {
+            $list_modal.removeClass("modal-list-activate");
+            $list_li.addClass("modal-list-activate");
+        })
     });
 </script>
+
 <script>
-document.querySelectorAll(".group-tab").forEach(item => {
-    item.addEventListener("click", function(event) {
-        var clickedValue = event.target.getAttribute("data-value");
-        fetch('//', {
+    async function getListInit() {
+        const response = await fetch("/campaign/api/list");
+        const datas = await response.json();
+        return datas;
+    }
+
+    getListInit().then(appendInit)
+
+    function appendInit(datas) {
+        let context = document.getElementById('here');
+        let html = ``;
+        const {regions, all_campaigns} = datas;
+        console.log(datas)
+        console.log("=====")
+        console.log(all_campaigns);
+        all_campaigns.forEach((campaign, i) => {
+            const title = regions[i].city_name;
+            const datas = campaign;
+
+            html += `<h1>${title}</h1>`;
+            datas.forEach(data => {
+                console.log(data);
+                let title = data.title;
+                let description1 = data.description1;
+                let description2 = data.description2;
+                let description3 = data.description3;
+                let img = data.url;
+
+                html += `<section class="campaign-content" style="height: 280px;">
+                            <div class="campaign-content-1">
+                                <div class="campaign-content-2">
+                                    <div class="campaign-content-3">
+                                        <div class="campaign-content-4">
+                                            <div class="campaign-content-5" style="width: 988px;">
+                                                <div class="campaign-content-box" tabindex="-1"
+                                                     data-index="0"
+                                                     aria-hidden="false"
+                                                     style="outline: none; width: 245px;">
+                                                    <div>
+                                                        <article class="campaign-list-box" tabindex="-1"
+                                                                 style="width: 100%; display: inline-block;">
+                                                            <a class data-testid="campaign-list-item"
+                                                               href="/ip/products/64095a6336c562ffd43e7793?from">
+                                                                <div class="item-image">
+                                                                    <article class="preview-image">
+                                                                        <div class="preview-image-wrap"
+                                                                             style="padding-top: 66.6667%;">
+                                                                            <img src="${img}"
+                                                                                 lazy="loaded"
+                                                                                 class="preview-image">
+                                                                        </div>
+                                                                    </article>
+                                                                </div>
+                                        {#                                                                             team name에서 campaign title로 변경#}
+                                                                <div class="campaign-team-name">
+                                                                    <strong class="campaign-team-name">${title}</strong>
+                                                                </div>
+                                                                <div class="campaign-category">
+                                                                    <span>${description1}</span>
+                                                                </div>
+                                                                <div class="campaign-title">
+                                                                    <div>
+                                                                        <div class="line-clamp"
+                                                                             style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
+                                                                            <h3 class="content-infomation">
+                                                                                [ ${description2}
+                                                                                ]
+                                                                                ${description3}
+                                                                            </h3>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </article>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>`
+            })
+
+            context.innerHTML = html;
+        })
+
+    }
+
+    function selectCategory(link) {
+        let dataValue = link.getAttribute('data-value');
+        if (dataValue === '지역순찰') {
+            type = 0;
+            console.log(type);
+        } else if (dataValue === '미화') {
+            type = 1;
+            console.log(type);
+        } else if (dataValue === '봉사활동') {
+            type = 2;
+            console.log(type);
+        } else if (dataValue === '캠페인') {
+            type = 3;
+            console.log(type);
+        }
+        let area = cityName.innerText
+        console.log(area);
+        fetch_data(area);
+    }
+
+    // CSRF 토큰 가져오기
+    function fetch_data(name) {
+
+        fetch('/campaign/api/list', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': '{{ csrf_token }}'
+                'X-CSRFToken': csrftoken,
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ value: clickedValue })
+            body: JSON.stringify({name: name, type: type}) // 요청 데이터 추가
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Value saved:', data);
+            .then(response => response.json())
+            .then(datas => {
+                console.log(datas)
+                append(datas);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
 
-            // 페이지 전환
-            window.location.href = '/more/';  // 원하는 다른 페이지로 이동
-        });
-    });
-});
+    }
+
+    function append(datas) {
+        let context = document.getElementById('here')
+        let html = ``;
+        datas.forEach(data => {
+            let title = data.campaign_title;
+            let description1 = data.campaign_description1;
+            let description2 = data.campaign_description2;
+            let description3 = data.campaign_description3;
+            let img = data.campaign_image;
+            html += `<section class="campaign-content" style="height: 280px;">
+                        <div class="campaign-content-1">
+                            <div class="campaign-content-2">
+                                <div class="campaign-content-3">
+                                    <div class="campaign-content-4">
+                                        <div class="campaign-content-5" style="width: 988px;">
+                                            <div class="campaign-content-box" tabindex="-1"
+                                                 data-index="0"
+                                                 aria-hidden="false"
+                                                 style="outline: none; width: 245px;">
+                                                <div>
+                                                    <article class="campaign-list-box" tabindex="-1"
+                                                             style="width: 100%; display: inline-block;">
+                                                        <a class data-testid="campaign-list-item"
+                                                           href="/ip/products/64095a6336c562ffd43e7793?from">
+                                                            <div class="item-image">
+                                                                <article class="preview-image">
+                                                                    <div class="preview-image-wrap"
+                                                                         style="padding-top: 66.6667%;">
+                                                                        <img src="${img}"
+                                                                             lazy="loaded"
+                                                                             class="preview-image">
+                                                                    </div>
+                                                                </article>
+                                                            </div>
+                                    {#                                                                             team name에서 campaign title로 변경#}
+                                                            <div class="campaign-team-name">
+                                                                <strong class="campaign-team-name">${title}</strong>
+                                                            </div>
+                                                            <div class="campaign-category">
+                                                                <span>${description1}</span>
+                                                            </div>
+                                                            <div class="campaign-title">
+                                                                <div>
+                                                                    <div class="line-clamp"
+                                                                         style="line-height: 1.5; max-height: 3rem; -webkit-line-clamp: 2;">
+                                                                        <h3 class="content-infomation">
+                                                                            [ ${description2}
+                                                                            ]
+                                                                            ${description3}
+                                                                        </h3>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </article>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>`
+        })
+
+        context.innerHTML = html;
+    }
 
 </script>
