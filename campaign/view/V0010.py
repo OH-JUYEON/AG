@@ -40,6 +40,7 @@ class CampaignDetail(View):
                 'r_content': review.campaign_review_content,
                 'r_created_on': review.create_date,
                 'r_written_by': review.member.member_name,
+                'r_image': review.campaign_review_image,
                 'campaign': campaign,
             })
 
