@@ -55,6 +55,10 @@ class FundingWrite(View):
         if funding_image:
             datas['funding_image'] = funding_image
 
+        funding_sub_image = request.FILES.get('funding_sub_image')
+        if funding_sub_image:
+            datas['funding_sub_image'] = funding_sub_image
+
 
         funding = Funding.objects.create(**datas)
 

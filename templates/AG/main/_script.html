@@ -5,6 +5,15 @@
 
     /* main.jsp */
 
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.querySelector('#loginButton');
+
+        btn.addEventListener("click", () => {
+
+            let sta =window.location.pathname;
+            window.location.href = `/AG/login?path=${sta}`;
+        });
+    });
     /* 아이콘 필요하세요 focus 이벤트 */
     const $form_control = $("input.form-control");
     const $input_group = $("div.input-group");
